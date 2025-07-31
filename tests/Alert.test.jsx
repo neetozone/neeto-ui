@@ -138,4 +138,33 @@ describe("Alert", () => {
     );
     expect(queryByText("Cancel")).not.toBeInTheDocument();
   });
+
+  it("should not call onSubmit while alert is closing (transition delay)", async () => {
+    const onSubmit = jest.fn();
+
+    const { rerender, getByText } = render(
+      <Alert {...{ onSubmit }} isOpen submitButtonLabel="Submit" />
+    );
+
+    await userEvent.click(getByText("Submit"));
+
+    rerender(
+      <Alert {...{ onSubmit }} isOpen={false} submitButtonLabel="Submit" />
+    );
+
+    await userEvent.click(getByText("Submit"));
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
+
+  it("should not call onSubmit when isSubmitting is true", async () => {
+    const onSubmit = jest.fn();
+    const { getByText } = render(
+      <Alert {...{ onSubmit }} isOpen isSubmitting submitButtonLabel="Submit" />
+    );
+
+    const submitButton = getByText("Submit");
+    expect(submitButton).toBeDisabled();
+    await userEvent.click(submitButton);
+    expect(onSubmit).not.toHaveBeenCalled();
+  });
 });
