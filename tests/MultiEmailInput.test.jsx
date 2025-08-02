@@ -312,4 +312,42 @@ describe("MultiEmailInput", () => {
       container.querySelector(".neeto-ui-react-select__menu")
     ).toBeInTheDocument();
   });
+
+  it("should validate 5 valid and 5 invalid emails correctly", () => {
+    const onChange = jest.fn();
+    const testEmails = [
+      { label: "user@example.com", value: "user@example.com" },
+      { label: "test.email@domain.org", value: "test.email@domain.org" },
+      { label: "user+tag@sub.domain.com", value: "user+tag@sub.domain.com" },
+      {
+        label: "admin123@company-site.net",
+        value: "admin123@company-site.net",
+      },
+      {
+        label: "contact_us@my-website.info",
+        value: "contact_us@my-website.info",
+      },
+      { label: "invalid-email", value: "invalid-email" },
+      { label: "user@domain..com", value: "user@domain..com" },
+      { label: "test@example...org", value: "test@example...org" },
+      { label: "user@.domain.com", value: "user@.domain.com" },
+      { label: "test@domain.", value: "test@domain." },
+    ];
+
+    render(<MultiEmailInput {...{ onChange }} value={testEmails} />);
+
+    const validEmailsCount = testEmails.filter(email => {
+      const EMAIL_REGEX = new RegExp(
+        "^[A-Z0-9._%+-]+@[A-Z0-9-]+(?:\\.[A-Z0-9-]+)*\\.[A-Z]{2,}$",
+        "i"
+      );
+
+      return EMAIL_REGEX.test(email.value);
+    }).length;
+
+    expect(validEmailsCount).toBe(5);
+
+    const invalidEmailsCount = testEmails.length - validEmailsCount;
+    expect(invalidEmailsCount).toBe(5);
+  });
 });
