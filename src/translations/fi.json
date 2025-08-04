@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Sivun jättäminen hylkää tallentamattomat tietosi. Tätä toimintoa ei voi peruuttaa.",
+      "submitButtonLabel": "Pysy tällä sivulla",
+      "cancelButtonLabel": "Hylkää ja poistu tältä sivulta",
+      "alertTitle": "Sinulla on tallentamattomia muutoksia"
+    },
+    "actionBlock": {
+      "cancel": "Peruuta",
+      "saveChanges": "Tallenna muutokset"
+    },
+    "colorPicker": {
+      "recentlyUsed": "Äskettäin käytetyt"
+    },
+    "datePicker": {
+      "today": "Tänään"
+    },
+    "table": {
+      "insertColRight": "Lisää sarake oikealle",
+      "insertColLeft": "Lisää sarake vasemmalle",
+      "columnInfo": "Saraketiedot",
+      "hideColumn": "Piilota sarake",
+      "deleteColumn": "Poista sarake",
+      "ascending": "Lajittele nousevasti",
+      "descending": "Lajittele laskevasti",
+      "freezeColumn": "Jäädytä sarake",
+      "unFreezeColumn": "Poista sarakkeen jäädytys",
+      "allRowsSelected": "Kaikki rivit on valittu",
+      "clearSelection": "Tyhjennä valinta"
+    },
+    "timePicker": {
+      "hours": "Tunnit",
+      "minutes": "Minuutit",
+      "seconds": "Sekunnit"
+    },
+    "treeSelect": {
+      "noOptions": "Ei vaihtoehtoja."
+    }
+  }
+}

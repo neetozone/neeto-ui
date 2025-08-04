@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "이 페이지를 나가면 저장되지 않은 데이터가 삭제됩니다. 이 작업은 실행 취소할 수 없습니다.",
+      "submitButtonLabel": "이 페이지에 머물기",
+      "cancelButtonLabel": "삭제하고 이 페이지 나가기",
+      "alertTitle": "저장되지 않은 변경 사항이 있습니다."
+    },
+    "actionBlock": {
+      "cancel": "취소",
+      "saveChanges": "변경 사항 저장"
+    },
+    "colorPicker": {
+      "recentlyUsed": "최근 사용한 색상"
+    },
+    "datePicker": {
+      "today": "오늘"
+    },
+    "table": {
+      "insertColRight": "오른쪽에 열 삽입",
+      "insertColLeft": "왼쪽에 열 삽입",
+      "columnInfo": "열 정보",
+      "hideColumn": "열 숨기기",
+      "deleteColumn": "열 삭제",
+      "ascending": "오름차순 정렬",
+      "descending": "내림차순 정렬",
+      "freezeColumn": "열 고정",
+      "unFreezeColumn": "열 고정 해제",
+      "allRowsSelected": "모든 행이 선택되었습니다",
+      "clearSelection": "선택 지우기"
+    },
+    "timePicker": {
+      "hours": "시간",
+      "minutes": "분",
+      "seconds": "초"
+    },
+    "treeSelect": {
+      "noOptions": "옵션이 없습니다."
+    }
+  }
+}

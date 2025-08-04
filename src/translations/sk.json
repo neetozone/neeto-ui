@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Opustenie tejto stránky spôsobí stratu vašich neuložených údajov. Túto akciu nie je možné vrátiť späť.",
+      "submitButtonLabel": "Zostať na tejto stránke",
+      "cancelButtonLabel": "Zahoď a opusti stránku",
+      "alertTitle": "Máte neuložené zmeny"
+    },
+    "actionBlock": {
+      "cancel": "Zrušiť",
+      "saveChanges": "Uložiť zmeny"
+    },
+    "colorPicker": {
+      "recentlyUsed": "Nedávno použité"
+    },
+    "datePicker": {
+      "today": "Dnes"
+    },
+    "table": {
+      "insertColRight": "Vložiť stĺpec vpravo",
+      "insertColLeft": "Vložiť stĺpec vľavo",
+      "columnInfo": "Informácie o stĺpci",
+      "hideColumn": "Skryť stĺpec",
+      "deleteColumn": "Odstrániť stĺpec",
+      "ascending": "Triediť vzostupne",
+      "descending": "Triediť zostupne",
+      "freezeColumn": "Zamknúť stĺpec",
+      "unFreezeColumn": "Odomknúť stĺpec",
+      "allRowsSelected": "Všetky riadky sú vybrané",
+      "clearSelection": "Vymazať výber"
+    },
+    "timePicker": {
+      "hours": "Hodiny",
+      "minutes": "Minúty",
+      "seconds": "Sekundy"
+    },
+    "treeSelect": {
+      "noOptions": "Žiadne možnosti."
+    }
+  }
+}

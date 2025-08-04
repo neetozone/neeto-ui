@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Att lämna denna sida kommer att kasta bort din osparade data. Denna åtgärd kan inte ångras.",
+      "submitButtonLabel": "Stanna på denna sida",
+      "cancelButtonLabel": "Kasta bort och lämna denna sida",
+      "alertTitle": "Du har osparade ändringar"
+    },
+    "actionBlock": {
+      "cancel": "Avbryt",
+      "saveChanges": "Spara ändringar"
+    },
+    "colorPicker": {
+      "recentlyUsed": "Senast använda"
+    },
+    "datePicker": {
+      "today": "Idag"
+    },
+    "table": {
+      "insertColRight": "Infoga kolumn till höger",
+      "insertColLeft": "Infoga kolumn till vänster",
+      "columnInfo": "Kolumninformation",
+      "hideColumn": "Dölj kolumn",
+      "deleteColumn": "Ta bort kolumn",
+      "ascending": "Sortera stigande",
+      "descending": "Sortera fallande",
+      "freezeColumn": "Frys kolumn",
+      "unFreezeColumn": "Avfrys kolumn",
+      "allRowsSelected": "Alla rader är valda",
+      "clearSelection": "Rensa val"
+    },
+    "timePicker": {
+      "hours": "Timmar",
+      "minutes": "Minuter",
+      "seconds": "Sekunder"
+    },
+    "treeSelect": {
+      "noOptions": "Inga alternativ."
+    }
+  }
+}

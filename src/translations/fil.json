@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Ang pag-alis sa pahinang ito ay magwawalang-bisa sa iyong hindi nai-save na data. Ang aksyong ito ay hindi maibabalik.",
+      "submitButtonLabel": "Manatili sa pahinang ito",
+      "cancelButtonLabel": "I-discard at umalis sa pahinang ito",
+      "alertTitle": "Mayroon kang mga hindi nai-save na pagbabago"
+    },
+    "actionBlock": {
+      "cancel": "Kanselahin",
+      "saveChanges": "I-save ang mga pagbabago"
+    },
+    "colorPicker": {
+      "recentlyUsed": "Kamakailan lamang ginamit"
+    },
+    "datePicker": {
+      "today": "Ngayon"
+    },
+    "table": {
+      "insertColRight": "Mag-insert ng kolum sa kanan",
+      "insertColLeft": "Mag-insert ng kolum sa kaliwa",
+      "columnInfo": "Impormasyon ng kolum",
+      "hideColumn": "Itago ang kolum",
+      "deleteColumn": "Burahin ang kolum",
+      "ascending": "I-sort pataas",
+      "descending": "I-sort pababa",
+      "freezeColumn": "I-freeze ang kolum",
+      "unFreezeColumn": "I-unfreeze ang kolum",
+      "allRowsSelected": "Lahat ng row ay napili",
+      "clearSelection": "I-clear ang pagpili"
+    },
+    "timePicker": {
+      "hours": "Oras",
+      "minutes": "Minuto",
+      "seconds": "Segundo"
+    },
+    "treeSelect": {
+      "noOptions": "Walang mga pagpipilian."
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Părăsind această pagină se vor pierde datele nesalvate. Această acțiune nu poate fi anulată.",
+      "submitButtonLabel": "Rămâi pe această pagină",
+      "cancelButtonLabel": "Anulează și pleacă de pe această pagină",
+      "alertTitle": "Ai modificări nesalvate"
+    },
+    "actionBlock": {
+      "cancel": "Anulează",
+      "saveChanges": "Salvează modificările"
+    },
+    "colorPicker": {
+      "recentlyUsed": "Recent folosite"
+    },
+    "datePicker": {
+      "today": "Astăzi"
+    },
+    "table": {
+      "insertColRight": "Inserează coloană la dreapta",
+      "insertColLeft": "Inserează coloană la stânga",
+      "columnInfo": "Informații despre coloană",
+      "hideColumn": "Ascunde coloană",
+      "deleteColumn": "Șterge coloană",
+      "ascending": "Ordonează crescător",
+      "descending": "Ordonează descrescător",
+      "freezeColumn": "Îngheață coloană",
+      "unFreezeColumn": "Dezgheață coloană",
+      "allRowsSelected": "Toate rândurile sunt selectate",
+      "clearSelection": "Șterge selecția"
+    },
+    "timePicker": {
+      "hours": "Ore",
+      "minutes": "Minute",
+      "seconds": "Secunde"
+    },
+    "treeSelect": {
+      "noOptions": "Nicio opțiune."
+    }
+  }
+}

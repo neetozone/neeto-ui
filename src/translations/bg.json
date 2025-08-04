@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Напускането на тази страница ще изтрие несъхранените ви данни. Това действие не може да бъде отменено.",
+      "submitButtonLabel": "Останете на тази страница",
+      "cancelButtonLabel": "ИзDiscard и напуснете тази страница",
+      "alertTitle": "Имате несъхранени промени"
+    },
+    "actionBlock": {
+      "cancel": "Отказ",
+      "saveChanges": "Запази промените"
+    },
+    "colorPicker": {
+      "recentlyUsed": "Наскоро използвани"
+    },
+    "datePicker": {
+      "today": "Днес"
+    },
+    "table": {
+      "insertColRight": "Вмъкни колона вдясно",
+      "insertColLeft": "Вмъкни колона вляво",
+      "columnInfo": "Информация за колона",
+      "hideColumn": "Скрий колона",
+      "deleteColumn": "Изтрий колона",
+      "ascending": "Сортирай по растящ ред",
+      "descending": "Сортирай по намаляващ ред",
+      "freezeColumn": "Замрази колона",
+      "unFreezeColumn": "Размрази колона",
+      "allRowsSelected": "Всички редове са избрани",
+      "clearSelection": "Изчисти избора"
+    },
+    "timePicker": {
+      "hours": "Часове",
+      "minutes": "Минути",
+      "seconds": "Секунди"
+    },
+    "treeSelect": {
+      "noOptions": "Няма опции."
+    }
+  }
+}
