@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "离开此页面将会丢失您未保存的数据。此操作无法撤销。",
+      "submitButtonLabel": "留在此页面",
+      "cancelButtonLabel": "丢弃并离开此页面",
+      "alertTitle": "您有未保存的更改"
+    },
+    "actionBlock": {
+      "cancel": "取消",
+      "saveChanges": "保存更改"
+    },
+    "colorPicker": {
+      "recentlyUsed": "最近使用"
+    },
+    "datePicker": {
+      "today": "今天"
+    },
+    "table": {
+      "insertColRight": "在右侧插入列",
+      "insertColLeft": "在左侧插入列",
+      "columnInfo": "列信息",
+      "hideColumn": "隐藏列",
+      "deleteColumn": "删除列",
+      "ascending": "升序排列",
+      "descending": "降序排列",
+      "freezeColumn": "冻结列",
+      "unFreezeColumn": "解冻列",
+      "allRowsSelected": "所有行都已选择",
+      "clearSelection": "清除选择"
+    },
+    "timePicker": {
+      "hours": "小时",
+      "minutes": "分钟",
+      "seconds": "秒"
+    },
+    "treeSelect": {
+      "noOptions": "没有选项。"
+    }
+  }
+}

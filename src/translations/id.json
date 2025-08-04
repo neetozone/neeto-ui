@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": " meninggalkan halaman ini akan membuang data yang belum disimpan. Tindakan ini tidak dapat dibatalkan.",
+      "submitButtonLabel": "Tetap di halaman ini",
+      "cancelButtonLabel": "Buang dan tinggalkan halaman ini",
+      "alertTitle": "Anda memiliki perubahan yang belum disimpan"
+    },
+    "actionBlock": {
+      "cancel": "Batal",
+      "saveChanges": "Simpan perubahan"
+    },
+    "colorPicker": {
+      "recentlyUsed": "Baru saja digunakan"
+    },
+    "datePicker": {
+      "today": "Hari ini"
+    },
+    "table": {
+      "insertColRight": "Sisipkan kolom di kanan",
+      "insertColLeft": "Sisipkan kolom di kiri",
+      "columnInfo": "Info kolom",
+      "hideColumn": "Sembunyikan kolom",
+      "deleteColumn": "Hapus kolom",
+      "ascending": "Urutkan naik",
+      "descending": "Urutkan turun",
+      "freezeColumn": "Bekukan kolom",
+      "unFreezeColumn": "Bebaskan kolom",
+      "allRowsSelected": "Semua baris terpilih",
+      "clearSelection": "Bersihkan pilihan"
+    },
+    "timePicker": {
+      "hours": "Jam",
+      "minutes": "Menit",
+      "seconds": "Detik"
+    },
+    "treeSelect": {
+      "noOptions": "Tidak ada opsi."
+    }
+  }
+}

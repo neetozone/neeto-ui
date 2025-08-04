@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Покидая эту страницу, вы потеряете несохраненные данные. Это действие нельзя отменить.",
+      "submitButtonLabel": "Остаться на этой странице",
+      "cancelButtonLabel": "Отменить и покинуть эту страницу",
+      "alertTitle": "У вас есть несохраненные изменения"
+    },
+    "actionBlock": {
+      "cancel": "Отмена",
+      "saveChanges": "Сохранить изменения"
+    },
+    "colorPicker": {
+      "recentlyUsed": "Недавно использованные"
+    },
+    "datePicker": {
+      "today": "Сегодня"
+    },
+    "table": {
+      "insertColRight": "Вставить колонку справа",
+      "insertColLeft": "Вставить колонку слева",
+      "columnInfo": "Информация о колонке",
+      "hideColumn": "Скрыть колонку",
+      "deleteColumn": "Удалить колонку",
+      "ascending": "Сортировать по возрастанию",
+      "descending": "Сортировать по убыванию",
+      "freezeColumn": "Закрепить колонку",
+      "unFreezeColumn": "Снять закрепление с колонки",
+      "allRowsSelected": "Все строки выбраны",
+      "clearSelection": "Очистить выбор"
+    },
+    "timePicker": {
+      "hours": "Часы",
+      "minutes": "Минуты",
+      "seconds": "Секунды"
+    },
+    "treeSelect": {
+      "noOptions": "Нет вариантов."
+    }
+  }
+}

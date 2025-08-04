@@ -138,4 +138,17 @@ describe("Alert", () => {
     );
     expect(queryByText("Cancel")).not.toBeInTheDocument();
   });
+
+  it("should not call onSubmit when isSubmitting is true", async () => {
+    const onSubmit = jest.fn();
+    const { getByRole } = render(
+      <Alert {...{ onSubmit }} isOpen isSubmitting submitButtonLabel="Submit" />
+    );
+
+    const submitButton = getByRole("button", { name: "Submit" });
+
+    expect(submitButton).toBeDisabled();
+    await userEvent.click(submitButton);
+    expect(onSubmit).not.toHaveBeenCalled();
+  });
 });

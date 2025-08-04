@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Sortir d'aquesta pàgina descartarà les teves dades no desades. Aquesta acció no es pot desfer.",
+      "submitButtonLabel": "Romandre a aquesta pàgina",
+      "cancelButtonLabel": "Descarteu i sortiu d'aquesta pàgina",
+      "alertTitle": "Tens canvis no desats"
+    },
+    "actionBlock": {
+      "cancel": "Cancel·la",
+      "saveChanges": "Desa els canvis"
+    },
+    "colorPicker": {
+      "recentlyUsed": "Recentment utilitzats"
+    },
+    "datePicker": {
+      "today": "Avui"
+    },
+    "table": {
+      "insertColRight": "Insereix columna a la dreta",
+      "insertColLeft": "Insereix columna a l'esquerra",
+      "columnInfo": " informació de columna",
+      "hideColumn": "Amaga la columna",
+      "deleteColumn": "Elimina la columna",
+      "ascending": "Ordenar ascendent",
+      "descending": "Ordenar descendent",
+      "freezeColumn": "Congela la columna",
+      "unFreezeColumn": "Descongela la columna",
+      "allRowsSelected": "Totes les files estan seleccionades",
+      "clearSelection": "Esborra la selecció"
+    },
+    "timePicker": {
+      "hours": "Hores",
+      "minutes": "Minuts",
+      "seconds": "Segons"
+    },
+    "treeSelect": {
+      "noOptions": "Sense opcions."
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "At forlade denne side vil forkaste dine uskrevne data. Denne handling kan ikke fortrydes.",
+      "submitButtonLabel": "Bliv på denne side",
+      "cancelButtonLabel": "Forkast og forlad denne side",
+      "alertTitle": "Du har uskrevne ændringer"
+    },
+    "actionBlock": {
+      "cancel": "Annuller",
+      "saveChanges": "Gem ændringer"
+    },
+    "colorPicker": {
+      "recentlyUsed": "Senest anvendt"
+    },
+    "datePicker": {
+      "today": "I dag"
+    },
+    "table": {
+      "insertColRight": "Indsæt kolonne til højre",
+      "insertColLeft": "Indsæt kolonne til venstre",
+      "columnInfo": "Kolonneinformation",
+      "hideColumn": "Skjul kolonne",
+      "deleteColumn": "Slet kolonne",
+      "ascending": "Sorter stigende",
+      "descending": "Sorter faldende",
+      "freezeColumn": "Frys kolonne",
+      "unFreezeColumn": "Optag kolonne",
+      "allRowsSelected": "Alle rækker er valgt",
+      "clearSelection": "Ryd valg"
+    },
+    "timePicker": {
+      "hours": "Timer",
+      "minutes": "Minutter",
+      "seconds": "Sekunder"
+    },
+    "treeSelect": {
+      "noOptions": "Ingen muligheder."
+    }
+  }
+}

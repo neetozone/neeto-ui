@@ -12,6 +12,8 @@ import {
   SELECT_ALL_ROWS_CALLOUT_DESKTOP_HEIGHT,
   SELECT_ALL_ROWS_CALLOUT_MOBILE_HEIGHT,
   TABLE_SORT_ORDERS,
+  TABLE_PAGINATION_HEIGHT,
+  TABLE_ROW_HEIGHT,
 } from "./constants";
 
 const convertLocationPathnameToId = () => {
@@ -77,7 +79,9 @@ export const getColumnSortOrder = (col, sortedInfo) =>
     : null;
 
 export const getColumFixedValue = (col, frozenColumns) =>
-  frozenColumns.indexOf(col.dataIndex) !== -1 ? COLUMN_FIXED_VALUES.LEFT : null;
+  frozenColumns?.indexOf(col.dataIndex) !== -1
+    ? COLUMN_FIXED_VALUES.LEFT
+    : null;
 
 export const getFrozenColumnsLocalStorageKey = localStorageKeyPrefix => {
   const prefix = isPresent(localStorageKeyPrefix)
@@ -109,4 +113,13 @@ export const getSortField = field => {
   }
 
   return camelToSnakeCase(field);
+};
+
+export const calculateRowsPerPage = () => {
+  const viewportHeight = window.innerHeight;
+  const rowsPerPage = Math.floor(
+    ((viewportHeight - TABLE_PAGINATION_HEIGHT) / TABLE_ROW_HEIGHT) * 3
+  );
+
+  return Math.ceil(rowsPerPage / 10) * 10;
 };

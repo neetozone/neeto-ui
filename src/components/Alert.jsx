@@ -77,7 +77,7 @@ const Alert = ({
         )}
         <Button
           data-cy="alert-submit-button"
-          disabled={isSubmitting}
+          disabled={isSubmitting || !isOpen}
           label={submitButtonLabel}
           loading={isSubmitting}
           ref={submitButtonRef}
