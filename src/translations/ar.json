@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "مغادرة هذه الصفحة سيتسبب في فقدان البيانات غير المحفوظة. لا يمكن التراجع عن هذا الإجراء.",
+      "submitButtonLabel": "البقاء في هذه الصفحة",
+      "cancelButtonLabel": "التخلص وترك هذه الصفحة",
+      "alertTitle": "لديك تغييرات غير محفوظة"
+    },
+    "actionBlock": {
+      "cancel": "إلغاء",
+      "saveChanges": "حفظ التغييرات"
+    },
+    "colorPicker": {
+      "recentlyUsed": "مستخدم مؤخرًا"
+    },
+    "datePicker": {
+      "today": "اليوم"
+    },
+    "table": {
+      "insertColRight": "إدراج عمود إلى اليمين",
+      "insertColLeft": "إدراج عمود إلى اليسار",
+      "columnInfo": "معلومات العمود",
+      "hideColumn": "إخفاء العمود",
+      "deleteColumn": "حذف العمود",
+      "ascending": "ترتيب تصاعدي",
+      "descending": "ترتيب تنازلي",
+      "freezeColumn": "تجميد العمود",
+      "unFreezeColumn": "إلغاء تجميد العمود",
+      "allRowsSelected": "تم اختيار جميع الصفوف",
+      "clearSelection": "مسح الاختيار"
+    },
+    "timePicker": {
+      "hours": "ساعات",
+      "minutes": "دقائق",
+      "seconds": "ثواني"
+    },
+    "treeSelect": {
+      "noOptions": "لا توجد خيارات."
+    }
+  }
+}

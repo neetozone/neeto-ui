@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Покинути цю сторінку означає, що ви втратите незбережені дані. Цю дію не можна скасувати.",
+      "submitButtonLabel": "Залишитися на цій сторінці",
+      "cancelButtonLabel": "Відкинути та залишити цю сторінку",
+      "alertTitle": "У вас є незбережені зміни"
+    },
+    "actionBlock": {
+      "cancel": "Скасувати",
+      "saveChanges": "Зберегти зміни"
+    },
+    "colorPicker": {
+      "recentlyUsed": "Щойно використані"
+    },
+    "datePicker": {
+      "today": "Сьогодні"
+    },
+    "table": {
+      "insertColRight": "Вставити стовпець праворуч",
+      "insertColLeft": "Вставити стовпець ліворуч",
+      "columnInfo": "Інформація про стовпець",
+      "hideColumn": "Сховати стовпець",
+      "deleteColumn": "Видалити стовпець",
+      "ascending": "Сортувати за зростанням",
+      "descending": "Сортувати за спаданням",
+      "freezeColumn": "Закріпити стовпець",
+      "unFreezeColumn": "Відкріпити стовпець",
+      "allRowsSelected": "Вибрано всі рядки",
+      "clearSelection": "Очистити вибір"
+    },
+    "timePicker": {
+      "hours": "Години",
+      "minutes": "Хвилини",
+      "seconds": "Секунди"
+    },
+    "treeSelect": {
+      "noOptions": "Немає варіантів."
+    }
+  }
+}

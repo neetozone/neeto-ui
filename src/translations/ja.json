@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "このページを離れると、保存されていないデータが破棄されます。この操作は元に戻せません。",
+      "submitButtonLabel": "このページに留まる",
+      "cancelButtonLabel": "破棄してこのページを離れる",
+      "alertTitle": "保存されていない変更があります"
+    },
+    "actionBlock": {
+      "cancel": "キャンセル",
+      "saveChanges": "変更を保存"
+    },
+    "colorPicker": {
+      "recentlyUsed": "最近使った色"
+    },
+    "datePicker": {
+      "today": "今日"
+    },
+    "table": {
+      "insertColRight": "右に列を挿入",
+      "insertColLeft": "左に列を挿入",
+      "columnInfo": "列の情報",
+      "hideColumn": "列を非表示",
+      "deleteColumn": "列を削除",
+      "ascending": "昇順に並べ替え",
+      "descending": "降順に並べ替え",
+      "freezeColumn": "列を固定",
+      "unFreezeColumn": "列の固定を解除",
+      "allRowsSelected": "すべての行が選択されています",
+      "clearSelection": "選択をクリア"
+    },
+    "timePicker": {
+      "hours": "時間",
+      "minutes": "分",
+      "seconds": "秒"
+    },
+    "treeSelect": {
+      "noOptions": "オプションはありません。"
+    }
+  }
+}

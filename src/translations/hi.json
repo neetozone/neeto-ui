@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "इस पृष्ठ को छोड़ने से आपके अप्रकाशित डेटा का नुकसान होगा। यह क्रिया पूर्ववत नहीं की जा सकती।",
+      "submitButtonLabel": "इस पृष्ठ पर रहें",
+      "cancelButtonLabel": "छोड़ें और डेटा मिटाएं",
+      "alertTitle": "आपके पास अप्रकाशित परिवर्तन हैं"
+    },
+    "actionBlock": {
+      "cancel": "रद्द करें",
+      "saveChanges": "परिवर्तनों को सहेजें"
+    },
+    "colorPicker": {
+      "recentlyUsed": "हाल ही में इस्तेमाल किया गया"
+    },
+    "datePicker": {
+      "today": "आज"
+    },
+    "table": {
+      "insertColRight": "दाएं कॉलम जोड़ें",
+      "insertColLeft": "बाएं कॉलम जोड़ें",
+      "columnInfo": "कॉलम जानकारी",
+      "hideColumn": "कॉलम छिपाएँ",
+      "deleteColumn": "कॉलम हटाएँ",
+      "ascending": "आरोही क्रम में क्रमबद्ध करें",
+      "descending": "अवरोही क्रम में क्रमबद्ध करें",
+      "freezeColumn": "कॉलम फ्रीज करें",
+      "unFreezeColumn": "कॉलम अनफ्रीज़ करें",
+      "allRowsSelected": "सभी पंक्तियाँ चुनी गई हैं",
+      "clearSelection": "चयन साफ करें"
+    },
+    "timePicker": {
+      "hours": "घंटे",
+      "minutes": "मिनट",
+      "seconds": "सेकंड"
+    },
+    "treeSelect": {
+      "noOptions": "कोई विकल्प नहीं।"
+    }
+  }
+}

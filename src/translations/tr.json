@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Bu sayfadan çıkmak, kaydedilmemiş verilerinizi siler. Bu işlem geri alınamaz.",
+      "submitButtonLabel": "Bu sayfada kal",
+      "cancelButtonLabel": "Sil ve bu sayfadan çık",
+      "alertTitle": "Kaydedilmemiş değişiklikleriniz var"
+    },
+    "actionBlock": {
+      "cancel": "İptal",
+      "saveChanges": "Değişiklikleri kaydet"
+    },
+    "colorPicker": {
+      "recentlyUsed": "Son kullanılan"
+    },
+    "datePicker": {
+      "today": "Bugün"
+    },
+    "table": {
+      "insertColRight": "Sütunu sağa ekle",
+      "insertColLeft": "Sütunu sola ekle",
+      "columnInfo": "Sütun bilgisi",
+      "hideColumn": "Sütunu gizle",
+      "deleteColumn": "Sütunu sil",
+      "ascending": "Artan sırala",
+      "descending": "Azalan sırala",
+      "freezeColumn": "Sütunu dondur",
+      "unFreezeColumn": "Sütunun dondurmasını kaldır",
+      "allRowsSelected": "Tüm satırlar seçildi",
+      "clearSelection": "Seçimi temizle"
+    },
+    "timePicker": {
+      "hours": "Saatler",
+      "minutes": "Dakikalar",
+      "seconds": "Saniyeler"
+    },
+    "treeSelect": {
+      "noOptions": "Seçenek yok."
+    }
+  }
+}

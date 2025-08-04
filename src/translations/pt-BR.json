@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Sair desta página descartará seus dados não salvos. Esta ação não pode ser desfeita.",
+      "submitButtonLabel": "Ficar nesta página",
+      "cancelButtonLabel": "Descartar e sair desta página",
+      "alertTitle": "Você tem alterações não salvas"
+    },
+    "actionBlock": {
+      "cancel": "Cancelar",
+      "saveChanges": "Salvar alterações"
+    },
+    "colorPicker": {
+      "recentlyUsed": "Usados recentemente"
+    },
+    "datePicker": {
+      "today": "Hoje"
+    },
+    "table": {
+      "insertColRight": "Inserir coluna à direita",
+      "insertColLeft": "Inserir coluna à esquerda",
+      "columnInfo": "Informações da coluna",
+      "hideColumn": "Ocultar coluna",
+      "deleteColumn": "Excluir coluna",
+      "ascending": "Classificar em ordem crescente",
+      "descending": "Classificar em ordem decrescente",
+      "freezeColumn": "Congelar coluna",
+      "unFreezeColumn": "Descongelar coluna",
+      "allRowsSelected": "Todas as linhas estão selecionadas",
+      "clearSelection": "Limpar seleção"
+    },
+    "timePicker": {
+      "hours": "Horas",
+      "minutes": "Minutos",
+      "seconds": "Segundos"
+    },
+    "treeSelect": {
+      "noOptions": "Sem opções."
+    }
+  }
+}
