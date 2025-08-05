@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Leavimine sellest lehelt loob teie salvestamata andmed. See tegevus ei ole tagasi pööratav.",
+      "submitButtonLabel": "Püsi selles lehes",
+      "cancelButtonLabel": "Loobu ja lahku sellest lehelt",
+      "alertTitle": "Teil on salvestamata muudatused"
+    },
+    "actionBlock": {
+      "cancel": "Tühista",
+      "saveChanges": "Salvesta muudatused"
+    },
+    "colorPicker": {
+      "recentlyUsed": "Hiljuti kasutatud"
+    },
+    "datePicker": {
+      "today": "Täna"
+    },
+    "table": {
+      "insertColRight": "Sisesta veerg paremale",
+      "insertColLeft": "Sisesta veerg vasakule",
+      "columnInfo": "Veeru info",
+      "hideColumn": "Peida veerg",
+      "deleteColumn": "Kustuta veerg",
+      "ascending": "Sorteeri kasvavalt",
+      "descending": "Sorteeri kahanevalt",
+      "freezeColumn": "Külmutage veerg",
+      "unFreezeColumn": "Vabasta veerg",
+      "allRowsSelected": "Kõik read on valitud",
+      "clearSelection": "Tühjenda valik"
+    },
+    "timePicker": {
+      "hours": "Tunnid",
+      "minutes": "Minutid",
+      "seconds": "Sekundid"
+    },
+    "treeSelect": {
+      "noOptions": "Ei ole valikuid."
+    }
+  }
+}

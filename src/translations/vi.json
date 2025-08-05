@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Rời khỏi trang này sẽ xóa dữ liệu chưa được lưu. Hành động này không thể hoàn tác.",
+      "submitButtonLabel": "Ở lại trang này",
+      "cancelButtonLabel": "Hủy và rời khỏi trang này",
+      "alertTitle": "Bạn có những thay đổi chưa được lưu"
+    },
+    "actionBlock": {
+      "cancel": "Hủy",
+      "saveChanges": "Lưu các thay đổi"
+    },
+    "colorPicker": {
+      "recentlyUsed": "Đã sử dụng gần đây"
+    },
+    "datePicker": {
+      "today": "Hôm nay"
+    },
+    "table": {
+      "insertColRight": "Chèn cột bên phải",
+      "insertColLeft": "Chèn cột bên trái",
+      "columnInfo": "Thông tin cột",
+      "hideColumn": "Ẩn cột",
+      "deleteColumn": "Xóa cột",
+      "ascending": "Sắp xếp tăng dần",
+      "descending": "Sắp xếp giảm dần",
+      "freezeColumn": "Đóng băng cột",
+      "unFreezeColumn": "Bỏ đóng băng cột",
+      "allRowsSelected": "Tất cả các hàng đã được chọn",
+      "clearSelection": "Xóa lựa chọn"
+    },
+    "timePicker": {
+      "hours": "Giờ",
+      "minutes": "Phút",
+      "seconds": "Giây"
+    },
+    "treeSelect": {
+      "noOptions": "Không có tùy chọn."
+    }
+  }
+}

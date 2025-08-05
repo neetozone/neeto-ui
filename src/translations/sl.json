@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "Zapuščanje te strani bo odvzelo vaše neshranjene podatke. Te akcije ni mogoče razveljaviti.",
+      "submitButtonLabel": "Ostani na tej strani",
+      "cancelButtonLabel": "Odvrzi in zapusti to stran",
+      "alertTitle": "Imate neshranjene spremembe"
+    },
+    "actionBlock": {
+      "cancel": "Prekliči",
+      "saveChanges": "Shrani spremembe"
+    },
+    "colorPicker": {
+      "recentlyUsed": "Nazadnje uporabljeno"
+    },
+    "datePicker": {
+      "today": "Danes"
+    },
+    "table": {
+      "insertColRight": "Vstavi stolpec desno",
+      "insertColLeft": "Vstavi stolpec levo",
+      "columnInfo": "Informacije o stolpcu",
+      "hideColumn": "Skrij stolpec",
+      "deleteColumn": "Izbriši stolpec",
+      "ascending": "Razvrsti naraščajoče",
+      "descending": "Razvrsti padajoče",
+      "freezeColumn": "Zamrzni stolpec",
+      "unFreezeColumn": "Odmrzni stolpec",
+      "allRowsSelected": "Vse vrstice so izbrane",
+      "clearSelection": "Počisti izbor"
+    },
+    "timePicker": {
+      "hours": "Ure",
+      "minutes": "Minut",
+      "seconds": "Sekund"
+    },
+    "treeSelect": {
+      "noOptions": "Brez možnosti."
+    }
+  }
+}
