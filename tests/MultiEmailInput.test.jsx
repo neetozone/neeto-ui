@@ -312,4 +312,59 @@ describe("MultiEmailInput", () => {
       container.querySelector(".neeto-ui-react-select__menu")
     ).toBeInTheDocument();
   });
+
+  it("should validate emails correctly", async () => {
+    const testEmails = [
+      "user@example.com",
+      "test.email@domain.org",
+      "user+tag@sub.domain.com",
+      "admin123@company-site.net",
+      "contact_us@my-website.co.in",
+      "invalid-email",
+      "user@domain..com",
+      "test@example.c",
+      "user@.domain.com",
+      "test@domain.",
+    ];
+
+    let allEmails = [];
+    const onChange = jest.fn(newEmails => {
+      allEmails = [...allEmails, ...newEmails];
+    });
+
+    const { container, rerender } = render(
+      <MultiEmailInput
+        {...{ onChange }}
+        counter
+        label="Test Emails"
+        value={allEmails}
+      />
+    );
+
+    const emailInput = screen.getByRole("combobox");
+
+    for (const email of testEmails) {
+      await userEvent.type(emailInput, `${email} `);
+    }
+
+    await userEvent.click(document.body);
+
+    rerender(
+      <MultiEmailInput
+        {...{ onChange }}
+        counter
+        label="Test Emails"
+        value={allEmails}
+      />
+    );
+
+    const counterElement = container.querySelector(
+      '[data-cy="test-emails-email-counter"]'
+    );
+
+    const counterText = counterElement.textContent;
+    const validEmailsCount = parseInt(counterText.match(/\d+/)[0] || "0");
+
+    expect(validEmailsCount).toBe(5);
+  });
 });
