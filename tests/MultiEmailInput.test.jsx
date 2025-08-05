@@ -313,38 +313,62 @@ describe("MultiEmailInput", () => {
     ).toBeInTheDocument();
   });
 
-  it("should validate 5 valid and 5 invalid emails correctly", () => {
-    const onChange = jest.fn();
+  it("should validate emails correctly using component's email separation", async () => {
     const testEmails = [
-      { label: "user@example.com", value: "user@example.com" },
-      { label: "test.email@domain.org", value: "test.email@domain.org" },
-      { label: "user+tag@sub.domain.com", value: "user+tag@sub.domain.com" },
-      {
-        label: "admin123@company-site.net",
-        value: "admin123@company-site.net",
-      },
-      {
-        label: "contact_us@my-website.info",
-        value: "contact_us@my-website.info",
-      },
-      { label: "invalid-email", value: "invalid-email" },
-      { label: "user@domain..com", value: "user@domain..com" },
-      { label: "test@example...org", value: "test@example...org" },
-      { label: "user@.domain.com", value: "user@.domain.com" },
-      { label: "test@domain.", value: "test@domain." },
+      "user@example.com",
+      "test.email@domain.org",
+      "user+tag@sub.domain.com",
+      "admin123@company-site.net",
+      "contact_us@my-website.co.in",
+      "invalid-email",
+      "user@domain..com",
+      "test@example.c",
+      "user@.domain.com",
+      "test@domain.",
     ];
 
-    render(<MultiEmailInput {...{ onChange }} value={testEmails} />);
+    let allEmails = [];
+    const onChange = jest.fn(newEmails => {
+      allEmails = [...allEmails, ...newEmails];
+    });
 
-    const validEmailsCount = testEmails.filter(email => {
-      const EMAIL_REGEX = new RegExp(
-        "^[A-Z0-9._%+-]+@[A-Z0-9-]+(?:\\.[A-Z0-9-]+)*\\.[A-Z]{2,}$",
-        "i"
-      );
+    const { container, rerender } = render(
+      <MultiEmailInput
+        {...{ onChange }}
+        counter
+        label="Test Emails"
+        value={allEmails}
+      />
+    );
 
-      return EMAIL_REGEX.test(email.value);
-    }).length;
+    const emailInput = screen.getByRole("combobox");
 
+    for (let i = 0; i < testEmails.length; i++) {
+      await userEvent.type(emailInput, testEmails[i]);
+      if (i < testEmails.length - 1) {
+        await userEvent.type(emailInput, " ");
+      }
+    }
+
+    await userEvent.click(document.body);
+
+    rerender(
+      <MultiEmailInput
+        {...{ onChange }}
+        counter
+        label="Test Emails"
+        value={allEmails}
+      />
+    );
+
+    const counterElement = container.querySelector(
+      '[data-cy="test-emails-email-counter"]'
+    );
+
+    const counterText = counterElement.textContent;
+    const validEmailsCount = parseInt(counterText.match(/\d+/)[0] || "0");
+
+    expect(allEmails.length).toBe(testEmails.length);
     expect(validEmailsCount).toBe(5);
 
     const invalidEmailsCount = testEmails.length - validEmailsCount;
