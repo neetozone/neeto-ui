@@ -69,6 +69,12 @@
     "./translations/*": {
       "import": "./src/translations/*.json",
       "require": "./src/translations/*.json"
+    },
+    "./dist": {
+      "import": "./dist/index.js",
+      "require": "./dist/cjs/index.js",
+      "style": "./dist/index.css",
+      "types": "./index.d.ts"
     }
   },
   "devDependencies": {
