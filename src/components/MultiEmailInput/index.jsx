@@ -142,7 +142,10 @@ const MultiEmailInput = forwardRef(
       !!filterInvalidEmails && value.length > getValidEmailsCount(value);
 
     return (
-      <div className="neeto-ui-input__wrapper neeto-ui-email-input__wrapper">
+      <div
+        className="neeto-ui-input__wrapper neeto-ui-email-input__wrapper"
+        data-cy="email-input-wrapper"
+      >
         <div className="neeto-ui-email-input__label-wrapper">
           {label && (
             <Label

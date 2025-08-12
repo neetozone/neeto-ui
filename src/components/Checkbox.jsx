@@ -27,7 +27,10 @@ const Checkbox = forwardRef(
 
     return (
       <div className={classnames(["neeto-ui-checkbox__wrapper", className])}>
-        <div className="neeto-ui-checkbox__container">
+        <div
+          className="neeto-ui-checkbox__container"
+          data-cy="nui-checkbox-container"
+        >
           <input
             {...{ id, ref, required }}
             aria-invalid={!!error}
