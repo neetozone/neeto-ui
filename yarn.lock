@@ -11366,10 +11366,10 @@ linkify-react@4.1.2:
   resolved "https://registry.yarnpkg.com/linkify-react/-/linkify-react-4.1.2.tgz#5c52de5d53f54ec27f76b3fb8270f8ee269cb4eb"
   integrity sha512-bgzlg562ZAUKQtOw9qr/3IemqpsDG/UmzOANy1cFavcWo/eD9eF4s1ZnT3cWok0GeOG4GujrOP/Jp7cqiXNODg==
 
-linkifyjs@4.1.2:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/linkifyjs/-/linkifyjs-4.1.2.tgz#48fadb05ddf5a5f7065510a385a500ca1ac4e65e"
-  integrity sha512-1elJrH8MwUgr77Rgmx4JgB/nBgISYVoGossH6pAfCeHG+07TblTn6RWKx0MKozEMJU6NCFYHRih9M8ZtV3YZ+Q==
+linkifyjs@4.3.2:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/linkifyjs/-/linkifyjs-4.3.2.tgz#d97eb45419aabf97ceb4b05a7adeb7b8c8ade2b1"
+  integrity sha512-NT1CJtq3hHIreOianA8aSXn6Cw0JzYOuDQbOrSPe7gqFnCpKP++MQe3ODgO3oh2GJFORkAAdqredOa60z63GbA==
 
 lint-staged@11.0.0:
   version "11.0.0"
