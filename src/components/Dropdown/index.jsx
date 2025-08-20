@@ -75,7 +75,52 @@ const hideOnEsc = {
   },
 };
 
-const plugins = [hideOnEsc];
+const keyboardNav = {
+  name: "keyboardNav",
+  defaultValue: true,
+  fn() {
+    function onKeyDown(event) {
+      const dropdownEl = document.querySelector(".neeto-ui-dropdown__popup");
+      if (!dropdownEl) return;
+
+      const items = dropdownEl.querySelectorAll(
+        ".neeto-ui-dropdown__popup-menu-item-btn:not([disabled])"
+      );
+      if (!items.length) return;
+
+      const active = document.activeElement;
+      const currentIndex = Array.from(items).indexOf(active);
+
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        const nextIndex = (currentIndex + 1) % items.length;
+        items[nextIndex].focus();
+      }
+
+      if (event.key === "ArrowUp") {
+        event.preventDefault();
+        const prevIndex = (currentIndex - 1 + items.length) % items.length;
+        items[prevIndex].focus();
+      }
+
+      if (event.key === "Enter") {
+        event.preventDefault();
+        items[currentIndex].click();
+      }
+    }
+
+    return {
+      onShow() {
+        document.addEventListener("keydown", onKeyDown);
+      },
+      onHide() {
+        document.removeEventListener("keydown", onKeyDown);
+      },
+    };
+  },
+};
+
+const plugins = [hideOnEsc, keyboardNav];
 
 const Dropdown = ({
   icon,
