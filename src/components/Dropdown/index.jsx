@@ -78,9 +78,9 @@ const hideOnEsc = {
 const keyboardNav = {
   name: "keyboardNav",
   defaultValue: true,
-  fn() {
+  fn(instance) {
     function onKeyDown(event) {
-      const dropdownEl = document.querySelector(".neeto-ui-dropdown__popup");
+      const dropdownEl = instance.popper;
       if (!dropdownEl) return;
 
       const items = dropdownEl.querySelectorAll(
