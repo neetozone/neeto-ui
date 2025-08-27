@@ -79,7 +79,7 @@ const Avatar = ({
       <span
         {...{ onClick }}
         className={containerClasses}
-        data-cy="avatar"
+        data-cy="nui-avatar"
         data-testid="avatar"
         {...otherProps}
       >
