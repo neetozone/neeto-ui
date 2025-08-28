@@ -209,4 +209,111 @@ describe("DatePicker", () => {
     const dateInputBox = screen.getByRole("textbox");
     expect(dateInputBox).toHaveValue(expectedValue);
   });
+
+  it("should automatically save selected date when clicking outside the picker", async () => {
+    const onChangeMock = jest.fn();
+
+    render(
+      <div>
+        <DatePicker
+          defaultValue={dayjs("2024-06-01")}
+          placeholder="Select date"
+          onChange={onChangeMock}
+        />
+        <div data-testid="outside-element">Outside element</div>
+      </div>
+    );
+
+    const input = screen.getByRole("textbox");
+    fireEvent.click(input);
+
+    await waitFor(() => {
+      expect(screen.getByText("15")).toBeInTheDocument();
+    });
+
+    fireEvent.click(screen.getByText("15"));
+
+    const outsideElement = screen.getByTestId("outside-element");
+    fireEvent.mouseDown(outsideElement);
+    fireEvent.click(outsideElement);
+
+    await waitFor(() => {
+      expect(onChangeMock).toHaveBeenCalledWith(
+        expect.anything(),
+        expect.stringMatching(/15\/06\/2024/)
+      );
+    });
+  });
+
+  it("should automatically save selected date and time when clicking outside the picker", async () => {
+    const onChangeMock = jest.fn();
+
+    render(
+      <div>
+        <DatePicker
+          showTime
+          defaultValue={dayjs("2024-06-01").hour(10).minute(30)}
+          placeholder="Select date and time"
+          onChange={onChangeMock}
+        />
+        <div data-testid="outside-element">Outside element</div>
+      </div>
+    );
+
+    const input = screen.getByRole("textbox");
+    fireEvent.click(input);
+
+    await waitFor(() => {
+      const dateCells = screen.getAllByText("15");
+      const dateCell = dateCells.find(cell =>
+        cell.closest(".ant-picker-date-panel")
+      );
+      expect(dateCell).toBeInTheDocument();
+    });
+
+    const dateCells = screen.getAllByText("15");
+    const dateCell = dateCells.find(cell =>
+      cell.closest(".ant-picker-date-panel")
+    );
+    if (dateCell) {
+      fireEvent.click(dateCell);
+    }
+
+    onChangeMock.mockClear();
+
+    const outsideElement = screen.getByTestId("outside-element");
+    fireEvent.mouseDown(outsideElement);
+    fireEvent.click(outsideElement);
+
+    await waitFor(() => {
+      expect(onChangeMock).toHaveBeenCalled();
+    });
+
+    const finalInput = screen.getByRole("textbox");
+    expect(finalInput.value).toMatch(/15\/06\/2024.*:/);
+  });
+
+  it("should not trigger onChange when calendar receives null date and clicking outside", async () => {
+    const onChangeMock = jest.fn();
+
+    render(
+      <div>
+        <DatePicker open placeholder="Select date" onChange={onChangeMock} />
+        <div data-testid="outside-element">Outside element</div>
+      </div>
+    );
+
+    const input = screen.getByRole("textbox");
+    fireEvent.change(input, { target: { value: "" } });
+
+    expect(input.value).toBe("");
+
+    const outsideElement = screen.getByTestId("outside-element");
+    fireEvent.mouseDown(outsideElement);
+    fireEvent.click(outsideElement);
+
+    await waitFor(() => {
+      expect(onChangeMock).not.toHaveBeenCalled();
+    });
+  });
 });
