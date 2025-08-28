@@ -263,21 +263,15 @@ describe("DatePicker", () => {
     const input = screen.getByRole("textbox");
     fireEvent.click(input);
 
+    let dateCell;
+
     await waitFor(() => {
       const dateCells = screen.getAllByText("15");
-      const dateCell = dateCells.find(cell =>
-        cell.closest(".ant-picker-date-panel")
-      );
+      dateCell = dateCells.find(cell => cell.closest(".ant-picker-date-panel"));
       expect(dateCell).toBeInTheDocument();
     });
 
-    const dateCells = screen.getAllByText("15");
-    const dateCell = dateCells.find(cell =>
-      cell.closest(".ant-picker-date-panel")
-    );
-    if (dateCell) {
-      fireEvent.click(dateCell);
-    }
+    fireEvent.click(dateCell);
 
     onChangeMock.mockClear();
 
