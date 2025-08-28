@@ -105,13 +105,12 @@ const DatePicker = forwardRef(
 
     const handleOnCalendarChange = date => {
       if (!date) return;
-
       const allowed = getAllowedValue(getTimezoneAppliedDateTime(date));
       setValue(allowed);
     };
 
     const handleOnOpenChange = open => {
-      if (!open && value) {
+      if (!open && value !== inputValue) {
         onChange(value, formattedString(value, dateFormat));
       }
 
