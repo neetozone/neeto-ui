@@ -11,12 +11,11 @@ import Button from "components/Button";
 import { useOverlay, useOverlayManager } from "hooks";
 
 import Body from "./Body";
-import { DEFAULT_PANE_HEADER_HEIGHT } from "./constants";
 import Footer from "./Footer";
 import Header from "./Header";
-import { getHeaderHeight } from "./utils";
+import { getHeader, updateHeaderHeight } from "./utils";
 
-const SIZES = { small: "small", large: "large" };
+const SIZES = { small: "small", large: "large", extraLarge: "extraLarge" };
 
 const Pane = ({
   size = SIZES.small,
@@ -34,13 +33,19 @@ const Pane = ({
 }) => {
   const [hasTransitionCompleted, setHasTransitionCompleted] = useState(false);
 
-  const paneWrapper = useRef(null);
+  const paneWrapperRef = useRef(null);
   const backdropRef = useRef(null);
 
-  useOverlayManager(paneWrapper, isOpen);
+  const observerRef = useRef(
+    new ResizeObserver(([entry]) =>
+      updateHeaderHeight(entry.target, paneWrapperRef)
+    )
+  );
 
-  const { handleOverlayClose, setFocusField } = useOverlay({
-    overlayWrapper: paneWrapper,
+  useOverlayManager(paneWrapperRef, isOpen);
+
+  const { handleOverlayClose, setFocusField, isTopOverlay } = useOverlay({
+    overlayWrapper: paneWrapperRef,
     backdropRef,
     closeOnOutsideClick,
     closeOnEsc,
@@ -52,15 +57,35 @@ const Pane = ({
   });
 
   useEffect(() => {
-    if (!hasTransitionCompleted) return;
-    const headerHeight = getHeaderHeight(paneWrapper);
-    if (headerHeight > DEFAULT_PANE_HEADER_HEIGHT) {
-      paneWrapper.current.style.setProperty(
-        "--neeto-ui-pane-header-height",
-        `${headerHeight}px`
-      );
+    if (!hasTransitionCompleted || !paneWrapperRef.current) return undefined;
+
+    const observer = observerRef.current;
+    const header = getHeader(paneWrapperRef);
+
+    if (header) {
+      observer.observe(header);
+
+      return () => observer.disconnect();
     }
-  }, [hasTransitionCompleted]);
+
+    const mutationObserver = new MutationObserver(() => {
+      const header = getHeader(paneWrapperRef);
+      if (!header) return;
+
+      observer.observe(header);
+      mutationObserver.disconnect();
+    });
+
+    mutationObserver.observe(paneWrapperRef.current, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      mutationObserver.disconnect();
+      observer.disconnect();
+    };
+  }, [hasTransitionCompleted, isTopOverlay]);
 
   return (
     <Portal rootId="neeto-ui-portal">
@@ -85,10 +110,11 @@ const Pane = ({
           <div
             data-cy="pane-wrapper"
             key="pane-wrapper"
-            ref={paneWrapper}
+            ref={paneWrapperRef}
             className={classnames("neeto-ui-pane__wrapper", {
               "neeto-ui-pane__wrapper--small": size === SIZES.small,
               "neeto-ui-pane__wrapper--large": size === SIZES.large,
+              "neeto-ui-pane__wrapper--extralarge": size === SIZES.extraLarge,
               [className]: className,
             })}
             {...otherProps}

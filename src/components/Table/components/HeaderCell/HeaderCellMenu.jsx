@@ -1,20 +1,19 @@
-import React, { useRef } from "react";
+import React from "react";
 
-import { isPresent } from "neetocist";
 import { Check, MenuHorizontal } from "neetoicons";
+import { equals } from "ramda";
 import { useTranslation } from "react-i18next";
 
 import Dropdown from "components/Dropdown";
-import Popover from "components/Popover";
 import {
   COLUMN_ADD_DIRECTION,
   TABLE_SORT_ORDERS,
 } from "components/Table/constants";
-import Typography from "components/Typography";
-import { getLocale } from "utils";
+import { getLocale, hyphenize } from "utils";
 
 const { Menu, MenuItem } = Dropdown;
 
+// eslint-disable-next-line @bigbinary/neeto/no-dumb-components-with-use-translation
 const HeaderCellMenu = ({
   onSort,
   column = {},
@@ -31,11 +30,9 @@ const HeaderCellMenu = ({
   onColumnFreeze,
   hasMoreActions,
   onMoreActionClick,
-  columnTitle = null,
   moreActions = [],
 }) => {
   const { t, i18n } = useTranslation();
-  const columnInfoButtonReference = useRef();
 
   return (
     <div onClick={event => event.stopPropagation()}>
@@ -43,7 +40,7 @@ const HeaderCellMenu = ({
         appendTo={() => document.body}
         className="neeto-ui-flex"
         icon={MenuHorizontal}
-        position="auto"
+        position="bottom"
         strategy="fixed"
         zIndex={99999}
         buttonProps={{
@@ -51,6 +48,7 @@ const HeaderCellMenu = ({
           style: "text",
           size: "medium",
           "data-testid": "column-menu-button",
+          "data-cy": "column-menu-button",
           "data-dropdown-button-style": "more-dropdown",
         }}
       >
@@ -62,6 +60,7 @@ const HeaderCellMenu = ({
             <>
               <MenuItem.Button
                 className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-between"
+                data-cy="ascending-column-menu-button"
                 onClick={() =>
                   onSort({
                     column,
@@ -73,12 +72,13 @@ const HeaderCellMenu = ({
               >
                 <span>{getLocale(i18n, t, "neetoui.table.ascending")}</span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.asc &&
-                  sortedInfo.field === column.dataIndex && (
+                  equals(sortedInfo.field, column.dataIndex) && (
                     <Check className="neeto-ui-text-success-500" size={20} />
                   )}
               </MenuItem.Button>
               <MenuItem.Button
                 className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-between"
+                data-cy="descending-column-menu-button"
                 onClick={() =>
                   onSort({
                     column,
@@ -90,7 +90,7 @@ const HeaderCellMenu = ({
               >
                 <span>{getLocale(i18n, t, "neetoui.table.descending")}</span>
                 {sortedInfo.order === TABLE_SORT_ORDERS.desc &&
-                  sortedInfo.field === column.dataIndex && (
+                  equals(sortedInfo.field, column.dataIndex) && (
                     <Check className="neeto-ui-text-success-500" size={20} />
                   )}
               </MenuItem.Button>
@@ -99,55 +99,38 @@ const HeaderCellMenu = ({
           {isAddEnabled && (
             <>
               <MenuItem.Button
+                data-cy="insert-right-column-menu-button"
                 onClick={() => onAddColumn(COLUMN_ADD_DIRECTION.right)}
               >
                 {getLocale(i18n, t, "neetoui.table.insertColRight")}
               </MenuItem.Button>
               <MenuItem.Button
+                data-cy="insert-left-column-menu-button"
                 onClick={() => onAddColumn(COLUMN_ADD_DIRECTION.left)}
               >
                 {getLocale(i18n, t, "neetoui.table.insertColLeft")}
               </MenuItem.Button>
             </>
           )}
-          {isPresent(column?.description) && (
-            <>
-              <MenuItem.Button ref={columnInfoButtonReference}>
-                {getLocale(i18n, t, "neetoui.table.columnInfo")}
-              </MenuItem.Button>
-              <Popover
-                className="neeto-ui-cursor-auto"
-                hideOnClick={false}
-                interactiveDebounce={20}
-                offset={[0, 15]}
-                position="right"
-                reference={columnInfoButtonReference}
-                strategy="fixed"
-              >
-                {columnTitle && <Popover.Title>{columnTitle}</Popover.Title>}
-                <Typography
-                  className="neeto-ui-whitespace-normal neeto-ui-normal-case neeto-ui-max-w-full neeto-ui-table__column-description"
-                  lineHeight="normal"
-                  style="body2"
-                  weight="normal"
-                >
-                  {column?.description}
-                </Typography>
-              </Popover>
-            </>
-          )}
           {isHidable && (
-            <MenuItem.Button onClick={() => onColumnHide(column)}>
+            <MenuItem.Button
+              data-cy="hide-column-menu-button"
+              onClick={() => onColumnHide(column)}
+            >
               {getLocale(i18n, t, "neetoui.table.hideColumn")}
             </MenuItem.Button>
           )}
           {isColumnDeletable && (
-            <MenuItem.Button onClick={() => onColumnDelete(column.id)}>
+            <MenuItem.Button
+              data-cy="delete-column-menu-button"
+              onClick={() => onColumnDelete(column.id)}
+            >
               {getLocale(i18n, t, "neetoui.table.deleteColumn")}
             </MenuItem.Button>
           )}
           {isColumnFreezeEnabled && (
             <MenuItem.Button
+              data-cy="freeze-unfreeze-column-menu-button"
               onClick={() => onColumnFreeze(isFixedColumn, column)}
             >
               {isFixedColumn
@@ -158,6 +141,7 @@ const HeaderCellMenu = ({
           {hasMoreActions &&
             moreActions.map((item, index) => (
               <MenuItem.Button
+                data-cy={`${hyphenize(item.label)}-column-menu-button`}
                 key={index}
                 onClick={() => onMoreActionClick(item.type, column)}
               >
@@ -170,4 +154,4 @@ const HeaderCellMenu = ({
   );
 };
 
-export default HeaderCellMenu;
+export default React.memo(HeaderCellMenu);

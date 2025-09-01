@@ -1,6 +1,6 @@
 {
   "name": "@bigbinary/neetoui",
-  "version": "8.2.31",
+  "version": "8.3.28",
   "author": "BigBinary",
   "license": "MIT",
   "description": "neetoUI drives the experience at all neeto products",
@@ -21,11 +21,12 @@
   ],
   "lint-staged": {
     "**/*.{html,md,js,jsx,json}": [
-      ".scripts/fix-lints.sh"
+      "prettier --write",
+      "eslint --cache --fix"
     ]
   },
   "engines": {
-    "node": ">=18.12",
+    "node": ">=22.13",
     "npm": ">=9",
     "yarn": "1.22.x"
   },
@@ -68,6 +69,12 @@
     "./translations/*": {
       "import": "./src/translations/*.json",
       "require": "./src/translations/*.json"
+    },
+    "./dist": {
+      "import": "./dist/index.js",
+      "require": "./dist/cjs/index.js",
+      "style": "./dist/index.css",
+      "types": "./index.d.ts"
     }
   },
   "devDependencies": {
@@ -82,8 +89,9 @@
     "@bigbinary/eslint-plugin-neeto": "^1.1.30",
     "@bigbinary/neeto-cist": "1.0.3",
     "@bigbinary/neeto-commons-frontend": "^3.0.10",
+    "@bigbinary/neeto-datepicker": "^1.0.4",
     "@bigbinary/neeto-hotkeys": "1.0.4",
-    "@bigbinary/neeto-icons": "^1.9.22",
+    "@bigbinary/neeto-icons": "^1.20.27",
     "@reach/auto-id": "0.15.0",
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-babel": "^6.0.4",
@@ -139,6 +147,7 @@
     "express": "^4.18.2",
     "formik": "2.2.0",
     "framer-motion": "11.2.14",
+    "globby": "^14.1.0",
     "husky": "7.0.1",
     "i18next": "21.7.0",
     "identity-obj-proxy": "3.0.0",
@@ -192,7 +201,8 @@
   "peerDependencies": {
     "@babel/runtime": "7.19.0",
     "@bigbinary/neeto-cist": "1.0.3",
-    "@bigbinary/neeto-commons-frontend": "^3.0.10",
+    "@bigbinary/neeto-commons-frontend": "latest",
+    "@bigbinary/neeto-datepicker": "^1.0.4",
     "@bigbinary/neeto-hotkeys": "1.0.4",
     "@bigbinary/neeto-icons": "^1.9.22",
     "@tippyjs/react": "4.2.6",
@@ -220,6 +230,15 @@
     "tippy.js": "6.3.7",
     "yup": "0.32.11",
     "zustand": "4.3.2"
+  },
+  "resolutions": {
+    "@storybook/addon-essentials/**/glob-parent": "5.1.2",
+    "@storybook/builder-webpack5/**/glob-parent": "5.1.2",
+    "@storybook/react/**/glob-parent": "5.1.2",
+    "**/trim": "0.0.3",
+    "tailwindcss/**/postcss": "7.0.36",
+    "cssnano/**/nth-check": "2.0.1",
+    "rc-picker": "@bigbinary/neeto-datepicker"
   },
   "directories": {
     "src": "src"

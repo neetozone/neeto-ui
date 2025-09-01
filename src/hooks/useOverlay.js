@@ -27,7 +27,7 @@ const useOverlay = ({
 }) => {
   const elementToFocusRef = useRef(null);
 
-  const bodyHeight = document.body.offsetHeight;
+  const bodyHeight = document.body?.offsetHeight;
   const windowHeight = window.innerHeight;
   const hasScroll = bodyHeight > windowHeight;
 
@@ -69,7 +69,10 @@ const useOverlay = ({
     manager.isTopOverlay(overlayWrapper)
   );
 
-  useHotKeys("escape", handleOverlayClose, { enabled: closeOnEsc });
+  useHotKeys("escape", handleOverlayClose, {
+    enabled: closeOnEsc && isOpen && isTopOverlay,
+    mode: "global",
+  });
 
   useEffect(() => {
     let cleanUp = noop;
@@ -95,7 +98,7 @@ const useOverlay = ({
     if (hasTransitionCompleted) focusRequiredElementInOverlay();
   };
 
-  return { handleOverlayClose, setFocusField };
+  return { handleOverlayClose, setFocusField, isTopOverlay };
 };
 
 export default useOverlay;

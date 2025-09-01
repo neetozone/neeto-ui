@@ -37,6 +37,14 @@ export interface TableProps {
   onMoreActionClick?: (actionType: string, column: any) => void;
   localStorageKeyPrefix?: string;
   enableColumnFreeze?: boolean;
+  bulkSelectAllRowsProps?: {
+    setBulkSelectedAllRows: () => void;
+    selectAllRowMessage: string;
+    selectAllRowButtonLabel: string;
+    allRowsSelectedMessage?: string;
+    clearSelectionButtonLabel?: string;
+  };
+  virtual?: boolean;
   [key: string]: any;
 }
 const Table: React.FC<TableProps>;

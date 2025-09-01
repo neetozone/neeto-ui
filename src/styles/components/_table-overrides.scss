@@ -1,13 +1,18 @@
-:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
-  --neeto-ui-table-header-font-size: 13px;
+:root,
+.neeto-ui-theme--light,
+.neeto-ui-theme--dark {
+  --neeto-ui-table-header-font-size: 0.8125rem;
   --neeto-ui-table-header-font-weight: 600;
   --neeto-ui-table-header-text-transform: uppercase;
   --neeto-ui-table-header-border-bottom-width: 1px;
-  --neeto-ui-table-resize-handle-width: 10px;
+  --neeto-ui-table-resize-handle-width: 6px;
   --neeto-ui-table-resize-handle-hover-bg-color: rgb(var(--neeto-ui-gray-300));
 }
 
 .ant-table-wrapper {
+  .ant-table {
+    font-size: 0.875rem;
+  }
   table {
     font-family: var(--neeto-ui-body-font-family) !important;
     thead {
@@ -16,7 +21,9 @@
           font-size: var(--neeto-ui-table-header-font-size);
           font-weight: var(--neeto-ui-table-header-font-weight) !important;
           text-transform: var(--neeto-ui-table-header-text-transform);
-          border-bottom-width: var(--neeto-ui-table-header-border-bottom-width) !important;
+          border-bottom-width: var(
+            --neeto-ui-table-header-border-bottom-width
+          ) !important;
 
           .ant-table-column-sorters {
             .ant-table-column-title {
@@ -26,7 +33,7 @@
               max-width: calc(100% - 20px);
             }
             justify-content: flex-start !important;
-            gap: 8px;
+            gap: 4px;
 
             .ant-table-column-sorter-inner {
               .anticon-caret-up {
@@ -86,13 +93,29 @@
   width: var(--neeto-ui-table-resize-handle-width);
   height: 100%;
   bottom: 0;
-  right: -5px;
+  right: 0;
   cursor: col-resize;
   z-index: 1;
+  padding-right: 1px;
+  padding-left: 1px;
 }
 
-.react-resizable-handle:hover {
+.neeto-ui-table-react-resizable-handle__inner {
+  position: relative;
+  height: 90%;
+  top: 5%;
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+  transition: all 0.3s;
+}
+
+.react-resizable-handle:hover .neeto-ui-table-react-resizable-handle__inner {
   background-color: var(--neeto-ui-table-resize-handle-hover-bg-color);
+}
+
+.react-resizable-handle--resizing .neeto-ui-table-react-resizable-handle__inner{
+  background-color: rgb(var(--neeto-ui-primary-500)) !important;
 }
 
 .neetix-table {
@@ -112,6 +135,20 @@
   }
 }
 
-.neeto-ui-table__column-description{
+.neeto-ui-table__column-description {
   width: 288px;
+}
+
+.neeto-ui-table__column-title-info-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.neeto-ui-table__column-title-content{
+  svg {
+    opacity: 0.6;
+  }
 }

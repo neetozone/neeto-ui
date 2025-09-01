@@ -22,6 +22,10 @@ export type SelectProps = {
   isMulti?: boolean;
   addButtonLabel?: string;
   portalProps?: object;
+  onMenuOpen?: () => void;
+  onMenuClose?: () => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  styles?: object;
 };
 
 const Select: React.ForwardRefExoticComponent<SelectProps>;

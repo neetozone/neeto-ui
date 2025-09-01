@@ -10,6 +10,9 @@
       "cancel": "Cancel",
       "saveChanges": "Save changes"
     },
+    "colorPicker": {
+      "recentlyUsed": "Recently used"
+    },
     "datePicker": {
       "today": "Today"
     },
@@ -19,10 +22,12 @@
       "columnInfo": "Column info",
       "hideColumn": "Hide column",
       "deleteColumn": "Delete column",
-      "ascending": "Ascending",
-      "descending": "Descending",
+      "ascending": "Sort ascending",
+      "descending": "Sort descending",
       "freezeColumn": "Freeze column",
-      "unFreezeColumn": "Unfreeze column"
+      "unFreezeColumn": "Unfreeze column",
+      "allRowsSelected": "All rows are selected",
+      "clearSelection": "Clear selection"
     },
     "timePicker": {
       "hours": "Hours",
@@ -30,7 +35,7 @@
       "seconds": "Seconds"
     },
     "treeSelect": {
-      "noOptions": "No options"
+      "noOptions": "No options."
     }
   }
 }

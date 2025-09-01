@@ -1,4 +1,10 @@
-import React, { forwardRef, useState, useEffect } from "react";
+import React, {
+  forwardRef,
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+} from "react";
 
 import { DatePicker as AntDatePicker } from "antd";
 import classnames from "classnames";
@@ -55,6 +61,8 @@ const DatePicker = forwardRef(
       minDate,
       timePickerProps,
       timezone,
+      onOpenChange,
+      onKeyDown,
       ...otherProps
     },
     ref
@@ -64,6 +72,7 @@ const DatePicker = forwardRef(
     const [pickerValue, setPickerValue] = useState();
     const id = useId(otherProps.id);
     const datePickerRef = useSyncedRef(ref);
+    const isDatePickerOpen = useRef(otherProps.open ?? false);
 
     const Component = datePickerTypes[type?.toLowerCase()];
     const format = showTime ? `${dateFormat} ${timeFormat}` : dateFormat;
@@ -78,19 +87,42 @@ const DatePicker = forwardRef(
       setMode(picker);
     }, [picker]);
 
+    const getAllowedValue = useCallback(
+      date => getAllowed(date, minDate, maxDate),
+      [minDate, maxDate]
+    );
+
     const handleOnChange = (date, dateString) => {
       if (type === "range" && isNotPresent(date)) {
         return onChange([], dateString);
       }
 
-      const allowed = getAllowed(
-        getTimezoneAppliedDateTime(date),
-        minDate,
-        maxDate
-      );
+      const allowed = getAllowedValue(getTimezoneAppliedDateTime(date));
       setValue(allowed);
 
       return onChange(allowed, formattedString(allowed, dateFormat));
+    };
+
+    const handleOnCalendarChange = date => {
+      if (!date) return;
+      const allowed = getAllowedValue(getTimezoneAppliedDateTime(date));
+      setValue(allowed);
+    };
+
+    const handleOnOpenChange = open => {
+      if (!open && value !== inputValue) {
+        onChange(value, formattedString(value, dateFormat));
+      }
+
+      isDatePickerOpen.current = open;
+      onOpenChange?.(open);
+    };
+
+    const handleOnKeyDown = e => {
+      if (!isDatePickerOpen.current) return;
+
+      e.stopPropagation();
+      onKeyDown?.(e);
     };
 
     const renderExtraFooter = () => {
@@ -114,10 +146,11 @@ const DatePicker = forwardRef(
           {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
           <Component
             data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
+            defaultValue={convertToDayjsObjects(defaultValue)}
             placeholder={placeholder ?? format}
             ref={datePickerRef}
             showTime={showTime && { format: timeFormat, ...timePickerProps }}
-            value={getAllowed(convertToDayjsObjects(value), minDate, maxDate)}
+            value={convertToDayjsObjects(value)}
             className={classnames("neeto-ui-date-input", [className], {
               "neeto-ui-date-input--small": size === "small",
               "neeto-ui-date-input--medium": size === "medium",
@@ -126,16 +159,14 @@ const DatePicker = forwardRef(
               "neeto-ui-date-input--naked": nakedInput,
               "neeto-ui-date-input--error": !!error,
             })}
-            defaultValue={getAllowed(
-              convertToDayjsObjects(defaultValue),
-              minDate,
-              maxDate
-            )}
             popupClassName={classnames("neeto-ui-date-time-dropdown", [
               dropdownClassName, // Will be removed in the next major version
               popupClassName,
             ])}
+            onCalendarChange={handleOnCalendarChange}
             onChange={handleOnChange}
+            onKeyDown={handleOnKeyDown}
+            onOpenChange={handleOnOpenChange}
             {...{
               format,
               maxDate,
@@ -153,6 +184,7 @@ const DatePicker = forwardRef(
                 },
               }),
             }}
+            getNow={dayjs}
             nextIcon={<IconOverride icon={Right} />}
             prevIcon={<IconOverride icon={Left} />}
             superNextIcon={<IconOverride icon={Right} />}
@@ -285,6 +317,14 @@ DatePicker.propTypes = {
    * To specify the maximum date of the DatePicker.
    */
   maxDate: PropTypes.object,
+  /**
+   * Callback function which will be invoked when the DatePicker is opened or closed.
+   */
+  onOpenChange: PropTypes.func,
+  /**
+   * Callback function which will be invoked when a key is pressed.
+   */
+  onKeyDown: PropTypes.func,
 };
 
 export default DatePicker;

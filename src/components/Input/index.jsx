@@ -2,12 +2,19 @@ import React, { useState, forwardRef } from "react";
 
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import { replace } from "ramda";
 
 import { useId } from "hooks";
 import { hyphenize } from "utils";
 
-import Label from "./Label";
+import {
+  enforceDecimalPrecision,
+  formatWithPrecision,
+  formatWithRejectCharsRegex,
+  getTrimmedValue,
+  preserveCursor,
+} from "./utils";
+
+import Label from "../Label";
 
 const SIZES = { small: "small", medium: "medium", large: "large" };
 
@@ -17,6 +24,7 @@ const Input = forwardRef(
       size = SIZES.medium,
       type = "text",
       label = "",
+      dataCy = "",
       error = "",
       suffix = null,
       prefix = null,
@@ -32,6 +40,7 @@ const Input = forwardRef(
       rejectCharsRegex,
       onBlur,
       disableTrimOnBlur = false,
+      precision = -1,
       ...otherProps
     },
     ref
@@ -42,7 +51,8 @@ const Input = forwardRef(
     const errorId = `error_${id}`;
     const helpTextId = `helpText_${id}`;
 
-    const value = otherProps.value ?? valueInternal ?? "";
+    const value =
+      formatWithPrecision(otherProps.value, precision) ?? valueInternal ?? "";
 
     const valueLength = value?.toString().length || 0;
     const isCharacterLimitVisible = valueLength >= maxLength * 0.85;
@@ -57,28 +67,51 @@ const Input = forwardRef(
 
     const isMaxLengthPresent = !!maxLength || maxLength === 0;
 
-    const handleRegexChange = e => {
-      const globalRegex = new RegExp(rejectCharsRegex, "g");
-      e.target.value = replace(globalRegex, "", e.target.value);
+    const handleChange = e => {
+      if (type === "file") {
+        onChange(e);
+
+        return;
+      }
+
+      let formattedValue = formatWithRejectCharsRegex(
+        e.target.value,
+        rejectCharsRegex
+      );
+
+      formattedValue = enforceDecimalPrecision(formattedValue, precision);
+
+      if (formattedValue !== e.target.value) {
+        preserveCursor(e, () => (e.target.value = formattedValue));
+      }
+
       onChange(e);
     };
 
-    const handleChange = rejectCharsRegex ? handleRegexChange : onChange;
-
-    const handleTrimmedChangeOnBlur = e => {
-      if (disableTrimOnBlur || typeof value !== "string") return;
-
-      const trimmedValue = value.trim();
-      if (value === trimmedValue) return;
-
-      e.target.value = trimmedValue;
-      handleChange(e);
-    };
-
     const handleOnBlur = e => {
-      handleTrimmedChangeOnBlur(e);
+      if (type === "file") {
+        onBlur?.(e);
+
+        return;
+      }
+
+      const trimmedValue = getTrimmedValue(value, disableTrimOnBlur);
+      const formattedValue = formatWithPrecision(trimmedValue, precision);
+
+      if (formattedValue !== value) {
+        e.target.value = formattedValue;
+        handleChange(e);
+      }
+
       onBlur?.(e);
     };
+
+    const handleOnWheel = e => {
+      if (type === "number") e.target.blur();
+    };
+
+    const dataCyLabel =
+      typeof label === "string" ? hyphenize(label) : hyphenize(dataCy);
 
     return (
       <div className={classnames(["neeto-ui-input__wrapper", className])}>
@@ -86,7 +119,7 @@ const Input = forwardRef(
           {label && (
             <Label
               {...{ required }}
-              data-cy={`${hyphenize(label)}-input-label`}
+              data-cy={`${dataCyLabel}-input-label`}
               htmlFor={id}
               {...labelProps}
             >
@@ -104,7 +137,7 @@ const Input = forwardRef(
           )}
         </div>
         <div
-          data-cy={`${hyphenize(label)}-input`}
+          data-cy={`${dataCyLabel}-input`}
           className={classnames("neeto-ui-input", {
             "neeto-ui-input--naked": !!nakedInput,
             "neeto-ui-input--error": !!error,
@@ -117,7 +150,7 @@ const Input = forwardRef(
           {prefix && <div className="neeto-ui-input__prefix">{prefix}</div>}
           <input
             aria-invalid={!!error}
-            data-cy={`${hyphenize(label)}-input-field`}
+            data-cy={`${dataCyLabel}-input-field`}
             size={contentSize}
             aria-describedby={classnames({
               [errorId]: !!error,
@@ -135,13 +168,14 @@ const Input = forwardRef(
             }}
             onBlur={handleOnBlur}
             onChange={handleChange}
+            onWheel={handleOnWheel}
           />
           {suffix && <div className="neeto-ui-input__suffix">{suffix}</div>}
         </div>
         {!!error && (
           <p
             className="neeto-ui-input__error"
-            data-cy={`${hyphenize(label)}-input-error`}
+            data-cy={`${dataCyLabel}-input-error`}
             id={errorId}
           >
             {error}
@@ -150,7 +184,7 @@ const Input = forwardRef(
         {helpText && (
           <p
             className="neeto-ui-input__help-text"
-            data-cy={`${hyphenize(label)}-input-help`}
+            data-cy={`${dataCyLabel}-input-help`}
             id={helpTextId}
           >
             {helpText}
@@ -176,6 +210,15 @@ Input.propTypes = {
    * To specify the type of Input field.
    */
   type: PropTypes.string,
+  /**
+   * To specify how many decimal places to show in the input.
+   *
+   * For example, if precision is 2:
+   * 10 will be shown as "10.00"
+   * 10.1 will be shown as "10.10"
+   * 9.758 will be rounded and shown as "9.76"
+   */
+  precision: PropTypes.number,
   /**
    * To specify the label props to be passed to the Label component.
    */

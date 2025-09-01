@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "การออกจากหน้านี้จะทำให้ข้อมูลที่ยังไม่ได้บันทึกของคุณหายไป การกระทำนี้ไม่สามารถย้อนกลับได้",
+      "submitButtonLabel": "อยู่บนหน้านี้",
+      "cancelButtonLabel": "ทิ้งและออกจากหน้านี้",
+      "alertTitle": "คุณมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก"
+    },
+    "actionBlock": {
+      "cancel": "ยกเลิก",
+      "saveChanges": "บันทึกการเปลี่ยนแปลง"
+    },
+    "colorPicker": {
+      "recentlyUsed": "ที่ใช้ล่าสุด"
+    },
+    "datePicker": {
+      "today": "วันนี้"
+    },
+    "table": {
+      "insertColRight": "แทรกคอลัมน์ทางขวา",
+      "insertColLeft": "แทรกคอลัมน์ทางซ้าย",
+      "columnInfo": "ข้อมูลคอลัมน์",
+      "hideColumn": "ซ่อนคอลัมน์",
+      "deleteColumn": "ลบคอลัมน์",
+      "ascending": "เรียงจากน้อยไปหามาก",
+      "descending": "เรียงจากมากไปหาน้อย",
+      "freezeColumn": "ตรึงคอลัมน์",
+      "unFreezeColumn": "ยกเลิกการตรึงคอลัมน์",
+      "allRowsSelected": "เลือกตั้งหมดแล้ว",
+      "clearSelection": "ลบการเลือก"
+    },
+    "timePicker": {
+      "hours": "ชั่วโมง",
+      "minutes": "นาที",
+      "seconds": "วินาที"
+    },
+    "treeSelect": {
+      "noOptions": "ไม่มีตัวเลือก"
+    }
+  }
+}

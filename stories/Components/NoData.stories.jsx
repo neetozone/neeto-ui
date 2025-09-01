@@ -95,7 +95,7 @@ const Template = args => (
     <NoData
       {...args}
       primaryButtonProps={{ label: "Add new ticket" }}
-      title="There are no tickets to show"
+      title="There are no tickets to show."
     />
   </div>
 );
@@ -108,7 +108,7 @@ const WithDescription = args => (
       {...args}
       description="You can try adding a new ticket."
       primaryButtonProps={{ label: "Add new ticket" }}
-      title="There are no tickets to show"
+      title="There are no tickets to show."
     />
   </div>
 );
@@ -123,7 +123,7 @@ const WithSecondaryButton = args => (
       description="You can try adding a new suite or importing test cases."
       primaryButtonProps={{ label: "Add new suite" }}
       secondaryButtonProps={{ label: "Import Test Cases" }}
-      title="There are no suites to show"
+      title="There are no suites to show."
     />
   </div>
 );
@@ -136,7 +136,7 @@ const WithHelpText = args => (
       className="col-span-1"
       {...args}
       primaryButtonProps={{ label: "Add new form" }}
-      title="There are no forms to show"
+      title="There are no forms to show."
       helpText={
         <>
           Learn about{" "}
@@ -154,7 +154,7 @@ const WithHelpText = args => (
       className="col-span-1"
       {...args}
       primaryButtonProps={{ label: "Add new discount code" }}
-      title="There are no discount codes to show"
+      title="There are no discount codes to show."
       helpText={
         <>
           Learn about{" "}
@@ -172,7 +172,7 @@ const WithHelpText = args => (
       className="col-span-1"
       {...args}
       primaryButtonProps={{ label: "Add new invoices" }}
-      title="There are no invoices to show"
+      title="There are no invoices to show."
       helpText={
         <>
           Learn about{" "}
@@ -190,7 +190,7 @@ const WithHelpText = args => (
       className="col-span-1"
       {...args}
       primaryButtonProps={{ label: "Add new custom domain" }}
-      title="There are no custom domains to show"
+      title="There are no custom domains to show."
       helpText={
         <>
           Learn about{" "}
@@ -214,7 +214,7 @@ const WithCustomImageAsSVG = args => (
     <NoData
       {...args}
       primaryButtonProps={{ label: "Back to home" }}
-      title="The page you're looking for can't be found"
+      title="The page you're looking for can't be found."
       image={
         <svg
           fill="none"
@@ -253,7 +253,7 @@ const WithCustomImageFromURL = args => (
       {...args}
       image="https://cdn-icons-png.flaticon.com/512/15/15457.png"
       primaryButtonProps={{ label: "Add new ticket" }}
-      title="There are no tickets to show"
+      title="There are no tickets to show."
     />
   </div>
 );
@@ -267,7 +267,7 @@ const CSSCustomization = args => (
       className="neetix-nodata"
       image="https://cdn-icons-png.flaticon.com/512/15/15457.png"
       primaryButtonProps={{ label: "Add new ticket" }}
-      title="There are no tickets to show"
+      title="There are no tickets to show."
     />
   </div>
 );

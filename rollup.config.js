@@ -15,6 +15,7 @@ import styles from "rollup-plugin-styles";
 
 import packageJson from "./package.json";
 import input from "./rollup-config/input";
+import { getWatchConfig } from "./rollup-config/watchConfig";
 
 const commonResolve = require("@bigbinary/neeto-commons-frontend/configs/nanos/webpack/resolve.js");
 const projectResolve = require("./resolve.js");
@@ -22,9 +23,8 @@ const projectResolve = require("./resolve.js");
 const { alias: aliasEntries } = mergeDeepLeft(projectResolve, commonResolve);
 
 const config = args => {
-  const destination = args.app
-    ? path.resolve(__dirname, args.app, "node_modules", packageJson.name)
-    : __dirname;
+  const { watchPlugins, appPath } = getWatchConfig();
+  const destination = args.app ? appPath : __dirname;
 
   const plugins = [
     cleaner({
@@ -49,16 +49,8 @@ const config = args => {
       extensions: [".css", ".scss", ".min.css"],
       mode: ["extract", "index.css"],
     }),
-    args.app &&
-      copy({
-        targets: [
-          { src: "package.json", dest: destination },
-          { src: "index.d.ts", dest: destination },
-          { src: "formik.d.ts", dest: destination },
-          { src: "managers.d.ts", dest: destination },
-          { src: "types/", dest: destination },
-        ],
-      }),
+    // Plugins for local development.
+    ...watchPlugins,
   ];
 
   return {

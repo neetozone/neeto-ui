@@ -1,4 +1,4 @@
-import MonacoWebpackPlugin from "monaco-editor-webpack-plugin";
+const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
 import path from "path";
 import { mergeDeepLeft } from "ramda";
 

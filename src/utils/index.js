@@ -118,12 +118,16 @@ export const focusFirstFocusableElement = ref => {
 };
 
 export const hideScrollAndAddMargin = () => {
+  if (!document.body) return;
+
   const scrollbarWidth = getScrollbarWidth();
   document.body.style.overflow = "hidden";
   document.body.style.marginRight = `${scrollbarWidth}px`;
 };
 
 export const showScrollAndRemoveMargin = () => {
+  if (!document.body) return;
+
   document.body.style.overflow = "auto";
   document.body.style.marginRight = "0px";
 };
@@ -180,11 +184,34 @@ export const getLocale = (i18n, t, translationKey) => {
     : getEnTranslationValue(translationKey);
 };
 
-export const setToLocalStorage = (key, value) =>
-  // eslint-disable-next-line @bigbinary/neeto/no-local-storage
-  localStorage.setItem(key, JSON.stringify(value));
+export const setToLocalStorage = (key, value) => {
+  try {
+    // eslint-disable-next-line @bigbinary/neeto/no-local-storage
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    // localStorage access can fail due to private browsing mode or storage restrictions
+  }
+};
 
-// eslint-disable-next-line @bigbinary/neeto/no-local-storage
-export const removeFromLocalStorage = key => localStorage.removeItem(key);
+export const removeFromLocalStorage = key => {
+  try {
+    // eslint-disable-next-line @bigbinary/neeto/no-local-storage
+    localStorage.removeItem(key);
+  } catch {
+    // localStorage access can fail due to private browsing mode or storage restrictions
+  }
+};
+
+export const getFromLocalStorage = (key, defaultValue) => {
+  try {
+    // eslint-disable-next-line @bigbinary/neeto/no-local-storage
+    const storedValue = localStorage.getItem(key);
+
+    return storedValue ? JSON.parse(storedValue) : defaultValue;
+  } catch {
+    // localStorage access can fail due to private browsing mode or storage restrictions
+    return defaultValue;
+  }
+};
 
 export { dayjs };

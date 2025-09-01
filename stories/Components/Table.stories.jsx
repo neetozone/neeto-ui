@@ -421,7 +421,7 @@ const getColumns = (fixed = false) => [
       <div className="flex flex-row items-center justify-between gap-2">
         <Typography style="body2">{id}</Typography>
         <Dropdown
-          appendTo={fixed ? () => document.body : undefined}
+          appendTo={document.body}
           buttonStyle="text"
           icon={MenuHorizontal}
           strategy="fixed"
@@ -435,13 +435,9 @@ const getColumns = (fixed = false) => [
     ),
   },
   {
-    title: () => (
-      <div className="text-left">
-        <Tooltip content="A globally unique identifier (GUID) is a 128-bit number created by the Windows operating system or another Windows application to uniquely identify specific components, hardware, software, files, user accounts, database entries and other items.">
-          <span>GUID</span>
-        </Tooltip>
-      </div>
-    ),
+    title: "GUID",
+    description:
+      "A globally unique identifier (GUID) is a 128-bit number created by the Windows operating system or another Windows application to uniquely identify specific components, hardware, software, files, user accounts, database entries and other items.",
     fixed: fixed ? "left" : false,
     dataIndex: "guid",
     key: "guid",
@@ -845,6 +841,7 @@ const TableWithResizableColumns = args => {
     <div className="h-96">
       <Table
         enableColumnResize
+        virtual
         columnData={getColumns()}
         currentPageNumber={pageNumber}
         handlePageChange={page => setPageNumber(page)}

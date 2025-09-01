@@ -274,7 +274,7 @@ describe("MultiEmailInput", () => {
 
     expect(
       screen.getByText(
-        "Duplicate emails that were removed case insensitively: test@Example.com"
+        "Removed 1 duplicate email from the list: test@Example.com"
       )
     ).toBeInTheDocument();
   });
@@ -289,5 +289,82 @@ describe("MultiEmailInput", () => {
       ...selectedEmails,
       { label: "email@domain.com", valid: true, value: "email@domain.com" },
     ]);
+  });
+
+  it("should not render the menu when clicked on the input field", async () => {
+    const onChange = jest.fn();
+    const selectedEmails = SAMPLE_EMAILS.slice(0, 2);
+    const { container } = render(
+      <MultiEmailInput
+        {...{ onChange }}
+        options={SAMPLE_EMAILS}
+        value={selectedEmails}
+      />
+    );
+    const emailInput = screen.getByRole("combobox");
+    await userEvent.click(emailInput);
+    expect(
+      container.querySelector(".neeto-ui-react-select__menu")
+    ).not.toBeInTheDocument();
+
+    await userEvent.type(emailInput, "test");
+    await expect(
+      container.querySelector(".neeto-ui-react-select__menu")
+    ).toBeInTheDocument();
+  });
+
+  it("should validate emails correctly", async () => {
+    const testEmails = [
+      "user@example.com",
+      "test.email@domain.org",
+      "user+tag@sub.domain.com",
+      "admin123@company-site.net",
+      "contact_us@my-website.co.in",
+      "invalid-email",
+      "user@domain..com",
+      "test@example.c",
+      "user@.domain.com",
+      "test@domain.",
+    ];
+
+    let allEmails = [];
+    const onChange = jest.fn(newEmails => {
+      allEmails = [...allEmails, ...newEmails];
+    });
+
+    const { container, rerender } = render(
+      <MultiEmailInput
+        {...{ onChange }}
+        counter
+        label="Test Emails"
+        value={allEmails}
+      />
+    );
+
+    const emailInput = screen.getByRole("combobox");
+
+    for (const email of testEmails) {
+      await userEvent.type(emailInput, `${email} `);
+    }
+
+    await userEvent.click(document.body);
+
+    rerender(
+      <MultiEmailInput
+        {...{ onChange }}
+        counter
+        label="Test Emails"
+        value={allEmails}
+      />
+    );
+
+    const counterElement = container.querySelector(
+      '[data-cy="test-emails-email-counter"]'
+    );
+
+    const counterText = counterElement.textContent;
+    const validEmailsCount = parseInt(counterText.match(/\d+/)[0] || "0");
+
+    expect(validEmailsCount).toBe(5);
   });
 });

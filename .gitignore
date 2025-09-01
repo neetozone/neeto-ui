@@ -40,6 +40,9 @@
 #logs
 /*.log
 
+#eslint
+.eslintcache
+
 # Yarn v4+ files
 .yarn/*
 !.yarn/patches

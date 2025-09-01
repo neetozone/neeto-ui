@@ -4,7 +4,7 @@ import classnames from "classnames";
 import { _existsBy, isPresent } from "neetocist";
 import { Down, Close } from "neetoicons";
 import PropTypes from "prop-types";
-import { prop, assoc, flatten, pluck } from "ramda";
+import { prop, assoc, flatten, pluck, mergeDeepRight, isEmpty } from "ramda";
 import SelectInput, { components } from "react-select";
 import Async from "react-select/async";
 import AsyncCreatable from "react-select/async-creatable";
@@ -15,6 +15,7 @@ import { hyphenize } from "utils";
 
 import Label from "./Label";
 import Spinner from "./Spinner";
+import Tooltip from "./Tooltip";
 
 const SIZES = { small: "small", medium: "medium", large: "large" };
 
@@ -75,20 +76,32 @@ const CustomInput = props => {
 
 const CustomOption = props => {
   const ref = useRef();
+  const {
+    innerProps,
+    data: { dataCy, tooltipProps = {} },
+  } = props;
 
   useEffect(() => {
     props.isSelected && ref.current.scrollIntoView();
   }, [props.isSelected]);
 
-  return (
+  const optionComponent = (
     <components.Option
       {...props}
       innerRef={ref}
       innerProps={{
-        ...props.innerProps,
-        "data-cy": `${hyphenize(props.label)}-select-option`,
+        ...innerProps,
+        "data-cy": dataCy || `${hyphenize(props.label)}-select-option`,
       }}
     />
+  );
+
+  return isPresent(tooltipProps) ? (
+    <Tooltip position="bottom-start" zIndex={1_000_001} {...tooltipProps}>
+      <div>{optionComponent}</div>
+    </Tooltip>
+  ) : (
+    optionComponent
   );
 };
 
@@ -100,8 +113,8 @@ const Placeholder = props => {
       {...props}
       innerProps={{
         ...props.innerProps,
-        "data-cy": selectProps
-          ? `${hyphenize(selectProps.label)}-select-placeholder`
+        "data-cy": selectProps?.hyphenatedDataCyLabel
+          ? `${selectProps.hyphenatedDataCyLabel}-select-placeholder`
           : "select-placeholder",
       }}
     />
@@ -117,7 +130,7 @@ const Menu = props => {
       innerProps={{
         ...props.innerProps,
         "data-cy": selectProps
-          ? `${hyphenize(selectProps.label)}-select-menu`
+          ? `${selectProps.hyphenatedDataCyLabel}-select-menu`
           : "select-menu",
       }}
     />
@@ -141,7 +154,7 @@ const ValueContainer = props => {
         ...props.innerProps,
         name: selectProps.name,
         "data-cy": selectProps
-          ? `${hyphenize(selectProps.label)}-select-value-container`
+          ? `${selectProps.hyphenatedDataCyLabel}-select-value-container`
           : "select-value-container",
       }}
     />
@@ -215,9 +228,21 @@ const Select = ({
   defaultValue,
   components: componentOverrides,
   optionRemapping = {},
+  onMenuClose,
+  onMenuOpen,
+  onKeyDown,
+  styles = {},
+  dataCy = "nui",
   ...otherProps
 }) => {
   const inputId = useId(id);
+  const isMenuOpen = useRef(
+    otherProps.isMenuOpen ?? otherProps.defaultMenuIsOpen ?? false
+  );
+
+  const hyphenatedDataCyLabel = isEmpty(label)
+    ? hyphenize(dataCy)
+    : hyphenize(label);
 
   let Parent = SelectInput;
 
@@ -239,7 +264,7 @@ const Select = ({
 
   const portalProps = strategy === STRATEGIES.fixed && {
     menuPortalTarget: document.body,
-    styles: { menuPortal: assoc("zIndex", 999999) },
+    styles: mergeDeepRight({ menuPortal: assoc("zIndex", 999999) }, styles),
     menuPosition: "fixed",
   };
 
@@ -273,16 +298,33 @@ const Select = ({
     );
   };
 
+  const handleMenuOpen = () => {
+    isMenuOpen.current = true;
+    onMenuOpen?.();
+  };
+
+  const handleMenuClose = () => {
+    isMenuOpen.current = false;
+    onMenuClose?.();
+  };
+
+  const handleKeyDown = e => {
+    if (!isMenuOpen.current) return;
+
+    e.stopPropagation();
+    onKeyDown?.(e);
+  };
+
   return (
     <div
       className={classnames(["neeto-ui-input__wrapper", className])}
-      data-cy={`${hyphenize(label)}-select-container-wrapper`}
+      data-cy={`${hyphenatedDataCyLabel}-select-container-wrapper`}
       data-testid="select"
     >
       {label && (
         <Label
           {...{ required }}
-          data-cy={`${hyphenize(label)}-input-label`}
+          data-cy={`${hyphenatedDataCyLabel}-input-label`}
           data-testid="select-label"
           htmlFor={inputId}
           {...labelProps}
@@ -294,7 +336,7 @@ const Select = ({
         blurInputOnSelect={false}
         classNamePrefix="neeto-ui-react-select"
         closeMenuOnSelect={!otherProps.isMulti}
-        data-cy={`${hyphenize(label)}-select-container`}
+        data-cy={`${hyphenatedDataCyLabel}-select-container`}
         defaultValue={findInOptions(defaultValue)}
         ref={innerRef}
         value={findInOptions(value)}
@@ -318,12 +360,22 @@ const Select = ({
           Control,
           ...componentOverrides,
         }}
-        {...{ inputId, label, ...portalProps, ...otherProps }}
+        onKeyDown={handleKeyDown}
+        onMenuClose={handleMenuClose}
+        onMenuOpen={handleMenuOpen}
+        {...{
+          inputId,
+          label,
+          styles,
+          ...portalProps,
+          ...otherProps,
+          hyphenatedDataCyLabel,
+        }}
       />
       {!!error && (
         <p
           className="neeto-ui-input__error"
-          data-cy={`${hyphenize(label)}-select-error`}
+          data-cy={`${hyphenatedDataCyLabel}-select-error`}
           data-testid="select-error"
         >
           {error}
@@ -332,7 +384,7 @@ const Select = ({
       {helpText && (
         <p
           className="neeto-ui-input__help-text"
-          data-cy={`${hyphenize(label)}-select-help-text`}
+          data-cy={`${hyphenatedDataCyLabel}-select-help-text`}
           data-testid="select-help-text"
         >
           {helpText}
@@ -442,6 +494,26 @@ Select.propTypes = {
    * To specify the extra props to be passed to the menu list.
    */
   portalProps: PropTypes.object,
+  /**
+   * Callback function which will be invoked when the menu is opened.
+   */
+  onMenuOpen: PropTypes.func,
+  /**
+   * Callback function which will be invoked when the menu is closed.
+   */
+  onMenuClose: PropTypes.func,
+  /**
+   * Callback function which will be invoked when a key is pressed.
+   */
+  onKeyDown: PropTypes.func,
+  /**
+   * To specify the styles for the Select component.
+   */
+  styles: PropTypes.object,
+  /**
+   * To specify the custom data-cy label for the Select component and its child components.
+   */
+  dataCy: PropTypes.string,
 };
 
 export default Select;

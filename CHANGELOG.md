@@ -23,6 +23,229 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.3.10 - 2025-06-23
+
+Adds support to display a tooltip over the options in Select dropdown.
+
+## 8.3.9 - 2025-06-18
+
+- Fixed: TypeError in *Toastr* component
+
+## 8.3.8 - 2025-06-18
+
+This PR makes changes to handle the case when the options passed to the Select component are grouped.
+The `buildValueObj` method has been modified to get the deeply nested options after checking for grouping.
+This change fixes issues with initial values not being displayed in the dropdown when using formik.
+
+## 8.3.7 - 2025-06-06
+
+- Added: `ref` support in *Radio.Item*.
+
+## 8.3.6 - 2025-06-04
+
+- Removed: Unused container and wrapper classes
+
+## 8.3.5 - 2025-06-03
+
+- Fixed: pane width on iPad viewport
+
+Ensures the pane maintains a minimum width for better usability on iPad devices.
+
+small
+![localhost_6006_iframe html_args= id=overlays-pane--sizes viewMode=story(iPad) (1)](https://github.com/user-attachments/assets/e0958443-c39a-47eb-a978-f465815ad931)
+
+large
+![localhost_6006_iframe html_args= id=overlays-pane--sizes viewMode=story(iPad) (2)](https://github.com/user-attachments/assets/e5b5118f-bb3c-48a9-97eb-79f6efc6b894)
+
+extraLarge
+![localhost_6006_iframe html_args= id=overlays-pane--sizes viewMode=story(iPad) (3)](https://github.com/user-attachments/assets/e0229228-5f3b-4857-8ed0-a22a851e9eae)
+
+## 8.3.4 - 2025-06-02
+
+- Replaced `100vh` with `100dvh` to fix layout issues on mobile browsers and iPads caused by dynamic browser UI elements.
+
+## 8.3.3 - 2025-05-28
+
+- Added: support for `precision` prop for *Input* component
+
+## 8.3.2 - 2025-05-26
+
+- Updated: the column resizing handle styles.
+
+## 8.3.1 - 2025-05-20
+
+- Updated: the duplicate email error message and style.
+
+## 8.3.0 - 2025-05-09
+
+Migrated to new SASS module system.
+
+The auto-migration worked successfully and effectively transitioned the files to the new Sass module system.
+
+## 8.2.78 - 2025-04-15
+
+- Added: `dataCy` prop to *Select* component.
+
+## 8.2.77 - 2025-04-11
+
+- Added: Dark mode support for `divide-y` utility class.
+
+## 8.2.76 - 2025-04-11
+
+- Fixed: icon visibility issue in the Tree component.
+
+## 8.2.75 - 2025-04-07
+
+- Added size `extraLarge` prop to *Pane* component.
+
+## 8.2.73 - 2025-03-26
+
+- Fixed height computation issue in nested panes.
+
+## 8.2.72 - 2025-03-26
+
+- Fixed height computation issue in *Pane* component.
+
+## 8.2.71 - 2025-03-25
+
+- Fixed issue with Select dropdown not opening in pane when custom styles are passed.
+
+## 8.2.70 - 2025-03-21
+
+- Added info icon to table columns with tooltips.
+
+## 8.2.69 - 2025-03-21
+
+- Fixed table sorting when array is passed to dataIndex.
+
+## 8.2.68 - 2025-03-18
+
+- Updated: dark mode primary color palette.
+- Updated: dark mode pastel color palette.
+- Updated: dark mode accent color palette.
+- Updated: dark mode status color palette.
+- Added: CSS `[color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme)`.
+- Added: `font-smoothing` in dark mode.
+- Updated: Modal footer background color.
+
+### Before
+
+<img width="1440" alt="Screenshot 2025-03-18 at 5 18 43 PM" src="https://github.com/user-attachments/assets/596c5757-144d-483b-8857-98c8b723b3ec" />
+### After
+<img width="1440" alt="Screenshot 2025-03-18 at 5 19 03 PM" src="https://github.com/user-attachments/assets/9819091d-0d3f-458e-8bf6-f95a6835b7c2" />
+## 8.2.67 - 2025-03-18
+- Fixed issue with *Table* column reordering
+## 8.2.65 - 2025-03-10
+Added: `data-cy` labels for *HeaderCellMenu* and *CellContent*.
+## 8.2.62 - 2025-02-19
+- Fixed: Pane footer cut-off issue in iOS Safari.
+iPad Pro (11-inch) - Tested using Xcode
+![Simulator Screenshot - iPad Pro (11-inch) (4th generation) - 2025-02-19 at 20 04 00](https://github.com/user-attachments/assets/987f5448-c67f-4b76-b3c9-c58b9364249e)
+## 8.2.60 - 2025-02-11
+Fixed data-cy label for *Input*.
+## 8.2.59 - 2025-02-07
+- Fixed TypeError in `useOverlay` hook.
+## 8.2.58 - 2025-02-07
+- Wrapped all localStorage operations in try-catch blocks to handle potential failures in private browsing mode or due to storage restrictions.
+## 8.2.57 - 2025-02-07
+- Fixed: Hex color input field auto-population issue in *ColorPicker*.
+## 8.2.56 - 2025-02-06
+- Added logic to show clear selection callout when all table rows are selected
+## 8.2.53 - 2025-01-23
+- Added: `data-cy` label for *ProgressBar*
+## 8.2.52 - 2025-01-22
+
+- Fixed TypeError in Pane component.
+
+## 8.2.51 - 2025-01-21
+
+- Fixed height computation issue in Pane component.
+
+## 8.2.50 - 2025-01-21
+
+- Fixed issue with table height computation when reorder column is enabled.
+
+## 8.2.49 - 2025-01-10
+
+- Added: Click functionality to the *Switch* component
+
+## 8.2.48 - 2024-12-10
+
+- Changed: *Table* font size unit from px to rem.
+
+## 8.2.47 - 2024-12-10
+
+- Shows the color palette in the color picker by default.
+- Updates the color list and the onChange handler to align with the color and onChange handler of the picker.
+- Refactors and cleans up the onChange handlers and the associated functions.
+
+## 8.2.46 - 2024-12-10
+
+- Skips over writing the saved email details with the duplicate email entered by the user.
+
+## 8.2.45 - 2024-12-06
+
+Changed the `data-cy` prop for *Toast* message component.
+
+## 8.2.44 - 2024-12-06
+
+- The MouseTrap lib by default will not fire callbacks for events inside fields like input, textarea etc.. We have to use `bindGlobal` if we want the key bindings for work for form fields as well.
+
+> By default all keyboard events will not fire if you are inside of a textarea, input, or select to prevent undesirable things from happening.
+
+> This means that a keyboard event bound using Mousetrap.bind will only work outside of form input fields, but using Mousetrap.bindGlobal will work in both places.
+
+Documentation - https://craig.is/killing/mice
+
+## 8.2.43 - 2024-12-05
+
+- Updates the color palette to support hex values and removes the tailwind dependency.
+
+## 8.2.41 - 2024-11-28
+
+- Removed the logic to sanitize the value of the datepicker.
+- The values are already sanitized in the onChange handler.
+
+## 8.2.40 - 2024-11-27
+
+- The false value of the prop `icon` was ignored in the implementations before v9.0.2.
+  
+- After 9.0.2, the [implementation](https://github.com/fkhadra/react-toastify/blob/main/src/components/Toast.tsx#L108-L117) is such that the icon is rendered as passed in the config.
+  
+- Since the `false` value was used to show the default icon set internally, replaced it with a function that returns null
+  which solved the problem.
+  
+  - Code ref: https://github.com/fkhadra/react-toastify/blob/v8.0.1/src/components/Toast.tsx#L65-L75.
+  - The `if (icon === false)` statement was never success for some reason.
+  
+- PR which addressed this issue: https://github.com/fkhadra/react-toastify/pull/758
+  
+
+## 8.2.39 - 2024-11-27
+
+- Updates the value and default value fixed to the allowed range only if the user has touched the fields. This will fix the values outside the allowed ranges until not properly rendered initially.
+
+## 8.2.36 - 2024-11-12
+
+- Removed the toastr icon by default.
+
+## 8.2.35 - 2024-11-01
+
+- Fixed: Added `@bigbinary/neeto-datepicker` to peer dependencies.
+
+## 8.2.34 - 2024-11-01
+
+- Updated NeetoDatePicker to accept `getNow` as an optional prop and replaces the `generateConfig.getNow` with the external `getNow` when availabel.
+- set the `getNow` prop with value `dayjs` which will return the current time in the set timezone.
+
+Demo: https://deepak-jose.neetorecord.com/watch/ace8d14e-ca06-42ac-aaa9-affe51287990
+
+## 8.2.32 - 2024-10-24
+
+- The `async` `handleSubmit` will always return a `Promise`, even if the submit handler inside doesn’t return one. This leads to unexpected bugs, as the `Promise` resolves immediately when using the `mutate` function of `useMutation` while the API call might still be in progress.
+- In Formik, if a Promise is returned, it waits for it to resolve before setting isSubmitting to false. In our case, this happens immediately after the button click.
+- Since we weren’t returning the result of the submit handler, it consistently returned a Promise once the handler executed, which caused this behavior.
+
 ## 8.2.31 - 2024-10-17
 
 - Removed: Tailwind utility classes from components.
@@ -166,110 +389,61 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: `--neeto-ui-black` from `#121212` to `#0c111d`.
 - Updated: `--neeto-ui-gray-800` from `#1f1f1f` to `#101828`.
 - Updated: `--neeto-ui-gray-700` from `#2f3941` to `#1d2939`.
-  
 - Updated: `--neeto-ui-gray-600` from `#68737d` to `#344054`.
-  
 - Updated: `--neeto-ui-gray-100` from `#f8f9f9` to `#f6f7f8`.
-  
 - Added: `--neeto-ui-gray-50` - `#fafafa`.
-  
 - Updated: `--neeto-ui-primary-800` from `#2d36d4` to `#006653`.
-  
 - Updated: `--neeto-ui-primary-600` from `#3642df` to `#007a64`.
-  
 - Updated: `--neeto-ui-primary-500` from `#4558f9` to `#008068`.
-  
 - Updated: `--neeto-ui-primary-100` from `#ebecfe` to `#e1f3ee`.
-  
 - Added: `--neeto-ui-primary-50` - `#f0f9f7`.
-  
 - Added: `--neeto-ui-accent-800` - `#095aba`.
-  
 - Added: `--neeto-ui-accent-600` - `#0d66d0`.
-  
 - Added: `--neeto-ui-accent-500` - `#1473e6`.
-  
 - Added: `--neeto-ui-accent-100` - `#e6f4ff`.
-  
 - Added: `--neeto-ui-accent-50` - `#eff8ff`.
-  
 - Updated: `--neeto-ui-success-800` from `#107154` to `#01795d`.
-  
 - Updated: `--neeto-ui-success-600` from `#12805c` to `#018d6d`.
-  
 - Updated: `--neeto-ui-success-500` from `#268e6c` to `#02a27c`.
-  
 - Updated: `--neeto-ui-success-100` from `#e1f3ee` to `#ebfffa`.
-  
-
 ### Dark mode
-
 - Added: `--neeto-ui-gray-50` - `#0a0a0a`.
-  
 - Updated: `--neeto-ui-primary-800` from `#39b990` to `#00f5c8`.
-  
 - Updated: `--neeto-ui-primary-600` from `#33ab84` to `#00e0b7`.
-  
 - Updated: `--neeto-ui-primary-500` from `#2d9d78` to `#00cca7`.
-  
 - Updated: `--neeto-ui-primary-100` from `#175541` to `#003d31`.
-  
 - Added: `--neeto-ui-primary-50` - `#002921`.
-  
 - Added: `--neeto-ui-accent-800` - `#8ebdf5`.
-  
 - Added: `--neeto-ui-accent-600` - `#69a7f2`.
-  
 - Added: `--neeto-ui-accent-500` - `#4390ef`.
-  
 - Added: `--neeto-ui-accent-100` - `#0a3871`.
-  
 - Added: `--neeto-ui-accent-50` - `#07254b`.
-  
 - Updated: `--neeto-ui-success-800` from `#39b990` to `#00f5c8`.
-  
 - Updated: `--neeto-ui-success-600` from `#33ab84` to `#00e0b7`.
-  
 - Updated: `--neeto-ui-success-500` from `#2d9d78` to `#00cca7`.
-  
 - Updated: `--neeto-ui-success-100` from `#175541` to `#003d31`.
-  
 - Updated: `--neeto-ui-info-800` from `#4b9cf5` to `#8ebdf5`.
-  
 - Updated: `--neeto-ui-info-600` from `#378ef0` to `#69a7f2`.
-  
 - Updated: `--neeto-ui-info-500` from `#2680eb` to `#4390ef`.
-  
 - Updated: `--neeto-ui-info-100` from `#0b4589` to `#0a3871`.
-  
-
 ### Utility classes
-
 - Added: Utility classes for the newly added colors.
-
 ### Box shadows
-
 - Updated: `--neeto-ui-shadow-xs` to `rgba(0, 0, 0, 0.1) 0px 2px 1px -1px, rgba(0, 0, 0, 0.07) 0px 1px 1px 0px, rgba(0, 0, 0, 0.05) 0px 1px 3px 0px`.
 - Updated: `--neeto-ui-shadow-sm` to `rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px`.
 - Updated: `--neeto-ui-shadow-md` to `rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, rgba(0, 0, 0, 0.12) 0px 1px 18px 0px`.
 - Updated: `--neeto-ui-shadow-lg` to `rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px`.
-
 ### Component updates
-
 - Updated: Button hover/focus states.
 - Improved: Callout styles.
 - Improved: Table styles.
 - Improved: Toast bg.
 - Updated: Toast button style to tertiary.
 - Updated: Tab border color.
-
 ### Storybook updates
-
 - Updated: Storybook theme to match the branding.
 - Improved: Documentation readability.
-
 ## 6.8.3 - 2024-06-24
-
 - Added option to pass data-cy to accordion
 
 ## 6.8.2 - 2024-06-19
@@ -627,107 +801,60 @@ Added: `rejectCharsRegex` prop to *Input* component.
   parameters for `Table`.
 ## 5.1.5 - 2023-08-08
 - Added: `initialFocusRef` prop to *Alert*
-
 ## 5.1.4 - 2023-08-04
-
 - Fixed: Handled dot paths in *ScrollToErrorField*.
-
 ## 5.1.3 - 2023-08-02
-
 - Fixed: Disabled click in selected option close button if select is disabled.
-
 ## 5.1.2 - 2023-08-02
-
 - FIxed: Updated deprecated CSS property `color-adjust`
-
 ## 5.1.1 - 2023-08-02
-
 - Fixed: issue with onClose in *Dropdown* not getting called on trigger click.
-
 ## 5.1.0 - 2023-08-02
-
 Fixed: Duplicate onSubmit call bug while repeatedly clicking on submit button.
-
 ## 5.0.18 - 2023-08-01
-
 - Fixed: error value output in color picker when the initial value is undefined
-
 ## 5.0.17 - 2023-07-31
-
 Changed: Disabled auto close for error toasters.
-
 ## 5.0.15 - 2023-07-18
-
 - Removed: default empty box image from NoData component.
-
 ## 5.0.14 - 2023-07-12
-
 Fixed warnings in jest tests.
-
 ## 5.0.13 - 2023-06-30
-
 - Added `neeto-commons-frontend` and `neeto-icons` to peer dependencies.
-
 ## 5.0.12 - 2023-06-29
-
 - Changed: Default value of`scrollToErrorField` prop of formik *Form* to false.
-
 ## 5.0.11 - 2023-06-27
-
 - Added: `hasScrollToErrorField` prop to formik *Form* component.
-
 ## 5.0.10 - 2023-06-20
-
 - Removed: condition to disable *FormikButton* when the form is invalid.
-
 ## 5.0.9 - 2023-06-17
-
 - Updated `ramda` version to `^0.29.0` in devDependencies.
 - Updated `eslint-plugin-neeto` version to `^1.0.54` in devDependencies.
 - Updated `neeto-commons-frontend` version to `^2.0.87` in devDependencies.
 - Disabled `no-missing-localization` rule.
-
 ## 5.0.8 - 2023-06-16
-
 - Removed: CSS font smoothing.
 - Updated: neeto language page - added rule for "Archive vs. deactivate"
-
 ## 5.0.7 - 2023-06-11
-
 - Fixed: Misalignment between input and prefix for large screens. Line break in
   prefix when hyphens are added.
-
 ## 5.0.6 - 2023-06-06
-
 - Fixes janky animation in *Pane* when form fields have the `autoFocus` prop.
-
 ## 5.0.5 - 2023-06-05
-
 Added: `optionRemapping` prop to map the label and value properties of `options`
 prop in *Select* component.
-
 ## 5.0.4 - 2023-05-29
-
 - Fixed: Overrided `onChange` function to output empty array if value is null in
   *DatePicker*
-
 ## 5.0.3 - 2023-05-29
-
 - Fixed: the issue of filter invalid emails link for valid emails in
   *MultiEmailInput* component
-
 ## 5.0.2 - 2023-05-23
-
 - Added: `required` prop to *MultiEmailInput*.
-
 ## 5.0.1 - 2023-05-07
-
 - Added: resize and reorder columns functionality to *Table* component.
-
 ## 5.0.0 - 2023-04-28
-
 Removed following components from `neetoui`:
-
 - `Header`
 - `SubHeader`
 - `MenuBar`
@@ -1348,9 +1475,7 @@ Fixed: `TypeError` issue in *Toastr* component.
 - Deprecated: **BREAKING** `loading` prop of *Pane*, *Modal* and *Alert*
   components.
 - Removed: **BREAKING** `placement` prop from *Tooltip* (Use position instead).
-
 #### UI
-
 - Changed: colors of `$neeto-ui-warning` and `$neeto-ui-error` in *Color
   Palette*
 - Changed: the text color in *Table* to `$neeto-ui-black`

@@ -225,8 +225,8 @@ describe("Table", () => {
       "column-menu-button"
     );
     await userEvent.click(menuButton);
-    expect(await screen.findByText("Ascending")).toBeInTheDocument();
-    await userEvent.click(screen.getByText("Ascending"));
+    expect(await screen.findByText("Sort ascending")).toBeInTheDocument();
+    await userEvent.click(screen.getByText("Sort ascending"));
     const queryParams = getQueryParams();
 
     expect(queryParams).toEqual({
@@ -424,6 +424,76 @@ describe("Table", () => {
     expect(setBulkSelectedAllRows).toBeCalledTimes(1);
   });
 
+  it("should show the clear selection callout when all rows are selected", async () => {
+    render(
+      <NeetoUITable
+        {...{ columnData }}
+        rowSelection
+        defaultPageSize={2}
+        rowData={[rowData[0], rowData[1]]}
+        selectedRowKeys={[rowData[0].id, rowData[1].id]}
+        totalCount={rowData.length}
+        bulkSelectAllRowsProps={{
+          setBulkSelectedAllRows: () => {},
+          selectAllRowButtonLabel: "Select all",
+          selectAllRowMessage: "Selected 2 rows in this page",
+        }}
+      />
+    );
+
+    const selectAllRowsBulkButton = screen.getByTestId(
+      "select-all-rows-button"
+    );
+    await userEvent.click(selectAllRowsBulkButton);
+
+    const clearSelectionCallout = screen.getByTestId(
+      "clear-selections-callout"
+    );
+    expect(clearSelectionCallout).toBeInTheDocument();
+  });
+
+  it("should clear the selected rows when clear selection button is clicked", async () => {
+    const NeetoUITableWithWrapper = () => {
+      const [selectedRowKeys, setSelectedRowKeys] = useState([
+        rowData[0].id,
+        rowData[1].id,
+      ]);
+
+      return (
+        <NeetoUITable
+          {...{ columnData, selectedRowKeys }}
+          rowSelection
+          defaultPageSize={2}
+          rowData={[rowData[0], rowData[1]]}
+          totalCount={rowData.length}
+          bulkSelectAllRowsProps={{
+            setBulkSelectedAllRows: () => {},
+            selectAllRowButtonLabel: "Select all",
+            selectAllRowMessage: "Selected 2 rows in this page",
+          }}
+          onRowSelect={setSelectedRowKeys}
+        />
+      );
+    };
+
+    render(<NeetoUITableWithWrapper />);
+
+    const selectAllRowsBulkButton = screen.getByTestId(
+      "select-all-rows-button"
+    );
+    await userEvent.click(selectAllRowsBulkButton);
+
+    const clearSelectionButton = screen.getByTestId("clear-selections-button");
+
+    await userEvent.click(clearSelectionButton);
+
+    const checkboxes = screen.getAllByRole("checkbox");
+
+    checkboxes.forEach(checkbox => {
+      expect(checkbox).not.toBeChecked();
+    });
+  });
+
   it("should show the freeze and unfreeze menu on top of the columns", async () => {
     const NeetoUITableWithWrapper = () => (
       <NeetoUITable
@@ -481,5 +551,49 @@ describe("Table", () => {
     await waitFor(() => {
       expect(firstNameHeader).not.toHaveClass("ant-table-cell-fix-left");
     });
+  });
+
+  it("should preserve column width after resize when pagination changes", async () => {
+    const onColumnUpdate = jest.fn();
+
+    const NeetoUITableWithWrapper = () => {
+      const [page, setPage] = useState(1);
+
+      return (
+        <div>
+          <button
+            data-testid="change-page"
+            onClick={() => setPage(page === 1 ? 2 : 1)}
+          >
+            Change Page
+          </button>
+          <NeetoUITable
+            {...{ columnData, onColumnUpdate, rowData }}
+            enableColumnResize
+            currentPageNumber={page}
+            defaultPageSize={2}
+            totalCount={4}
+          />
+        </div>
+      );
+    };
+
+    render(<NeetoUITableWithWrapper />);
+    // Simulate column resize
+    const resizedColumns = [...columnData];
+    resizedColumns[1] = { ...resizedColumns[1], width: 300 }; // Change First Name width from 150 to 300
+    onColumnUpdate(resizedColumns);
+    expect(onColumnUpdate).toHaveBeenCalledWith(resizedColumns);
+    const pageButton = screen.getByTestId("change-page");
+    await userEvent.click(pageButton);
+
+    expect(onColumnUpdate).toHaveBeenCalledWith(
+      expect.arrayContaining([
+        expect.objectContaining({
+          dataIndex: "first_name",
+          width: 300, // The resized width should be preserved
+        }),
+      ])
+    );
   });
 });

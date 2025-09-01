@@ -1,3 +1,5 @@
+@use "../abstracts/mixins";
+
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   --neeto-ui-pane-spacing: 24px;
 
@@ -25,7 +27,7 @@
   // Body
   --neeto-ui-pane-body-padding-x: var(--neeto-ui-pane-spacing);
   --neeto-ui-pane-body-padding-y: 0px;
-  --neeto-ui-pane-body-height: calc(100vh - var(--neeto-ui-pane-header-height));
+  --neeto-ui-pane-body-height: calc(100dvh - var(--neeto-ui-pane-header-height));
   --neeto-ui-pane-body-font-size: var(--neeto-ui-text-sm);
 
   // Footer
@@ -43,6 +45,7 @@
     top: 0;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     overflow-x: hidden;
     overflow-y: auto;
 
@@ -66,14 +69,17 @@
 
     &--large {
       --neeto-ui-pane-wrapper-width: 50vw;
+      min-width: 600px;
     }
 
-    @include viewport(tab-min) {
-      width: 50%;
+    &--extralarge {
+      --neeto-ui-pane-wrapper-width: 90vw;
+      min-width: 700px;
     }
 
-    @include viewport(mob) {
+    @include mixins.viewport(mob) {
       width: 100%;
+      min-width: 0;
     }
   }
 
@@ -89,7 +95,7 @@
   }
 
   &__body {
-    --neeto-ui-pane-body-height: calc(100vh - var(--neeto-ui-pane-header-height));
+    --neeto-ui-pane-body-height: calc(100dvh - var(--neeto-ui-pane-header-height));
     width: 100%;
     height: var(--neeto-ui-pane-body-height);
     padding: var(--neeto-ui-pane-body-padding-y) var(--neeto-ui-pane-body-padding-x);
@@ -98,8 +104,16 @@
 
     &.neeto-ui-pane__body--has-footer {
       --neeto-ui-pane-body-height: calc(
-        100vh - var(--neeto-ui-pane-header-height) -
+        100dvh - var(--neeto-ui-pane-header-height) -
           var(--neeto-ui-pane-footer-height));
+
+      /* Apply dvh if supported */
+      @supports (height: 100dvh) {
+        --neeto-ui-pane-body-height: calc(
+          100dvh - var(--neeto-ui-pane-header-height) -
+            var(--neeto-ui-pane-footer-height)
+        );
+      }
     }
   }
 
