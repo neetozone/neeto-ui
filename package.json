@@ -201,7 +201,7 @@
   "peerDependencies": {
     "@babel/runtime": "7.19.0",
     "@bigbinary/neeto-cist": "1.0.3",
-    "@bigbinary/neeto-commons-frontend": "latest",
+    "@bigbinary/neeto-commons-frontend": "*",
     "@bigbinary/neeto-datepicker": "^1.0.4",
     "@bigbinary/neeto-hotkeys": "1.0.4",
     "@bigbinary/neeto-icons": "^1.9.22",
@@ -230,15 +230,6 @@
     "tippy.js": "6.3.7",
     "yup": "0.32.11",
     "zustand": "4.3.2"
-  },
-  "resolutions": {
-    "@storybook/addon-essentials/**/glob-parent": "5.1.2",
-    "@storybook/builder-webpack5/**/glob-parent": "5.1.2",
-    "@storybook/react/**/glob-parent": "5.1.2",
-    "**/trim": "0.0.3",
-    "tailwindcss/**/postcss": "7.0.36",
-    "cssnano/**/nth-check": "2.0.1",
-    "rc-picker": "@bigbinary/neeto-datepicker"
   },
   "directories": {
     "src": "src"

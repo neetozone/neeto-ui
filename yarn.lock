@@ -1899,15 +1899,15 @@ __metadata:
   linkType: hard
 
 "@bigbinary/eslint-plugin-neeto@npm:^1.1.30":
-  version: 1.7.3
-  resolution: "@bigbinary/eslint-plugin-neeto@npm:1.7.3"
+  version: 1.7.4
+  resolution: "@bigbinary/eslint-plugin-neeto@npm:1.7.4"
   peerDependencies:
     "@bigbinary/neeto-cist": ^1.0.3
     "@bigbinary/neeto-commons-frontend": 4.13.38
     eslint: ^9.25.1
     i18next: 21.7.0
     ramda: 0.29.0
-  checksum: 10c0/2b47eb87d104808a8f9b2a5c90138b30c1a8ef282b1c29b0f83538cebf6b239f3b1aaf77a422ae98b984908db113ed0d24dc89a8c5e0c937cbcba2a2dbe10b53
+  checksum: 10c0/b7a25cde1a18766b2b2f6778ef57b95e2434f4493f588bef76aa331cd0e9bfa52a4758881ea6d00a612cb9733d3e9e18f8d794897a63c0acf9541d1a34a35188
   languageName: node
   linkType: hard
 
@@ -2027,6 +2027,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@bigbinary/neeto-datepicker@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "@bigbinary/neeto-datepicker@npm:1.0.4"
+  dependencies:
+    "@babel/runtime": "npm:^7.24.7"
+    "@rc-component/trigger": "npm:^2.0.0"
+    classnames: "npm:^2.2.1"
+    rc-overflow: "npm:^1.3.2"
+    rc-resize-observer: "npm:^1.4.0"
+    rc-util: "npm:^5.43.0"
+  peerDependencies:
+    date-fns: ">= 2.x"
+    dayjs: ">= 1.x"
+    luxon: ">= 3.x"
+    moment: ">= 2.x"
+    react: ">=16.9.0"
+    react-dom: ">=16.9.0"
+  peerDependenciesMeta:
+    date-fns:
+      optional: true
+    dayjs:
+      optional: true
+    luxon:
+      optional: true
+    moment:
+      optional: true
+  checksum: 10c0/ea7c3bca70ff0c8879408fabb54d7730ff64f3268b69619bb53f9e5e9d567361c6d69de2d2a08e1e9b4303f8f307c10e2392474d88a55b0496f474b3c49233b7
+  languageName: node
+  linkType: hard
+
 "@bigbinary/neeto-hotkeys@npm:1.0.4":
   version: 1.0.4
   resolution: "@bigbinary/neeto-hotkeys@npm:1.0.4"
@@ -2039,7 +2069,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bigbinary/neeto-icons@npm:^1.9.22":
+"@bigbinary/neeto-icons@npm:^1.20.27":
   version: 1.20.55
   resolution: "@bigbinary/neeto-icons@npm:1.20.55"
   peerDependencies:
@@ -2064,8 +2094,9 @@ __metadata:
     "@bigbinary/eslint-plugin-neeto": "npm:^1.1.30"
     "@bigbinary/neeto-cist": "npm:1.0.3"
     "@bigbinary/neeto-commons-frontend": "npm:^3.0.10"
+    "@bigbinary/neeto-datepicker": "npm:^1.0.4"
     "@bigbinary/neeto-hotkeys": "npm:1.0.4"
-    "@bigbinary/neeto-icons": "npm:^1.9.22"
+    "@bigbinary/neeto-icons": "npm:^1.20.27"
     "@reach/auto-id": "npm:0.15.0"
     "@rollup/plugin-alias": "npm:^5.1.1"
     "@rollup/plugin-babel": "npm:^6.0.4"
@@ -2121,6 +2152,7 @@ __metadata:
     express: "npm:^4.18.2"
     formik: "npm:2.2.0"
     framer-motion: "npm:11.2.14"
+    globby: "npm:^14.1.0"
     husky: "npm:7.0.1"
     i18next: "npm:21.7.0"
     identity-obj-proxy: "npm:3.0.0"
@@ -2173,7 +2205,8 @@ __metadata:
   peerDependencies:
     "@babel/runtime": 7.19.0
     "@bigbinary/neeto-cist": 1.0.3
-    "@bigbinary/neeto-commons-frontend": ^3.0.10
+    "@bigbinary/neeto-commons-frontend": "*"
+    "@bigbinary/neeto-datepicker": ^1.0.4
     "@bigbinary/neeto-hotkeys": 1.0.4
     "@bigbinary/neeto-icons": ^1.9.22
     "@tippyjs/react": 4.2.6
@@ -2420,6 +2453,15 @@ __metadata:
   version: 0.9.2
   resolution: "@emotion/hash@npm:0.9.2"
   checksum: 10c0/0dc254561a3cc0a06a10bbce7f6a997883fd240c8c1928b93713f803a2e9153a257a488537012efe89dbe1246f2abfe2add62cdb3471a13d67137fcb808e81c2
+  languageName: node
+  linkType: hard
+
+"@emotion/is-prop-valid@npm:*":
+  version: 1.3.1
+  resolution: "@emotion/is-prop-valid@npm:1.3.1"
+  dependencies:
+    "@emotion/memoize": "npm:^0.9.0"
+  checksum: 10c0/123215540c816ff510737ec68dcc499c53ea4deb0bb6c2c27c03ed21046e2e69f6ad07a7a174d271c6cfcbcc9ea44e1763e0cf3875c92192f7689216174803cd
   languageName: node
   linkType: hard
 
@@ -3680,6 +3722,13 @@ __metadata:
   version: 0.34.41
   resolution: "@sinclair/typebox@npm:0.34.41"
   checksum: 10c0/0fb61fc2f90c25e30b19b0096eb8ab3ccef401d3e2acfce42168ff0ee877ba5981c8243fa6b1035ac756cde95316724e978b2837dd642d7e4e095de03a999c90
+  languageName: node
+  linkType: hard
+
+"@sindresorhus/merge-streams@npm:^2.1.0":
+  version: 2.3.0
+  resolution: "@sindresorhus/merge-streams@npm:2.3.0"
+  checksum: 10c0/69ee906f3125fb2c6bb6ec5cdd84e8827d93b49b3892bce8b62267116cc7e197b5cccf20c160a1d32c26014ecd14470a72a5e3ee37a58f1d6dadc0db1ccf3894
   languageName: node
   linkType: hard
 
@@ -8385,7 +8434,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.0.3, fast-glob@npm:^3.3.2":
+"fast-glob@npm:^3.0.3, fast-glob@npm:^3.3.2, fast-glob@npm:^3.3.3":
   version: 3.3.3
   resolution: "fast-glob@npm:3.3.3"
   dependencies:
@@ -8946,6 +8995,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"globby@npm:^14.1.0":
+  version: 14.1.0
+  resolution: "globby@npm:14.1.0"
+  dependencies:
+    "@sindresorhus/merge-streams": "npm:^2.1.0"
+    fast-glob: "npm:^3.3.3"
+    ignore: "npm:^7.0.3"
+    path-type: "npm:^6.0.0"
+    slash: "npm:^5.1.0"
+    unicorn-magic: "npm:^0.3.0"
+  checksum: 10c0/527a1063c5958255969620c6fa4444a2b2e9278caddd571d46dfbfa307cb15977afb746e84d682ba5b6c94fc081e8997f80ff05dd235441ba1cb16f86153e58e
+  languageName: node
+  linkType: hard
+
 "goober@npm:^2.1.8":
   version: 2.1.16
   resolution: "goober@npm:2.1.16"
@@ -9326,6 +9389,13 @@ __metadata:
   version: 5.3.2
   resolution: "ignore@npm:5.3.2"
   checksum: 10c0/f9f652c957983634ded1e7f02da3b559a0d4cc210fca3792cb67f1b153623c9c42efdc1c4121af171e295444459fc4a9201101fb041b1104a3c000bccb188337
+  languageName: node
+  linkType: hard
+
+"ignore@npm:^7.0.3":
+  version: 7.0.5
+  resolution: "ignore@npm:7.0.5"
+  checksum: 10c0/ae00db89fe873064a093b8999fe4cc284b13ef2a178636211842cceb650b9c3e390d3339191acb145d81ed5379d2074840cf0c33a20bdbd6f32821f79eb4ad5d
   languageName: node
   linkType: hard
 
@@ -11626,6 +11696,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nth-check@npm:2.0.1":
+  version: 2.0.1
+  resolution: "nth-check@npm:2.0.1"
+  dependencies:
+    boolbase: "npm:^1.0.0"
+  checksum: 10c0/ff003b22f1119b2f3a67820b4f11c7e512a612ae4a1cf2591461904e6c443c391477b14910b4778db844ab19b95567b6d01d3337f691156c0f40649c43ca2229
+  languageName: node
+  linkType: hard
+
 "nth-check@npm:^1.0.2":
   version: 1.0.2
   resolution: "nth-check@npm:1.0.2"
@@ -12064,6 +12143,13 @@ __metadata:
   version: 4.0.0
   resolution: "path-type@npm:4.0.0"
   checksum: 10c0/666f6973f332f27581371efaf303fd6c272cc43c2057b37aa99e3643158c7e4b2626549555d88626e99ea9e046f82f32e41bbde5f1508547e9a11b149b52387c
+  languageName: node
+  linkType: hard
+
+"path-type@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "path-type@npm:6.0.0"
+  checksum: 10c0/55baa8b1187d6dc683d5a9cfcc866168d6adff58e5db91126795376d818eee46391e00b2a4d53e44d844c7524a7d96aa68cc68f4f3e500d3d069a39e6535481c
   languageName: node
   linkType: hard
 
@@ -14098,7 +14184,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rc-util@npm:^5.0.1, rc-util@npm:^5.16.1, rc-util@npm:^5.17.0, rc-util@npm:^5.18.1, rc-util@npm:^5.2.0, rc-util@npm:^5.20.1, rc-util@npm:^5.21.0, rc-util@npm:^5.24.4, rc-util@npm:^5.25.2, rc-util@npm:^5.27.0, rc-util@npm:^5.28.0, rc-util@npm:^5.30.0, rc-util@npm:^5.31.1, rc-util@npm:^5.32.2, rc-util@npm:^5.34.1, rc-util@npm:^5.35.0, rc-util@npm:^5.36.0, rc-util@npm:^5.37.0, rc-util@npm:^5.38.0, rc-util@npm:^5.38.1, rc-util@npm:^5.39.1, rc-util@npm:^5.44.0, rc-util@npm:^5.44.1":
+"rc-util@npm:^5.0.1, rc-util@npm:^5.16.1, rc-util@npm:^5.17.0, rc-util@npm:^5.18.1, rc-util@npm:^5.2.0, rc-util@npm:^5.20.1, rc-util@npm:^5.21.0, rc-util@npm:^5.24.4, rc-util@npm:^5.25.2, rc-util@npm:^5.27.0, rc-util@npm:^5.28.0, rc-util@npm:^5.30.0, rc-util@npm:^5.31.1, rc-util@npm:^5.32.2, rc-util@npm:^5.34.1, rc-util@npm:^5.35.0, rc-util@npm:^5.36.0, rc-util@npm:^5.37.0, rc-util@npm:^5.38.0, rc-util@npm:^5.38.1, rc-util@npm:^5.39.1, rc-util@npm:^5.43.0, rc-util@npm:^5.44.0, rc-util@npm:^5.44.1":
   version: 5.44.4
   resolution: "rc-util@npm:5.44.4"
   dependencies:
@@ -15381,6 +15467,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"slash@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "slash@npm:5.1.0"
+  checksum: 10c0/eb48b815caf0bdc390d0519d41b9e0556a14380f6799c72ba35caf03544d501d18befdeeef074bc9c052acf69654bc9e0d79d7f1de0866284137a40805299eb3
+  languageName: node
+  linkType: hard
+
 "slice-ansi@npm:^3.0.0":
   version: 3.0.0
   resolution: "slice-ansi@npm:3.0.0"
@@ -16458,6 +16551,13 @@ __metadata:
   version: 0.1.0
   resolution: "unicorn-magic@npm:0.1.0"
   checksum: 10c0/e4ed0de05b0a05e735c7d8a2930881e5efcfc3ec897204d5d33e7e6247f4c31eac92e383a15d9a6bccb7319b4271ee4bea946e211bf14951fec6ff2cbbb66a92
+  languageName: node
+  linkType: hard
+
+"unicorn-magic@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "unicorn-magic@npm:0.3.0"
+  checksum: 10c0/0a32a997d6c15f1c2a077a15b1c4ca6f268d574cf5b8975e778bb98e6f8db4ef4e86dfcae4e158cd4c7e38fb4dd383b93b13eefddc7f178dea13d3ac8a603271
   languageName: node
   linkType: hard
 
