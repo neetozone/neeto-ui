@@ -39,3 +39,12 @@
 
 #logs
 /*.log
+
+# Yarn v4+ files
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
