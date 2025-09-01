@@ -2077,7 +2077,7 @@ __metadata:
     "@testing-library/jest-dom": "npm:5.16.2"
     "@testing-library/react": "npm:^14.0.0"
     "@testing-library/user-event": "npm:^14.5.1"
-    "@tippyjs/react": "npm:4.2.5"
+    "@tippyjs/react": "npm:4.2.6"
     "@wojtekmaj/react-timerange-picker": "npm:^5.5.0"
     antd: "npm:5.16.0"
     autoprefixer: "npm:10.4.20"
@@ -2162,6 +2162,7 @@ __metadata:
     style-loader: "npm:1.2.1"
     tailwindcss: "npm:^3.4.1"
     tinycolor2: "npm:^1.4.2"
+    tippy.js: "npm:6.3.7"
     use-eye-dropper: "npm:^1.4.3"
     yup: "npm:0.32.11"
     zustand: "npm:4.3.2"
@@ -2171,7 +2172,7 @@ __metadata:
     "@bigbinary/neeto-commons-frontend": ^3.0.10
     "@bigbinary/neeto-hotkeys": 1.0.4
     "@bigbinary/neeto-icons": ^1.9.22
-    "@tippyjs/react": 4.2.5
+    "@tippyjs/react": 4.2.6
     "@wojtekmaj/react-timerange-picker": ^5.5.0
     antd: 5.16.0
     avvvatars-react: ^0.4.2
@@ -4325,15 +4326,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tippyjs/react@npm:4.2.5":
-  version: 4.2.5
-  resolution: "@tippyjs/react@npm:4.2.5"
+"@tippyjs/react@npm:4.2.6":
+  version: 4.2.6
+  resolution: "@tippyjs/react@npm:4.2.6"
   dependencies:
     tippy.js: "npm:^6.3.1"
   peerDependencies:
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: 10c0/3607194d134a8d95a3cbeb73c7319487047cfa0f7257e2b0b8f234771c3e919d623ff928439a5be63e702831d9763b59c5bb85cda9ed307f33b19b24e9876c4c
+  checksum: 10c0/b174f2fbd27c16c5a8554ee8b26f3cc61bc37507669a1cef3e3333bfb3db85c84a57a93003c972ede8007786cf0e813d489781aa9caf46fb3bf1b851e3f4daba
   languageName: node
   linkType: hard
 
@@ -16252,7 +16253,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tippy.js@npm:^6.3.1":
+"tippy.js@npm:6.3.7, tippy.js@npm:^6.3.1":
   version: 6.3.7
   resolution: "tippy.js@npm:6.3.7"
   dependencies:
