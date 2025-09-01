@@ -51,7 +51,7 @@ export const lineHeightHelpers = [
     name: "$neeto-ui-leading-loose",
     value: "loose",
     compiledValue: "loose",
-  }
+  },
 ];
 
 <table className="table-auto">
@@ -64,29 +64,30 @@ export const lineHeightHelpers = [
     </tr>
   </thead>
   <tbody>
-    {lineHeightHelpers.map((helper) => {
+    {lineHeightHelpers.map(helper => {
       return (
         <tr key={helper.name}>
           <td className="neeto-ui-bg-gray-800 p-2">
             <div className="p-6">
               <div
-                className={`w-46 h-18 flex items-center justify-center p-3 rounded-sm neeto-ui-text-black neeto-ui-bg-white ${helper.name.replace(
+                className={`w-46 h-18 neeto-ui-text-black neeto-ui-bg-white flex items-center justify-center rounded-sm p-3 ${helper.name.replace(
                   "$neeto-ui",
                   "neeto-ui"
                 )}`}
               >
-                Lorem Ipsum is simply<br />
-                dummy textof the<br />
-                printing and typesetting<br />
+                Lorem Ipsum is simply
+                <br />
+                dummy textof the
+                <br />
+                printing and typesetting
+                <br />
                 industry
               </div>
             </div>
           </td>
           <td className="border p-2">
             <div className="p-6">
-              <div>
-                {helper.compiledValue}
-              </div>
+              <div>{helper.compiledValue}</div>
             </div>
           </td>
           <td className="border p-2">

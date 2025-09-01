@@ -78,13 +78,13 @@ export const textTransform = [
     </tr>
   </thead>
   <tbody>
-    {textTransform.map((transform) => {
+    {textTransform.map(transform => {
       return (
         <tr key={transform.name}>
           <td className="neeto-ui-bg-gray-800 p-2">
             <div className="p-6">
               <div
-                className={`w-36 h-12 flex items-center justify-center rounded-sm neeto-ui-text-black neeto-ui-bg-white ${transform.name.replace(
+                className={`neeto-ui-text-black neeto-ui-bg-white flex h-12 w-36 items-center justify-center rounded-sm ${transform.name.replace(
                   "$neeto-ui",
                   "neeto-ui"
                 )}`}
@@ -94,11 +94,17 @@ export const textTransform = [
             </div>
           </td>
           <td className="border p-2">
-            <code>{`${transform.name.replace("$neeto-ui", "--neeto-ui")}`}</code>
+            <code>{`${transform.name.replace(
+              "$neeto-ui",
+              "--neeto-ui"
+            )}`}</code>
           </td>
           <td className="border p-2">
             <div className="flex justify-between">
-              <code>{`${transform.name.replace("$neeto-ui", "neeto-ui")}`}</code>
+              <code>{`${transform.name.replace(
+                "$neeto-ui",
+                "neeto-ui"
+              )}`}</code>
             </div>
           </td>
         </tr>

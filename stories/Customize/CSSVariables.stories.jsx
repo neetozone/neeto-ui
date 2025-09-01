@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useDarkMode } from "storybook-dark-mode";
+import { useDarkMode } from "@vueless/storybook-dark-mode";
 
 import ButtonCustomizationComp from "./ButtonCustomization";
 import CustomizeNeetoUIComp from "./CustomizeNeetoUI";
@@ -249,7 +249,7 @@ To enable the dark mode for the product, apply the
 
 #### Toggling dark mode in Storybook
 
-\`storybook-dark-mode\` addon is used to toggle between dark and light mode in
+\`@vueless/storybook-dark-mode\` addon is used to toggle between dark and light mode in
 Storybook.
 `;
 ToggleDarkMode.storyName = "Toggling dark mode in a neeto product";

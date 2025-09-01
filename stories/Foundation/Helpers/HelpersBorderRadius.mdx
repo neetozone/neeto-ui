@@ -67,13 +67,13 @@ export const borderRadius = [
     </tr>
   </thead>
   <tbody>
-    {borderRadius.map((radius) => {
+    {borderRadius.map(radius => {
       return (
         <tr key={radius.name}>
           <td className="neeto-ui-bg-gray-800">
             <div className="p-6">
               <div
-                className={`w-20 h-20 flex items-center justify-center neeto-ui-bg-white neeto-ui-text-black ${radius.name.replace(
+                className={`neeto-ui-bg-white neeto-ui-text-black flex h-20 w-20 items-center justify-center ${radius.name.replace(
                   "$neeto-ui",
                   "neeto-ui"
                 )}`}

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useDarkMode } from "storybook-dark-mode";
+import { useDarkMode } from "@vueless/storybook-dark-mode";
 
 import ColorDisplay from "./ColorDisplay";
 

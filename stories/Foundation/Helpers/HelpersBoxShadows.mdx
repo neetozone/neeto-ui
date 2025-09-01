@@ -3,8 +3,10 @@ import { Meta, Story } from "@storybook/blocks";
 export const boxShadows = [
   {
     name: "$neeto-ui-shadow-xs",
-    value: "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px",
-    compiledValue: "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px",
+    value:
+      "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px",
+    compiledValue:
+      "rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px",
   },
   {
     name: "$neeto-ui-shadow-sm",
@@ -59,13 +61,13 @@ export const boxShadows = [
     </tr>
   </thead>
   <tbody>
-    {boxShadows.map((shadow) => {
+    {boxShadows.map(shadow => {
       return (
         <tr key={shadow.name}>
           <td>
             <div className="p-6">
               <div
-                className={`w-20 h-20 border bg-white ${shadow.name.replace(
+                className={`h-20 w-20 border bg-white ${shadow.name.replace(
                   "$neeto-ui",
                   "neeto-ui"
                 )}`}
