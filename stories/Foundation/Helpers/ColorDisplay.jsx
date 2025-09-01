@@ -1,7 +1,7 @@
 import React from "react";
 
 import ColorGraphic from "../../assets/images/color-graphic.png";
-import { colorPaletteList, getColorPaletteList } from "../ColorPalette.js";
+import { colorPaletteList, getColorPaletteList } from "../ColorPalette";
 
 const ColorPaletteTable = ({ theme }) => (
   <table className="story-demo-table">

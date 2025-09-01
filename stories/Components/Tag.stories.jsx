@@ -11,15 +11,6 @@ const description = `
 user interface.
 `;
 
-const DEPRECATED_PROPS = {
-  color: { table: { type: { summary: null } }, control: false },
-
-  indicatorColor: {
-    table: { type: { summary: null } },
-    control: false,
-  },
-};
-
 const metadata = {
   title: "Components/Tag",
   component: Tag,
