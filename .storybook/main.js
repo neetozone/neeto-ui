@@ -9,15 +9,8 @@ const rootResolve = mergeDeepLeft(projectResolve, commonResolve);
 
 const config = {
   staticDirs: ["./public"],
-
   stories: ["../stories/**/*.mdx", "../stories/**/*.stories.@(js|jsx|ts|tsx)"],
-
-  addons: [
-    "@storybook/addon-essentials",
-    "@storybook/preset-scss",
-    "@storybook/addon-docs",
-    "storybook-dark-mode",
-  ],
+  addons: ["@storybook/preset-scss", "@storybook/addon-docs", "@vueless/storybook-dark-mode"],
 
   webpackFinal: async config => {
     config.module.rules.push({
@@ -59,11 +52,7 @@ const config = {
   framework: {
     name: "@storybook/react-webpack5",
     options: {},
-  },
-
-  docs: {
-    autodocs: true,
-  },
+  }
 };
 
 export default config;
