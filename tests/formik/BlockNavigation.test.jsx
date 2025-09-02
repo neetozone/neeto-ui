@@ -57,6 +57,16 @@ const TestBlockNavigation = ({ isDirty }) => (
 );
 
 describe("formik/BlockNavigation", () => {
+  let consoleSpy;
+
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
+  });
+
   beforeEach(() => {
     jest.clearAllMocks();
   });

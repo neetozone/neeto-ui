@@ -6,6 +6,16 @@ import userEvent from "@testing-library/user-event";
 import { Pane, Typography, Button } from "components";
 
 describe("Pane", () => {
+  let consoleSpy;
+
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
+  });
+
   it("should render without error", async () => {
     render(
       <Pane isOpen>

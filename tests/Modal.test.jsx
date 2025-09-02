@@ -6,6 +6,16 @@ import userEvent from "@testing-library/user-event";
 import { Modal, Typography, Button } from "components";
 
 describe("Modal", () => {
+  let consoleSpy;
+
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
+  });
+
   it("should render without error", () => {
     const { getByText } = render(
       <Modal isOpen>
