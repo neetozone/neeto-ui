@@ -104,7 +104,10 @@ const DatePicker = forwardRef(
     };
 
     const handleOnCalendarChange = date => {
-      if (!date) return;
+      if (type === "range" || !date) {
+        return;
+      }
+
       const allowed = getAllowedValue(getTimezoneAppliedDateTime(date));
       setValue(allowed);
     };
