@@ -177,6 +177,6 @@ describe("formik/BlockNavigation", () => {
 
     await waitFor(() => expect(submitButton).not.toBeInTheDocument());
     expect(screen.queryByText(/Home page/i)).not.toBeInTheDocument();
-    expect(mockSubmit).not.toBeCalled();
+    expect(mockSubmit).not.toHaveBeenCalled();
   });
 });

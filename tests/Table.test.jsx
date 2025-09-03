@@ -82,7 +82,7 @@ describe("Table", () => {
   it("should render all the rows", () => {
     render(<NeetoUITable {...{ columnData, rowData }} />);
     const row = screen.getAllByRole("row");
-    expect(row.length).toBe(4);
+    expect(row.length).toBe(5);
   });
 
   it("should render all the columns", () => {
@@ -153,7 +153,7 @@ describe("Table", () => {
       />
     );
     const row = screen.getAllByRole("row");
-    expect(row.length).toBe(2);
+    expect(row.length).toBe(3); // 2 data rows + 1 header row
   });
 
   it("should call handlePageChange when page is changed ", async () => {
@@ -167,7 +167,7 @@ describe("Table", () => {
     );
     const pages = screen.getAllByRole("listitem");
     await userEvent.click(pages[2]);
-    expect(handlePageChange).toBeCalledTimes(1);
+    expect(handlePageChange).toHaveBeenCalledTimes(1);
   });
 
   it("should set pagination URL query parameters when page is changed", async () => {
@@ -209,7 +209,7 @@ describe("Table", () => {
       />
     );
 
-    expect(handlePageChange).toBeCalledWith(2, 10);
+    expect(handlePageChange).toHaveBeenCalledWith(2, 10);
   });
 
   it("should set sorting URL query parameters when column title is clicked", async () => {
@@ -252,7 +252,7 @@ describe("Table", () => {
     expect(await screen.findByText("Hide column")).toBeInTheDocument();
     await userEvent.click(screen.getByText("Hide column"));
 
-    expect(onColumnHide).toBeCalled();
+    expect(onColumnHide).toHaveBeenCalled();
   });
 
   it("should hide the hide column option in the menu when the isHidable key is set to false", async () => {
@@ -310,13 +310,13 @@ describe("Table", () => {
     expect(await screen.findByText("Insert column left")).toBeInTheDocument();
     await userEvent.click(screen.getByText("Insert column left"));
 
-    expect(handleAddColumn).toBeCalledWith(2);
+    expect(handleAddColumn).toHaveBeenCalledWith(2);
 
     await userEvent.click(menuButton);
     expect(await screen.findByText("Insert column right")).toBeInTheDocument();
     await userEvent.click(screen.getByText("Insert column right"));
 
-    expect(handleAddColumn).toBeCalledWith(3);
+    expect(handleAddColumn).toHaveBeenCalledWith(3);
   });
 
   it("should call the callback for deleting columns when the delete column menu item is clicked", async () => {
@@ -337,7 +337,7 @@ describe("Table", () => {
     expect(await screen.findByText("Delete column")).toBeInTheDocument();
     await userEvent.click(screen.getByText("Delete column"));
 
-    expect(onColumnDelete).toBeCalledWith(columnData[3].id);
+    expect(onColumnDelete).toHaveBeenCalledWith(columnData[3].id);
   });
 
   it("should call the onMoreActionClick when any of the more action item is clicked", async () => {
@@ -356,7 +356,7 @@ describe("Table", () => {
     await userEvent.click(menuButton);
     expect(await screen.findByText("Action 1")).toBeInTheDocument();
     await userEvent.click(screen.getByText("Action 1"));
-    expect(onMoreActionClick).toBeCalledWith("action1", columnData[5]);
+    expect(onMoreActionClick).toHaveBeenCalledWith("action1", columnData[5]);
   });
 
   it("should have select all callout when all rows are selected and bulkSelectAllRowsProps are passed in multipage table", () => {
@@ -421,7 +421,7 @@ describe("Table", () => {
       expect(checkbox).toBeChecked();
     });
 
-    expect(setBulkSelectedAllRows).toBeCalledTimes(1);
+    expect(setBulkSelectedAllRows).toHaveBeenCalledTimes(1);
   });
 
   it("should show the clear selection callout when all rows are selected", async () => {

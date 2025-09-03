@@ -1,6 +1,12 @@
 import React from "react";
 
-import { render, screen, waitFor } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitFor,
+  fireEvent,
+  act,
+} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Formik, Form } from "formik";
 import * as yup from "yup";
@@ -51,17 +57,28 @@ describe("Slider", () => {
     await userEvent.click(screen.getByText("Submit"));
     expect(await screen.findByText(serverErrorMessage)).toBeVisible();
 
-    const { left, top } = slider.getBoundingClientRect();
-    const targetPosition = left + 1;
+    const sliderContainer = slider.closest(".ant-slider");
+    await act(async () => {
+      const changeEvent = new MouseEvent("mousedown", { bubbles: true });
+      Object.defineProperty(changeEvent, "target", {
+        writable: false,
+        value: slider,
+      });
+      fireEvent(sliderContainer, changeEvent);
 
-    const pointerType = "mouse",
-      keys = "[MouseLeft>]",
-      target = slider;
+      // Simulate mouse move to trigger value change
+      const moveEvent = new MouseEvent("mousemove", {
+        bubbles: true,
+        clientX: slider.getBoundingClientRect().left + 20,
+      });
+      fireEvent(sliderContainer, moveEvent);
 
-    await userEvent.pointer([
-      { target, coords: { x: left, y: top }, pointerType, keys },
-      { coords: { x: targetPosition, y: top }, pointerType, keys },
-    ]);
-    expect(screen.queryByText(serverErrorMessage)).not.toBeInTheDocument();
+      // Simulate mouse up to complete the interaction
+      const upEvent = new MouseEvent("mouseup", { bubbles: true });
+      fireEvent(sliderContainer, upEvent);
+    });
+    await waitFor(() =>
+      expect(screen.queryByText(serverErrorMessage)).not.toBeInTheDocument()
+    );
   });
 });
