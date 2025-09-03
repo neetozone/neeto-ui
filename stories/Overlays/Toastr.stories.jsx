@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 
+import { showThumbsUpToastr } from "neetocommons/utils";
 import { ToastContainer } from "react-toastify";
 
 import Button from "components/Button";
@@ -79,12 +80,7 @@ const Toastrs = ({}) => {
               )
             }
           />
-          <Button
-            label="👍"
-            onClick={() =>
-              Toastr.success("", { icon: "👍", className: "w-20" })
-            }
-          />
+          <Button label="👍" onClick={() => showThumbsUpToastr()} />
         </div>
       </div>
     </>
@@ -207,12 +203,7 @@ const CSSCustomization = () => {
               )
             }
           />
-          <Button
-            label="Custom 👍"
-            onClick={() =>
-              Toastr.success("", { icon: "👍", className: "w-20" })
-            }
-          />
+          <Button label="Custom 👍" onClick={() => showThumbsUpToastr()} />
         </div>
       </div>
     </>

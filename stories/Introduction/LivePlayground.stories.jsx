@@ -16,7 +16,7 @@ const LivePlayground = () => {
   return (
     <div className="flex h-full flex-col">
       <div
-        className="min-h-96 m-4 mt-0 flex-grow overflow-y-auto border-2 p-4"
+        className="m-4 mt-0 min-h-96 flex-grow overflow-y-auto border-2 p-4"
         style={{ minHeight: "300px" }}
       >
         <LiveProvider

@@ -58,7 +58,7 @@ describe("Slider", () => {
     expect(await screen.findByText(serverErrorMessage)).toBeVisible();
 
     const sliderContainer = slider.closest(".ant-slider");
-    await act(async () => {
+    await act(() => {
       const changeEvent = new MouseEvent("mousedown", { bubbles: true });
       Object.defineProperty(changeEvent, "target", {
         writable: false,
@@ -77,6 +77,7 @@ describe("Slider", () => {
       const upEvent = new MouseEvent("mouseup", { bubbles: true });
       fireEvent(sliderContainer, upEvent);
     });
+
     await waitFor(() =>
       expect(screen.queryByText(serverErrorMessage)).not.toBeInTheDocument()
     );

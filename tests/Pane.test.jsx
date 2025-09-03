@@ -75,7 +75,7 @@ describe("Pane", () => {
   it("should trigger onClose when close button is clicked", async () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
-      <Pane isOpen onClose={onClose}>
+      <Pane {...{ onClose }} isOpen>
         <Pane.Body>Pane body</Pane.Body>
       </Pane>
     );
@@ -86,7 +86,7 @@ describe("Pane", () => {
   it("should close the pane when Esc key is pressed", async () => {
     const onClose = jest.fn();
     const { getByRole } = render(
-      <Pane isOpen onClose={onClose}>
+      <Pane {...{ onClose }} isOpen>
         <Pane.Body>Pane body</Pane.Body>
       </Pane>
     );
@@ -98,7 +98,7 @@ describe("Pane", () => {
   it("should not close the pane when Esc key is pressed when closeOnEsc is false", async () => {
     const onClose = jest.fn();
     const { container } = render(
-      <Pane isOpen closeOnEsc={false} onClose={onClose}>
+      <Pane {...{ onClose }} isOpen closeOnEsc={false}>
         <Pane.Body>Pane body</Pane.Body>
       </Pane>
     );
@@ -109,7 +109,7 @@ describe("Pane", () => {
   it("should close pane on clicking outside", async () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
-      <Pane closeOnOutsideClick isOpen onClose={onClose}>
+      <Pane {...{ onClose }} closeOnOutsideClick isOpen>
         <Pane.Body>Pane body</Pane.Body>
       </Pane>
     );
@@ -145,7 +145,7 @@ describe("Pane", () => {
   it("should not close pane on clicking outside when closeOnOutsideClick is false", async () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
-      <Pane isOpen closeOnOutsideClick={false} onClose={onClose}>
+      <Pane {...{ onClose }} isOpen closeOnOutsideClick={false}>
         <Pane.Body>Pane body</Pane.Body>
       </Pane>
     );

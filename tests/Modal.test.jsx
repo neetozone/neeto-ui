@@ -74,7 +74,7 @@ describe("Modal", () => {
   it("should trigger onClose on close button is clicked", async () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
-      <Modal isOpen onClose={onClose}>
+      <Modal {...{ onClose }} isOpen>
         <Modal.Body>Sample text</Modal.Body>
       </Modal>
     );
@@ -85,7 +85,7 @@ describe("Modal", () => {
   it("should close the modal when Esc key is pressed", async () => {
     const onClose = jest.fn();
     const { getByRole } = render(
-      <Modal isOpen onClose={onClose}>
+      <Modal {...{ onClose }} isOpen>
         <Modal.Body>Sample text</Modal.Body>
       </Modal>
     );
@@ -98,7 +98,7 @@ describe("Modal", () => {
   it("should not close the modal when Esc key is pressed when closeOnEsc is false", async () => {
     const onClose = jest.fn();
     const { container } = render(
-      <Modal isOpen closeOnEsc={false} onClose={onClose}>
+      <Modal {...{ onClose }} isOpen closeOnEsc={false}>
         <Modal.Body>Sample text</Modal.Body>
       </Modal>
     );
@@ -109,7 +109,7 @@ describe("Modal", () => {
   it("should close modal when clicking outside", async () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
-      <Modal closeOnOutsideClick isOpen onClose={onClose}>
+      <Modal {...{ onClose }} closeOnOutsideClick isOpen>
         <Modal.Body>Sample text</Modal.Body>
       </Modal>
     );
@@ -120,7 +120,7 @@ describe("Modal", () => {
   it("should not close modal when clicking outside when closeOnOutsideClick is false", async () => {
     const onClose = jest.fn();
     const { getByTestId } = render(
-      <Modal isOpen closeOnOutsideClick={false} onClose={onClose}>
+      <Modal {...{ onClose }} isOpen closeOnOutsideClick={false}>
         <Modal.Body>
           Sample text
           <input placeholder="This in input text field." type="text" />
