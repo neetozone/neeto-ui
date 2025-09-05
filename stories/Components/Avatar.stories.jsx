@@ -2,22 +2,93 @@ import React from "react";
 
 import Avatar from "components/Avatar";
 
-import AvatarCSSCustomization from "!raw-loader!./AvatarStoriesDocs/AvatarCSSCustomization.mdx";
-import AvatarDocs from "!raw-loader!./AvatarStoriesDocs/AvatarDocs.mdx";
-
 const onClick = () => {
   alert("onClick event!");
 };
+
+const description = `
+\`import { Avatar } from "@bigbinary/neetoui";\`
+
+\`Avatar\` is a graphical representation, usually an image or icon, that
+represents a user or entity in a digital environment.
+`;
 
 const metadata = {
   title: "Components/Avatar",
   component: Avatar,
   parameters: {
     layout: "padded",
-    docs: { description: { component: AvatarDocs } },
+    docs: { description: { component: description } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A16",
+    },
+  },
+  argTypes: {
+    size: {
+      description: "Specify the dimension for Avatar component.",
+      control: "radio",
+      options: Object.keys({
+        small: 24,
+        medium: 32,
+        large: 40,
+        extraLarge: 64,
+      }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "medium" },
+      },
+    },
+    user: {
+      description: "User object containing image URL and name",
+      control: "object",
+      table: {
+        type: {
+          summary: "shape",
+          detail: `{
+  imageUrl: string,
+  name: string
+}`,
+        },
+      },
+    },
+    onClick: {
+      description:
+        "To specify the action to be triggered on clicking the Avatar.",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    status: {
+      description:
+        "To specify the status of the user if needed in Avatar component.",
+      control: "radio",
+      options: Object.keys({
+        online: "online",
+        idle: "idle",
+        offline: "offline",
+      }),
+      table: { type: { summary: "string" } },
+    },
+    showTooltip: {
+      description: "To display a tooltip with name of the user.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    tooltipProps: {
+      description: "To specify the props to be passed to the tooltip.",
+      control: "object",
+      table: {
+        type: { summary: "object" },
+        defaultValue: { summary: "{}" },
+      },
+    },
+    className: {
+      description: "To provide external classnames to Avatar component.",
+      control: "text",
+      table: { type: { summary: "string" } },
     },
   },
 };
@@ -174,6 +245,45 @@ const Variants = args => {
     </div>
   );
 };
+
+const AvatarCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`Avatar\`
+component.
+
+\`\`\`css
+// Container
+--neeto-ui-avatar-container-border-radius: var(--neeto-ui-rounded);
+--neeto-ui-avatar-container-width: 24px;
+--neeto-ui-avatar-container-height: 24px;
+
+// Avatar
+--neeto-ui-avatar-width: 1.5rem;
+--neeto-ui-avatar-height: 1.5rem;
+--neeto-ui-avatar-border-radius: var(--neeto-ui-rounded-full);
+
+// Status
+--neeto-ui-avatar-status-width: 0.4rem;
+--neeto-ui-avatar-status-height: 0.4rem;
+--neeto-ui-avatar-status-bg-color: var(--neeto-ui-white);
+--neeto-ui-avatar-status-border-width: 0.5px;
+--neeto-ui-avatar-status-border-color: rgb(var(--neeto-ui-white));
+--neeto-ui-avatar-status-border-radius: var(--neeto-ui-rounded-full);
+--neeto-ui-avatar-status-transform: translateX(-40%);
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-avatar {
+  --neeto-ui-avatar-container-border-radius: var(--neeto-ui-rounded-lg);
+  --neeto-ui-avatar-border-radius: var(--neeto-ui-rounded-lg);
+}
+\`\`\`
+
+#### Output
+`;
 
 const CSSCustomization = args => {
   const imageUrl = "https://i.pravatar.cc/300";

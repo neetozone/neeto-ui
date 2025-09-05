@@ -9,18 +9,170 @@ import { Select as FormikSelect } from "formikcomponents";
 
 import { FORMIK_SELECT } from "../constants";
 
-import SelectCSSCustomization from "!raw-loader!./SelectStoriesDocs/SelectCSSCustomization.mdx";
-import SelectDocs from "!raw-loader!./SelectStoriesDocs/SelectDocs.mdx";
+const description = `
+\`import { Select } from "@bigbinary/neetoui";\`
+
+A \`Select\` component allows users to choose an option from a list of predefined
+choices, presented as a dropdown menu.
+`;
 
 const metadata = {
   title: "Components/Select",
   component: Select,
   parameters: {
     layout: "padded",
-    docs: { description: { component: SelectDocs } },
+    docs: { description: { component: description } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A5",
+    },
+  },
+  argTypes: {
+    defaultValue: {
+      description: "To specify the default selected option.",
+      control: "object",
+      table: { type: { summary: "oneOfType([object, array])" } },
+    },
+    placeholder: {
+      description: "To specify the placeholder text.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    isDisabled: {
+      description: "To specify whether the Select input is disabled.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    isClearable: {
+      description: "To specify whether the Select input is clearable.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    isSearchable: {
+      description: "To specify whether the Select input is searchable.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    name: {
+      description: "To specify the name for the Select input.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    optionRemapping: {
+      description:
+        'The `options` prop expects an array of objects of the format `{ label: "", value: "" }`. If your array has different keys, you can specify them using this prop. Eg: `{ label: "name", value: "id" }` if `options` is an array of  `{ name: "", id: "" }` objects.',
+      control: "object",
+      table: {
+        type: {
+          summary: "shape",
+          detail: "{ label: string, value: string }",
+        },
+      },
+    },
+    options: {
+      description: "To provide the options for the Select input.",
+      control: "array",
+      table: { type: { summary: "array" } },
+    },
+    size: {
+      description: "To specify the size of the Select component.",
+      control: "select",
+      options: Object.values({
+        small: "small",
+        medium: "medium",
+        large: "large",
+      }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "medium" },
+      },
+    },
+    strategy: {
+      description: "To specify positioning strategy for Select component.",
+      control: "select",
+      options: Object.values({ default: "default", fixed: "fixed" }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "default" },
+      },
+    },
+    label: {
+      description:
+        "To specify the text to be displayed above the Select component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    labelProps: {
+      description:
+        "To specify the label props to be passed to the Label component.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    required: {
+      description: "To specify whether the Select field is required or not.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: "false" },
+      },
+    },
+    error: {
+      description:
+        "To specify the error message to be displayed in the Select component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    helpText: {
+      description:
+        "To specify the help text that appears below the Select component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    className: {
+      description:
+        "To specify external classnames as overrides to the Select component.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    isCreateable: {
+      description:
+        "To specify whether the Select component is a creatable Select component.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaltValue: { summary: "false" },
+      },
+    },
+    innerRef: {
+      description: "To specify the ref to the Select component.",
+      control: "object",
+      table: { type: { summary: "oneOfType([func, object])" } },
+    },
+    fetchMore: {
+      description: "Callback to load more options",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    totalOptionsCount: {
+      description:
+        "To specify if the total number of option available when lazy option load is enabled.",
+      control: "number",
+      table: { type: { summary: "number" } },
+    },
+    isAsyncLoadOptionEnabled: {
+      description: "To specify if async options loading is enabled",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    addButtonLabel: {
+      description: "To specify the label for the button shown in multi select",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    portalProps: {
+      description: "To specify the extra props to be passed to the menu list.",
+      control: "object",
+      table: { type: { summary: "object" } },
     },
   },
 };
@@ -574,6 +726,122 @@ CSSCustomization.args = {
   placeholder: "Custom Select placeholder",
   className: "neetix-select",
 };
+
+const SelectCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`Select\`
+component.
+
+\`\`\`css
+// Select
+--neeto-ui-select-padding-x: 0px;
+--neeto-ui-select-padding-y: 0px;
+--neeto-ui-select-min-height: 0px;
+--neeto-ui-select-font-size: var(--neeto-ui-text-sm);
+--neeto-ui-select-border-width: 1px;
+--neeto-ui-select-border-color: rgb(var(--neeto-ui-gray-400));
+--neeto-ui-select-border-radius: var(--neeto-ui-rounded);
+--neeto-ui-select-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-select-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-select-line-height: 1.2;
+
+// Placeholder
+--neeto-ui-select-placeholder-color: rgb(var(--neeto-ui-gray-400));
+
+// Focus
+--neeto-ui-select-focus-outline-color: transparent;
+--neeto-ui-select-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+--neeto-ui-select-focus-border-color: rgb(var(--neeto-ui-primary-500));
+
+// Hover
+--neeto-ui-select-hover-border-color: rgb(var(--neeto-ui-gray-700));
+
+// Error
+--neeto-ui-select-error-border-color: rgb(var(--neeto-ui-error-500));
+--neeto-ui-select-error-box-shadow: 0 0 0 3px rgb(var(--neeto-ui-error-100));
+
+// Indicators
+--neeto-ui-select-indicators-padding: 0px;
+--neeto-ui-select-indicators-gap: 8px;
+--neeto-ui-select-indicators-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-select-indicators-hover-color: rgb(var(--neeto-ui-gray-700));
+
+// Menu
+--neeto-ui-select-menu-border-width: 1px;
+--neeto-ui-select-menu-border-color: rgb(var(--neeto-ui-gray-400));
+--neeto-ui-select-menu-border-radius: var(--neeto-ui-rounded);
+--neeto-ui-select-menu-margin-top: 6px;
+--neeto-ui-select-menu-margin-bottom: 16px;
+--neeto-ui-select-menu-z-index: 20px;
+--neeto-ui-select-menu-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-select-menu-box-shadow: var(--neeto-ui-shadow-lg);
+--neeto-ui-select-menu-max-height: 480px;
+
+// Menu Option
+--neeto-ui-select-menu-option-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-select-menu-option-padding-x: 12px;
+--neeto-ui-select-menu-option-padding-y: 8px;
+--neeto-ui-select-menu-option-line-height: 1.1;
+--neeto-ui-select-menu-option-min-height: 32px;
+
+// Menu Option Focus
+--neeto-ui-select-menu-option-focus-bg-color: rgb(var(--neeto-ui-gray-200));
+
+// Menu Option Disabled
+--neeto-ui-select-menu-option-disabled-color: rgb(var(--neeto-ui-gray-200));
+
+// Menu Option Active
+--neeto-ui-select-menu-option-acitve-bg-color: rgb(var(--neeto-ui-primary-500));
+--neeto-ui-select-menu-option-acitve-color: rgb(var(--neeto-ui-white));
+
+// Menu Fixed Option
+--neeto-ui-select-menu-fixed-option-border-top-width: 1px;
+--neeto-ui-select-menu-fixed-option-border-top-color: rgb(
+  var(--neeto-ui-gray-100)
+);
+--neeto-ui-select-menu-fixed-option-padding-x: 0px;
+--neeto-ui-select-menu-fixed-option-padding-y: 2px;
+--neeto-ui-select-menu-fixed-option-link-color: rgb(var(--neeto-ui-gray-700));
+--neeto-ui-select-menu-fixed-option-link-padding-x: 12px;
+--neeto-ui-select-menu-fixed-option-link-padding-y: 8px;
+--neeto-ui-select-menu-fixed-option-link-hover-color: rgb(
+  var(--neeto-ui-gray-800)
+);
+
+// Multi Value
+--neeto-ui-select-multi-value-bg-color: transparent;
+--neeto-ui-select-multi-value-border-width: 1px;
+--neeto-ui-select-multi-value-border-color: rgb(var(--neeto-ui-gray-400));
+--neeto-ui-select-multi-value-border-radius: 100px;
+--neeto-ui-select-multi-value-margin-right: 4px;
+--neeto-ui-select-multi-value-margin-y: 4px;
+--neeto-ui-select-multi-value-padding-x: 8px;
+--neeto-ui-select-multi-value-padding-y: 0px;
+--neeto-ui-select-multi-value-color: rgb(var(--neeto-ui-gray-800));
+
+--neeto-ui-select-multi-value-label-margin-right: 6px;
+--neeto-ui-select-multi-value-label-font-size: var(--neeto-ui-text-sm);
+--neeto-ui-select-multi-value-label-line-height: 1;
+--neeto-ui-select-multi-value-label-padding-x: 0px;
+--neeto-ui-select-multi-value-label-padding-y: 2px;
+
+--neeto-ui-select-multi-value-remove-hover-opacity: 0.7;
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-select {
+  --neeto-ui-select-border-radius: var(--neeto-ui-rounded-none);
+  --neeto-ui-select-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
+  --neeto-ui-select-focus-border-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-select-menu-border-radius: var(--neeto-ui-rounded-none);
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: SelectCSSCustomization } },

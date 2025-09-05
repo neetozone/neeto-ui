@@ -4,30 +4,112 @@ import { Favorite } from "neetoicons";
 
 import Tag from "components/Tag";
 
-import { icons } from "../constants";
+const description = `
+\`import { Tag } from "@bigbinary/neetoui";\`
 
-import TagCSSCustomization from "!raw-loader!./TagStoriesDocs/TagCSSCustomization.mdx";
-import TagDocs from "!raw-loader!./TagStoriesDocs/TagDocs.mdx";
-
-const DEPRECATED_PROPS = {
-  color: { table: { type: { summary: null } }, control: false },
-
-  indicatorColor: {
-    table: { type: { summary: null } },
-    control: false,
-  },
-};
+\`Tag\` allows users to categorize or identify content, items, or entities in a
+user interface.
+`;
 
 const metadata = {
   title: "Components/Tag",
   component: Tag,
   parameters: {
     layout: "padded",
-    docs: { description: { component: TagDocs } },
+    docs: { description: { component: description } },
   },
   argTypes: {
-    icon: { options: Object.keys(icons), mapping: icons },
-    ...DEPRECATED_PROPS,
+    icon: {
+      description: "To specify the icon to be used in the Tag.",
+      control: "object",
+      table: {
+        type: { summary: "oneOfType([string, elementType])" },
+      },
+    },
+    size: {
+      description: "To specify the size of the Tag.",
+      control: "radio",
+      options: Object.keys({ small: "small", large: "large" }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "small" },
+      },
+    },
+    label: {
+      description: "To specify the label to be used in the Tag.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    type: {
+      description: "To specify the type of a Tag.",
+      control: "radio",
+      options: Object.keys({ outline: "outline", solid: "solid" }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "outline" },
+      },
+    },
+    style: {
+      description: "To specify the style of a Tag.",
+      control: "select",
+      options: Object.keys({
+        primary: "primary",
+        secondary: "secondary",
+        info: "info",
+        success: "success",
+        warning: "warning",
+        danger: "danger",
+      }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "primary" },
+      },
+    },
+    indicatorStyle: {
+      description: "To specify the style of the indication icon in a Tag.",
+      control: "select",
+      options: Object.keys({
+        primary: "primary",
+        secondary: "secondary",
+        info: "info",
+        success: "success",
+        warning: "warning",
+        danger: "danger",
+      }),
+      table: { type: { summary: "string" } },
+    },
+    onClose: {
+      description:
+        "To specify the callback function to be called when the close icon is clicked.",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    disabled: {
+      description:
+        "To specify whether to disable any action on click of the close icon.",
+      control: "boolean",
+      table: { type: { summary: "boolean" }, defaultValue: { summary: false } },
+    },
+    className: {
+      description: "To provide additional class names to the Tag.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    color: {
+      description: "Use `status` prop instead.",
+      control: false,
+      table: { type: { summary: "string" }, category: "Removed" },
+    },
+    indicatorColor: {
+      description: "Use `indicatorStatus` prop instead.",
+      control: false,
+      table: { type: { summary: "string" }, category: "Removed" },
+    },
+    children: {
+      description: "To specify the children to be rendered inside the Tag.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
   },
 };
 
@@ -122,6 +204,47 @@ CSSCustomization.args = {
   label: "Custom Tag",
   className: "neetix-tag--primary",
 };
+
+const TagCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`Tag\`
+component.
+
+\`\`\`css
+--neeto-ui-tag-padding-x: 8px;
+--neeto-ui-tag-padding-y: 3px;
+--neeto-ui-tag-font-size: var(--neeto-ui-text-xs);
+--neeto-ui-tag-font-weight: var(--neeto-ui-font-normal);
+--neeto-ui-tag-line-height: 12px;
+--neeto-ui-tag-color: rgb(var(--neeto-ui-black));
+--neeto-ui-tag-bg-color: transparent;
+--neeto-ui-tag-border-width: 1px;
+--neeto-ui-tag-border-color: transparent;
+--neeto-ui-tag-border-radius: var(--neeto-ui-rounded-full);
+--neeto-ui-tag-gap: 4px;
+--neeto-ui-tag-icon-size: 12px;
+
+// Indicator
+--neeto-ui-tag-indicator-size: 8px;
+--neeto-ui-tag-indicator-border-radius: var(--neeto-ui-rounded-full);
+
+// Hover
+--neeto-ui-tag-icon-hover-opacity: 0.8;
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neeto-ui-tag--type-outline.neetix-tag--primary {
+  --neeto-ui-tag-bg-color: rgb(var(--neeto-ui-gray-100));
+  --neeto-ui-tag-border-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-tag-color: rgb(var(--neeto-ui-black));
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: TagCSSCustomization } },

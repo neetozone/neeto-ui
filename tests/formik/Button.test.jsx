@@ -70,7 +70,7 @@ describe("formik/Button", () => {
     // button disabled: no change in form values
     await waitFor(() => expect(button).toBeDisabled());
     await userEvent.click(button);
-    await waitFor(() => expect(onSubmit).not.toBeCalled());
+    await waitFor(() => expect(onSubmit).not.toHaveBeenCalled());
   });
 
   it("Should not be disabled if form contains errors but should not submit form", async () => {
@@ -79,7 +79,7 @@ describe("formik/Button", () => {
     // error: name is required;
     await waitFor(() => expect(button).not.toBeDisabled());
     await userEvent.click(button);
-    await waitFor(() => expect(onSubmit).not.toBeCalled());
+    await waitFor(() => expect(onSubmit).not.toHaveBeenCalled());
   });
 
   it("Should be disabled during submission", async () => {

@@ -17,7 +17,7 @@ describe("Avatar", () => {
     render(<Avatar {...{ onClick }} user={{ name: "neeto UI" }} />);
     const avatar = screen.getByTestId("avatar");
     await userEvent.click(avatar);
-    expect(onClick).toBeCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it("should render indicator when status is defined", () => {

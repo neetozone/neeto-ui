@@ -4,8 +4,33 @@ import { Settings, Delete, MenuHorizontal } from "neetoicons";
 
 import ActionDropdown from "components/ActionDropdown";
 
-import ActionDropdownCSSCustomization from "!raw-loader!./ActionDropdownStoriesDocs/ActionDropdownCSSCustomization.mdx";
-import ActionDropdownDocs from "!raw-loader!./ActionDropdownStoriesDocs/ActionDropdownDocs.mdx";
+const description = `
+\`import { ActionDropdown } from "@bigbinary/neetoui";\`
+
+\`ActionDropdown\` combines a dropdown menu with a button, allowing users to
+select an option from the dropdown and perform the corresponding action using
+the button.
+
+The \`ActionDropdown\` component has three subcomponents:
+
+- \`ActionDropdown.Menu\`: Defines the container for organizing and displaying a
+  list of clickable items.
+- \`ActionDropdown.MenuItem\`: Represents an individual item or option in the
+  dropdown menu. \`ActionDropdown.MenuItem.Button\` provides a button-like element
+  within a menu item.
+- \`ActionDropdown.Divider\`: Creates a visual separation or divider between
+  groups of menu items.
+
+You can use destructuring assignment to conveniently access subcomponents of the
+\`ActionDropdown\` component as follows:
+
+\`\`\`code
+const { Menu, MenuItem, Divider } = ActionDropdown;
+\`\`\`
+
+This simplifies the code and allows you to work with these subcomponents
+directly.
+`;
 
 const listItems = ["Option 1", "Option 2", "Option 3"];
 
@@ -20,18 +45,94 @@ const metadata = {
   },
   parameters: {
     layout: "padded",
-    docs: { description: { component: ActionDropdownDocs } },
+    docs: { description: { component: description } },
     design: {
       type: "figma",
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=104%3A6",
     },
   },
   argTypes: {
-    onClick: {
+    label: {
+      description: "To specify the text to be displayed inside the button.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    buttonStyle: {
+      description:
+        "To specify the style of the button to be rendered as the ActionDropdown target.",
+      control: "radio",
+      options: Object.values({ primary: "primary", secondary: "secondary" }),
       table: {
-        type: { summary: "func" },
-        defaultValue: { summary: "(event) => void" },
+        type: { summary: "string" },
+        defaultValue: { summary: "primary" },
       },
+    },
+    buttonSize: {
+      description: "To specify the size of the ActionDropdown.",
+      control: "radio",
+      options: Object.values({
+        small: "small",
+        medium: "medium",
+        large: "large",
+      }),
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "medium" },
+      },
+    },
+    disabled: {
+      description: "To specify whether the ActionDropdown is disabled or not.",
+      control: "boolean",
+      table: { type: { summary: "boolean" }, defaultValue: { summary: false } },
+    },
+    nClick: {
+      description:
+        "To specify the action to be triggered on click of the button.",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    buttonProps: {
+      description:
+        "To specify the props to be passed to the action button and Dropdown target button.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    dropdownProps: {
+      description: "To specify the props to be passed to the Dropdown target.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    portalProps: {
+      description: "To specify the props to be passed to the Dropdown portal.",
+      control: "object",
+      table: { type: { summary: "object" } },
+    },
+    className: {
+      description:
+        "To provide external classnames to ActionDropdown target wrapper.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    children: {
+      description: "To specify the content to be rendered inside the Dropdown.",
+      control: "object",
+      table: { type: { summary: "node" } },
+    },
+    style: {
+      description: "Use `buttonStyle` prop instead.",
+      control: "select",
+      options: Object.values({ primary: "primary", secondary: "secondary" }),
+      table: { type: { summary: "string" }, category: "Removed" },
+    },
+    size: {
+      description: "Use `buttonSize` prop instead.",
+      control: "select",
+      options: Object.values({
+        small: "small",
+        medium: "medium",
+        large: "large",
+      }),
+      table: { type: { summary: "string" }, category: "Removed" },
     },
   },
 };
@@ -207,6 +308,28 @@ const CSSCustomization = args => {
     </div>
   );
 };
+
+const ActionDropdownCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the
+\`ActionDropdown\` component.
+
+\`\`\`css
+--neeto-ui-action-dropdown-gap: 1px;
+--neeto-ui-action-dropdown-border-radius: 0px;
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-actiondropdown {
+  --neeto-ui-action-dropdown-border-radius: 1px;
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.storyName = "ActionDropdown CSS Customization";
 

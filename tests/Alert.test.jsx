@@ -6,6 +6,16 @@ import userEvent from "@testing-library/user-event";
 import { Alert } from "components";
 
 describe("Alert", () => {
+  let consoleSpy;
+
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
+  });
+
   it("should render without error", () => {
     const { getByText } = render(
       <Alert isOpen message="Alert message" title="Alert title" />

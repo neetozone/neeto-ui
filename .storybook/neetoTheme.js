@@ -1,4 +1,4 @@
-import { create } from "@storybook/theming";
+import { create } from "storybook/theming";
 import neetoLogo from "./neetoLogo.svg";
 
 export default create({

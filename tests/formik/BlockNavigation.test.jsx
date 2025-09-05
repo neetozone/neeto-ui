@@ -57,6 +57,16 @@ const TestBlockNavigation = ({ isDirty }) => (
 );
 
 describe("formik/BlockNavigation", () => {
+  let consoleSpy;
+
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
+  });
+
   beforeEach(() => {
     jest.clearAllMocks();
   });
@@ -167,6 +177,6 @@ describe("formik/BlockNavigation", () => {
 
     await waitFor(() => expect(submitButton).not.toBeInTheDocument());
     expect(screen.queryByText(/Home page/i)).not.toBeInTheDocument();
-    expect(mockSubmit).not.toBeCalled();
+    expect(mockSubmit).not.toHaveBeenCalled();
   });
 });

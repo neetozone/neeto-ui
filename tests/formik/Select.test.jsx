@@ -76,6 +76,10 @@ describe("formik/Select", () => {
   });
 
   it("should should show no options if the input deosn't match any options", async () => {
+    const consoleSpy = jest
+      .spyOn(console, "error")
+      .mockImplementation(() => {});
+
     render(
       <Form formikProps={{ initialValues: {}, onSubmit: () => {} }}>
         <FormikSelect
@@ -89,6 +93,8 @@ describe("formik/Select", () => {
     const selectInput = screen.getByLabelText("Formik Select").closest("input");
     await userEvent.type(selectInput, "Invalid Option");
     expect(screen.getByText(/No options/i)).toBeInTheDocument();
+
+    consoleSpy.mockRestore();
   });
 
   it("should submit with the chosen option", async () => {

@@ -3,15 +3,90 @@ import React from "react";
 import Button from "components/Button";
 import NoData from "components/NoData";
 
-import NoDataCSSCustomization from "!raw-loader!./NoDataStoriesDocs/NoDataCSSCustomization.mdx";
-import NoDataDocs from "!raw-loader!./NoDataStoriesDocs/NoDataDocs.mdx";
+const description = `
+\`import { NoData } from "@bigbinary/neetoui";\`
+
+\`NoData\` is displayed when there is no relevant data to show in a specific
+context, providing a visual message to inform users that data is absent or
+unavailable.
+`;
 
 const metadata = {
   title: "Components/NoData",
   component: NoData,
   parameters: {
     layout: "padded",
-    docs: { description: { component: NoDataDocs } },
+    docs: { description: { component: description } },
+  },
+  argTypes: {
+    image: {
+      description: "To specify the image.",
+      control: "text",
+      table: { type: { summary: "oneOfType([string, node])" } },
+    },
+    title: {
+      description: "To specify the title text.",
+      control: "text",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "" },
+      },
+    },
+    description: {
+      description: "To specify the description text.",
+      control: "object",
+      table: {
+        type: { summary: "node" },
+        defaultValue: { summary: "" },
+      },
+    },
+    helpText: {
+      description: "To specify the text that appears below the description.",
+      control: "object",
+      table: { type: { summary: "node" } },
+    },
+    className: {
+      description: "Provide external classnames to NoData component.",
+      control: "text",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "" },
+      },
+    },
+    primaryButtonProps: {
+      description: "To specify the props to be passed to the primary button.",
+      control: "object",
+      table: {
+        type: { summary: "object" },
+        defaultValue: { summary: "{}" },
+      },
+    },
+    secondaryButtonProps: {
+      description: "To specify the props to be passed to the secondary button.",
+      control: "object",
+      table: {
+        type: { summary: "object" },
+        defaultValue: { summary: "{}" },
+      },
+    },
+    showTooltipWhenButtonDisabled: {
+      description:
+        "To specify if the tooltip should be shown when the button is disabled.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    buttonSeparatorText: {
+      description:
+        "To specify the text that appears between the primary and secondary buttons.",
+      control: "text",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "" },
+      },
+    },
   },
 };
 
@@ -198,6 +273,42 @@ const CSSCustomization = args => (
 );
 
 CSSCustomization.storyName = "NoData CSS Customization";
+
+const NoDataCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`NoData\`
+component.
+
+\`\`\`css
+// Description
+--neeto-ui-no-data-description-margin-top: 0.5rem;
+
+// Help Text
+--neeto-ui-no-data-help-text-margin-top: 0.5rem;
+
+// Image
+--neeto-ui-no-data-image-margin-bottom: 1.5rem;
+--neeto-ui-no-data-image-max-width: 11.5rem;
+--neeto-ui-no-data-image-height: auto;
+
+// Action Block
+--neeto-ui-no-data-action-block-margin-top: 1.5rem;
+--neeto-ui-no-data-action-block-gap: 0.5rem;
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-nodata {
+  --neeto-ui-no-data-image-margin-bottom: 2rem;
+  --neeto-ui-no-data-image-max-width: 20rem;
+  --neeto-ui-no-data-action-block-margin-top: 2rem;
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: NoDataCSSCustomization } },
