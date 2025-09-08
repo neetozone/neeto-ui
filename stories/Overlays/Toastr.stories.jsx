@@ -1,6 +1,7 @@
+// It's safe to disable this ESlint rule since the neeto-commons-frontend initializers are not set for the storybook.
+/* eslint-disable @bigbinary/neeto/use-show-thumbs-up-toastr */
 import React, { useCallback } from "react";
 
-import { showThumbsUpToastr } from "neetocommons/utils";
 import { ToastContainer } from "react-toastify";
 
 import Button from "components/Button";
@@ -80,7 +81,12 @@ const Toastrs = ({}) => {
               )
             }
           />
-          <Button label="👍" onClick={() => showThumbsUpToastr()} />
+          <Button
+            label="👍"
+            onClick={() =>
+              Toastr.success("", { icon: "👍", className: "w-20" })
+            }
+          />
         </div>
       </div>
     </>
@@ -203,7 +209,12 @@ const CSSCustomization = () => {
               )
             }
           />
-          <Button label="Custom 👍" onClick={() => showThumbsUpToastr()} />
+          <Button
+            label="Custom 👍"
+            onClick={() =>
+              Toastr.success("", { icon: "👍", className: "w-20" })
+            }
+          />
         </div>
       </div>
     </>
