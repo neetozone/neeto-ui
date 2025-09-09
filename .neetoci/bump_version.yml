@@ -11,4 +11,6 @@ commands:
   - checkout
   - neetoci-version node 22.13
   - neetoci-version ruby 3.3.5
+  - corepack enable
+  - yarn set version 4.9.4
   - bash ./.scripts/bump_version.sh
