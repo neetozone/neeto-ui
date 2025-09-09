@@ -117,7 +117,10 @@ const Input = forwardRef(
       typeof label === "string" ? hyphenize(label) : hyphenize(dataCy);
 
     return (
-      <div className={classnames(["neeto-ui-input__wrapper", className])}>
+      <div
+        className={classnames(["neeto-ui-input__wrapper", className])}
+        data-cy="nui-input-wrapper"
+      >
         <div className="neeto-ui-input__label-wrapper">
           {label && (
             <Label
