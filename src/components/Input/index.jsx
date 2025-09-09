@@ -1,6 +1,7 @@
 import React, { useState, forwardRef } from "react";
 
 import classnames from "classnames";
+import { mergeDeepLeft } from "ramda";
 import PropTypes from "prop-types";
 
 import { useId } from "hooks";
@@ -82,10 +83,12 @@ const Input = forwardRef(
       formattedValue = enforceDecimalPrecision(formattedValue, precision);
 
       if (formattedValue !== e.target.value) {
-        preserveCursor(e, () => (e.target.value = formattedValue));
+        preserveCursor(e, () =>
+          mergeDeepLeft({ target: { value: formattedValue } }, e)
+        );
+      } else {
+        onChange(e);
       }
-
-      onChange(e);
     };
 
     const handleOnBlur = e => {

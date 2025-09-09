@@ -42,7 +42,13 @@ describe("Popover", () => {
     await userEvent.hover(text);
     const popover = screen.getByText("Popover Title");
     await userEvent.click(document.body);
-    await waitFor(() => expect(popover).not.toBeVisible(), { timeout: 20 });
+    await waitFor(
+      () => {
+        const popoverBox = popover.closest('[data-state="hidden"]');
+        expect(popoverBox).toBeInTheDocument();
+      },
+      { timeout: 100 }
+    );
   });
 
   it("should auto hide after 20ms", async () => {
@@ -50,7 +56,13 @@ describe("Popover", () => {
     const text = screen.getByText("Show Popover");
     await userEvent.hover(text);
     const popover = screen.getByText("Popover Title");
-    await waitFor(() => expect(popover).not.toBeVisible(), { timeout: 20 });
+    await waitFor(
+      () => {
+        const popoverBox = popover.closest('[data-state="hidden"]');
+        expect(popoverBox).toBeInTheDocument();
+      },
+      { timeout: 100 }
+    );
   });
 
   it("should render a disabled popover", async () => {

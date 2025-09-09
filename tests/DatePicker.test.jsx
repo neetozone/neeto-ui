@@ -133,7 +133,7 @@ describe("DatePicker", () => {
     );
     fireEvent.click(getByText("Today"));
     await waitFor(() => {
-      expect(onDateChange).toBeCalledWith(
+      expect(onDateChange).toHaveBeenCalledWith(
         expect.anything(),
         // eslint-disable-next-line @bigbinary/neeto/use-standard-date-time-formats
         dayjs().format("DD/MM/YYYY")

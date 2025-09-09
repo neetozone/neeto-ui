@@ -14,6 +14,7 @@ module.exports = mergeDeepLeft(
         "off",
       "@bigbinary/neeto/no-missing-localization": "off",
       "import/extensions": ["error", "never", { pattern: { mdx: "always" } }],
+      "import/order": "off",
     },
   },
   defaultConfig

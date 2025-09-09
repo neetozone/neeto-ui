@@ -7,6 +7,8 @@ global_job_config:
     - checkout
     - neetoci-version node 22.13
     - cache restore
+    - corepack enable
+    - yarn set version berry
     - yarn install
     - cache store
   jobs:

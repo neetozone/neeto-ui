@@ -1,6 +1,6 @@
 import "./style.scss";
 import "../src/styles/index.scss";
-import { themes } from "@storybook/theming";
+import { themes } from "storybook/theming";
 import neetoTheme from "./neetoTheme";
 
 export const parameters = {
@@ -73,3 +73,4 @@ export const parameters = {
     stylePreview: true,
   },
 };
+export const tags = ["autodocs"];

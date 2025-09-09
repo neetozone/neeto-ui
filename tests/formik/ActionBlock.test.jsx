@@ -112,7 +112,7 @@ describe("formik/ActionBlock", () => {
     await userEvent.type(input, repeat("{backspace}", "test".length).join(""));
     await waitFor(() => expect(cancelButton).not.toBeDisabled());
     await userEvent.click(cancelButton);
-    await waitFor(() => expect(onSubmit).not.toBeCalled());
+    await waitFor(() => expect(onSubmit).not.toHaveBeenCalled());
   });
 
   it("Cancel button should be disabled when submitting", async () => {
@@ -130,6 +130,6 @@ describe("formik/ActionBlock", () => {
     await userEvent.click(submitButton);
     await waitFor(() => expect(cancelButton).toBeDisabled());
     await userEvent.click(cancelButton);
-    await waitFor(() => expect(onSubmit).not.toBeCalled());
+    await waitFor(() => expect(onSubmit).not.toHaveBeenCalled());
   });
 });

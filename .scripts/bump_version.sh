@@ -22,11 +22,9 @@ bump_package() {
   handle_error "yarn install"
   yarn bundle
   handle_error "yarn bundle"
-  yarn config set version-tag-prefix "v"
-  yarn version --"$VERSION_LABEL" --no-git-tag-version
-  echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >~/.npmrc
-  yarn publish --non-interactive
-  handle_error "yarn publish"
+  yarn version "$VERSION_LABEL"
+  yarn npm publish --access public
+  handle_error "yarn npm publish"
 }
 
 raise_pr() {

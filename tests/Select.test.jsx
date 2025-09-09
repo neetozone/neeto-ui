@@ -29,6 +29,27 @@ window.IntersectionObserver = jest
   .mockImplementation(intersectionObserverMock);
 
 describe("Select", () => {
+  let consoleSpy;
+
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "error").mockImplementation(message => {
+      if (
+        typeof message === "string" &&
+        message.includes("NoOptionsMessage: Support for defaultProps")
+      ) {
+        return;
+      }
+
+      if (typeof message === "string" && message.includes("defaultProps")) {
+        return;
+      }
+    });
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
+  });
+
   it("should render without error", () => {
     const { getByText } = render(<Select {...{ options }} label="Select" />);
     expect(getByText("Select")).toBeInTheDocument();

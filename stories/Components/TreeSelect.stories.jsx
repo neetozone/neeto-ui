@@ -7,15 +7,169 @@ import Button from "components/Button";
 import TreeSelect from "components/TreeSelect";
 import { TreeSelect as FormikTreeSelect, Form } from "formikcomponents";
 
-import TreeSelectCSSCustomization from "!raw-loader!./TreeSelectStoriesDocs/TreeSelectCSSCustomization.mdx";
-import TreeSelectDocs from "!raw-loader!./TreeSelectStoriesDocs/TreeSelectDocs.mdx";
+const description = `
+\`import { TreeSelect } from "@bigbinary/neetoui";\`
+
+We use antd TreeSelect under the hood. For more customization options, see
+[TreeSelect](https://ant.design/components/tree-select).
+`;
 
 const metadata = {
   title: "Components/TreeSelect",
   component: TreeSelect,
   parameters: {
     layout: "padded",
-    docs: { description: { component: TreeSelectDocs } },
+    docs: { description: { component: description } },
+  },
+  argTypes: {
+    allowClear: {
+      description:
+        "Controls whether the value is allowed to be cleared or not.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
+    className: {
+      description: "To specify additional classes.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    popupClassName: {
+      description: "To specify additional classes to the popup.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    disabled: {
+      description: "To disable the TreeSelect component.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    error: {
+      description: "To display the specified error.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    fieldNames: {
+      description:
+        "This prop can be used to override the default keys of label and value pairs in options.",
+      control: "object",
+      table: {
+        type: {
+          summary: "shape",
+          detail: `{
+      label: string,
+      value: string
+    }`,
+        },
+      },
+    },
+    label: {
+      description: "To display a label above the TreeSelect component.",
+      control: "text",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "" },
+      },
+    },
+    onChange: {
+      description:
+        "The callback function that will be triggered when value changes.",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    onSearch: {
+      description:
+        "Callback function to be executed when search input changes that can be used for advanced usecases. This is not necessary as basic search works when `showSearch` is enabled.",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    placeholder: {
+      description: "The placeholder string to be displayed.",
+      control: "text",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "" },
+      },
+    },
+    required: {
+      description: "To specify whether TreeSelect field is required or not.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    searchValue: {
+      description:
+        "The search value to make search controlled. This is not required as basic search works when `showSearch` is enabled.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
+    showSearch: {
+      description: "To enable search for the TreeSelect component.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: false },
+      },
+    },
+    size: {
+      description: "To specify the size of the TreeSelect component.",
+      control: "radio",
+      options: ["small", "middle", "large"],
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "middle" },
+      },
+    },
+    suffixIcon: {
+      description:
+        "To specify the icon at the end of the TreeSelect component.",
+      control: "object",
+      table: { type: { summary: "elementType" } },
+    },
+    switcherIcon: {
+      description: "To specify the icon next to options that have children.",
+      control: "object",
+      table: { type: { summary: "elementType" } },
+    },
+    treeData: {
+      description: "The options to be passed to the TreeSelect component.",
+      control: "object",
+      table: {
+        type: {
+          summary: "arrayOf(shape)",
+          detail: `Array<{
+      label: string,
+      value: string,
+      disabled?: boolean,
+      children?: array
+    } | {
+      id: string,
+      label: string,
+      value: string,
+      disabled?: boolean,
+      pId: string
+    }>`,
+        },
+      },
+    },
+    treeDataSimpleMode: {
+      description:
+        "This prop specifies the format of data that has to be passed in the `treeData` prop. When enabled, treeData can be a flat array of the form `{ id, label, value, pId }`.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: true },
+      },
+    },
+    value: {
+      description: "The currently selected option.",
+      control: "text",
+      table: { type: { summary: "string" } },
+    },
   },
 };
 
@@ -137,6 +291,82 @@ CSSCustomization.args = {
   ...commonProps,
   className: "neetix-tree-select",
 };
+
+const TreeSelectCSSCustomization = `
+Starting from v6, neeto-ui supports enhanced customization of components using
+CSS variables. These are the variables that are being used in the \`TreeSelect\`
+component.
+
+\`\`\`css
+// Select
+--neeto-ui-tree-select-border-radius: var(--neeto-ui-rounded);
+--neeto-ui-tree-select-border-width: 1px;
+--neeto-ui-tree-select-border-color: rgb(var(--neeto-ui-gray-400));
+--neeto-ui-tree-select-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-tree-select-color: rgb(var(--neeto-ui-gray-800));
+
+// Placeholder
+--neeto-ui-tree-select-placeholder-color: rgb(var(--neeto-ui-gray-400));
+
+// Hover
+--neeto-ui-tree-select-hover-border-color: rgb(var(--neeto-ui-gray-700));
+
+// Disabled
+--neeto-ui-tree-select-disabled-bg-color: rgb(var(--neeto-ui-gray-100));
+
+// Focus Within
+--neeto-ui-tree-select-focus-within-border-color: rgb(
+  var(--neeto-ui-primary-500)
+);
+--neeto-ui-tree-select-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 15%);
+
+// Dropdown
+--neeto-ui-tree-select-dropdown-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-tree-select-dropdown-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-tree-select-dropdown-border-radius: var(--neeto-ui-rounded);
+--neeto-ui-tree-select-dropdown-border-width: 1px;
+--neeto-ui-tree-select-dropdown-border-color: rgb(var(--neeto-ui-gray-400));
+--neeto-ui-tree-select-dropdown-box-shadow: var(--neeto-ui-shadow-lg);
+
+// Tree
+--neeto-ui-tree-select-dropdown-tree-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-tree-select-dropdown-tree-color: rgb(var(--neeto-ui-gray-800));
+
+// Tree Hover
+--neeto-ui-tree-select-dropdown-tree-hover-bg-color: rgb(
+  var(--neeto-ui-gray-200)
+);
+
+// Tree Selected
+--neeto-ui-tree-select-dropdown-tree-selected-color: rgb(var(--neeto-ui-white));
+
+// Tree Switcher
+--neeto-ui-tree-select-dropdown-tree-switcher-width: 32px;
+
+// Tree Switcher Icon
+--neeto-ui-tree-select-dropdown-tree-switcher-icon-margin-top: 4px;
+--neeto-ui-tree-select-dropdown-tree-switcher-icon-width: 32px;
+--neeto-ui-tree-select-dropdown-tree-switcher-icon-svg-size: 16px;
+
+// Tree List Holder
+--neeto-ui-tree-select-dropdown-tree-list-holder-padding-right: 24px;
+\`\`\`
+
+You can use these variables to customize the component to your liking. Here is
+an example:
+
+\`\`\`css
+.neetix-tree-select {
+  --neeto-ui-tree-select-border-radius: var(--neeto-ui-rounded-none);
+  --neeto-ui-tree-select-focus-within-border-color: rgb(
+    var(--neeto-ui-success-500)
+  );
+  --neeto-ui-tree-select-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-success-500), 15%);
+}
+\`\`\`
+
+#### Output
+`;
 
 CSSCustomization.parameters = {
   docs: { description: { story: TreeSelectCSSCustomization } },
