@@ -251,5 +251,5 @@
     "url": "https://github.com/bigbinary/neeto-ui/issues"
   },
   "homepage": "https://neeto-ui.neeto.com",
-  "packageManager": "yarn@4.9.4"
+  "packageManager": "yarn@4.9.2"
 }
