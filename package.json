@@ -1,6 +1,6 @@
 {
   "name": "@bigbinary/neetoui",
-  "version": "8.3.30",
+  "version": "8.3.31",
   "author": "BigBinary",
   "license": "MIT",
   "description": "neetoUI drives the experience at all neeto products",
@@ -251,5 +251,5 @@
     "url": "https://github.com/bigbinary/neeto-ui/issues"
   },
   "homepage": "https://neeto-ui.neeto.com",
-  "packageManager": "yarn@4.9.2"
+  "packageManager": "yarn@4.9.4"
 }
