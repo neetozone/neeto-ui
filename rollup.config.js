@@ -18,7 +18,7 @@ import input from "./rollup-config/input";
 import { getWatchConfig } from "./rollup-config/watchConfig";
 
 const commonResolve = require("@bigbinary/neeto-commons-frontend/configs/nanos/webpack/resolve.js");
-const projectResolve = require("./resolve.js");
+const projectResolve = require("./alias.js");
 
 const { alias: aliasEntries } = mergeDeepLeft(projectResolve, commonResolve);
 

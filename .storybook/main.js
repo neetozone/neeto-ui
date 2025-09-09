@@ -3,14 +3,18 @@ import path from "path";
 import { mergeDeepLeft } from "ramda";
 
 import commonResolve from "@bigbinary/neeto-commons-frontend/configs/nanos/webpack/resolve.js";
-import projectResolve from "../resolve.js";
+import projectResolve from "../alias.js";
 
 const rootResolve = mergeDeepLeft(projectResolve, commonResolve);
 
 const config = {
   staticDirs: ["./public"],
   stories: ["../stories/**/*.mdx", "../stories/**/*.stories.@(js|jsx|ts|tsx)"],
-  addons: ["@storybook/preset-scss", "@storybook/addon-docs", "@vueless/storybook-dark-mode"],
+  addons: [
+    "@storybook/preset-scss",
+    "@storybook/addon-docs",
+    "@vueless/storybook-dark-mode",
+  ],
 
   webpackFinal: async config => {
     config.module.rules.push({
