@@ -24,7 +24,6 @@ const getScrollbarWidth = () => {
 };
 
 export const getTimezoneAppliedDateTime = inputDateTime => {
-
   const timezoneAppliedDateTime = date =>
     date ? dayjs(date.format("YYYY-MM-DD HH:mm:ss")) : null;
 
