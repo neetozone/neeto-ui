@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { assocPath, isNil, prop } from "ramda";
+import { assocPath, prop } from "ramda";
 import { create } from "zustand";
 
 import useFuncDebounce from "hooks/useFuncDebounce";
@@ -23,12 +23,11 @@ export const useRestoreScrollPosition = ({ tableRef, scrollRef, loading }) => {
       return;
     }
 
-    if (scrollRef.current === null || isNil(scrollPositions[key])) return;
+    if (scrollRef.current === null || !scrollPositions[key]) return;
 
     setTimeout(() => {
       const position = scrollPositions[key];
-      const config = position === 0 ? { index: 0 } : { top: position };
-      scrollRef.current?.scrollTo(config);
+      scrollRef.current?.scrollTo({ top: position });
     });
   }, [key, tableRef, loading]);
 
