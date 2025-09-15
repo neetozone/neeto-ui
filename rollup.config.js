@@ -49,6 +49,14 @@ const config = args => {
       extensions: [".css", ".scss", ".min.css"],
       mode: ["extract", "index.css"],
     }),
+    copy({
+      targets: [
+        {
+          src: "src/translations",
+          dest: path.resolve(destination, "dist/src"),
+        },
+      ],
+    }),
     // Plugins for local development.
     ...watchPlugins,
   ];
