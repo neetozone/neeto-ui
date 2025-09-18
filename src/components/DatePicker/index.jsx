@@ -103,7 +103,18 @@ const DatePicker = forwardRef(
       return onChange(allowed, formattedString(allowed, dateFormat));
     };
 
+    const handleOnCalendarChange = date => {
+      if (type === "range" || !date) return;
+
+      const allowed = getAllowedValue(getTimezoneAppliedDateTime(date));
+      setValue(allowed);
+    };
+
     const handleOnOpenChange = open => {
+      if (!open && value !== inputValue) {
+        onChange(value, formattedString(value, dateFormat));
+      }
+
       isDatePickerOpen.current = open;
       onOpenChange?.(open);
     };
@@ -153,6 +164,7 @@ const DatePicker = forwardRef(
               dropdownClassName, // Will be removed in the next major version
               popupClassName,
             ])}
+            onCalendarChange={handleOnCalendarChange}
             onChange={handleOnChange}
             onKeyDown={handleOnKeyDown}
             onOpenChange={handleOnOpenChange}

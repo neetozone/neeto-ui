@@ -1,0 +1,41 @@
+{
+  "neetoui": {
+    "blockNavigation": {
+      "alertMessage": "離開此頁面將會丟失您的未儲存資料。此動作無法撤銷。",
+      "submitButtonLabel": "停留在此頁面",
+      "cancelButtonLabel": "放棄並離開此頁面",
+      "alertTitle": "您有未儲存的更改"
+    },
+    "actionBlock": {
+      "cancel": "取消",
+      "saveChanges": "儲存更改"
+    },
+    "colorPicker": {
+      "recentlyUsed": "最近使用"
+    },
+    "datePicker": {
+      "today": "今天"
+    },
+    "table": {
+      "insertColRight": "右側插入欄位",
+      "insertColLeft": "左側插入欄位",
+      "columnInfo": "欄位資訊",
+      "hideColumn": "隱藏欄位",
+      "deleteColumn": "刪除欄位",
+      "ascending": "升冪排序",
+      "descending": "降冪排序",
+      "freezeColumn": "凍結欄位",
+      "unFreezeColumn": "取消凍結欄位",
+      "allRowsSelected": "所有行已選取",
+      "clearSelection": "清除選取"
+    },
+    "timePicker": {
+      "hours": "小時",
+      "minutes": "分鐘",
+      "seconds": "秒"
+    },
+    "treeSelect": {
+      "noOptions": "沒有選項。"
+    }
+  }
+}

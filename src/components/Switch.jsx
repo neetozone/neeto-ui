@@ -32,9 +32,11 @@ const Switch = forwardRef(
       <div
         {...{ ref }}
         className={classnames(["neeto-ui-switch__wrapper", className])}
+        data-cy="nui-switch-wrapper"
       >
         <div className="neeto-ui-switch__container">
           <label
+            data-cy="nui-switch-item"
             tabIndex={0}
             className={classnames("neeto-ui-switch__item", {
               "neeto-ui-switch__item--checked": !!checked,
@@ -69,9 +71,12 @@ const Switch = forwardRef(
           {renderLabel && (
             <Label
               {...{ required }}
-              data-cy={`${hyphenize(renderLabel)}-switch-label`}
               htmlFor={id}
               {...labelProps}
+              data-cy={`${hyphenize(renderLabel).replace(
+                /[^a-z0-9-]/gi,
+                ""
+              )}-switch-label`}
             >
               {renderLabel}
             </Label>

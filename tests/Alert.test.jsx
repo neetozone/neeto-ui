@@ -6,6 +6,16 @@ import userEvent from "@testing-library/user-event";
 import { Alert } from "components";
 
 describe("Alert", () => {
+  let consoleSpy;
+
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
+  });
+
   it("should render without error", () => {
     const { getByText } = render(
       <Alert isOpen message="Alert message" title="Alert title" />
@@ -137,5 +147,18 @@ describe("Alert", () => {
       />
     );
     expect(queryByText("Cancel")).not.toBeInTheDocument();
+  });
+
+  it("should not call onSubmit when isSubmitting is true", async () => {
+    const onSubmit = jest.fn();
+    const { getByRole } = render(
+      <Alert {...{ onSubmit }} isOpen isSubmitting submitButtonLabel="Submit" />
+    );
+
+    const submitButton = getByRole("button", { name: "Submit" });
+
+    expect(submitButton).toBeDisabled();
+    await userEvent.click(submitButton);
+    expect(onSubmit).not.toHaveBeenCalled();
   });
 });

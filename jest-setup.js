@@ -33,5 +33,23 @@ Element.prototype.scrollTo = jest.fn();
 HTMLCanvasElement.prototype.getContext = jest.fn();
 window.scrollTo = jest.fn();
 
+// Fixes "Not implemented: window.getComputedStyle" for Ant Design components
+window.getComputedStyle = jest.fn().mockImplementation(element => {
+  const style = element.style || {};
+
+  return {
+    getPropertyValue: jest.fn(prop => {
+      if (prop === "visibility") return style.visibility || "visible";
+
+      if (prop === "display") return style.display || "block";
+
+      return style[prop] || "";
+    }),
+    setProperty: jest.fn(),
+    visibility: style.visibility || "visible",
+    display: style.display || "block",
+  };
+});
+
 failOnConsole(failOnConsoleOptions);
 initializeI18n();

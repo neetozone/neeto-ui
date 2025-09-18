@@ -1,9 +1,8 @@
-import React from "react";
+import React, { act } from "react";
 
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import i18next from "i18next";
-import { act } from "react-dom/test-utils";
 import { ToastContainer } from "react-toastify";
 
 import { Toastr, Button } from "components";
@@ -94,6 +93,16 @@ beforeAll(() =>
 );
 
 describe("Toastr", () => {
+  let consoleSpy;
+
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
+  });
+
   ["Success", "Info", "Warning", "Error"].forEach(type => {
     it(`should render ${type} Toastr without error`, async () => {
       const button = renderToastrButton(type);

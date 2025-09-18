@@ -117,12 +117,12 @@ describe("Input", () => {
     await userEvent.type(getByLabelText("label"), "  Test  ");
     handleChange.mockReset(); // reset previous invocations
     await userEvent.tab(); // go out of focus
-    expect(handleChange).toBeCalled();
+    expect(handleChange).toHaveBeenCalled();
 
     await userEvent.type(getByLabelText("label"), "Test");
     handleChange.mockReset(); // reset previous invocations
     await userEvent.tab(); // go out of focus
-    expect(handleChange).not.toBeCalled();
+    expect(handleChange).not.toHaveBeenCalled();
   });
 
   it("should always call onBlur if passed", async () => {
@@ -133,12 +133,12 @@ describe("Input", () => {
     await userEvent.type(getByLabelText("label"), "  Test  ");
     handleChange.mockReset(); // reset previous invocations
     await userEvent.tab(); // go out of focus
-    expect(handleChange).toBeCalled();
+    expect(handleChange).toHaveBeenCalled();
 
     await userEvent.type(getByLabelText("label"), "Test");
     handleChange.mockReset(); // reset previous invocations
     await userEvent.tab(); // go out of focus
-    expect(handleChange).toBeCalled();
+    expect(handleChange).toHaveBeenCalled();
   });
 
   it("should properly handle disableTrimOnBlur", async () => {

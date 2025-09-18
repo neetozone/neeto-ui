@@ -1,6 +1,7 @@
 import React, { useState, forwardRef } from "react";
 
 import classnames from "classnames";
+import { mergeDeepLeft } from "ramda";
 import PropTypes from "prop-types";
 
 import { useId } from "hooks";
@@ -82,10 +83,12 @@ const Input = forwardRef(
       formattedValue = enforceDecimalPrecision(formattedValue, precision);
 
       if (formattedValue !== e.target.value) {
-        preserveCursor(e, () => (e.target.value = formattedValue));
+        preserveCursor(e, () =>
+          mergeDeepLeft({ target: { value: formattedValue } }, e)
+        );
+      } else {
+        onChange(e);
       }
-
-      onChange(e);
     };
 
     const handleOnBlur = e => {
@@ -114,7 +117,10 @@ const Input = forwardRef(
       typeof label === "string" ? hyphenize(label) : hyphenize(dataCy);
 
     return (
-      <div className={classnames(["neeto-ui-input__wrapper", className])}>
+      <div
+        className={classnames(["neeto-ui-input__wrapper", className])}
+        data-cy="nui-input-wrapper"
+      >
         <div className="neeto-ui-input__label-wrapper">
           {label && (
             <Label

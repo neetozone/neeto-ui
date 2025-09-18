@@ -51,7 +51,10 @@ describe("Tooltip", () => {
     await userEvent.hover(text);
     const tooltip = screen.getByText("Tooltip");
     await userEvent.unhover(text);
-    await waitFor(() => expect(tooltip).not.toBeVisible());
+    await waitFor(() => {
+      const tooltipBox = tooltip.closest('[data-state="hidden"]');
+      expect(tooltipBox).toBeInTheDocument();
+    });
   });
 
   it("should auto hide tooltip after n milliseconds", async () => {
@@ -64,6 +67,9 @@ describe("Tooltip", () => {
     const text = screen.getByText("Text");
     await userEvent.hover(text);
     const tooltip = screen.getByText("Tooltip");
-    await waitFor(() => expect(tooltip).not.toBeVisible());
+    await waitFor(() => {
+      const tooltipBox = tooltip.closest('[data-state="hidden"]');
+      expect(tooltipBox).toBeInTheDocument();
+    });
   });
 });
