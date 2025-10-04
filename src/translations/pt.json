@@ -1,8 +1,8 @@
 {
   "neetoui": {
     "blockNavigation": {
-      "alertMessage": "Todas as suas alterações não salvas serão perdidas. Isso não pode ser desfeito.",
-      "submitButtonLabel": "Descartar alterações",
+      "alertMessage": "Sair desta página descartará seus dados não salvos. Esta ação não pode ser desfeita.",
+      "submitButtonLabel": "Ficar nesta página",
       "alertTitle": "Você tem alterações não salvas",
       "cancelButtonLabel": "Descartar e sair desta página"
     },
@@ -22,8 +22,8 @@
       "columnInfo": "Informações da coluna",
       "hideColumn": "Ocultar coluna",
       "deleteColumn": "Excluir coluna",
-      "ascending": "Ordenar crescente",
-      "descending": "Ordenar decrescente",
+      "ascending": "Ordenar de forma ascendente",
+      "descending": "Ordenar de forma descendente",
       "allRowsSelected": "Todas as linhas estão selecionadas",
       "clearSelection": "Limpar seleção",
       "freezeColumn": "Congelar coluna",
@@ -35,7 +35,7 @@
       "seconds": "Segundos"
     },
     "treeSelect": {
-      "noOptions": "Sem opções"
+      "noOptions": "Sem opções."
     }
   }
 }

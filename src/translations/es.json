@@ -1,8 +1,8 @@
 {
   "neetoui": {
     "blockNavigation": {
-      "alertMessage": "Todos los cambios no guardados se perderán. Esto no se puede deshacer.",
-      "submitButtonLabel": "Descartar los cambios",
+      "alertMessage": "Salir de esta página descartará tus datos no guardados. Esta acción no se puede deshacer.",
+      "submitButtonLabel": "Permanecer en esta página",
       "alertTitle": "Tiene cambios sin guardar",
       "cancelButtonLabel": "Descartar y salir de esta página"
     },
@@ -35,7 +35,7 @@
       "seconds": "Segundos"
     },
     "treeSelect": {
-      "noOptions": "Sin opciones"
+      "noOptions": "No hay opciones."
     }
   }
 }

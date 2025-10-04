@@ -1,8 +1,8 @@
 {
   "neetoui": {
     "blockNavigation": {
-      "alertMessage": "Al uw niet-opgeslagen wijzigingen gaan verloren. Dit kan niet ongedaan worden gemaakt.",
-      "submitButtonLabel": "Veranderingen ongedaan maken",
+      "alertMessage": "Het verlaten van deze pagina gaat jouw niet-opgeslagen gegevens verliezen. Deze actie kan niet ongedaan worden gemaakt.",
+      "submitButtonLabel": "Blijf op deze pagina",
       "alertTitle": "U heeft niet-opgeslagen wijzigingen",
       "cancelButtonLabel": "Verwerp en verlaat deze pagina"
     },
@@ -35,7 +35,7 @@
       "seconds": "Seconden"
     },
     "treeSelect": {
-      "noOptions": "Geen opties"
+      "noOptions": "Geen opties."
     }
   }
 }
