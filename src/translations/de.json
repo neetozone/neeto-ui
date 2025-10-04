@@ -1,8 +1,8 @@
 {
   "neetoui": {
     "blockNavigation": {
-      "alertMessage": "Alle Ihre nicht gespeicherten Änderungen gehen verloren. Dies kann nicht rückgängig gemacht werden.",
-      "submitButtonLabel": "Änderungen verwerfen",
+      "alertMessage": "Das Verlassen dieser Seite wird Ihre nicht gespeicherten Daten verwerfen. Diese Aktion kann nicht rückgängig gemacht werden.",
+      "submitButtonLabel": "Auf dieser Seite bleiben",
       "alertTitle": "Du hast nicht gespeicherte Änderungen",
       "cancelButtonLabel": "Verwerfen und diese Seite verlassen"
     },
@@ -35,7 +35,7 @@
       "seconds": "Sekunden"
     },
     "treeSelect": {
-      "noOptions": "Keine Optionen"
+      "noOptions": "Keine Optionen."
     }
   }
 }

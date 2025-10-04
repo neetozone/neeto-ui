@@ -1,8 +1,8 @@
 {
   "neetoui": {
     "blockNavigation": {
-      "alertMessage": "Toutes vos modifications non enregistrées seront perdues. Cela ne peut pas être annulé.",
-      "submitButtonLabel": "Annuler les modifications",
+      "alertMessage": "Quitter cette page entraînera la perte de vos données non enregistrées. Cette action ne peut pas être annulée.",
+      "submitButtonLabel": "Rester sur cette page",
       "alertTitle": "Vous avez des changements non enregistrés",
       "cancelButtonLabel": "Annuler et quitter cette page"
     },
@@ -22,8 +22,8 @@
       "columnInfo": "Informations sur la colonne",
       "hideColumn": "Masquer la colonne",
       "deleteColumn": "Supprimer la colonne",
-      "ascending": "Trier ascendant",
-      "descending": "Trier descendant",
+      "ascending": "Trier par ordre croissant",
+      "descending": "Trier par ordre décroissant",
       "allRowsSelected": "Toutes les lignes sont sélectionnées",
       "clearSelection": "Effacer la sélection",
       "freezeColumn": "Geler la colonne",
@@ -35,7 +35,7 @@
       "seconds": "Seconds"
     },
     "treeSelect": {
-      "noOptions": "Aucune option"
+      "noOptions": "Pas d'options."
     }
   }
 }

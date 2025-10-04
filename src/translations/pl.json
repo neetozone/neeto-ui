@@ -1,8 +1,8 @@
 {
   "neetoui": {
     "blockNavigation": {
-      "alertMessage": "Wszystkie niezapisane zmiany zostaną utracone. Tego nie można cofnąć.",
-      "submitButtonLabel": "Odrzucać zmiany",
+      "alertMessage": "Opuszczenie tej strony spowoduje utratę niezapisanych danych. Ta akcja nie może być cofnięta.",
+      "submitButtonLabel": "Zostań na tej stronie",
       "alertTitle": "masz niezapisane zmiany",
       "cancelButtonLabel": "Anuluj i opuść tę stronę"
     },
@@ -35,7 +35,7 @@
       "seconds": "sekundy"
     },
     "treeSelect": {
-      "noOptions": "Brak opcji"
+      "noOptions": "Brak opcji."
     }
   }
 }
