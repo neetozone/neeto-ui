@@ -180,7 +180,7 @@
     "react-monaco-editor": "^0.56.0",
     "react-resizable": "^3.0.4",
     "react-router-dom": "5.3.3",
-    "react-select": "5.6.0",
+    "react-select": "^5.10.2",
     "react-time-picker": "^6.5.2",
     "react-toastify": "9.0.1",
     "rfs": "^10.0.0",
