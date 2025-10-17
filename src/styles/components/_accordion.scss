@@ -39,6 +39,16 @@
   --neeto-ui-accordion-item-focus-visible-box-shadow: none;
 }
 
+// RTL overrides
+[dir="rtl"] {
+  .neeto-ui-accordion__item-toggle-icon svg {
+    transform: scaleX(-1);
+  }
+  .neeto-ui-accordion__wrapper .neeto-ui-accordion__item--open .neeto-ui-accordion__item-toggle-icon svg {
+    transform: scaleY(-1);
+  }
+}
+
 .neeto-ui-accordions-outer-wrapper {
   padding: var(--neeto-ui-accordion-outer-wrapper-padding-y) var(--neeto-ui-accordion-outer-wrapper-padding-x);
   border-radius: var(--neeto-ui-accordion-outer-wrapper-border-radius);

@@ -203,7 +203,7 @@
   }
 
   .neeto-ui-react-select__indicators {
-    padding-right: var(--neeto-ui-select-indicators-padding);
+    padding-inline-end: var(--neeto-ui-select-indicators-padding);
     gap: var(--neeto-ui-select-indicators-gap);
   }
 
@@ -344,7 +344,7 @@
   .neeto-ui-react-select__add-btn {
     font-size: var(--neeto-ui-select-add-btn-font-size);
     padding: var(--neeto-ui-select-add-btn-padding-y) var(--neeto-ui-select-add-btn-padding-y);
-    margin-left: var(--neeto-ui-select-add-btn-margin-left);
+    margin-inline-start: var(--neeto-ui-select-add-btn-margin-left);
   }
   &--small {
     --neeto-ui-select-add-btn-margin-left: 2px;

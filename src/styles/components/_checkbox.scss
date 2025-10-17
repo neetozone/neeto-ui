@@ -42,7 +42,7 @@
     align-items: flex-start;
 
     .neeto-ui-label {
-      margin-left: var(--neeto-ui-checkbox-label-margin);
+      margin-inline-start: var(--neeto-ui-checkbox-label-margin);
       line-height: var(--neeto-ui-checkbox-label-line-height);
     }
 

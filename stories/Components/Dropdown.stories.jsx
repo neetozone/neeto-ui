@@ -253,7 +253,7 @@ const TriggerStyles = args => {
 
   return (
     <div className="h-40">
-      <div className="flex space-x-3">
+      <div className="flex gap-x-3">
         <Dropdown {...args} buttonStyle="primary" label="Primary Dropdown">
           <Menu>
             {listItems.map((item, idx) => (
@@ -293,7 +293,7 @@ const TriggerSizes = args => {
 
   return (
     <div className="h-40">
-      <div className="flex items-center space-x-3">
+      <div className="flex items-center gap-x-3">
         <Dropdown {...args} buttonSize="small" label="Small">
           <Menu>
             {listItems.map((item, idx) => (
@@ -473,7 +473,7 @@ const ControlledDropdown = args => {
 
   return (
     <div className="flex h-60 flex-col items-start space-y-6">
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center gap-x-4">
         <Button
           label="Open Dropdown"
           style="secondary"

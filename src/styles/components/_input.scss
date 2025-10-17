@@ -286,13 +286,13 @@
   }
 
   .neeto-ui-input__prefix {
-    margin-left: var(--neeto-ui-input-prefix-suffix-margin);
-    border-right: var(--neeto-ui-input-prefix-suffix-border-width) solid var(--neeto-ui-input-prefix-suffix-border-color);
+    margin-inline-start: var(--neeto-ui-input-prefix-suffix-margin);
+    border-inline-end: var(--neeto-ui-input-prefix-suffix-border-width) solid var(--neeto-ui-input-prefix-suffix-border-color);
   }
 
   .neeto-ui-input__suffix {
-    margin-right: var(--neeto-ui-input-prefix-suffix-margin);
-    border-left: var(--neeto-ui-input-prefix-suffix-border-width) solid var(--neeto-ui-input-prefix-suffix-border-color);
+    margin-inline-end: var(--neeto-ui-input-prefix-suffix-margin);
+    border-inline-start: var(--neeto-ui-input-prefix-suffix-border-width) solid var(--neeto-ui-input-prefix-suffix-border-color);
   }
 }
 
