@@ -11,15 +11,17 @@ const TIMEZONE_OPTIONS = [
 ];
 
 const TimezoneSelect = ({ value, onChange }) => {
+  const id = "nui-datepicker-timezone-select";
   const containerRef = useRef(null);
   const { t, i18n } = useTranslation();
 
   return (
     <div className="flex items-center gap-2" ref={containerRef}>
-      <Typography style="body3" weight="medium">
+      <Typography htmlFor={id} style="body3" weight="medium">
         {getLocale(i18n, t, "neetoui.common.timezone")}
       </Typography>
       <Select
+        {...{ id }}
         className="w-40 py-1"
         data-testid="timezone-select"
         menuPortalTarget={containerRef.current}
