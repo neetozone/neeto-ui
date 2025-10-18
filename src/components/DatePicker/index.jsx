@@ -27,6 +27,7 @@ import IconOverride from "./IconOverride";
 import Provider from "./Provider";
 import Today from "./Today";
 import { getAllowed, formattedString } from "./utils";
+import TimezoneSelect from "./TimezoneSelect";
 
 const INPUT_SIZES = { small: "small", medium: "medium", large: "large" };
 
@@ -61,6 +62,7 @@ const DatePicker = forwardRef(
       minDate,
       timePickerProps,
       timezone,
+      onTimezoneChange,
       onOpenChange,
       onKeyDown,
       ...otherProps
@@ -69,7 +71,7 @@ const DatePicker = forwardRef(
   ) => {
     const [value, setValue] = useState(inputValue);
     const [mode, setMode] = useState(picker);
-    const [pickerValue, setPickerValue] = useState();
+    const [pickerValue, setPickerValue] = useState(undefined);
     const id = useId(otherProps.id);
     const datePickerRef = useSyncedRef(ref);
     const isDatePickerOpen = useRef(otherProps.open ?? false);
@@ -126,20 +128,27 @@ const DatePicker = forwardRef(
       onKeyDown?.(e);
     };
 
-    const renderExtraFooter = () => {
-      if (type === "range" || mode === "date") return null;
-
-      return (
-        <Today
-          onClick={() => {
-            const today = dayjs();
-            setValue(today);
-            onChange(today, formattedString(today, dateFormat));
-            setMode(picker);
-          }}
-        />
-      );
-    };
+    const renderExtraFooter = () => (
+      <div className="flex items-center justify-between px-3">
+        {type !== "range" && mode !== "date" ? (
+          <Today
+            onClick={() => {
+              const today = dayjs();
+              setValue(today);
+              onChange(today, formattedString(today, dateFormat));
+              setMode(picker);
+            }}
+          />
+        ) : (
+          <div />
+        )}
+        {onTimezoneChange ? (
+          <TimezoneSelect value={timezone} onChange={onTimezoneChange} />
+        ) : (
+          <div />
+        )}
+      </div>
+    );
 
     return (
       <Provider>
@@ -174,11 +183,11 @@ const DatePicker = forwardRef(
               minDate,
               onOk,
               picker,
+              renderExtraFooter,
               ...otherProps,
               ...(type === "date" && {
                 mode,
                 pickerValue,
-                renderExtraFooter,
                 onPanelChange: (pickerValue, mode) => {
                   setPickerValue(pickerValue);
                   setMode(mode);
@@ -196,7 +205,11 @@ const DatePicker = forwardRef(
               }
             }
             suffixIcon={
-              timezone ? <Tag label={timezone} /> : <Calendar size={16} />
+              timezone ? (
+                <Tag className="uppercase" label={timezone} />
+              ) : (
+                <Calendar size={16} />
+              )
             }
           />
           {!!error && typeof error === "string" && (

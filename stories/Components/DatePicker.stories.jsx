@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Modal, Typography, Pane, DatePicker } from "components";
 import Button from "components/Button";
@@ -134,6 +134,12 @@ const metadata = {
     onOk: {
       description:
         "Callback function which will be invoked when ok button is clicked in DateInput",
+      control: "function",
+      table: { type: { summary: "func" } },
+    },
+    onTimezoneChange: {
+      description:
+        "Callback function which will be invoked when timezone selection is changed. The dropdown selection options are visible only when this prop is supplied.",
       control: "function",
       table: { type: { summary: "func" } },
     },
@@ -543,6 +549,22 @@ PortalCustomClassName.args = {
   popupClassName: "neeto-ui__date-picker-popup-wrapper",
 };
 
+const WithTimezoneChange = args => {
+  const [timezone, setTimezone] = useState(undefined);
+
+  return (
+    <DatePicker {...{ ...args, timezone }} onTimezoneChange={setTimezone} />
+  );
+};
+
+WithTimezoneChange.storyName = "DatePicker with timezone selection";
+
+WithTimezoneChange.args = {
+  label: "DatePicker with timezone selection",
+  type: "date",
+  picker: "date",
+};
+
 export {
   Default,
   RequiredDatePicker,
@@ -556,6 +578,7 @@ export {
   MinAndMaxDate,
   CSSCustomization,
   PortalCustomClassName,
+  WithTimezoneChange,
 };
 
 export default metadata;
