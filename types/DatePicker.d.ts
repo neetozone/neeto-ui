@@ -12,8 +12,6 @@ export type DatePickerProps = {
   dateFormat?: string;
   timeFormat?: string;
   placeholder?: string;
-  onChange?: (date: any, dateString: string) => void;
-  onOk?: () => void;
   picker?: "date" | "week" | "month" | "quarter" | "year";
   showTime?: boolean;
   timePickerProps?: any;
@@ -27,8 +25,11 @@ export type DatePickerProps = {
   allowClear?: boolean;
   minDate?: Dayjs;
   maxDate?: Dayjs;
+  onOk?: () => void;
+  onChange?: (date: any, dateString: string) => void;
   onOpenChange?: (open: boolean) => void;
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  onTimezoneChange?: (timezone: string) => void;
   [key: string]: any;
 };
 
