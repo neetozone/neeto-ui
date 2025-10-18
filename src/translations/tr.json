@@ -36,6 +36,9 @@
     },
     "treeSelect": {
       "noOptions": "Seçenek yok."
+    },
+    "common": {
+      "timezone": "Saat Dilimi"
     }
   }
 }
