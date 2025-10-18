@@ -36,6 +36,9 @@
     },
     "treeSelect": {
       "noOptions": "沒有選項。"
+    },
+    "common": {
+      "timezone": "時區"
     }
   }
 }

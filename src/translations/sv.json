@@ -36,6 +36,9 @@
     },
     "treeSelect": {
       "noOptions": "Inga alternativ."
+    },
+    "common": {
+      "timezone": "Tidszon"
     }
   }
 }

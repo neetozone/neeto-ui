@@ -36,6 +36,9 @@
     },
     "treeSelect": {
       "noOptions": "कोई विकल्प नहीं।"
+    },
+    "common": {
+      "timezone": "टाइम ज़ोन"
     }
   }
 }

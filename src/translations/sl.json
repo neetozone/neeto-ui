@@ -36,6 +36,9 @@
     },
     "treeSelect": {
       "noOptions": "Brez možnosti."
+    },
+    "common": {
+      "timezone": "Časovni pas"
     }
   }
 }

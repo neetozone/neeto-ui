@@ -36,6 +36,9 @@
     },
     "treeSelect": {
       "noOptions": "Няма опции."
+    },
+    "common": {
+      "timezone": "Часова зона"
     }
   }
 }

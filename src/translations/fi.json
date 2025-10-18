@@ -36,6 +36,9 @@
     },
     "treeSelect": {
       "noOptions": "Ei vaihtoehtoja."
+    },
+    "common": {
+      "timezone": " aikavyöhyke"
     }
   }
 }

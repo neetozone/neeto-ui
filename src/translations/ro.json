@@ -36,6 +36,9 @@
     },
     "treeSelect": {
       "noOptions": "Nicio opțiune."
+    },
+    "common": {
+      "timezone": "Fus orar"
     }
   }
 }
