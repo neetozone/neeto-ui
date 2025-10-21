@@ -23,7 +23,7 @@
     transform: scaleX(-1);
   }
   .neeto-ui-tree.ant-tree .ant-tree-switcher_open .ant-tree-switcher-icon {
-    transform: scaleY(1);
+    transform: scaleX(-1) rotate(360deg);
   }
 }
 

@@ -45,7 +45,7 @@
     transform: scaleX(-1);
   }
   .neeto-ui-accordion__wrapper .neeto-ui-accordion__item--open .neeto-ui-accordion__item-toggle-icon svg {
-    transform: scaleY(-1);
+    transform: scaleX(-1) rotate(180deg);
   }
 }
 
