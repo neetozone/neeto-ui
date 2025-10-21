@@ -154,7 +154,7 @@ const Themes = args => (
 );
 
 const TooltipOnText = args => (
-  <div className="flex items-center justify-center space-x-6 p-10 ">
+  <div className="flex items-center justify-center gap-x-6 p-10 ">
     <Tooltip {...args} content="Tooltip" position="top">
       <Typography>Top</Typography>
     </Tooltip>
@@ -184,7 +184,7 @@ const TooltipOnCustomComponent = args => {
   CustomComponent.displayName = "CustomComponent";
 
   return (
-    <div className="flex items-center justify-center space-x-6 p-10 ">
+    <div className="flex items-center justify-center gap-x-6 p-10 ">
       <Tooltip {...args} content="Tooltip" position="top">
         <CustomComponent text="Custom component" />
       </Tooltip>
