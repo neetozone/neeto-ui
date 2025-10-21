@@ -67,6 +67,9 @@ export const preserveCursor = (e, updateValueFn) => {
 
   requestAnimationFrame(() => {
     if (document.activeElement !== input) return;
+
+    if (input.type === "number") return;
+
     input.setSelectionRange(newCursor, newCursor);
   });
 };
