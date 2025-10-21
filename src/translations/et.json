@@ -36,6 +36,9 @@
     },
     "treeSelect": {
       "noOptions": "Ei ole valikuid."
+    },
+    "common": {
+      "timezone": "Ajavöönd"
     }
   }
 }

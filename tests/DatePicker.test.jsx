@@ -4,6 +4,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 import DatePicker from "components/DatePicker";
 import { dayjs } from "utils";
+import userEvent from "@testing-library/user-event";
 
 const today = dayjs();
 const theDate = dayjs(new Date(1999, 7, 16));
@@ -309,5 +310,18 @@ describe("DatePicker", () => {
     await waitFor(() => {
       expect(onChangeMock).not.toHaveBeenCalled();
     });
+  });
+
+  it("should render timezone select when onTimezoneChange is provided", () => {
+    render(<DatePicker open onTimezoneChange={() => {}} />);
+    expect(screen.getByText("Timezone")).toBeInTheDocument();
+  });
+
+  it("should change timezone when timezone select is changed", async () => {
+    const onTimezoneChange = jest.fn();
+    render(<DatePicker {...{ onTimezoneChange }} open />);
+    await userEvent.click(screen.getByTestId("timezone-select"));
+    await userEvent.click(screen.getByText("UTC"));
+    expect(onTimezoneChange).toHaveBeenCalledWith("utc");
   });
 });

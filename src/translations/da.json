@@ -36,6 +36,9 @@
     },
     "treeSelect": {
       "noOptions": "Ingen muligheder."
+    },
+    "common": {
+      "timezone": "Tidszone"
     }
   }
 }
