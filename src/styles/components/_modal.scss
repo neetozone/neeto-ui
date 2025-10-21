@@ -44,6 +44,13 @@
   --neeto-ui-modal-footer-border-radius: var(--neeto-ui-rounded-xl);
 }
 
+// RTL overrides
+[dir="rtl"] {
+  .neeto-ui-modal__backdrop .neeto-ui-modal__wrapper .neeto-ui-modal__footer {
+    text-align: left;
+  }
+}
+
 .neeto-ui-modal__backdrop {
   position: fixed;
   z-index: var(--neeto-ui-modal-backdrop-z-index);
@@ -96,7 +103,7 @@
     .neeto-ui-modal__close {
       position: absolute;
       top: var(--neeto-ui-modal-close-btn-top);
-      right: var(--neeto-ui-modal-close-btn-right);
+      inset-inline-end: var(--neeto-ui-modal-close-btn-right);
     }
 
     &.neeto-ui-modal__wrapper--small {
@@ -129,8 +136,9 @@
     }
 
     .neeto-ui-modal__header {
-      padding: var(--neeto-ui-modal-header-padding-top) var(--neeto-ui-modal-header-padding-right) var(--neeto-ui-modal-header-padding-bottom)
-        var(--neeto-ui-modal-header-padding-left);
+      padding-block: var(--neeto-ui-modal-header-padding-top) var(--neeto-ui-modal-header-padding-bottom);
+      padding-inline: var(--neeto-ui-modal-header-padding-left) var(--neeto-ui-modal-header-padding-right);
+
       overflow-wrap: break-word;
     }
 
