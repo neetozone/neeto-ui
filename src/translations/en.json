@@ -1,5 +1,8 @@
 {
   "neetoui": {
+    "common": {
+      "timezone": "Timezone"
+    },
     "blockNavigation": {
       "alertMessage": "Leaving this page will discard your unsaved data. This action cannot be undone.",
       "submitButtonLabel": "Stay on this page",

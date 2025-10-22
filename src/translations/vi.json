@@ -36,6 +36,9 @@
     },
     "treeSelect": {
       "noOptions": "Không có tùy chọn."
+    },
+    "common": {
+      "timezone": "Múi giờ"
     }
   }
 }

@@ -42,11 +42,17 @@ const useResizableColumns = ({
       columns
         .map((col, index) => {
           const fixed = getColumFixedValue(col, frozenColumns);
+          const lastColProps = {}; // This configuration allows more flexibility in resizing of other columns.
+          if (index >= columns.length - 1) {
+            lastColProps.width = undefined;
+            lastColProps.onCell = () => ({ style: { minWidth: col.width } });
+          }
 
           const modifiedColumn = {
             ...col,
+            ...lastColProps,
             onHeaderCell: column => ({
-              width: column.width,
+              width: col.width,
               onResize: isEnabled ? handleResize(index) : noop,
               onResizeStop: () => (isEnabled ? onColumnUpdate(columns) : noop),
               isSortable: isPresent(col.sorter),

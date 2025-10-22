@@ -36,6 +36,9 @@
     },
     "treeSelect": {
       "noOptions": "Brak opcji."
+    },
+    "common": {
+      "timezone": "Strefa czasowa"
     }
   }
 }
