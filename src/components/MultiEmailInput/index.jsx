@@ -172,6 +172,7 @@ const MultiEmailInput = forwardRef(
         <CreatableSelect
           isMulti
           required
+          blurInputOnSelect={false}
           classNamePrefix="neeto-ui-react-select"
           components={CUSTOM_COMPONENTS}
           isDisabled={disabled}
@@ -187,7 +188,6 @@ const MultiEmailInput = forwardRef(
               overflowY: "auto",
             }),
           }}
-          blurInputOnSelect={false}
           onBlur={handleBlur}
           onFocus={() => setIsFocused(true)}
           onKeyDown={handleKeyDown}
