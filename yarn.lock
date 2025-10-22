@@ -2199,7 +2199,7 @@ __metadata:
     react-monaco-editor: "npm:^0.56.0"
     react-resizable: "npm:^3.0.4"
     react-router-dom: "npm:5.3.3"
-    react-select: "npm:^5.10.2"
+    react-select: "npm:5.6.0"
     react-time-picker: "npm:^6.5.2"
     react-toastify: "npm:9.0.1"
     rfs: "npm:^10.0.0"
@@ -14435,9 +14435,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-select@npm:^5.10.2":
-  version: 5.10.2
-  resolution: "react-select@npm:5.10.2"
+"react-select@npm:5.6.0":
+  version: 5.6.0
+  resolution: "react-select@npm:5.6.0"
   dependencies:
     "@babel/runtime": "npm:^7.12.0"
     "@emotion/cache": "npm:^11.4.0"
@@ -14447,11 +14447,11 @@ __metadata:
     memoize-one: "npm:^6.0.0"
     prop-types: "npm:^15.6.0"
     react-transition-group: "npm:^4.3.0"
-    use-isomorphic-layout-effect: "npm:^1.2.0"
+    use-isomorphic-layout-effect: "npm:^1.1.2"
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/2027ef57b0a375d1accdad60550329dc0911b31d429ec6eb9ae391ae9baf9f26991b0ff8615eb99de319a55ce6e9382107783e615cb2116522ed0275b214b7f7
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 10c0/ac3ed7892620ad754018e0c3a00637e8c4f11e3adf5b490af596dc902bb8f4bfbb1f00e86bfcf8ad9488cfedf091e51287a5d9e6800de6642b7bd83ded7d8707
   languageName: node
   linkType: hard
 
@@ -16699,7 +16699,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-isomorphic-layout-effect@npm:^1.2.0":
+"use-isomorphic-layout-effect@npm:^1.1.2":
   version: 1.2.1
   resolution: "use-isomorphic-layout-effect@npm:1.2.1"
   peerDependencies:

@@ -187,6 +187,7 @@ const MultiEmailInput = forwardRef(
               overflowY: "auto",
             }),
           }}
+          blurInputOnSelect={false}
           onBlur={handleBlur}
           onFocus={() => setIsFocused(true)}
           onKeyDown={handleKeyDown}
