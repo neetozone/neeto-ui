@@ -262,7 +262,7 @@ const PaneWithModalAndAlert = args => {
     <div className="w-full">
       <div className="space-y-6">
         <div className="space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-2">
+          <div className="flex flex-row items-center justify-start gap-x-2">
             <Button label="Show Pane" onClick={() => setShowPane(true)} />
           </div>
         </div>
@@ -346,7 +346,7 @@ const MultiplePanes = args => {
     <div className="w-full">
       <div className="space-y-6">
         <div className="space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-2">
+          <div className="flex flex-row items-center justify-start gap-x-2">
             <Button
               label="Show Pane"
               onClick={() => setIsFirstPaneVisible(true)}
@@ -464,7 +464,7 @@ const PaneWithOverlayManager = args => {
     <div className="w-full">
       <div className="space-y-6">
         <div className="space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-2">
+          <div className="flex flex-row items-center justify-start gap-x-2">
             <Button
               label="Show Pane"
               onClick={() => setIsFirstPaneVisible(true)}
