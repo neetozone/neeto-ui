@@ -117,7 +117,10 @@ body {
 
       .neeto-ui-toastr__close-button {
         opacity: 0.8;
-        margin: var(--neeto-ui-toastr-close-btn-margin-y) var(--neeto-ui-toastr-close-btn-margin-right) var(--neeto-ui-toastr-close-btn-margin-y) var(--neeto-ui-toastr-close-btn-margin-left);
+        margin-block-start: var(--neeto-ui-toastr-close-btn-margin-y);
+        margin-block-end: var(--neeto-ui-toastr-close-btn-margin-y);
+        margin-inline-start: var(--neeto-ui-toastr-close-btn-margin-left);
+        margin-inline-end: var(--neeto-ui-toastr-close-btn-margin-right);
         flex-shrink: 0;
         color: var(--neeto-ui-toastr-close-btn-color);
         transition: var(--neeto-ui-transition);

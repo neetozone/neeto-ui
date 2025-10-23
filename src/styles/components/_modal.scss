@@ -47,7 +47,7 @@
 .neeto-ui-modal__backdrop {
   position: fixed;
   z-index: var(--neeto-ui-modal-backdrop-z-index);
-  left: 0;
+  inset-inline-start: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
@@ -76,8 +76,8 @@
 
     @include mixins.viewport(mob) {
       width: 95%;
-      margin-left: auto;
-      margin-right: auto;
+      margin-inline-start: auto;
+      margin-inline-end: auto;
     }
 
     @keyframes showModalWrapper {
