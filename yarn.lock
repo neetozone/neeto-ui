@@ -2212,6 +2212,7 @@ __metadata:
     sass-loader: "npm:10.0.2"
     storybook: "npm:^9.0.18"
     storybook-addon-designs: "npm:^6.3.1"
+    storybook-addon-rtl: "npm:^2.0.0"
     style-loader: "npm:1.2.1"
     tailwindcss: "npm:^3.4.1"
     tinycolor2: "npm:^1.4.2"
@@ -15607,6 +15608,15 @@ __metadata:
   dependencies:
     "@figspec/react": "npm:^1.0.0"
   checksum: 10c0/7da5b11d3818a61c29f4921ac3eb823ba2093a8a6176cff7ea2da6f7801f5ec2a853f00519d350298cce11c46b0fd3696ab3144b9634070db8cdb737d2c94574
+  languageName: node
+  linkType: hard
+
+"storybook-addon-rtl@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "storybook-addon-rtl@npm:2.0.0"
+  peerDependencies:
+    storybook: ^9.0.0
+  checksum: 10c0/828d22079615df1cf05e185b89d77afd9e9be2838bb8c7520b846afd3b1954ebd55819d5b5abd9bb12df04849c8cbae3d41effee950fee73b957503802ef28ab
   languageName: node
   linkType: hard
 

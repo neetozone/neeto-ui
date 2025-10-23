@@ -14,6 +14,7 @@ const config = {
     "@storybook/preset-scss",
     "@storybook/addon-docs",
     "@vueless/storybook-dark-mode",
+    "storybook-addon-rtl",
   ],
 
   webpackFinal: async config => {
