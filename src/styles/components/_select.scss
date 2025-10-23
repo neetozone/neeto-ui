@@ -315,8 +315,8 @@
 
     .neeto-ui-react-select__multi-value__remove {
       color: inherit !important;
-      border-top-right-radius: 0px;
-      border-bottom-right-radius: 0px;
+      border-start-end-radius: 0px;
+      border-end-end-radius : 0px;
       padding: 0;
       transition: var(--neeto-ui-transition);
       cursor: pointer;

@@ -60,7 +60,7 @@ body {
 
    &.Toastify__toast-container--bottom-left{
       bottom: 12px;
-      left: 12px;
+      inset-inline-start: 12px;
     }
 
     .Toastify__toast, .neeto-ui-toastr{

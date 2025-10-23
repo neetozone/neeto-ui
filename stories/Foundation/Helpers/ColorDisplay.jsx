@@ -35,7 +35,7 @@ const ColorPaletteTable = ({ theme }) => (
             <div className="flex justify-between">
               <code>{color.name.replace("--neeto-ui", "neeto-ui-text")}</code>
               <b
-                className={`ml-2 ${color.name.replace(
+                className={`neeto-ui-ml-2 ${color.name.replace(
                   "--neeto-ui",
                   "neeto-ui-text"
                 )}`}
@@ -91,7 +91,7 @@ const ColorUsageGuide = () => (
       How to use colors for product UI?
     </h2>
     <p className="mb-4">We can utilize the colors in two formats:</p>
-    <ul className="mb-6 ml-6 list-disc">
+    <ul className="neeto-ui-ml-6 mb-6 list-disc">
       <li>As CSS variables</li>
       <li>As classnames</li>
     </ul>
@@ -123,7 +123,7 @@ color: rgba(var(--neeto-ui-primary-600), 0.5);
       </code>
     </pre>
     <h3 className="mb-4 text-xl font-bold">As Classnames</h3>
-    <ul className="ml-6 list-disc">
+    <ul className="neeto-ui-ml-6 list-disc">
       <li className="mb-2">
         Use{" "}
         <a className="text-blue-600 hover:underline" href="#color-palette">

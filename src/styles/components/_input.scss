@@ -98,7 +98,7 @@
       color: var(--neeto-ui-input-max-length-color);
       line-height: var(--neeto-ui-input-max-length-line-height);
       margin-bottom: var(--neeto-ui-input-label-margin);
-      margin-left: auto;
+      margin-inline-start: auto;
 
       &.neeto-ui-input__max-length--error {
         --neeto-ui-input-max-length-color: rgb(var(--neeto-ui-error-800));

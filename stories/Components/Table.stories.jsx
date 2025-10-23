@@ -64,7 +64,7 @@ const columnData = [
           <Avatar
             user={{ name: \`\${first_name} \${last_name}\` }}
             size="small"
-            className="mr-2"
+            className="me-2"
           />
           {first_name}
         </div>
@@ -450,9 +450,9 @@ const getColumns = (fixed = false) => [
     key: "first_name",
     width: 150,
     render: (firstName, lastName) => (
-      <div className="flex flex-row items-center">
+      <div className="flex flex-row items-center gap-x-2">
         <Avatar
-          className="mr-2"
+          className="me-2"
           size="small"
           user={{ name: `${firstName} ${lastName}` }}
         />

@@ -150,8 +150,8 @@
     .neeto-ui-modal__footer {
       text-align: end;
       background: var(--neeto-ui-modal-footer-bg);
-      border-bottom-left-radius: var(--neeto-ui-modal-footer-border-radius);
-      border-bottom-right-radius: var(--neeto-ui-modal-footer-border-radius);
+      border-end-start-radius: var(--neeto-ui-modal-footer-border-radius);
+      border-end-end-radius: var(--neeto-ui-modal-footer-border-radius);
       padding: var(--neeto-ui-modal-footer-padding-y) var(--neeto-ui-modal-footer-padding-x);
     }
   }

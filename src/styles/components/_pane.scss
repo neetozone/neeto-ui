@@ -160,7 +160,7 @@
     &.neeto-ui-pane__footer__absolute {
       width: 100%;
       position: absolute;
-      left: 0;
+      inset-inline-start: 0;
     }
   }
 }
