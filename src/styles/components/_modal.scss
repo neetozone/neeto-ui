@@ -44,13 +44,6 @@
   --neeto-ui-modal-footer-border-radius: var(--neeto-ui-rounded-xl);
 }
 
-// RTL overrides
-[dir="rtl"] {
-  .neeto-ui-modal__backdrop .neeto-ui-modal__wrapper .neeto-ui-modal__footer {
-    text-align: left;
-  }
-}
-
 .neeto-ui-modal__backdrop {
   position: fixed;
   z-index: var(--neeto-ui-modal-backdrop-z-index);
@@ -155,7 +148,7 @@
     }
 
     .neeto-ui-modal__footer {
-      text-align: right;
+      text-align: end;
       background: var(--neeto-ui-modal-footer-bg);
       border-bottom-left-radius: var(--neeto-ui-modal-footer-border-radius);
       border-bottom-right-radius: var(--neeto-ui-modal-footer-border-radius);
