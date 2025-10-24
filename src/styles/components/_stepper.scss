@@ -86,7 +86,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      text-align: left;
+      text-align: start;
 
       @include mixins.viewport(mob) {
         display: none;
@@ -122,7 +122,7 @@
         content: "";
         width: var(--neeto-ui-stepper-item-separator-width);
         border-top: var(--neeto-ui-stepper-item-separator-border-top);
-        margin-left: var(--neeto-ui-stepper-item-separator-margin-left);
+        margin-inline-start: var(--neeto-ui-stepper-item-separator-margin-left);
       }
     }
 
@@ -154,10 +154,10 @@
         &:after {
           content: "";
           position: absolute;
-          left: 0;
+          inset-inline-start: 0;
           top: 0;
           bottom: 0;
-          right: 0;
+          inset-inline-end: 0;
           width: var(--neeto-ui-stepper-item-active-stage-inner-width);
           height: var(--neeto-ui-stepper-item-active-stage-inner-height);
           border: var(--neeto-ui-stepper-item-active-stage-inner-border-width) solid var(--neeto-ui-stepper-item-active-stage-inner-border-color);

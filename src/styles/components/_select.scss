@@ -203,7 +203,7 @@
   }
 
   .neeto-ui-react-select__indicators {
-    padding-right: var(--neeto-ui-select-indicators-padding);
+    padding-inline-end: var(--neeto-ui-select-indicators-padding);
     gap: var(--neeto-ui-select-indicators-gap);
   }
 
@@ -299,7 +299,10 @@
     background-color: var(--neeto-ui-select-multi-value-bg-color);
     border: var(--neeto-ui-select-multi-value-border-width) solid var(--neeto-ui-select-multi-value-border-color);
     border-radius: var(--neeto-ui-select-multi-value-border-radius);
-    margin: var(--neeto-ui-select-multi-value-margin-y) var(--neeto-ui-select-multi-value-margin-right) var(--neeto-ui-select-multi-value-margin-y) 0;
+    margin-block-start: var(--neeto-ui-select-multi-value-margin-y);
+    margin-block-end: var(--neeto-ui-select-multi-value-margin-y);
+    margin-inline-start: 0;
+    margin-inline-end: var(--neeto-ui-select-multi-value-margin-right);
     padding: var(--neeto-ui-select-multi-value-padding-y) var(--neeto-ui-select-multi-value-padding-x);
     color: var(--neeto-ui-select-multi-value-color);
 
@@ -315,8 +318,8 @@
 
     .neeto-ui-react-select__multi-value__remove {
       color: inherit !important;
-      border-top-right-radius: 0px;
-      border-bottom-right-radius: 0px;
+      border-start-end-radius: 0px;
+      border-end-end-radius : 0px;
       padding: 0;
       transition: var(--neeto-ui-transition);
       cursor: pointer;
@@ -344,7 +347,7 @@
   .neeto-ui-react-select__add-btn {
     font-size: var(--neeto-ui-select-add-btn-font-size);
     padding: var(--neeto-ui-select-add-btn-padding-y) var(--neeto-ui-select-add-btn-padding-y);
-    margin-left: var(--neeto-ui-select-add-btn-margin-left);
+    margin-inline-start: var(--neeto-ui-select-add-btn-margin-left);
   }
   &--small {
     --neeto-ui-select-add-btn-margin-left: 2px;

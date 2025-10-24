@@ -66,12 +66,12 @@
     align-items: flex-start;
 
     .neeto-ui-label {
-      margin-left: var(--neeto-ui-radio-label-margin);
+      margin-inline-start: var(--neeto-ui-radio-label-margin);
       line-height: var(--neeto-ui-radio-label-line-height);
     }
 
     &:not(:last-child) {
-      margin-right: var(--neeto-ui-radio-margin);
+      margin-inline-end: var(--neeto-ui-radio-margin);
     }
   }
 

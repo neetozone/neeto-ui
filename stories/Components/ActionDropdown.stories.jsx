@@ -167,7 +167,7 @@ const Styles = args => {
   const { Menu, MenuItem, Divider } = ActionDropdown;
 
   return (
-    <div className="h-40 space-x-6">
+    <div className="flex h-40 gap-x-6">
       <ActionDropdown {...args} buttonStyle="primary" label="Primary">
         <Menu>
           {listItems.map((item, idx) => (
@@ -215,7 +215,7 @@ const Sizes = args => {
   const { Menu, MenuItem, Divider } = ActionDropdown;
 
   return (
-    <div className="h-40 space-x-6">
+    <div className="flex h-40 gap-x-6">
       <ActionDropdown {...args} buttonSize="small" label="Small">
         <Menu>
           {listItems.map((item, idx) => (

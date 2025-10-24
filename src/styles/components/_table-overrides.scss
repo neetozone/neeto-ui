@@ -9,6 +9,20 @@
   --neeto-ui-table-resize-handle-hover-bg-color: rgb(var(--neeto-ui-gray-300));
 }
 
+// RTL overrides
+[dir="rtl"] {
+  .ant-table-wrapper .ant-table-container::before {
+    transform: scaleX(-1);
+  }
+  .ant-table-wrapper .ant-table-container::after {
+    transform: scaleX(-1);
+  }
+  .ant-pagination .ant-pagination-prev button,
+  .ant-pagination .ant-pagination-next button {
+    transform: scaleX(-1);
+  }
+}
+
 .ant-table-wrapper {
   .ant-table {
     font-size: 0.875rem;
@@ -93,11 +107,11 @@
   width: var(--neeto-ui-table-resize-handle-width);
   height: 100%;
   bottom: 0;
-  right: 0;
+  inset-inline-end: 0;
   cursor: col-resize;
   z-index: 1;
-  padding-right: 1px;
-  padding-left: 1px;
+  padding-inline-end: 1px;
+  padding-inline-start: 1px;
 }
 
 .neeto-ui-table-react-resizable-handle__inner {
@@ -130,7 +144,7 @@
     }
     .neeto-ui-btn--style-link {
       white-space: normal;
-      text-align: left;
+      text-align: start;
     }
   }
 }
@@ -141,7 +155,7 @@
 
 .neeto-ui-table__column-title-info-icon {
   position: absolute;
-  right: 0;
+  inset-inline-end: 0;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;

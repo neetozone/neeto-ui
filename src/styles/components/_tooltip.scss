@@ -69,7 +69,7 @@
 
 .tippy-box[data-placement^="top"] > .tippy-arrow:before {
   bottom: -7px;
-  left: 0;
+  inset-inline-start: 0;
   border-width: 8px 8px 0;
   border-top-color: initial;
   transform-origin: center top;
@@ -81,31 +81,31 @@
 
 .tippy-box[data-placement^="bottom"] > .tippy-arrow:before {
   top: -7px;
-  left: 0;
+  inset-inline-start: 0;
   border-width: 0 8px 8px;
   border-bottom-color: initial;
   transform-origin: center bottom;
 }
 
 .tippy-box[data-placement^="left"] > .tippy-arrow {
-  right: 0;
+  inset-inline-end: 0;
 }
 
 .tippy-box[data-placement^="left"] > .tippy-arrow:before {
   border-width: 8px 0 8px 8px;
-  border-left-color: initial;
-  right: -7px;
+  border-inline-start-color: initial;
+  inset-inline-end: -7px;
   transform-origin: center left;
 }
 
 .tippy-box[data-placement^="right"] > .tippy-arrow {
-  left: 0;
+  inset-inline-start: 0;
 }
 
 .tippy-box[data-placement^="right"] > .tippy-arrow:before {
-  left: -7px;
+  inset-inline-start: -7px;
   border-width: 8px 8px 8px 0;
-  border-right-color: initial;
+  border-inline-end-color: initial;
   transform-origin: center right;
 }
 
@@ -152,25 +152,25 @@
 }
 
 .tippy-box[data-placement^="left"] > .tippy-svg-arrow {
-  right: 0;
+  inset-inline-end: 0;
 }
 
 .tippy-box[data-placement^="left"] > .tippy-svg-arrow:after,
 .tippy-box[data-placement^="left"] > .tippy-svg-arrow > svg {
   transform: rotate(90deg);
   top: calc(50% - 3px);
-  left: 13px;
+  inset-inline-start: 13px;
 }
 
 .tippy-box[data-placement^="right"] > .tippy-svg-arrow {
-  left: 0;
+  inset-inline-start: 0;
 }
 
 .tippy-box[data-placement^="right"] > .tippy-svg-arrow:after,
 .tippy-box[data-placement^="right"] > .tippy-svg-arrow > svg {
   transform: rotate(-90deg);
   top: calc(50% - 3px);
-  right: 13px;
+  inset-inline-end: 13px;
 }
 
 .tippy-svg-arrow {
@@ -210,11 +210,11 @@
 }
 
 .tippy-box[data-theme~="light"][data-placement^="left"] > .tippy-arrow:before {
-  border-left-color: var(--neeto-ui-tooltip-light-theme-arrow-border-color);
+  border-inline-start-color: var(--neeto-ui-tooltip-light-theme-arrow-border-color);
 }
 
 .tippy-box[data-theme~="light"][data-placement^="right"] > .tippy-arrow:before {
-  border-right-color: var(--neeto-ui-tooltip-light-theme-arrow-border-color);
+  border-inline-end-color: var(--neeto-ui-tooltip-light-theme-arrow-border-color);
 }
 
 .tippy-box[data-theme~="light"] > .tippy-backdrop {
@@ -247,23 +247,23 @@
     }
   }
   &[data-placement^="right"] .tippy-arrow {
-    border-right-color: rgb(var(--neeto-ui-white));
-    left: calc(-1 * var(--neeto-ui-tooltip-arrow-offset));
+    border-inline-end-color: rgb(var(--neeto-ui-white));
+    inset-inline-start: calc(-1 * var(--neeto-ui-tooltip-arrow-offset));
 
     &::before {
-      left: calc(-1 * (var(--neeto-ui-tooltip-arrow-size) + 1px));
+      inset-inline-start: calc(-1 * (var(--neeto-ui-tooltip-arrow-size) + 1px));
       top: calc(-1 * var(--neeto-ui-tooltip-arrow-size));
-      border-right-color: var(--neeto-ui-popover-light-theme-border-color);
+      border-inline-end-color: var(--neeto-ui-popover-light-theme-border-color);
     }
   }
   &[data-placement^="left"] .tippy-arrow {
-    border-left-color: rgb(var(--neeto-ui-white));
-    right: calc(-1 * var(--neeto-ui-tooltip-arrow-offset));
+    border-inline-start-color: rgb(var(--neeto-ui-white));
+    inset-inline-end: calc(-1 * var(--neeto-ui-tooltip-arrow-offset));
 
     &::before {
-      right: calc(-1 * (var(--neeto-ui-tooltip-arrow-size) + 1px));
+      inset-inline-end: calc(-1 * (var(--neeto-ui-tooltip-arrow-size) + 1px));
       top: calc(-1 * var(--neeto-ui-tooltip-arrow-size));
-      border-left-color: var(--neeto-ui-popover-light-theme-border-color);
+      border-inline-start-color: var(--neeto-ui-popover-light-theme-border-color);
     }
   }
   &[data-placement^="bottom"] .tippy-arrow {
@@ -272,7 +272,7 @@
 
     &::before {
       top: calc(-1 * (var(--neeto-ui-tooltip-arrow-size) + 1px));
-      left: calc(-1 * var(--neeto-ui-tooltip-arrow-size));
+      inset-inline-start: calc(-1 * var(--neeto-ui-tooltip-arrow-size));
       bottom: auto;
       border-bottom-color: var(--neeto-ui-popover-light-theme-border-color);
     }
@@ -282,7 +282,7 @@
     bottom: calc(-1 * var(--neeto-ui-tooltip-arrow-offset));
 
     &::before {
-      left: calc(-1 * var(--neeto-ui-tooltip-arrow-size));
+      inset-inline-start: calc(-1 * var(--neeto-ui-tooltip-arrow-size));
       top: calc(-1 * (var(--neeto-ui-tooltip-arrow-size) - 1px));
       border-top-color: var(--neeto-ui-popover-light-theme-border-color);
     }

@@ -119,14 +119,14 @@ const Default = Template.bind({});
 Default.args = { label: "Label" };
 
 const Sizes = args => (
-  <div className="flex flex-row items-center justify-start space-x-4">
+  <div className="flex flex-row items-center justify-start gap-x-4">
     <Tag {...args} label="Large" size="large" />
     <Tag {...args} label="Small" size="small" />
   </div>
 );
 
 const Styles = args => (
-  <div className="flex flex-row items-start justify-start space-x-4">
+  <div className="flex flex-row items-start justify-start gap-x-4">
     <Tag {...args} label="Primary" style="primary" />
     <Tag {...args} label="Secondary" style="secondary" />
     <Tag {...args} label="Info" style="info" />
@@ -140,7 +140,7 @@ const Types = args => (
   <div className="space-y-4">
     <div>
       <h5 className="mb-4 capitalize">Outline</h5>
-      <div className="space-x-3">
+      <div className="flex gap-x-3">
         <Tag {...args} label="Primary" style="primary" type="outline" />
         <Tag {...args} label="Secondary" style="secondary" type="outline" />
         <Tag {...args} label="Info" style="info" type="outline" />
@@ -151,7 +151,7 @@ const Types = args => (
     </div>
     <div>
       <h5 className="mb-4 capitalize">Solid</h5>
-      <div className="space-x-3">
+      <div className="flex gap-x-3">
         <Tag {...args} label="Primary" style="primary" type="solid" />
         <Tag {...args} label="Secondary" style="secondary" type="solid" />
         <Tag {...args} label="Info" style="info" type="solid" />
@@ -164,7 +164,7 @@ const Types = args => (
 );
 
 const WithIndicator = args => (
-  <div className="flex flex-row items-start justify-start space-x-4">
+  <div className="flex flex-row items-start justify-start gap-x-4">
     <Tag {...args} indicatorStyle="primary" label="Primary" style="secondary" />
     <Tag
       {...args}
@@ -181,7 +181,7 @@ const WithIndicator = args => (
 WithIndicator.storyName = "With indicator";
 
 const WithIcon = args => (
-  <div className="flex flex-row items-center justify-start space-x-4">
+  <div className="flex flex-row items-center justify-start gap-x-4">
     <Tag {...args} icon={Favorite} label="With icon" />
     <Tag {...args} icon={Favorite} label="With icon" size="large" />
   </div>
@@ -189,7 +189,7 @@ const WithIcon = args => (
 WithIcon.storyName = "With icon";
 
 const WithOnClose = args => (
-  <div className="flex flex-row items-center justify-start space-x-4">
+  <div className="flex flex-row items-center justify-start gap-x-4">
     <Tag {...args} label="With close icon" onClose={() => {}} />
     <Tag {...args} label="With close icon" size="large" onClose={() => {}} />
   </div>

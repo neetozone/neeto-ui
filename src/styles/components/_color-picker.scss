@@ -82,7 +82,7 @@
   transition: var(--neeto-ui-transition);
   padding: var(--neeto-ui-colorpicker-palette-item-padding);
   border-radius: var(--neeto-ui-colorpicker-palette-item-border-radius);
-  margin-left: var(--neeto-ui-colorpicker-palette-item-margin-left);
+  margin-inline-start: var(--neeto-ui-colorpicker-palette-item-margin-left);
   cursor: pointer;
   overflow: hidden;
 

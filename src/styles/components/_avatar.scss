@@ -50,7 +50,7 @@
 
   .neeto-ui-avatar__status {
     position: absolute;
-    right: 0;
+    inset-inline-end: 0;
     bottom: 0;
     width: var(--neeto-ui-avatar-status-width);
     height: var(--neeto-ui-avatar-status-width);

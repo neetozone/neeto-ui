@@ -37,11 +37,43 @@
   --neeto-ui-pane-footer-box-shadow: var(--neeto-ui-shadow-m);
 }
 
+// RTL overrides
+[dir="rtl"] {
+  .neeto-ui-pane__wrapper {
+    transform: translateX(-100%);
+  }
+
+  .neeto-ui-pane-enter {
+    .neeto-ui-pane__wrapper {
+      transform: translateX(-100%);
+    }
+  }
+
+  .neeto-ui-pane-enter-active,
+  .neeto-ui-pane-enter-done {
+    .neeto-ui-pane__wrapper {
+      transform: translateX(0);
+    }
+  }
+
+  .neeto-ui-pane-exit {
+    .neeto-ui-pane__wrapper {
+      transform: translateX(-100%);
+    }
+  }
+
+  .neeto-ui-pane-exit-active {
+    .neeto-ui-pane__wrapper {
+      transform: translateX(-100%);
+    }
+  }
+}
+
 .neeto-ui-pane {
   &__backdrop {
     position: fixed;
     z-index: var(--neeto-ui-pane-backdrop-z-index);
-    left: 0;
+    inset-inline-start: 0;
     top: 0;
     width: 100vw;
     height: 100vh;
@@ -86,12 +118,13 @@
   &__close {
     position: absolute;
     top: var(--neeto-ui-pane-close-btn-top);
-    right: var(--neeto-ui-pane-close-btn-right);
+    inset-inline-end: var(--neeto-ui-pane-close-btn-right);
   }
 
   &__header {
     width: 100%;
-    padding: var(--neeto-ui-pane-header-padding-y) var(--neeto-ui-pane-header-padding-right) var(--neeto-ui-pane-header-padding-y) var(--neeto-ui-pane-header-padding-left);
+    padding-block: var(--neeto-ui-pane-header-padding-y) var(--neeto-ui-pane-header-padding-y);
+    padding-inline: var(--neeto-ui-pane-header-padding-left) var(--neeto-ui-pane-header-padding-right);
   }
 
   &__body {
@@ -127,7 +160,7 @@
     &.neeto-ui-pane__footer__absolute {
       width: 100%;
       position: absolute;
-      left: 0;
+      inset-inline-start: 0;
     }
   }
 }

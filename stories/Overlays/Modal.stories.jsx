@@ -67,7 +67,7 @@ const Default = args => {
             They're the Herculoids!
           </Typography>
         </Modal.Body>
-        <Modal.Footer className="space-x-2">
+        <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
             style="tertiary"
@@ -119,7 +119,7 @@ const Sizes = args => {
             dragon! Igoo, the giant rock ape! Tundro, the tremendous!
           </Typography>
         </Modal.Body>
-        <Modal.Footer className="space-x-2">
+        <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
             style="tertiary"
@@ -146,7 +146,7 @@ const Sizes = args => {
             dragon! Igoo, the giant rock ape! Tundro, the tremendous!
           </Typography>
         </Modal.Body>
-        <Modal.Footer className="space-x-2">
+        <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
             style="tertiary"
@@ -174,7 +174,7 @@ const Sizes = args => {
             They're the Herculoids!
           </Typography>
         </Modal.Body>
-        <Modal.Footer className="space-x-2">
+        <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
             style="tertiary"
@@ -202,7 +202,7 @@ const Sizes = args => {
             They're the Herculoids!
           </Typography>
         </Modal.Body>
-        <Modal.Footer className="space-x-2">
+        <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
             style="tertiary"
@@ -253,7 +253,7 @@ const ModalFocusTrapping = args => {
           <Input label="Last name" />
           <Input label="Email" type="email" />
         </Modal.Body>
-        <Modal.Footer className="space-x-2">
+        <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
             style="tertiary"
@@ -300,7 +300,7 @@ const NestedModals = args => {
           <Input label="Last name" />
           <Input label="Email" type="email" />
         </Modal.Body>
-        <Modal.Footer className="space-x-2">
+        <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
             style="tertiary"
@@ -328,7 +328,7 @@ const NestedModals = args => {
             They're the Herculoids!
           </Typography>
         </Modal.Body>
-        <Modal.Footer className="space-x-2">
+        <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
             style="tertiary"
@@ -386,7 +386,7 @@ const InitialAndFinalFocusRef = args => {
           <Input label="Last name" />
           <Input label="Email" type="email" />
         </Modal.Body>
-        <Modal.Footer className="space-x-2">
+        <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
             style="tertiary"
@@ -432,7 +432,7 @@ const CSSCustomization = () => {
             They're the Herculoids!
           </Typography>
         </Modal.Body>
-        <Modal.Footer className="space-x-2">
+        <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
             style="tertiary"

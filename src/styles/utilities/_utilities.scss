@@ -275,7 +275,7 @@
 }
 
 .neeto-ui-text-left {
-  text-align: left;
+  text-align: start;
 }
 
 .neeto-ui-text-center {
@@ -283,7 +283,7 @@
 }
 
 .neeto-ui-text-right {
-  text-align: right;
+  text-align: end;
 }
 
 .neeto-ui-text-justify {
@@ -387,31 +387,31 @@
 // padding left
 
 .neeto-ui-pl-0 {
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 
 .neeto-ui-pl-1 {
-  padding-left: 0.25rem;
+  padding-inline-start: 0.25rem;
 }
 
 .neeto-ui-pl-2 {
-  padding-left: 0.5rem;
+  padding-inline-start: 0.5rem;
 }
 
 .neeto-ui-pl-3 {
-  padding-left: 0.75rem;
+  padding-inline-start: 0.75rem;
 }
 
 .neeto-ui-pl-4 {
-  padding-left: 1rem;
+  padding-inline-start: 1rem;
 }
 
 .neeto-ui-pl-5 {
-  padding-left: 1.25rem;
+  padding-inline-start: 1.25rem;
 }
 
 .neeto-ui-pl-6 {
-  padding-left: 1.5rem;
+  padding-inline-start: 1.5rem;
 }
 
 // padding top
@@ -447,31 +447,31 @@
 // padding right
 
 .neeto-ui-pr-0 {
-  padding-right: 0;
+  padding-inline-end: 0;
 }
 
 .neeto-ui-pr-1 {
-  padding-right: 0.25rem;
+  padding-inline-end: 0.25rem;
 }
 
 .neeto-ui-pr-2 {
-  padding-right: 0.5rem;
+  padding-inline-end: 0.5rem;
 }
 
 .neeto-ui-pr-3 {
-  padding-right: 0.75rem;
+  padding-inline-end: 0.75rem;
 }
 
 .neeto-ui-pr-4 {
-  padding-right: 1rem;
+  padding-inline-end: 1rem;
 }
 
 .neeto-ui-pr-5 {
-  padding-right: 1.25rem;
+  padding-inline-end: 1.25rem;
 }
 
 .neeto-ui-pr-6 {
-  padding-right: 1.5rem;
+  padding-inline-end: 1.5rem;
 }
 
 // padding bottom
@@ -507,38 +507,38 @@
 // padding x
 
 .neeto-ui-px-0 {
-  padding-left: 0;
-  padding-right: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
 }
 
 .neeto-ui-px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
+  padding-inline-start: 0.25rem;
+  padding-inline-end: 0.25rem;
 }
 
 .neeto-ui-px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-inline-start: 0.5rem;
+  padding-inline-end: 0.5rem;
 }
 
 .neeto-ui-px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+  padding-inline-start: 0.75rem;
+  padding-inline-end: 0.75rem;
 }
 
 .neeto-ui-px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
 }
 
 .neeto-ui-px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-inline-start: 1.25rem;
+  padding-inline-end: 1.25rem;
 }
 
 .neeto-ui-px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-inline-start: 1.5rem;
+  padding-inline-end: 1.5rem;
 }
 
 // padding y
@@ -611,31 +611,31 @@
 // margin left
 
 .neeto-ui-ml-0 {
-  margin-left: 0;
+  margin-inline-start: 0;
 }
 
 .neeto-ui-ml-1 {
-  margin-left: 0.25rem;
+  margin-inline-start: 0.25rem;
 }
 
 .neeto-ui-ml-2 {
-  margin-left: 0.5rem;
+  margin-inline-start: 0.5rem;
 }
 
 .neeto-ui-ml-3 {
-  margin-left: 0.75rem;
+  margin-inline-start: 0.75rem;
 }
 
 .neeto-ui-ml-4 {
-  margin-left: 1rem;
+  margin-inline-start: 1rem;
 }
 
 .neeto-ui-ml-5 {
-  margin-left: 1.25rem;
+  margin-inline-start: 1.25rem;
 }
 
 .neeto-ui-ml-6 {
-  margin-left: 1.5rem;
+  margin-inline-start: 1.5rem;
 }
 
 // margin top
@@ -671,31 +671,31 @@
 // margin right
 
 .neeto-ui-mr-0 {
-  margin-right: 0;
+  margin-inline-end: 0;
 }
 
 .neeto-ui-mr-1 {
-  margin-right: 0.25rem;
+  margin-inline-end: 0.25rem;
 }
 
 .neeto-ui-mr-2 {
-  margin-right: 0.5rem;
+  margin-inline-end: 0.5rem;
 }
 
 .neeto-ui-mr-3 {
-  margin-right: 0.75rem;
+  margin-inline-end: 0.75rem;
 }
 
 .neeto-ui-mr-4 {
-  margin-right: 1rem;
+  margin-inline-end: 1rem;
 }
 
 .neeto-ui-mr-5 {
-  margin-right: 1.25rem;
+  margin-inline-end: 1.25rem;
 }
 
 .neeto-ui-mr-6 {
-  margin-right: 1.5rem;
+  margin-inline-end: 1.5rem;
 }
 
 // margin bottom
@@ -731,41 +731,41 @@
 // margin x
 
 .neeto-ui-mx-0 {
-  margin-left: 0;
-  margin-right: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
 
 .neeto-ui-mx-1 {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
+  margin-inline-start: 0.25rem;
+  margin-inline-end: 0.25rem;
 }
 
 .neeto-ui-mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin-inline-start: 0.5rem;
+  margin-inline-end: 0.5rem;
 }
 
 .neeto-ui-mx-3 {
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
+  margin-inline-start: 0.75rem;
+  margin-inline-end: 0.75rem;
 }
 
 .neeto-ui-mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-inline-start: 1rem;
+  margin-inline-end: 1rem;
 }
 
 .neeto-ui-mx-5 {
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
+  margin-inline-start: 1.25rem;
+  margin-inline-end: 1.25rem;
 }
 
 .neeto-ui-mx-6 {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+  margin-inline-start: 1.5rem;
+  margin-inline-end: 1.5rem;
 }
 
-// padding y
+// margin y
 
 .neeto-ui-my-0 {
   margin-top: 0;
@@ -858,11 +858,11 @@
 }
 
 .neeto-ui-border-l {
-  border-left-width: 1px;
+  border-inline-start-width: 1px;
 }
 
 .neeto-ui-border-r {
-  border-right-width: 1px;
+  border-inline-end-width: 1px;
 }
 
 .neeto-ui-border-b {
@@ -873,31 +873,31 @@
 
 // left
 .neeto-ui-left-0 {
-  left: 0;
+  inset-inline-start: 0;
 }
 
 .neeto-ui-left-1 {
-  left: 0.25rem;
+  inset-inline-start: 0.25rem;
 }
 
 .neeto-ui-left-2 {
-  left: 0.5rem;
+  inset-inline-start: 0.5rem;
 }
 
 .neeto-ui-left-3 {
-  left: 0.75rem;
+  inset-inline-start: 0.75rem;
 }
 
 .neeto-ui-left-4 {
-  left: 1rem;
+  inset-inline-start: 1rem;
 }
 
 .neeto-ui-left-5 {
-  left: 1.25rem;
+  inset-inline-start: 1.25rem;
 }
 
 .neeto-ui-left-6 {
-  left: 1.5rem;
+  inset-inline-start: 1.5rem;
 }
 
 // top
@@ -931,31 +931,31 @@
 
 // right
 .neeto-ui-right-0 {
-  right: 0;
+  inset-inline-end: 0;
 }
 
 .neeto-ui-right-1 {
-  right: 0.25rem;
+  inset-inline-end: 0.25rem;
 }
 
 .neeto-ui-right-2 {
-  right: 0.5rem;
+  inset-inline-end: 0.5rem;
 }
 
 .neeto-ui-right-3 {
-  right: 0.75rem;
+  inset-inline-end: 0.75rem;
 }
 
 .neeto-ui-right-4 {
-  right: 1rem;
+  inset-inline-end: 1rem;
 }
 
 .neeto-ui-right-5 {
-  right: 1.25rem;
+  inset-inline-end: 1.25rem;
 }
 
 .neeto-ui-right-6 {
-  right: 1.5rem;
+  inset-inline-end: 1.5rem;
 }
 
 // bottom
@@ -1074,4 +1074,3 @@
 .divide-y > :not([hidden]) ~ :not([hidden]){
   border-color: rgb(var(--neeto-ui-gray-200));
 }
-

@@ -26,13 +26,13 @@
       color: var(--neeto-ui-multi-email-input-counter-color);
       line-height: var(--neeto-ui-multi-email-input-counter-line-height);
       margin-bottom: var(--neeto-ui-multi-email-input-counter-margin-bottom);
-      margin-left: auto;
+      margin-inline-start: auto;
     }
 
   }
 
   .neeto-ui-email-input__prefix {
-    margin-left: var(--neeto-ui-multi-email-input-prefix-margin-left);
+    margin-inline-start: var(--neeto-ui-multi-email-input-prefix-margin-left);
 
     svg {
       width: var(--neeto-ui-multi-email-input-prefix-suffix-icon-size);

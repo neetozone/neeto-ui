@@ -46,7 +46,7 @@
 
   .react-time-picker__clear-button,
   .react-timerange-picker__clear-button {
-    margin-left: var(--neeto-ui-time-input-clear-btn-margin-left);
+    margin-inline-start: var(--neeto-ui-time-input-clear-btn-margin-left);
   }
 
   &:focus-within:not(.neeto-ui-time-picker--naked) {
@@ -139,8 +139,8 @@
   }
 
   .react-timerange-picker__range-divider {
-    margin-left: var(--neeto-ui-timerange-divider-spacing);
-    margin-right: var(--neeto-ui-timerange-divider-spacing);
+    margin-inline-start: var(--neeto-ui-timerange-divider-spacing);
+    margin-inline-end: var(--neeto-ui-timerange-divider-spacing);
   }
 }
 

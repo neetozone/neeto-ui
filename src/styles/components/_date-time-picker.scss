@@ -228,7 +228,7 @@
   }
 
   &.ant-picker-range .ant-picker-clear {
-    right: 8px;
+    inset-inline-end: 8px;
   }
 }
 
@@ -372,8 +372,8 @@
     .ant-picker-body {
 
       @include mixins.viewport(xs-mob) {
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
+        padding-inline-start: 0.5rem;
+        padding-inline-end: 0.5rem;
       }
 
       .ant-picker-content {
@@ -498,8 +498,8 @@
     border-bottom: var(--neeto-ui-date-panel-header-border-bottom-width);
 
     @include mixins.viewport(xs-mob) {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
+      padding-inline-start: 0.5rem;
+      padding-inline-end: 0.5rem;
     }
   }
 
@@ -508,7 +508,7 @@
   }
 
   .ant-picker-header-view button {
-    padding-right: var(--neeto-ui-date-panel-header-nav-btn-padding-right);
+    padding-inline-end: var(--neeto-ui-date-panel-header-nav-btn-padding-right);
     position: relative;
     font-size: var(--neeto-ui-date-panel-header-nav-btn-font-size);
     font-weight: var(--neeto-ui-date-panel-header-nav-btn-font-weight);
@@ -516,7 +516,7 @@
     &::after {
       content: "";
       position: absolute;
-      right: 0;
+      inset-inline-end: 0;
       top: 0;
       height: 100%;
       width: 1rem;
@@ -579,7 +579,7 @@
   }
   .ant-picker-datetime-panel .ant-picker-time-panel,
   .ant-picker-time-panel-column:not(:first-child) {
-    border-left-color: var(--neeto-ui-time-panel-column-border-left-color);
+    border-inline-start-color: var(--neeto-ui-time-panel-column-border-left-color);
   }
 }
 
@@ -591,8 +591,8 @@
   }
 
   .ant-picker-time-panel-cell-inner {
-    padding-left: var(--neeto-ui-time-panel-cell-padding-x) !important;
-    padding-right: var(--neeto-ui-time-panel-cell-padding-x) !important;
+    padding-inline-start: var(--neeto-ui-time-panel-cell-padding-x) !important;
+    padding-inline-end: var(--neeto-ui-time-panel-cell-padding-x) !important;
     text-align: center;
     color: var(--neeto-ui-time-panel-cell-color)
   }
@@ -604,8 +604,8 @@
   }
 
   .neeto-ui-date-input-custom-panel__header-now-btn {
-    margin-left: auto;
-    margin-right: auto;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
     margin-bottom: var(--neeto-ui-time-panel-now-btn-margin-bottom);
     font-size: var(--neeto-ui-date-panel-header-nav-btn-font-size) !important;
   }
@@ -632,8 +632,8 @@
       gap: var(--neeto-ui-time-panel-body-gap);
     }
     .ant-picker-time-panel {
-      padding-left: var(--neeto-ui-time-panel-body-padding-x);
-      padding-right: var(--neeto-ui-time-panel-body-padding-x);
+      padding-inline-start: var(--neeto-ui-time-panel-body-padding-x);
+      padding-inline-end: var(--neeto-ui-time-panel-body-padding-x);
     }
     .ant-picker-time-panel-cell-inner {
       border-radius: var(--neeto-ui-date-input-cell-border-radius) !important;
@@ -641,7 +641,7 @@
   }
 }
 .ant-picker-ranges > li {
-  margin-right: 0.5rem;
+  margin-inline-end: 0.5rem;
 }
 
 .ant-picker-ranges .ant-picker-preset > .ant-tag-blue {
@@ -671,13 +671,13 @@
   justify-content: center;
 
   .neeto-ui-date-input {
-    border-top-right-radius: var(--neeto-ui-date-time-picker-border-radius);
-    border-bottom-right-radius: var(--neeto-ui-date-time-picker-border-radius);
+    border-start-end-radius: var(--neeto-ui-date-time-picker-border-radius);
+    border-end-end-radius: var(--neeto-ui-date-time-picker-border-radius);
   }
   .neeto-ui-time-picker .react-time-picker__wrapper {
-    border-top-left-radius: var(--neeto-ui-date-time-picker-border-radius);
-    border-bottom-left-radius: var(--neeto-ui-date-time-picker-border-radius);
-    margin-left: var(--neeto-ui-date-time-picker-gap);
+    border-start-start-radius: var(--neeto-ui-date-time-picker-border-radius);
+    border-end-start-radius: var(--neeto-ui-date-time-picker-border-radius);
+    margin-inline-start: var(--neeto-ui-date-time-picker-gap);
   }
 }
 

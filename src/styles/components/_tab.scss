@@ -101,8 +101,8 @@
     width: 100%;
     height: var(--neeto-ui-tab-wrapper-border-width);
     background-color: var(--neeto-ui-tab-border-color);
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     bottom: calc(var(--neeto-ui-tab-wrapper-border-width) * -1);
     transition: var(--neeto-ui-transition);
   }

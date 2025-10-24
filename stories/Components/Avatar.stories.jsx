@@ -135,7 +135,7 @@ const WithTooltip = args => {
   const imageUrl = "https://i.pravatar.cc/300";
 
   return (
-    <div className="flex space-x-6 ">
+    <div className="flex gap-x-6 ">
       <Avatar
         {...args}
         showTooltip

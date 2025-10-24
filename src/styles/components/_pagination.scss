@@ -29,6 +29,13 @@
   --neeto-ui-pagination-item-active-color: rgb(var(--neeto-ui-white));
 }
 
+// RTL overrides
+[dir="rtl"] {
+  .neeto-ui-pagination__wrapper .neeto-ui-pagination__item svg {
+    transform: scaleX(-1);
+  }
+}
+
 .neeto-ui-pagination__wrapper {
   display: flex;
   flex-direction: row;

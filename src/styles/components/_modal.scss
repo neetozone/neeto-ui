@@ -47,7 +47,7 @@
 .neeto-ui-modal__backdrop {
   position: fixed;
   z-index: var(--neeto-ui-modal-backdrop-z-index);
-  left: 0;
+  inset-inline-start: 0;
   top: 0;
   width: 100vw;
   height: 100vh;
@@ -76,8 +76,8 @@
 
     @include mixins.viewport(mob) {
       width: 95%;
-      margin-left: auto;
-      margin-right: auto;
+      margin-inline-start: auto;
+      margin-inline-end: auto;
     }
 
     @keyframes showModalWrapper {
@@ -96,7 +96,7 @@
     .neeto-ui-modal__close {
       position: absolute;
       top: var(--neeto-ui-modal-close-btn-top);
-      right: var(--neeto-ui-modal-close-btn-right);
+      inset-inline-end: var(--neeto-ui-modal-close-btn-right);
     }
 
     &.neeto-ui-modal__wrapper--small {
@@ -129,8 +129,9 @@
     }
 
     .neeto-ui-modal__header {
-      padding: var(--neeto-ui-modal-header-padding-top) var(--neeto-ui-modal-header-padding-right) var(--neeto-ui-modal-header-padding-bottom)
-        var(--neeto-ui-modal-header-padding-left);
+      padding-block: var(--neeto-ui-modal-header-padding-top) var(--neeto-ui-modal-header-padding-bottom);
+      padding-inline: var(--neeto-ui-modal-header-padding-left) var(--neeto-ui-modal-header-padding-right);
+
       overflow-wrap: break-word;
     }
 
@@ -147,10 +148,10 @@
     }
 
     .neeto-ui-modal__footer {
-      text-align: right;
+      text-align: end;
       background: var(--neeto-ui-modal-footer-bg);
-      border-bottom-left-radius: var(--neeto-ui-modal-footer-border-radius);
-      border-bottom-right-radius: var(--neeto-ui-modal-footer-border-radius);
+      border-end-start-radius: var(--neeto-ui-modal-footer-border-radius);
+      border-end-end-radius: var(--neeto-ui-modal-footer-border-radius);
       padding: var(--neeto-ui-modal-footer-padding-y) var(--neeto-ui-modal-footer-padding-x);
     }
   }

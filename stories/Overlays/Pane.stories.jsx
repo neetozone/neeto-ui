@@ -79,7 +79,7 @@ const Default = args => {
             They're the Herculoids!
           </Typography>
         </Pane.Body>
-        <Pane.Footer className="flex items-center space-x-2">
+        <Pane.Footer className="flex items-center gap-x-2">
           <Button label="Continue" onClick={() => setShowPane(false)} />
           <Button
             label="Cancel"
@@ -126,7 +126,7 @@ const Sizes = args => {
             dragon! Igoo, the giant rock ape! Tundro, the tremendous!
           </Typography>
         </Pane.Body>
-        <Pane.Footer className="space-x-2">
+        <Pane.Footer className="flex items-center gap-x-2">
           <Button
             label="Continue"
             onClick={() => setShowPaneExtraSmall(false)}
@@ -157,7 +157,7 @@ const Sizes = args => {
             They're the Herculoids!
           </Typography>
         </Pane.Body>
-        <Pane.Footer className="space-x-2">
+        <Pane.Footer className="flex items-center gap-x-2">
           <Button label="Continue" onClick={() => setShowPaneLarge(false)} />
           <Button
             label="Cancel"
@@ -185,7 +185,7 @@ const Sizes = args => {
             They're the Herculoids!
           </Typography>
         </Pane.Body>
-        <Pane.Footer className="space-x-2">
+        <Pane.Footer className="flex items-center gap-x-2">
           <Button
             label="Continue"
             onClick={() => setShowPaneExtraLarge(false)}
@@ -239,7 +239,7 @@ const PaneWithLongTitle = args => {
             They're the Herculoids!
           </Typography>
         </Pane.Body>
-        <Pane.Footer className="flex items-center space-x-2">
+        <Pane.Footer className="flex items-center gap-x-2">
           <Button label="Continue" onClick={() => setShowPane(false)} />
           <Button
             label="Cancel"
@@ -262,7 +262,7 @@ const PaneWithModalAndAlert = args => {
     <div className="w-full">
       <div className="space-y-6">
         <div className="space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-2">
+          <div className="flex flex-row items-center justify-start gap-x-2">
             <Button label="Show Pane" onClick={() => setShowPane(true)} />
           </div>
         </div>
@@ -282,12 +282,12 @@ const PaneWithModalAndAlert = args => {
             planet from sinister invaders! All-strong! All-brave! All-heroes!
             They're the Herculoids!
           </Typography>
-          <div className="flex space-x-2">
+          <div className="flex gap-x-2">
             <Button label="Show modal" onClick={() => setShowModal(true)} />
             <Button label="Show alert" onClick={() => setShowAlert(true)} />
           </div>
         </Pane.Body>
-        <Pane.Footer className="flex items-center space-x-2">
+        <Pane.Footer className="flex items-center gap-x-2">
           <Button label="Continue" onClick={() => setShowPane(false)} />
           <Button
             label="Cancel"
@@ -315,13 +315,13 @@ const PaneWithModalAndAlert = args => {
             onChange={event => setInputValue(event.target.value)}
           />
         </Modal.Body>
-        <Modal.Footer className="space-x-2">
-          <Button label="Continue" onClick={() => setShowModal(false)} />
+        <Modal.Footer className="flex justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="text"
+            style="tertiary"
             onClick={() => setShowModal(false)}
           />
+          <Button label="Continue" onClick={() => setShowModal(false)} />
         </Modal.Footer>
       </Modal>
       <Alert
@@ -346,7 +346,7 @@ const MultiplePanes = args => {
     <div className="w-full">
       <div className="space-y-6">
         <div className="space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-2">
+          <div className="flex flex-row items-center justify-start gap-x-2">
             <Button
               label="Show Pane"
               onClick={() => setIsFirstPaneVisible(true)}
@@ -441,13 +441,13 @@ const MultiplePanes = args => {
             Gleep, the formless, fearless wonders! With Zandor, their leader,
           </Typography>
         </Modal.Body>
-        <Modal.Footer className="space-x-2">
-          <Button label="Continue" onClick={() => setIsModalVisible(false)} />
+        <Modal.Footer className="flex justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="text"
+            style="tertiary"
             onClick={() => setIsModalVisible(false)}
           />
+          <Button label="Continue" onClick={() => setIsModalVisible(false)} />
         </Modal.Footer>
       </Modal>
     </div>
@@ -464,7 +464,7 @@ const PaneWithOverlayManager = args => {
     <div className="w-full">
       <div className="space-y-6">
         <div className="space-y-8">
-          <div className="flex flex-row items-center justify-start space-x-2">
+          <div className="flex flex-row items-center justify-start gap-x-2">
             <Button
               label="Show Pane"
               onClick={() => setIsFirstPaneVisible(true)}

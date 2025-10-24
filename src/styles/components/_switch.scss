@@ -24,6 +24,7 @@
   --neeto-ui-switch-item-checked-bg-color: rgb(var(--neeto-ui-primary-500));
   --neeto-ui-switch-checked-color: rgb(var(--neeto-ui-primary-500));
   --neeto-ui-switch-checked-transform: translateX(1.25rem);
+  --neeto-ui-switch-checked-transform-rtl: translateX(-1.25rem);
 
   // Margin
   --neeto-ui-switch-label-margin: 0.75rem;
@@ -35,6 +36,13 @@
   --neeto-ui-switch-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
   --neeto-ui-switch-focus-visible-outline-offset: 1px;
   --neeto-ui-switch-focus-visible-box-shadow: none;
+}
+
+// RTL overrides
+[dir="rtl"] {
+  .neeto-ui-switch__wrapper .neeto-ui-switch__container .neeto-ui-switch__item .neeto-ui-switch--checked {
+    transform: var(--neeto-ui-switch-checked-transform-rtl);
+  }
 }
 
 .neeto-ui-switch__wrapper {
@@ -51,7 +59,7 @@
     align-items: center;
 
     .neeto-ui-label {
-      margin-left: var(--neeto-ui-switch-label-margin);
+      margin-inline-start: var(--neeto-ui-switch-label-margin);
     }
 
     .neeto-ui-switch__item {
