@@ -1,7 +1,8 @@
 {
   "neetoui": {
     "common": {
-      "timezone": "Timezone"
+      "timezone": "Timezone",
+      "description": "Description"
     },
     "blockNavigation": {
       "alertMessage": "Leaving this page will discard your unsaved data. This action cannot be undone.",
@@ -20,17 +21,21 @@
       "today": "Today"
     },
     "table": {
+      "moveColumnLeft": "Move column to left",
+      "moveColumnRight": "Move column to right",
       "insertColRight": "Insert column right",
       "insertColLeft": "Insert column left",
       "columnInfo": "Column info",
       "hideColumn": "Hide column",
       "deleteColumn": "Delete column",
-      "ascending": "Sort ascending",
-      "descending": "Sort descending",
+      "ascending": "Ascending",
+      "descending": "Descending",
       "freezeColumn": "Freeze column",
       "unFreezeColumn": "Unfreeze column",
       "allRowsSelected": "All rows are selected",
-      "clearSelection": "Clear selection"
+      "addColumnInfo": "Add column info",
+      "clearSelection": "Clear selection",
+      "info": "Table info"
     },
     "timePicker": {
       "hours": "Hours",

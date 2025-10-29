@@ -21,6 +21,7 @@ const useResizableColumns = ({
   isColumnFreezeEnabled,
   onColumnAdd,
   onColumnUpdate,
+  onColumnUpdateWithChanges,
   onColumnDelete,
   handleSort,
   sortedInfo,
@@ -53,14 +54,18 @@ const useResizableColumns = ({
             ...lastColProps,
             onHeaderCell: column => ({
               width: col.width,
+              onColumnUpdate,
               onResize: isEnabled ? handleResize(index) : noop,
-              onResizeStop: () => (isEnabled ? onColumnUpdate(columns) : noop),
+              onResizeStop: () =>
+                isEnabled ? onColumnUpdateWithChanges(columns) : noop,
               isSortable: isPresent(col.sorter),
               onSort: handleSort,
               sortedInfo,
               onColumnHide,
               onColumnFreeze,
               onMoreActionClick,
+              isMoveToLeftEnabled: index > 0,
+              isMoveToRightEnabled: index < columns.length - 1,
               isColumnFreezeEnabled,
               isAddEnabled: isAddEnabled && !fixed,
               onAddColumn: positionOffset =>

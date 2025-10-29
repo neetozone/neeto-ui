@@ -252,5 +252,9 @@
     "url": "https://github.com/bigbinary/neeto-ui/issues"
   },
   "homepage": "https://neeto-ui.neeto.com",
-  "packageManager": "yarn@4.9.2"
+  "packageManager": "yarn@4.9.2",
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/modifiers": "^9.0.0"
+  }
 }

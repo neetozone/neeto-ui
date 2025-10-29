@@ -31,6 +31,7 @@ import { getHeaderCell, isIncludedIn, calculateRowsPerPage } from "./utils";
 import Button from "../Button";
 import Spinner from "../Spinner";
 import Typography from "../Typography";
+import TableInfoPane from "./components/InfoPane";
 
 const Table = ({
   allowRowClick = true,
@@ -97,7 +98,7 @@ const Table = ({
     setHeaderHeight(headerHeight);
   }, 10);
 
-  const handleColumnUpdateWithChanges = updatedColumns => {
+  const onColumnUpdateWithChanges = updatedColumns => {
     const newChanges = {};
 
     updatedColumns.forEach(col => {
@@ -126,7 +127,8 @@ const Table = ({
     columns,
     columnData,
     setColumns,
-    onColumnUpdate: handleColumnUpdateWithChanges,
+    onColumnUpdate,
+    onColumnUpdateWithChanges,
     rowSelection,
     sortedInfo,
     setSortedInfo,
@@ -400,6 +402,7 @@ const Table = ({
         })}
         {...otherProps}
       />
+      <TableInfoPane {...{ onColumnUpdate }} />
     </ConfigProvider>
   );
 

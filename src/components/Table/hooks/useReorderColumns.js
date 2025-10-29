@@ -4,7 +4,7 @@ const useReorderColumns = ({
   isEnabled,
   columns,
   setColumns,
-  onColumnUpdate,
+  onColumnUpdateWithChanges,
   rowSelection,
 }) => {
   if (!isEnabled) return { dragProps: {}, columns };
@@ -26,7 +26,7 @@ const useReorderColumns = ({
 
       const newColumns = move(from, to, columns);
       setColumns(newColumns);
-      onColumnUpdate(newColumns);
+      onColumnUpdateWithChanges(newColumns);
     },
     nodeSelector:
       "th:not(.ant-table-cell-fix-left):not(.ant-table-cell-scrollbar)",

@@ -1,7 +1,17 @@
 import React from "react";
 
-import { Check, MenuHorizontal } from "neetoicons";
-import { equals } from "ramda";
+import {
+  Check,
+  MenuHorizontal,
+  Ascending,
+  Descending,
+  Pin,
+  InfoRound,
+  ColumnToLeft,
+  ColumnToRight,
+  Hide,
+} from "neetoicons";
+import { equals, move } from "ramda";
 import { useTranslation } from "react-i18next";
 
 import Dropdown from "components/Dropdown";
@@ -10,8 +20,23 @@ import {
   TABLE_SORT_ORDERS,
 } from "components/Table/constants";
 import { getLocale, hyphenize } from "utils";
+import { useTableStore } from "src/stores/tableStore";
+import { findIndexBy } from "neetocist";
 
 const { Menu, MenuItem } = Dropdown;
+
+const ActionItem = ({ isActive = false, icon: Icon, label, ...rest }) => (
+  <MenuItem.Button
+    className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-between"
+    {...rest}
+  >
+    <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-gap-3">
+      {Icon && <Icon className="neeto-ui-text-gray-500" size={18} />}
+      <span>{label}</span>
+    </div>
+    {isActive && <Check className="neeto-ui-text-success-500" size={20} />}
+  </MenuItem.Button>
+);
 
 // eslint-disable-next-line @bigbinary/neeto/no-dumb-components-with-use-translation
 const HeaderCellMenu = ({
@@ -25,7 +50,10 @@ const HeaderCellMenu = ({
   isColumnFreezeEnabled,
   isHidable,
   onColumnHide,
+  isMoveToLeftEnabled,
+  isMoveToRightEnabled,
   onAddColumn,
+  onColumnUpdate,
   onColumnDelete,
   onColumnFreeze,
   hasMoreActions,
@@ -33,6 +61,17 @@ const HeaderCellMenu = ({
   moreActions = [],
 }) => {
   const { t, i18n } = useTranslation();
+  const { setInfoPaneState } = useTableStore.pick();
+
+  const onMoveColumn = offset => {
+    onColumnUpdate(columns => {
+      const index = findIndexBy({ key: column.key }, columns);
+      const isValid = index + offset >= 0 && index + offset < columns.length;
+      if (!isValid) return columns;
+
+      return move(index, index + offset, columns);
+    });
+  };
 
   return (
     <div onClick={event => event.stopPropagation()}>
@@ -58,9 +97,14 @@ const HeaderCellMenu = ({
         >
           {isSortable && (
             <>
-              <MenuItem.Button
-                className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-between"
+              <ActionItem
                 data-cy="ascending-column-menu-button"
+                icon={Ascending}
+                label={getLocale(i18n, t, "neetoui.table.ascending")}
+                isActive={
+                  sortedInfo.order === TABLE_SORT_ORDERS.asc &&
+                  equals(sortedInfo.field, column.dataIndex)
+                }
                 onClick={() =>
                   onSort({
                     column,
@@ -69,16 +113,15 @@ const HeaderCellMenu = ({
                     order: TABLE_SORT_ORDERS.asc,
                   })
                 }
-              >
-                <span>{getLocale(i18n, t, "neetoui.table.ascending")}</span>
-                {sortedInfo.order === TABLE_SORT_ORDERS.asc &&
-                  equals(sortedInfo.field, column.dataIndex) && (
-                    <Check className="neeto-ui-text-success-500" size={20} />
-                  )}
-              </MenuItem.Button>
-              <MenuItem.Button
-                className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-between"
+              />
+              <ActionItem
                 data-cy="descending-column-menu-button"
+                icon={Descending}
+                label={getLocale(i18n, t, "neetoui.table.descending")}
+                isActive={
+                  sortedInfo.order === TABLE_SORT_ORDERS.desc &&
+                  equals(sortedInfo.field, column.dataIndex)
+                }
                 onClick={() =>
                   onSort({
                     column,
@@ -87,66 +130,79 @@ const HeaderCellMenu = ({
                     order: TABLE_SORT_ORDERS.desc,
                   })
                 }
-              >
-                <span>{getLocale(i18n, t, "neetoui.table.descending")}</span>
-                {sortedInfo.order === TABLE_SORT_ORDERS.desc &&
-                  equals(sortedInfo.field, column.dataIndex) && (
-                    <Check className="neeto-ui-text-success-500" size={20} />
-                  )}
-              </MenuItem.Button>
+              />
             </>
           )}
           {isAddEnabled && (
             <>
-              <MenuItem.Button
+              <ActionItem
                 data-cy="insert-right-column-menu-button"
+                label={getLocale(i18n, t, "neetoui.table.insertColRight")}
                 onClick={() => onAddColumn(COLUMN_ADD_DIRECTION.right)}
-              >
-                {getLocale(i18n, t, "neetoui.table.insertColRight")}
-              </MenuItem.Button>
-              <MenuItem.Button
+              />
+              <ActionItem
                 data-cy="insert-left-column-menu-button"
+                label={getLocale(i18n, t, "neetoui.table.insertColLeft")}
                 onClick={() => onAddColumn(COLUMN_ADD_DIRECTION.left)}
-              >
-                {getLocale(i18n, t, "neetoui.table.insertColLeft")}
-              </MenuItem.Button>
+              />
             </>
           )}
           {isHidable && (
-            <MenuItem.Button
-              data-cy="hide-column-menu-button"
+            <ActionItem
+              icon={Hide}
+              label={getLocale(i18n, t, "neetoui.table.hideColumn")}
               onClick={() => onColumnHide(column)}
-            >
-              {getLocale(i18n, t, "neetoui.table.hideColumn")}
-            </MenuItem.Button>
+            />
           )}
           {isColumnDeletable && (
-            <MenuItem.Button
+            <ActionItem
               data-cy="delete-column-menu-button"
+              label={getLocale(i18n, t, "neetoui.table.deleteColumn")}
               onClick={() => onColumnDelete(column.id)}
-            >
-              {getLocale(i18n, t, "neetoui.table.deleteColumn")}
-            </MenuItem.Button>
+            />
           )}
           {isColumnFreezeEnabled && (
-            <MenuItem.Button
+            <ActionItem
               data-cy="freeze-unfreeze-column-menu-button"
+              icon={Pin}
+              label={
+                isFixedColumn
+                  ? getLocale(i18n, t, "neetoui.table.unFreezeColumn")
+                  : getLocale(i18n, t, "neetoui.table.freezeColumn")
+              }
               onClick={() => onColumnFreeze(isFixedColumn, column)}
-            >
-              {isFixedColumn
-                ? getLocale(i18n, t, "neetoui.table.unFreezeColumn")
-                : getLocale(i18n, t, "neetoui.table.freezeColumn")}
-            </MenuItem.Button>
+            />
+          )}
+          <ActionItem
+            icon={InfoRound}
+            label={getLocale(i18n, t, "neetoui.table.addColumnInfo")}
+            onClick={() => {
+              setInfoPaneState({ isOpen: true, column });
+            }}
+          />
+          {isMoveToLeftEnabled && (
+            <ActionItem
+              icon={ColumnToLeft}
+              label={getLocale(i18n, t, "neetoui.table.moveColumnLeft")}
+              onClick={() => onMoveColumn(-1)}
+            />
+          )}
+          {isMoveToRightEnabled && (
+            <ActionItem
+              icon={ColumnToRight}
+              label={getLocale(i18n, t, "neetoui.table.moveColumnRight")}
+              onClick={() => onMoveColumn(1)}
+            />
           )}
           {hasMoreActions &&
             moreActions.map((item, index) => (
-              <MenuItem.Button
+              <ActionItem
                 data-cy={`${hyphenize(item.label)}-column-menu-button`}
+                icon={item.icon}
                 key={index}
+                label={item.label}
                 onClick={() => onMoreActionClick(item.type, column)}
-              >
-                {item.label}
-              </MenuItem.Button>
+              />
             ))}
         </Menu>
       </Dropdown>
