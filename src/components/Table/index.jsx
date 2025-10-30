@@ -57,7 +57,7 @@ const Table = ({
   rowSelection,
   shouldDynamicallyRenderRowSize = false,
   bordered = true,
-  onColumnUpdate = noop,
+  onColumnUpdate,
   components = {},
   onColumnHide,
   onColumnAdd = noop,
@@ -115,7 +115,7 @@ const Table = ({
     });
 
     setColumnChanges(prev => ({ ...prev, ...newChanges }));
-    onColumnUpdate(updatedColumns);
+    onColumnUpdate?.(updatedColumns);
   };
 
   const { dragProps, columns: curatedColumnsData } = useColumns({

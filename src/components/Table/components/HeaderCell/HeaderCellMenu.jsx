@@ -21,7 +21,7 @@ import {
 } from "components/Table/constants";
 import { getLocale, hyphenize } from "utils";
 import { useTableStore } from "src/stores/tableStore";
-import { findIndexBy } from "neetocist";
+import { findIndexBy, isPresent } from "neetocist";
 
 const { Menu, MenuItem } = Dropdown;
 
@@ -64,6 +64,7 @@ const HeaderCellMenu = ({
   const { setInfoPaneState } = useTableStore.pick();
 
   const onMoveColumn = offset => {
+    if (!onColumnUpdate) return;
     onColumnUpdate(columns => {
       const index = findIndexBy({ key: column.key }, columns);
       const isValid = index + offset >= 0 && index + offset < columns.length;
@@ -173,21 +174,23 @@ const HeaderCellMenu = ({
               onClick={() => onColumnFreeze(isFixedColumn, column)}
             />
           )}
-          <ActionItem
-            icon={InfoRound}
-            label={getLocale(i18n, t, "neetoui.table.addColumnInfo")}
-            onClick={() => {
-              setInfoPaneState({ isOpen: true, column });
-            }}
-          />
-          {isMoveToLeftEnabled && (
+          {isPresent(onColumnUpdate) && (
+            <ActionItem
+              icon={InfoRound}
+              label={getLocale(i18n, t, "neetoui.table.editColumnInfo")}
+              onClick={() => {
+                setInfoPaneState({ isOpen: true, column });
+              }}
+            />
+          )}
+          {isPresent(onColumnUpdate) && isMoveToLeftEnabled && (
             <ActionItem
               icon={ColumnToLeft}
               label={getLocale(i18n, t, "neetoui.table.moveColumnLeft")}
               onClick={() => onMoveColumn(-1)}
             />
           )}
-          {isMoveToRightEnabled && (
+          {isPresent(onColumnUpdate) && isMoveToRightEnabled && (
             <ActionItem
               icon={ColumnToRight}
               label={getLocale(i18n, t, "neetoui.table.moveColumnRight")}
