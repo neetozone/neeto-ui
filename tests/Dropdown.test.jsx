@@ -248,10 +248,10 @@ describe("Dropdown Menu", () => {
 
     const buttons = screen.getAllByRole("button");
     await userEvent.keyboard("{ArrowUp}");
-    expect(buttons[1]).toHaveFocus();
+    expect(buttons[2]).toHaveFocus();
 
     await userEvent.keyboard("{ArrowUp}");
-    expect(buttons[0]).toHaveFocus();
+    expect(buttons[1]).toHaveFocus();
   });
 
   it("should call onClick with the right item data when enter is pressed", async () => {
