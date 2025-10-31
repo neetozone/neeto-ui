@@ -216,3 +216,69 @@ describe("Dropdown", () => {
     await userEvent.click(document.body);
   });
 });
+
+describe("Dropdown Menu", () => {
+  const { Menu, MenuItem } = Dropdown;
+
+  it("should focus buttons when arrow down is pressed", async () => {
+    render(
+      <Menu>
+        <MenuItem.Button>Item 1</MenuItem.Button>
+        <MenuItem.Button>Item 2</MenuItem.Button>
+        <MenuItem.Button>Item 3</MenuItem.Button>
+      </Menu>
+    );
+
+    const buttons = screen.getAllByRole("button");
+    await userEvent.keyboard("{ArrowDown}");
+    expect(buttons[0]).toHaveFocus();
+
+    await userEvent.keyboard("{ArrowDown}");
+    expect(buttons[1]).toHaveFocus();
+  });
+
+  it("should focus buttons when arrow up is pressed", async () => {
+    render(
+      <Menu>
+        <MenuItem.Button>Item 1</MenuItem.Button>
+        <MenuItem.Button>Item 2</MenuItem.Button>
+        <MenuItem.Button>Item 3</MenuItem.Button>
+      </Menu>
+    );
+
+    const buttons = screen.getAllByRole("button");
+    await userEvent.keyboard("{ArrowUp}");
+    expect(buttons[2]).toHaveFocus();
+
+    await userEvent.keyboard("{ArrowUp}");
+    expect(buttons[1]).toHaveFocus();
+  });
+
+  it("should call onClick with the right item data when enter is pressed", async () => {
+    const onClick1 = jest.fn();
+    const onClick2 = jest.fn();
+    const onClick3 = jest.fn();
+
+    render(
+      <Menu>
+        <MenuItem.Button data-item="item-1" onClick={onClick1}>
+          Item 1
+        </MenuItem.Button>
+        <MenuItem.Button data-item="item-2" onClick={onClick2}>
+          Item 2
+        </MenuItem.Button>
+        <MenuItem.Button data-item="item-3" onClick={onClick3}>
+          Item 3
+        </MenuItem.Button>
+      </Menu>
+    );
+
+    await userEvent.keyboard("{ArrowDown}");
+    await userEvent.keyboard("{ArrowDown}");
+    await userEvent.keyboard("{Enter}");
+
+    expect(onClick2).toHaveBeenCalledTimes(1);
+    expect(onClick1).not.toHaveBeenCalled();
+    expect(onClick3).not.toHaveBeenCalled();
+  });
+});

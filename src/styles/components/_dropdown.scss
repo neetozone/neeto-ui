@@ -1,4 +1,6 @@
-:root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+:root,
+.neeto-ui-theme--light,
+.neeto-ui-theme--dark {
   --neeto-ui-dropdown-margin-x: 0px;
   --neeto-ui-dropdown-margin-y: 0.375rem;
   --neeto-ui-dropdown-padding-x: 0px;
@@ -57,13 +59,15 @@
 
   .tippy-content:not(.neeto-ui-popover .tippy-content) {
     position: relative;
-    padding: var(--neeto-ui-dropdown-padding-y) var(--neeto-ui-dropdown-padding-x);
+    padding: var(--neeto-ui-dropdown-padding-y)
+      var(--neeto-ui-dropdown-padding-x);
     z-index: 1;
   }
 
   box-shadow: var(--neeto-ui-dropdown-box-shadow) !important;
   border-radius: var(--neeto-ui-dropdown-border-radius) !important;
-  border: var(--neeto-ui-dropdown-border-width) solid var(--neeto-ui-dropdown-border-color);
+  border: var(--neeto-ui-dropdown-border-width) solid
+    var(--neeto-ui-dropdown-border-color);
 }
 
 .neeto-ui-dropdown__popup {
@@ -91,7 +95,8 @@
     font-weight: var(--neeto-ui-dropdown-item-font-weight);
     background-color: var(--neeto-ui-dropdown-item-bg-color);
     color: var(--neeto-ui-dropdown-item-color);
-    padding: var(--neeto-ui-dropdown-item-padding-y) var(--neeto-ui-dropdown-item-padding-x);
+    padding: var(--neeto-ui-dropdown-item-padding-y)
+      var(--neeto-ui-dropdown-item-padding-x);
     min-height: var(--neeto-ui-dropdown-item-min-height);
     gap: var(--neeto-ui-dropdown-item-gap);
     text-decoration: none;
@@ -118,7 +123,9 @@
   }
 
   .neeto-ui-dropdown__popup-menu {
-    padding: var(--neeto-ui-dropdown-popup-menu-padding-y) var(--neeto-ui-dropdown-popup-menu-padding-x);
+    padding: var(--neeto-ui-dropdown-popup-menu-padding-y)
+      var(--neeto-ui-dropdown-popup-menu-padding-x);
+    outline: none;
   }
 
   .neeto-ui-dropdown__popup-menu-item {
@@ -140,7 +147,8 @@
     font-weight: var(--neeto-ui-dropdown-item-font-weight);
     background-color: var(--neeto-ui-dropdown-item-bg-color);
     color: var(--neeto-ui-dropdown-item-color);
-    padding: var(--neeto-ui-dropdown-item-padding-y) var(--neeto-ui-dropdown-item-padding-x);
+    padding: var(--neeto-ui-dropdown-item-padding-y)
+      var(--neeto-ui-dropdown-item-padding-x);
     min-height: var(--neeto-ui-dropdown-item-min-height);
     gap: var(--neeto-ui-dropdown-item-gap);
     text-decoration: none;
