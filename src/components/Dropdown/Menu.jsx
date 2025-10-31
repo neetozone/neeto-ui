@@ -1,20 +1,16 @@
-import React, { useEffect, useId, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
 const itemClassName = "neeto-ui-dropdown__popup-menu-item-btn";
-let activeMenuId = null;
 
 const Menu = ({ children, className, ...otherProps }) => {
-  const menuId = useId();
   const activeIndexRef = useRef(-1);
   const menuRef = useRef(null);
 
   const onKeyDown = event => {
     const menu = menuRef.current;
-    if (!menu || menuId !== activeMenuId) return;
-
     const key = event.key?.toLowerCase();
     let activeIndex = activeIndexRef.current;
     let eventHandled = false;
@@ -30,10 +26,10 @@ const Menu = ({ children, className, ...otherProps }) => {
     };
 
     if (key === "arrowdown") {
-      activeIndex = (activeIndex + 1) % itemsCount;
+      activeIndex = activeIndex >= itemsCount - 1 ? 0 : activeIndex + 1;
       forChildAtIndex(activeIndex, child => child.focus());
     } else if (key === "arrowup") {
-      activeIndex = (activeIndex - 1 + itemsCount) % itemsCount;
+      activeIndex = activeIndex <= 0 ? itemsCount - 1 : activeIndex - 1;
       forChildAtIndex(activeIndex, child => child.focus());
     } else if (key === "enter") {
       forChildAtIndex(activeIndex, child => child.click());
@@ -46,20 +42,16 @@ const Menu = ({ children, className, ...otherProps }) => {
   };
 
   useEffect(() => {
-    const prevActiveMenuId = activeMenuId;
-    activeMenuId = menuId;
-    document.addEventListener("keydown", onKeyDown);
-
-    return () => {
-      activeMenuId = prevActiveMenuId;
-      document.removeEventListener("keydown", onKeyDown);
-    };
-  }, [menuId]);
+    const menu = menuRef.current;
+    if (menu) menu.focus();
+  }, [menuRef]);
 
   return (
     <ul
+      {...{ onKeyDown }}
       className={classnames("neeto-ui-dropdown__popup-menu", className)}
       ref={menuRef}
+      tabIndex={0}
       {...otherProps}
     >
       {children}
