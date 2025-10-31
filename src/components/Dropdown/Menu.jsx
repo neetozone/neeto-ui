@@ -19,20 +19,17 @@ const Menu = ({ children, className, ...otherProps }) => {
     const itemsCount = items.length;
     if (itemsCount === 0) return;
 
-    const forChildAtIndex = (index, callback) => {
-      if (index < 0 || index >= items.length) return;
-      callback(items[index]);
-      eventHandled = true;
-    };
-
     if (key === "arrowdown") {
       activeIndex = activeIndex >= itemsCount - 1 ? 0 : activeIndex + 1;
-      forChildAtIndex(activeIndex, child => child.focus());
+      items[activeIndex].focus();
+      eventHandled = true;
     } else if (key === "arrowup") {
       activeIndex = activeIndex <= 0 ? itemsCount - 1 : activeIndex - 1;
-      forChildAtIndex(activeIndex, child => child.focus());
+      items[activeIndex].focus();
+      eventHandled = true;
     } else if (key === "enter") {
-      forChildAtIndex(activeIndex, child => child.click());
+      items[activeIndex].click();
+      eventHandled = true;
     }
 
     if (!eventHandled) return;
