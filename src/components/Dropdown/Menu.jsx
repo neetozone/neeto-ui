@@ -54,7 +54,7 @@ const Menu = ({ children, className, ...otherProps }) => {
       activeMenuId = prevActiveMenuId;
       document.removeEventListener("keydown", onKeyDown);
     };
-  });
+  }, [menuId]);
 
   return (
     <ul
