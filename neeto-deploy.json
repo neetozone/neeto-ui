@@ -3,9 +3,6 @@
   "scripts": {},
   "stack": "heroku-22",
   "env": {
-    "YARN_PRODUCTION": {
-      "value": "true"
-    },
     "NODE_MODULES_CACHE": {
       "value": "true"
     },
@@ -17,7 +14,7 @@
   "addons": [],
   "buildpacks": [
     {
-      "url": "heroku/nodejs"
+      "url": "https://github.com/neetozone/neeto-deploy-paketo-nodejs-buildpack"
     }
   ]
 }
