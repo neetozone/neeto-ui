@@ -21,7 +21,7 @@ const POSITIONS = { left: "left", right: "right" };
 const Pane = ({
   size = SIZES.small,
   isOpen = false,
-  onClose = () => { },
+  onClose = () => {},
   children,
   className = "",
   closeOnEsc = true,
@@ -115,6 +115,7 @@ const Pane = ({
         >
           <div
             data-cy="pane-wrapper"
+            data-testid="pane-wrapper"
             key="pane-wrapper"
             ref={paneWrapperRef}
             className={classnames("neeto-ui-pane__wrapper", {

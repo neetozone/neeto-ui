@@ -9,7 +9,7 @@ describe("Pane", () => {
   let consoleSpy;
 
   beforeEach(() => {
-    consoleSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+    consoleSpy = jest.spyOn(console, "error").mockImplementation(() => { });
   });
 
   afterEach(() => {
@@ -151,5 +151,30 @@ describe("Pane", () => {
     );
     await userEvent.click(getByTestId("backdrop"));
     expect(onClose).not.toHaveBeenCalled();
+  });
+
+  it("should render pane on the left when position is 'left'", async () => {
+    render(
+      <Pane isOpen position="left">
+        <Pane.Body>Left Pane body</Pane.Body>
+      </Pane>
+    );
+
+    const backdrop = await screen.findByTestId("backdrop");
+    expect(backdrop).toHaveClass("neeto-ui-justify-start");
+
+    const paneWrapper = await screen.findByTestId("pane-wrapper");
+    expect(paneWrapper).toBeInTheDocument();
+  });
+
+  it("should render pane on the right when position is 'right'", async () => {
+    render(
+      <Pane isOpen position="right">
+        <Pane.Body>Right Pane body</Pane.Body>
+      </Pane>
+    );
+
+    const backdrop = await screen.findByTestId("backdrop");
+    expect(backdrop).toHaveClass("neeto-ui-justify-end");
   });
 });
