@@ -16,11 +16,12 @@ import Header from "./Header";
 import { getHeader, updateHeaderHeight } from "./utils";
 
 const SIZES = { small: "small", large: "large", extraLarge: "extraLarge" };
+const POSITIONS = { left: "left", right: "right" };
 
 const Pane = ({
   size = SIZES.small,
   isOpen = false,
-  onClose = () => {},
+  onClose = () => { },
   children,
   className = "",
   closeOnEsc = true,
@@ -29,6 +30,7 @@ const Pane = ({
   closeOnOutsideClick = true,
   initialFocusRef,
   finalFocusRef,
+  position = POSITIONS.right,
   ...otherProps
 }) => {
   const [hasTransitionCompleted, setHasTransitionCompleted] = useState(false);
@@ -103,7 +105,11 @@ const Pane = ({
           key="pane-backdrop"
           ref={backdropRef}
           className={classnames(
-            "neeto-ui-pane__backdrop neeto-ui-flex neeto-ui-justify-end",
+            "neeto-ui-pane__backdrop neeto-ui-flex",
+            {
+              "neeto-ui-justify-end": position === "right",
+              "neeto-ui-justify-start": position === "left",
+            },
             backdropClassName
           )}
         >
@@ -115,6 +121,8 @@ const Pane = ({
               "neeto-ui-pane__wrapper--small": size === SIZES.small,
               "neeto-ui-pane__wrapper--large": size === SIZES.large,
               "neeto-ui-pane__wrapper--extralarge": size === SIZES.extraLarge,
+              "neeto-ui-pane__wrapper--left": position === POSITIONS.left,
+              "neeto-ui-pane__wrapper--right": position === POSITIONS.right,
               [className]: className,
             })}
             {...otherProps}
@@ -195,6 +203,11 @@ Pane.propTypes = {
    * If not specified, the element which was focused when the Pane component was opened will be focused.
    */
   finalFocusRef: PropTypes.object,
+
+  /**
+   * To specify which side the Pane should open from (left or right).
+   */
+  position: PropTypes.oneOf(Object.values(POSITIONS) ),
 };
 
 Pane.Header = Header;
