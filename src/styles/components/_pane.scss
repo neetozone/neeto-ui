@@ -207,7 +207,7 @@
     opacity: 1;
     backdrop-filter: var(--neeto-ui-pane-backdrop-backdrop-filter);
   }
-  .neeto-ui-pane__wrapper--right
+  .neeto-ui-pane__wrapper--right,
   .neeto-ui-pane__wrapper--left {
     transform: translateX(0);
     backdrop-filter: var(--neeto-ui-pane-wrapper-backdrop-filter);
