@@ -11,7 +11,7 @@ import {
   ColumnToRight,
   Hide,
 } from "neetoicons";
-import { equals, move } from "ramda";
+import { equals, move, prop } from "ramda";
 import { useTranslation } from "react-i18next";
 
 import Dropdown from "components/Dropdown";
@@ -61,7 +61,7 @@ const HeaderCellMenu = ({
   moreActions = [],
 }) => {
   const { t, i18n } = useTranslation();
-  const { setInfoPaneState } = useTableStore.pick();
+  const setInfoPaneState = useTableStore(prop("setInfoPaneState"));
 
   const onMoveColumn = offset => {
     if (!onColumnUpdate) return;
