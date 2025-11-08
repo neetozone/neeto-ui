@@ -2082,13 +2082,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bigbinary/neeto-icons@npm:^1.20.27":
-  version: 1.20.55
-  resolution: "@bigbinary/neeto-icons@npm:1.20.55"
+"@bigbinary/neeto-icons@npm:1.20.64":
+  version: 1.20.64
+  resolution: "@bigbinary/neeto-icons@npm:1.20.64"
   peerDependencies:
     react: 18.3.1
     react-dom: 18.3.1
-  checksum: 10c0/8966ceb314f47d381698cf3fe37178c54d20d386dd2eeae54cb8f1612d6ddd001af894e8d02c57d96977e7ee9694eb2041920d47115ba6619ce1e16afd108eec
+  checksum: 10c0/03fff40989f42ea0cb561eb1f080d198a8c8d4ea1a31caf4bf72e1eec4efd76c0471088a6952ca9b8f3db164b4b4bcba888cda355064b544a25db8db964eddda
   languageName: node
   linkType: hard
 
@@ -2109,7 +2109,7 @@ __metadata:
     "@bigbinary/neeto-commons-frontend": "npm:^3.0.10"
     "@bigbinary/neeto-datepicker": "npm:^1.0.4"
     "@bigbinary/neeto-hotkeys": "npm:1.0.4"
-    "@bigbinary/neeto-icons": "npm:^1.20.27"
+    "@bigbinary/neeto-icons": "npm:1.20.64"
     "@reach/auto-id": "npm:0.15.0"
     "@rollup/plugin-alias": "npm:^5.1.1"
     "@rollup/plugin-babel": "npm:^6.0.4"
@@ -2226,7 +2226,7 @@ __metadata:
     "@bigbinary/neeto-commons-frontend": ^3.0.10
     "@bigbinary/neeto-datepicker": ^1.0.4
     "@bigbinary/neeto-hotkeys": 1.0.4
-    "@bigbinary/neeto-icons": ^1.20.27
+    "@bigbinary/neeto-icons": 1.20.64
     "@tippyjs/react": 4.2.6
     "@wojtekmaj/react-timerange-picker": ^5.5.0
     antd: 5.16.0
