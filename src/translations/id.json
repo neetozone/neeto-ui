@@ -22,12 +22,17 @@
       "columnInfo": "Info kolom",
       "hideColumn": "Sembunyikan kolom",
       "deleteColumn": "Hapus kolom",
-      "ascending": "Urutkan naik",
-      "descending": "Urutkan turun",
+      "ascending": "Ascending",
+      "descending": "Descending",
       "freezeColumn": "Bekukan kolom",
       "unFreezeColumn": "Bebaskan kolom",
       "allRowsSelected": "Semua baris terpilih",
-      "clearSelection": "Bersihkan pilihan"
+      "clearSelection": "Bersihkan pilihan",
+      "moveColumnLeft": "Pindahkan kolom ke kiri",
+      "moveColumnRight": "Pindahkan kolom ke kanan",
+      "addColumnInfo": "Tambahkan informasi kolom",
+      "editColumnInfo": "Edit informasi kolom",
+      "info": "Informasi tabel"
     },
     "timePicker": {
       "hours": "Jam",
@@ -38,7 +43,8 @@
       "noOptions": "Tidak ada opsi."
     },
     "common": {
-      "timezone": "Zona Waktu"
+      "timezone": "Zona Waktu",
+      "description": "Deskripsi"
     }
   }
 }

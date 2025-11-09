@@ -22,12 +22,17 @@
       "columnInfo": "Sütun bilgisi",
       "hideColumn": "Sütunu gizle",
       "deleteColumn": "Sütunu sil",
-      "ascending": "Artan sırala",
-      "descending": "Azalan sırala",
+      "ascending": "Artan",
+      "descending": "Azalan",
       "freezeColumn": "Sütunu dondur",
       "unFreezeColumn": "Sütunun dondurmasını kaldır",
       "allRowsSelected": "Tüm satırlar seçildi",
-      "clearSelection": "Seçimi temizle"
+      "clearSelection": "Seçimi temizle",
+      "moveColumnLeft": "Sütunu sola kaydır",
+      "moveColumnRight": "Sütunu sağa kaydır",
+      "addColumnInfo": "Sütun bilgisi ekle",
+      "editColumnInfo": "Sütun bilgisini düzenle",
+      "info": "Tablo bilgisi"
     },
     "timePicker": {
       "hours": "Saatler",
@@ -38,7 +43,8 @@
       "noOptions": "Seçenek yok."
     },
     "common": {
-      "timezone": "Saat Dilimi"
+      "timezone": "Saat Dilimi",
+      "description": "Açıklama"
     }
   }
 }

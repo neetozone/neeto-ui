@@ -22,12 +22,17 @@
       "columnInfo": "Informații despre coloană",
       "hideColumn": "Ascunde coloană",
       "deleteColumn": "Șterge coloană",
-      "ascending": "Ordonează crescător",
-      "descending": "Ordonează descrescător",
+      "ascending": "Ascendent",
+      "descending": "Descendent",
       "freezeColumn": "Îngheață coloană",
       "unFreezeColumn": "Dezgheață coloană",
       "allRowsSelected": "Toate rândurile sunt selectate",
-      "clearSelection": "Șterge selecția"
+      "clearSelection": "Șterge selecția",
+      "moveColumnLeft": "Mută coloana la stânga",
+      "moveColumnRight": "Mută coloana la dreapta",
+      "addColumnInfo": "Adaugă informații despre coloană",
+      "editColumnInfo": "Editează informațiile despre coloană",
+      "info": "Informații despre tabel"
     },
     "timePicker": {
       "hours": "Ore",
@@ -38,7 +43,8 @@
       "noOptions": "Nicio opțiune."
     },
     "common": {
-      "timezone": "Fus orar"
+      "timezone": "Fus orar",
+      "description": "Descriere"
     }
   }
 }

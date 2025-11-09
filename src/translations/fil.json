@@ -22,12 +22,17 @@
       "columnInfo": "Impormasyon ng kolum",
       "hideColumn": "Itago ang kolum",
       "deleteColumn": "Burahin ang kolum",
-      "ascending": "I-sort pataas",
-      "descending": "I-sort pababa",
+      "ascending": "Tumataas",
+      "descending": "Bumababa",
       "freezeColumn": "I-freeze ang kolum",
       "unFreezeColumn": "I-unfreeze ang kolum",
       "allRowsSelected": "Lahat ng row ay napili",
-      "clearSelection": "I-clear ang pagpili"
+      "clearSelection": "I-clear ang pagpili",
+      "moveColumnLeft": "Ilipat ang column sa kaliwa",
+      "moveColumnRight": "Ilipat ang column sa kanan",
+      "addColumnInfo": "Magdagdag ng impormasyon sa column",
+      "editColumnInfo": "I-edit ang impormasyon sa column",
+      "info": "Impormasyon ng talahanayan"
     },
     "timePicker": {
       "hours": "Oras",
@@ -38,7 +43,8 @@
       "noOptions": "Walang mga pagpipilian."
     },
     "common": {
-      "timezone": "Oras"
+      "timezone": "Oras",
+      "description": "Deskripsyon"
     }
   }
 }

@@ -22,12 +22,17 @@
       "columnInfo": "Informacije o koloni",
       "hideColumn": "Sakrij kolonu",
       "deleteColumn": "Izbriši kolonu",
-      "ascending": "Sortiraj uzlazno",
-      "descending": "Sortiraj silazno",
+      "ascending": "Uzlazno",
+      "descending": "Silazno",
       "freezeColumn": "Smrzni kolonu",
       "unFreezeColumn": "Otpusti kolonu",
       "allRowsSelected": "Sve retke su odabrane",
-      "clearSelection": "Očisti odabir"
+      "clearSelection": "Očisti odabir",
+      "moveColumnLeft": "Premjesti kolonu lijevo",
+      "moveColumnRight": "Premjesti kolonu desno",
+      "addColumnInfo": "Dodaj informacije o koloni",
+      "editColumnInfo": "Uredi informacije o koloni",
+      "info": "Informacije o tablici"
     },
     "timePicker": {
       "hours": "Sati",
@@ -38,7 +43,8 @@
       "noOptions": "Nema opcija."
     },
     "common": {
-      "timezone": "Vremenska zona"
+      "timezone": "Vremenska zona",
+      "description": "Opis"
     }
   }
 }

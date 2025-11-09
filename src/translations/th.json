@@ -22,12 +22,17 @@
       "columnInfo": "ข้อมูลคอลัมน์",
       "hideColumn": "ซ่อนคอลัมน์",
       "deleteColumn": "ลบคอลัมน์",
-      "ascending": "เรียงจากน้อยไปหามาก",
-      "descending": "เรียงจากมากไปหาน้อย",
+      "ascending": "เรียงจากน้อยไปมาก",
+      "descending": "เรียงจากมากไปน้อย",
       "freezeColumn": "ตรึงคอลัมน์",
       "unFreezeColumn": "ยกเลิกการตรึงคอลัมน์",
       "allRowsSelected": "เลือกตั้งหมดแล้ว",
-      "clearSelection": "ลบการเลือก"
+      "clearSelection": "ลบการเลือก",
+      "moveColumnLeft": "ย้ายคอลัมน์ไปทางซ้าย",
+      "moveColumnRight": "ย้ายคอลัมน์ไปทางขวา",
+      "addColumnInfo": "เพิ่มข้อมูลคอลัมน์",
+      "editColumnInfo": "แก้ไขข้อมูลคอลัมน์",
+      "info": "ข้อมูลตาราง"
     },
     "timePicker": {
       "hours": "ชั่วโมง",
@@ -38,7 +43,8 @@
       "noOptions": "ไม่มีตัวเลือก"
     },
     "common": {
-      "timezone": "เขตเวลา"
+      "timezone": "เขตเวลา",
+      "description": "คำอธิบาย"
     }
   }
 }

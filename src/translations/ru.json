@@ -22,12 +22,17 @@
       "columnInfo": "Информация о колонке",
       "hideColumn": "Скрыть колонку",
       "deleteColumn": "Удалить колонку",
-      "ascending": "Сортировать по возрастанию",
-      "descending": "Сортировать по убыванию",
+      "ascending": "По возрастанию",
+      "descending": "По убыванию",
       "freezeColumn": "Закрепить колонку",
       "unFreezeColumn": "Снять закрепление с колонки",
       "allRowsSelected": "Все строки выбраны",
-      "clearSelection": "Очистить выбор"
+      "clearSelection": "Очистить выбор",
+      "moveColumnLeft": "Переместить столбец влево",
+      "moveColumnRight": "Переместить столбец вправо",
+      "addColumnInfo": "Добавить информацию о столбце",
+      "editColumnInfo": "Редактировать информацию о столбце",
+      "info": "Информация о таблице"
     },
     "timePicker": {
       "hours": "Часы",
@@ -38,7 +43,8 @@
       "noOptions": "Нет вариантов."
     },
     "common": {
-      "timezone": "Часовой пояс"
+      "timezone": "Часовой пояс",
+      "description": "Описание"
     }
   }
 }

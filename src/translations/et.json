@@ -22,12 +22,17 @@
       "columnInfo": "Veeru info",
       "hideColumn": "Peida veerg",
       "deleteColumn": "Kustuta veerg",
-      "ascending": "Sorteeri kasvavalt",
-      "descending": "Sorteeri kahanevalt",
+      "ascending": "Tõusvas järjekorras",
+      "descending": "Languses järjekorras",
       "freezeColumn": "Külmutage veerg",
       "unFreezeColumn": "Vabasta veerg",
       "allRowsSelected": "Kõik read on valitud",
-      "clearSelection": "Tühjenda valik"
+      "clearSelection": "Tühjenda valik",
+      "moveColumnLeft": "Liiguta veerg vasakule",
+      "moveColumnRight": "Liiguta veerg paremale",
+      "addColumnInfo": "Lisa veeru teave",
+      "editColumnInfo": "Muuda veeru teavet",
+      "info": "Tabeli teave"
     },
     "timePicker": {
       "hours": "Tunnid",
@@ -38,7 +43,8 @@
       "noOptions": "Ei ole valikuid."
     },
     "common": {
-      "timezone": "Ajavöönd"
+      "timezone": "Ajavöönd",
+      "description": "Kirjeldus"
     }
   }
 }

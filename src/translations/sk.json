@@ -22,12 +22,17 @@
       "columnInfo": "Informácie o stĺpci",
       "hideColumn": "Skryť stĺpec",
       "deleteColumn": "Odstrániť stĺpec",
-      "ascending": "Triediť vzostupne",
-      "descending": "Triediť zostupne",
+      "ascending": "Vzostupne",
+      "descending": "Zostupne",
       "freezeColumn": "Zamknúť stĺpec",
       "unFreezeColumn": "Odomknúť stĺpec",
       "allRowsSelected": "Všetky riadky sú vybrané",
-      "clearSelection": "Vymazať výber"
+      "clearSelection": "Vymazať výber",
+      "moveColumnLeft": "Presunúť stĺpec doľava",
+      "moveColumnRight": "Presunúť stĺpec doprava",
+      "addColumnInfo": "Pridať informácie o stĺpci",
+      "editColumnInfo": "Upraviť informácie o stĺpci",
+      "info": "Informácie o tabuľke"
     },
     "timePicker": {
       "hours": "Hodiny",
@@ -38,7 +43,8 @@
       "noOptions": "Žiadne možnosti."
     },
     "common": {
-      "timezone": "Časové pásmo"
+      "timezone": "Časové pásmo",
+      "description": "Popis"
     }
   }
 }
