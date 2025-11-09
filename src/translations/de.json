@@ -22,12 +22,17 @@
       "columnInfo": "Spalteninformationen",
       "hideColumn": "Spalte ausblenden",
       "deleteColumn": "Spalte löschen",
-      "ascending": "Aufsteigend sortieren",
-      "descending": "Absteigend sortieren",
+      "ascending": "Aufsteigend",
+      "descending": "Absteigend",
       "allRowsSelected": "Alle Zeilen sind ausgewählt",
       "clearSelection": "Klare Auswahl",
       "freezeColumn": "Spalte einfrieren",
-      "unFreezeColumn": "Spalte aufheben"
+      "unFreezeColumn": "Spalte aufheben",
+      "moveColumnLeft": "Spalte nach links verschieben",
+      "moveColumnRight": "Spalte nach rechts verschieben",
+      "addColumnInfo": "Spalteninformation hinzufügen",
+      "editColumnInfo": "Spalteninformation bearbeiten",
+      "info": "Tabelleninformationen"
     },
     "timePicker": {
       "hours": "Stunden",
@@ -38,7 +43,8 @@
       "noOptions": "Keine Optionen."
     },
     "common": {
-      "timezone": "Zeitzone"
+      "timezone": "Zeitzone",
+      "description": "Beschreibung"
     }
   }
 }

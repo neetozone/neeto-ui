@@ -22,12 +22,17 @@
       "columnInfo": "معلومات العمود",
       "hideColumn": "إخفاء العمود",
       "deleteColumn": "حذف العمود",
-      "ascending": "ترتيب تصاعدي",
-      "descending": "ترتيب تنازلي",
+      "ascending": "تصاعدي",
+      "descending": "تنازلي",
       "freezeColumn": "تجميد العمود",
       "unFreezeColumn": "إلغاء تجميد العمود",
       "allRowsSelected": "تم اختيار جميع الصفوف",
-      "clearSelection": "مسح الاختيار"
+      "clearSelection": "مسح الاختيار",
+      "moveColumnLeft": "نقل العمود إلى اليسار",
+      "moveColumnRight": "نقل العمود إلى اليمين",
+      "addColumnInfo": "إضافة معلومات العمود",
+      "editColumnInfo": "تحرير معلومات العمود",
+      "info": "معلومات الجدول"
     },
     "timePicker": {
       "hours": "ساعات",
@@ -38,7 +43,8 @@
       "noOptions": "لا توجد خيارات."
     },
     "common": {
-      "timezone": "المنطقة الزمنية"
+      "timezone": "المنطقة الزمنية",
+      "description": "الوصف"
     }
   }
 }
