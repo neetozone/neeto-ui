@@ -22,12 +22,17 @@
       "columnInfo": "Saraketiedot",
       "hideColumn": "Piilota sarake",
       "deleteColumn": "Poista sarake",
-      "ascending": "Lajittele nousevasti",
-      "descending": "Lajittele laskevasti",
+      "ascending": "Nouseva",
+      "descending": "Laskeva",
       "freezeColumn": "Jäädytä sarake",
       "unFreezeColumn": "Poista sarakkeen jäädytys",
       "allRowsSelected": "Kaikki rivit on valittu",
-      "clearSelection": "Tyhjennä valinta"
+      "clearSelection": "Tyhjennä valinta",
+      "moveColumnLeft": "Siirrä sarake vasemmalle",
+      "moveColumnRight": "Siirrä sarake oikealle",
+      "addColumnInfo": "Lisää sarakkeen tietoja",
+      "editColumnInfo": "Muokkaa sarakkeen tietoja",
+      "info": "Taulukon tiedot"
     },
     "timePicker": {
       "hours": "Tunnit",
@@ -38,7 +43,8 @@
       "noOptions": "Ei vaihtoehtoja."
     },
     "common": {
-      "timezone": " aikavyöhyke"
+      "timezone": " aikavyöhyke",
+      "description": "Kuvaus"
     }
   }
 }

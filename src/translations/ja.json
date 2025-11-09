@@ -22,12 +22,17 @@
       "columnInfo": "列の情報",
       "hideColumn": "列を非表示",
       "deleteColumn": "列を削除",
-      "ascending": "昇順に並べ替え",
-      "descending": "降順に並べ替え",
+      "ascending": "昇順",
+      "descending": "降順",
       "freezeColumn": "列を固定",
       "unFreezeColumn": "列の固定を解除",
       "allRowsSelected": "すべての行が選択されています",
-      "clearSelection": "選択をクリア"
+      "clearSelection": "選択をクリア",
+      "moveColumnLeft": "列を左に移動",
+      "moveColumnRight": "列を右に移動",
+      "addColumnInfo": "列情報を追加",
+      "editColumnInfo": "列情報を編集",
+      "info": "テーブル情報"
     },
     "timePicker": {
       "hours": "時間",
@@ -38,7 +43,8 @@
       "noOptions": "オプションはありません。"
     },
     "common": {
-      "timezone": "タイムゾーン"
+      "timezone": "タイムゾーン",
+      "description": "説明"
     }
   }
 }

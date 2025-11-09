@@ -22,12 +22,17 @@
       "columnInfo": "列信息",
       "hideColumn": "隐藏列",
       "deleteColumn": "删除列",
-      "ascending": "升序排列",
-      "descending": "降序排列",
+      "ascending": "升序",
+      "descending": "降序",
       "freezeColumn": "冻结列",
       "unFreezeColumn": "解冻列",
       "allRowsSelected": "所有行都已选择",
-      "clearSelection": "清除选择"
+      "clearSelection": "清除选择",
+      "moveColumnLeft": "向左移动列",
+      "moveColumnRight": "向右移动列",
+      "addColumnInfo": "添加列信息",
+      "editColumnInfo": "编辑列信息",
+      "info": "表信息"
     },
     "timePicker": {
       "hours": "小时",
@@ -38,7 +43,8 @@
       "noOptions": "没有选项。"
     },
     "common": {
-      "timezone": "时区"
+      "timezone": "时区",
+      "description": "描述"
     }
   }
 }

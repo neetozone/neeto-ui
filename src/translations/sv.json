@@ -22,12 +22,17 @@
       "columnInfo": "Kolumninformation",
       "hideColumn": "Dölj kolumn",
       "deleteColumn": "Ta bort kolumn",
-      "ascending": "Sortera stigande",
-      "descending": "Sortera fallande",
+      "ascending": "Stigande",
+      "descending": "Fallande",
       "freezeColumn": "Frys kolumn",
       "unFreezeColumn": "Avfrys kolumn",
       "allRowsSelected": "Alla rader är valda",
-      "clearSelection": "Rensa val"
+      "clearSelection": "Rensa val",
+      "moveColumnLeft": "Flytta kolumn till vänster",
+      "moveColumnRight": "Flytta kolumn till höger",
+      "addColumnInfo": "Lägg till kolumninformation",
+      "editColumnInfo": "Redigera kolumninformation",
+      "info": "Tabellinformation"
     },
     "timePicker": {
       "hours": "Timmar",
@@ -38,7 +43,8 @@
       "noOptions": "Inga alternativ."
     },
     "common": {
-      "timezone": "Tidszon"
+      "timezone": "Tidszon",
+      "description": "Beskrivning"
     }
   }
 }

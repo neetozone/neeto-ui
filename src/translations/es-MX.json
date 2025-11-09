@@ -22,12 +22,17 @@
       "columnInfo": "Información de la columna",
       "hideColumn": "Ocultar columna",
       "deleteColumn": "Eliminar columna",
-      "ascending": "Ordenar ascendente",
-      "descending": "Ordenar descendente",
+      "ascending": "Ascendente",
+      "descending": "Descendente",
       "freezeColumn": "Congelar columna",
       "unFreezeColumn": "Descongelar columna",
       "allRowsSelected": "Se han seleccionado todas las filas",
-      "clearSelection": "Limpiar selección"
+      "clearSelection": "Limpiar selección",
+      "moveColumnLeft": "Mover columna a la izquierda",
+      "moveColumnRight": "Mover columna a la derecha",
+      "addColumnInfo": "Agregar información de columna",
+      "editColumnInfo": "Editar información de columna",
+      "info": "Información de la tabla"
     },
     "timePicker": {
       "hours": "Horas",
@@ -38,7 +43,8 @@
       "noOptions": "No hay opciones."
     },
     "common": {
-      "timezone": "Zona horaria"
+      "timezone": "Zona horaria",
+      "description": "Descripción"
     }
   }
 }

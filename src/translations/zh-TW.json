@@ -22,12 +22,17 @@
       "columnInfo": "欄位資訊",
       "hideColumn": "隱藏欄位",
       "deleteColumn": "刪除欄位",
-      "ascending": "升冪排序",
-      "descending": "降冪排序",
+      "ascending": "升序",
+      "descending": "降序",
       "freezeColumn": "凍結欄位",
       "unFreezeColumn": "取消凍結欄位",
       "allRowsSelected": "所有行已選取",
-      "clearSelection": "清除選取"
+      "clearSelection": "清除選取",
+      "moveColumnLeft": "向左移動列",
+      "moveColumnRight": "向右移動列",
+      "addColumnInfo": "添加列信息",
+      "editColumnInfo": "編輯列信息",
+      "info": "表格信息"
     },
     "timePicker": {
       "hours": "小時",
@@ -38,7 +43,8 @@
       "noOptions": "沒有選項。"
     },
     "common": {
-      "timezone": "時區"
+      "timezone": "時區",
+      "description": "描述"
     }
   }
 }

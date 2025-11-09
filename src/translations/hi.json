@@ -22,12 +22,17 @@
       "columnInfo": "कॉलम जानकारी",
       "hideColumn": "कॉलम छिपाएँ",
       "deleteColumn": "कॉलम हटाएँ",
-      "ascending": "आरोही क्रम में क्रमबद्ध करें",
-      "descending": "अवरोही क्रम में क्रमबद्ध करें",
+      "ascending": "Ascending",
+      "descending": "Descending",
       "freezeColumn": "कॉलम फ्रीज करें",
       "unFreezeColumn": "कॉलम अनफ्रीज़ करें",
       "allRowsSelected": "सभी पंक्तियाँ चुनी गई हैं",
-      "clearSelection": "चयन साफ करें"
+      "clearSelection": "चयन साफ करें",
+      "moveColumnLeft": "कॉलम को बाएँ ले जाएँ",
+      "moveColumnRight": "कॉलम को दाएँ ले जाएँ",
+      "addColumnInfo": "कॉलम की जानकारी जोड़ें",
+      "editColumnInfo": "कॉलम की जानकारी संपादित करें",
+      "info": "टेबल की जानकारी"
     },
     "timePicker": {
       "hours": "घंटे",
@@ -38,7 +43,8 @@
       "noOptions": "कोई विकल्प नहीं।"
     },
     "common": {
-      "timezone": "टाइम ज़ोन"
+      "timezone": "टाइम ज़ोन",
+      "description": "विवरण"
     }
   }
 }

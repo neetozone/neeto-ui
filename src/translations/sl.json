@@ -22,12 +22,17 @@
       "columnInfo": "Informacije o stolpcu",
       "hideColumn": "Skrij stolpec",
       "deleteColumn": "Izbriši stolpec",
-      "ascending": "Razvrsti naraščajoče",
-      "descending": "Razvrsti padajoče",
+      "ascending": "Naraščajoče",
+      "descending": "Padajoče",
       "freezeColumn": "Zamrzni stolpec",
       "unFreezeColumn": "Odmrzni stolpec",
       "allRowsSelected": "Vse vrstice so izbrane",
-      "clearSelection": "Počisti izbor"
+      "clearSelection": "Počisti izbor",
+      "moveColumnLeft": "Premakni stolpec levo",
+      "moveColumnRight": "Premakni stolpec desno",
+      "addColumnInfo": "Dodaj informacije o stolpcu",
+      "editColumnInfo": "Uredi informacije o stolpcu",
+      "info": "Informacije o tabeli"
     },
     "timePicker": {
       "hours": "Ure",
@@ -38,7 +43,8 @@
       "noOptions": "Brez možnosti."
     },
     "common": {
-      "timezone": "Časovni pas"
+      "timezone": "Časovni pas",
+      "description": "Opis"
     }
   }
 }

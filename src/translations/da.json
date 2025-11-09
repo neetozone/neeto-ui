@@ -22,12 +22,17 @@
       "columnInfo": "Kolonneinformation",
       "hideColumn": "Skjul kolonne",
       "deleteColumn": "Slet kolonne",
-      "ascending": "Sorter stigende",
-      "descending": "Sorter faldende",
+      "ascending": "Stigende",
+      "descending": "Faldende",
       "freezeColumn": "Frys kolonne",
       "unFreezeColumn": "Optag kolonne",
       "allRowsSelected": "Alle rækker er valgt",
-      "clearSelection": "Ryd valg"
+      "clearSelection": "Ryd valg",
+      "moveColumnLeft": "Flyt kolonne til venstre",
+      "moveColumnRight": "Flyt kolonne til højre",
+      "addColumnInfo": "Tilføj kolonneinfo",
+      "editColumnInfo": "Rediger kolonneinfo",
+      "info": "Tabelinfo"
     },
     "timePicker": {
       "hours": "Timer",
@@ -38,7 +43,8 @@
       "noOptions": "Ingen muligheder."
     },
     "common": {
-      "timezone": "Tidszone"
+      "timezone": "Tidszone",
+      "description": "Beskrivelse"
     }
   }
 }

@@ -22,12 +22,17 @@
       "columnInfo": "Інформація про стовпець",
       "hideColumn": "Сховати стовпець",
       "deleteColumn": "Видалити стовпець",
-      "ascending": "Сортувати за зростанням",
-      "descending": "Сортувати за спаданням",
+      "ascending": "По зростанню",
+      "descending": "По спаданню",
       "freezeColumn": "Закріпити стовпець",
       "unFreezeColumn": "Відкріпити стовпець",
       "allRowsSelected": "Вибрано всі рядки",
-      "clearSelection": "Очистити вибір"
+      "clearSelection": "Очистити вибір",
+      "moveColumnLeft": "Перемістити стовпець вліво",
+      "moveColumnRight": "Перемістити стовпець вправо",
+      "addColumnInfo": "Додати інформацію про стовпець",
+      "editColumnInfo": "Редагувати інформацію про стовпець",
+      "info": "Інформація про таблицю"
     },
     "timePicker": {
       "hours": "Години",
@@ -38,7 +43,8 @@
       "noOptions": "Немає варіантів."
     },
     "common": {
-      "timezone": "Часовий пояс"
+      "timezone": "Часовий пояс",
+      "description": "Опис"
     }
   }
 }
