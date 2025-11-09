@@ -22,12 +22,17 @@
       "columnInfo": "Информация за колона",
       "hideColumn": "Скрий колона",
       "deleteColumn": "Изтрий колона",
-      "ascending": "Сортирай по растящ ред",
-      "descending": "Сортирай по намаляващ ред",
+      "ascending": "Възходящо",
+      "descending": "Низходящо",
       "freezeColumn": "Замрази колона",
       "unFreezeColumn": "Размрази колона",
       "allRowsSelected": "Всички редове са избрани",
-      "clearSelection": "Изчисти избора"
+      "clearSelection": "Изчисти избора",
+      "moveColumnLeft": "Премести колоната наляво",
+      "moveColumnRight": "Премести колоната надясно",
+      "addColumnInfo": "Добави информация за колоната",
+      "editColumnInfo": "Редактиране на информацията за колоната",
+      "info": "Информация за таблицата"
     },
     "timePicker": {
       "hours": "Часове",
@@ -38,7 +43,8 @@
       "noOptions": "Няма опции."
     },
     "common": {
-      "timezone": "Часова зона"
+      "timezone": "Часова зона",
+      "description": "Описание"
     }
   }
 }

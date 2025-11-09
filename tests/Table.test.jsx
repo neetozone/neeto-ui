@@ -225,8 +225,8 @@ describe("Table", () => {
       "column-menu-button"
     );
     await userEvent.click(menuButton);
-    expect(await screen.findByText("Sort ascending")).toBeInTheDocument();
-    await userEvent.click(screen.getByText("Sort ascending"));
+    expect(await screen.findByText("Ascending")).toBeInTheDocument();
+    await userEvent.click(screen.getByText("Ascending"));
     const queryParams = getQueryParams();
 
     expect(queryParams).toEqual({

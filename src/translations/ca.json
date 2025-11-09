@@ -22,12 +22,17 @@
       "columnInfo": " informació de columna",
       "hideColumn": "Amaga la columna",
       "deleteColumn": "Elimina la columna",
-      "ascending": "Ordenar ascendent",
-      "descending": "Ordenar descendent",
+      "ascending": "Ascendent",
+      "descending": "Descendent",
       "freezeColumn": "Congela la columna",
       "unFreezeColumn": "Descongela la columna",
       "allRowsSelected": "Totes les files estan seleccionades",
-      "clearSelection": "Esborra la selecció"
+      "clearSelection": "Esborra la selecció",
+      "moveColumnLeft": "Moure la columna a l'esquerra",
+      "moveColumnRight": "Moure la columna a la dreta",
+      "addColumnInfo": "Afegir informació de la columna",
+      "editColumnInfo": "Editar informació de la columna",
+      "info": "Informació de la taula"
     },
     "timePicker": {
       "hours": "Hores",
@@ -38,7 +43,8 @@
       "noOptions": "Sense opcions."
     },
     "common": {
-      "timezone": "Zona horària"
+      "timezone": "Zona horària",
+      "description": "Descripció"
     }
   }
 }

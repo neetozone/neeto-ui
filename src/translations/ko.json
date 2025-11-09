@@ -22,12 +22,17 @@
       "columnInfo": "열 정보",
       "hideColumn": "열 숨기기",
       "deleteColumn": "열 삭제",
-      "ascending": "오름차순 정렬",
-      "descending": "내림차순 정렬",
+      "ascending": "오름차순",
+      "descending": "내림차순",
       "freezeColumn": "열 고정",
       "unFreezeColumn": "열 고정 해제",
       "allRowsSelected": "모든 행이 선택되었습니다",
-      "clearSelection": "선택 지우기"
+      "clearSelection": "선택 지우기",
+      "moveColumnLeft": "열을 왼쪽으로 이동",
+      "moveColumnRight": "열을 오른쪽으로 이동",
+      "addColumnInfo": "열 정보 추가",
+      "editColumnInfo": "열 정보 편집",
+      "info": "테이블 정보"
     },
     "timePicker": {
       "hours": "시간",
@@ -38,7 +43,8 @@
       "noOptions": "옵션이 없습니다."
     },
     "common": {
-      "timezone": "시간대"
+      "timezone": "시간대",
+      "description": "설명"
     }
   }
 }

@@ -22,12 +22,17 @@
       "columnInfo": "Kolominformatie",
       "hideColumn": "Kolom verbergen",
       "deleteColumn": "Kolom verwijderen",
-      "ascending": "Sorteer oplopend",
-      "descending": "Sorteer aflopend",
+      "ascending": "Oplopend",
+      "descending": "Aflopend",
       "allRowsSelected": "Alle rijen zijn geselecteerd",
       "clearSelection": "Duidelijke selectie",
       "freezeColumn": "Kolom vastzetten",
-      "unFreezeColumn": "Kolom ontgrendelen"
+      "unFreezeColumn": "Kolom ontgrendelen",
+      "moveColumnLeft": "Verplaats kolom naar links",
+      "moveColumnRight": "Verplaats kolom naar rechts",
+      "addColumnInfo": "Voeg kolominformatie toe",
+      "editColumnInfo": "Bewerk kolominformatie",
+      "info": "Tabel informatie"
     },
     "timePicker": {
       "hours": "Uur",
@@ -38,7 +43,8 @@
       "noOptions": "Geen opties."
     },
     "common": {
-      "timezone": "Tijdszone"
+      "timezone": "Tijdszone",
+      "description": "Beschrijving"
     }
   }
 }

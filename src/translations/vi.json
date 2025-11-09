@@ -22,12 +22,17 @@
       "columnInfo": "Thông tin cột",
       "hideColumn": "Ẩn cột",
       "deleteColumn": "Xóa cột",
-      "ascending": "Sắp xếp tăng dần",
-      "descending": "Sắp xếp giảm dần",
+      "ascending": "Tăng dần",
+      "descending": "Giảm dần",
       "freezeColumn": "Đóng băng cột",
       "unFreezeColumn": "Bỏ đóng băng cột",
       "allRowsSelected": "Tất cả các hàng đã được chọn",
-      "clearSelection": "Xóa lựa chọn"
+      "clearSelection": "Xóa lựa chọn",
+      "moveColumnLeft": "Di chuyển cột sang trái",
+      "moveColumnRight": "Di chuyển cột sang phải",
+      "addColumnInfo": "Thêm thông tin cột",
+      "editColumnInfo": "Chỉnh sửa thông tin cột",
+      "info": "Thông tin bảng"
     },
     "timePicker": {
       "hours": "Giờ",
@@ -38,7 +43,8 @@
       "noOptions": "Không có tùy chọn."
     },
     "common": {
-      "timezone": "Múi giờ"
+      "timezone": "Múi giờ",
+      "description": "Mô tả"
     }
   }
 }

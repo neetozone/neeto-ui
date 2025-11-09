@@ -19,6 +19,7 @@ const useColumns = ({
   isColumnFreezeEnabled,
   onColumnAdd,
   onColumnUpdate,
+  onColumnUpdateWithChanges,
   onColumnDelete,
   rowSelection,
   sortedInfo,
@@ -57,7 +58,7 @@ const useColumns = ({
     isEnabled: isReorderEnabled,
     columns,
     setColumns,
-    onColumnUpdate,
+    onColumnUpdateWithChanges,
     rowSelection,
   });
 
@@ -100,6 +101,7 @@ const useColumns = ({
     isColumnFreezeEnabled,
     onColumnAdd,
     onColumnUpdate,
+    onColumnUpdateWithChanges,
     onColumnDelete,
     handleSort,
     sortedInfo,

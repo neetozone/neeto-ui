@@ -22,12 +22,17 @@
       "columnInfo": "Informace o sloupci",
       "hideColumn": "Skrýt sloupec",
       "deleteColumn": "Smazat sloupec",
-      "ascending": "Třídit vzestupně",
-      "descending": "Třídit sestupně",
+      "ascending": "Vzestupně",
+      "descending": "Sestupně",
       "freezeColumn": "Zamknout sloupec",
       "unFreezeColumn": "Odemknout sloupec",
       "allRowsSelected": "Všechny řádky jsou vybrány",
-      "clearSelection": "Zrušit výběr"
+      "clearSelection": "Zrušit výběr",
+      "moveColumnLeft": "Přesunout sloupec vlevo",
+      "moveColumnRight": "Přesunout sloupec vpravo",
+      "addColumnInfo": "Přidat informace o sloupci",
+      "editColumnInfo": "Upravit informace o sloupci",
+      "info": "Informace o tabulce"
     },
     "timePicker": {
       "hours": "Hodiny",
@@ -38,7 +43,8 @@
       "noOptions": "Žádné možnosti."
     },
     "common": {
-      "timezone": "Časové pásmo"
+      "timezone": "Časové pásmo",
+      "description": "Popis"
     }
   }
 }

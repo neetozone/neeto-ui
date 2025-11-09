@@ -128,7 +128,8 @@
   background-color: var(--neeto-ui-table-resize-handle-hover-bg-color);
 }
 
-.react-resizable-handle--resizing .neeto-ui-table-react-resizable-handle__inner{
+.react-resizable-handle--resizing
+  .neeto-ui-table-react-resizable-handle__inner {
   background-color: rgb(var(--neeto-ui-primary-500)) !important;
 }
 
@@ -161,7 +162,7 @@
   cursor: pointer;
 }
 
-.neeto-ui-table__column-title-content{
+.neeto-ui-table__column-title-content {
   svg {
     opacity: 0.6;
   }
