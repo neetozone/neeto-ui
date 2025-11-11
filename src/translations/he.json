@@ -1,0 +1,50 @@
+{
+  "neetoui": {
+    "common": {
+      "timezone": "אזור זמן",
+      "description": "תיאור"
+    },
+    "blockNavigation": {
+      "alertMessage": "עזיבת עמוד זה תגרום לאבד את הנתונים לא נשמרים שלך. פעולה זו אינה ניתנת לביטול.",
+      "submitButtonLabel": "שמור על העמוד הזה",
+      "cancelButtonLabel": "נפלה ועזוב את העמוד הזה",
+      "alertTitle": "יש לך שינויים לא נשמרים"
+    },
+    "actionBlock": {
+      "cancel": "ביטול",
+      "saveChanges": "שמור שינויים"
+    },
+    "colorPicker": {
+      "recentlyUsed": "שימושים אחרונים"
+    },
+    "datePicker": {
+      "today": "היום"
+    },
+    "table": {
+      "moveColumnLeft": "העבר את העמודה שמאלה",
+      "moveColumnRight": "העבר את העמודה ימינה",
+      "insertColRight": "הוסף עמודה ימינה",
+      "insertColLeft": "הוסף עמודה שמאלה",
+      "columnInfo": "מידע על העמודה",
+      "hideColumn": "הסתר עמודה",
+      "deleteColumn": "מחק עמודה",
+      "ascending": "עולה",
+      "descending": "יורד",
+      "freezeColumn": "קבע עמודה",
+      "unFreezeColumn": "שחרר עמודה",
+      "allRowsSelected": "כל השורות נבחרו",
+      "addColumnInfo": "הוסף מידע על העמודה",
+      "editColumnInfo": "ערוך מידע על העמודה",
+      "clearSelection": "נקה בחירה",
+      "info": "מידע על השולחן"
+    },
+    "timePicker": {
+      "hours": "שעות",
+      "minutes": "דקות",
+      "seconds": "שניות"
+    },
+    "treeSelect": {
+      "noOptions": "אין אפשרויות."
+    }
+  }
+}
