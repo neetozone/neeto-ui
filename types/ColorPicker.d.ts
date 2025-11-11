@@ -18,6 +18,7 @@ export interface ColorPickerProps {
   showHexValue?: boolean;
   showTransparencyControl?: boolean;
   showPicker?: boolean;
+  showHexPicker?: boolean;
   dropdownProps?: DropdownProps;
   portalProps?: object;
   showRecentlyUsedColors?: boolean;
