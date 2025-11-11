@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 
 import classnames from "classnames";
-import { Down, ColorPicker as ColorPickerIcon } from "neetoicons";
+import { ColorPicker as ColorPickerIcon } from "neetoicons";
 import PropTypes from "prop-types";
 import {
   HexColorPicker,
@@ -19,12 +19,8 @@ import { getLocale, noop } from "utils";
 
 import useRecentlyUsedColors from "./hooks/useRecentlyUsedColors";
 import Palette from "./Palette";
-
-const TARGET_SIZES = {
-  large: "large",
-  medium: "medium",
-  small: "small",
-};
+import Target from "./Target";
+import { TARGET_SIZES } from "./constants";
 
 const ColorPicker = ({
   color = "",
@@ -120,41 +116,14 @@ const ColorPicker = ({
     setIsColorSelected(false);
   };
 
-  const Target = ({ size }) => (
-    <button
-      data-cy="color-picker-target"
-      data-testid="neeto-color-picker"
-      type="button"
-      className={classnames("neeto-ui-colorpicker__target", {
-        "neeto-ui-colorpicker__target-size--large": size === TARGET_SIZES.large,
-        "neeto-ui-colorpicker__target-size--medium":
-          size === TARGET_SIZES.medium,
-        "neeto-ui-colorpicker__target-size--small": size === TARGET_SIZES.small,
-      })}
-    >
-      {showHexValue && (
-        <span className="neeto-ui-colorpicker-target__code">{color}</span>
-      )}
-      <span className="neeto-ui-colorpicker-target__color-wrapper">
-        <span
-          className="neeto-ui-colorpicker-target__color neeto-ui-border-gray-200"
-          style={{ backgroundColor: colorValue }}
-        />
-        <span className="neeto-ui-colorpicker-target__icon">
-          <Down size={16} />
-        </span>
-      </span>
-    </button>
-  );
-
   return (
     <Dropdown
       className="neeto-ui-colorpicker__dropdown"
       closeOnSelect={false}
-      customTarget={<Target {...{ size }} />}
       label={colorValue}
       position="bottom-start"
       {...{ ...dropdownProps, onClose }}
+      customTarget={<Target {...{ color, colorValue, showHexValue, size }} />}
       dropdownProps={{ ...dropdownProps?.dropdownProps, ...portalProps }}
     >
       <div className="neeto-ui-colorpicker__popover">
