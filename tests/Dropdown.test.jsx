@@ -125,6 +125,70 @@ describe("Dropdown", () => {
     expect(listItems).toHaveLength(2);
   });
 
+  it("should call onClickOutside when clicking outside the dropdown", async () => {
+    const onClickOutside = jest.fn();
+    const { getByText } = render(
+      <Dropdown {...{ onClickOutside }} closeOnOutsideClick label="Dropdown">
+        {options}
+      </Dropdown>
+    );
+    await userEvent.click(getByText("Dropdown"));
+    await userEvent.click(document.body);
+    expect(onClickOutside).toHaveBeenCalledTimes(1);
+    expect(onClickOutside).toHaveBeenCalledWith(expect.any(Object));
+  });
+
+  it("should not call onClickOutside when closing via Esc key", async () => {
+    const onClickOutside = jest.fn();
+    const { getByText } = render(
+      <Dropdown
+        {...{ onClickOutside }}
+        closeOnEsc
+        closeOnOutsideClick
+        label="Dropdown"
+      >
+        {options}
+      </Dropdown>
+    );
+    await userEvent.click(getByText("Dropdown"));
+    await userEvent.keyboard("{Escape}");
+    expect(onClickOutside).not.toHaveBeenCalled();
+  });
+
+  it("should not call onClickOutside when closing via selecting an item", async () => {
+    const onClickOutside = jest.fn();
+    const { getByText, findByText } = render(
+      <Dropdown
+        {...{ onClickOutside }}
+        closeOnOutsideClick
+        closeOnSelect
+        label="Dropdown"
+      >
+        {options}
+      </Dropdown>
+    );
+    await userEvent.click(getByText("Dropdown"));
+    const listItem = await findByText("option 1");
+    await userEvent.click(listItem);
+    expect(onClickOutside).not.toHaveBeenCalled();
+  });
+
+  it("should not call onClickOutside when closeOnOutsideClick is false", async () => {
+    const onClickOutside = jest.fn();
+    const { getByText } = render(
+      <Dropdown
+        {...{ onClickOutside }}
+        closeOnOutsideClick={false}
+        label="Dropdown"
+      >
+        {options}
+      </Dropdown>
+    );
+    await userEvent.click(getByText("Dropdown"));
+    await userEvent.click(document.body);
+    expect(onClickOutside).not.toHaveBeenCalled();
+  });
+
   it("should not open dropdown on click of custom target if disabled", async () => {
     const { getByText } = render(
       <Dropdown disabled customTarget={<span>Click</span>} label="Dropdown">

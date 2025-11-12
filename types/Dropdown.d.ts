@@ -50,6 +50,7 @@ export interface DropdownProps {
   trigger?: "click" | "hover" | "all" | "manual";
   strategy?: "absolute" | "fixed";
   onClick?: () => void;
+  onClickOutside?: (event: React.MouseEvent<HTMLDivElement>) => void;
   [key: string]: any;
 }
 

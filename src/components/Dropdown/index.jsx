@@ -90,6 +90,7 @@ const Dropdown = ({
   closeOnSelect = true,
   isOpen: isOpenProp,
   onClose: onCloseProp,
+  onClickOutside,
 }) => {
   const [isOpenState, setIsOpenState] = useState(false);
   // eslint-disable-next-line eqeqeq
@@ -102,10 +103,12 @@ const Dropdown = ({
     middleware.push(autoPlacement({ allowedPlacements }));
   }
 
-  const onOpenChange = open => {
+  const onOpenChange = (open, event, reason) => {
     if (!isControlled) setIsOpenState(open);
 
     if (!open) onCloseProp?.();
+
+    if (!open && reason === "outside-press") onClickOutside?.(event);
   };
 
   const { refs, floatingStyles, context, middlewareData } = useFloating({
@@ -275,6 +278,11 @@ Dropdown.propTypes = {
    * To specify whether the Dropdown should close on clicking outside the Dropdown content. (will not have any effect if the component is controlled.)
    */
   closeOnOutsideClick: PropTypes.bool,
+
+  /**
+   * To specify the action that should be triggered when clicking outside of the controlled dropdown component.
+   */
+  onClickOutside: PropTypes.func,
 };
 
 export default Dropdown;
