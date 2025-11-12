@@ -4,6 +4,7 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 
 const itemClassName = "neeto-ui-dropdown__popup-menu-item-btn";
+const focusConfig = { preventScroll: true };
 
 const Menu = ({ children, className, ...otherProps }) => {
   const activeIndexRef = useRef(-1);
@@ -21,14 +22,14 @@ const Menu = ({ children, className, ...otherProps }) => {
 
     if (key === "arrowdown") {
       activeIndex = activeIndex >= itemsCount - 1 ? 0 : activeIndex + 1;
-      items[activeIndex].focus({ preventScroll: true });
+      items[activeIndex].focus(focusConfig);
       eventHandled = true;
     } else if (key === "arrowup") {
       activeIndex = activeIndex <= 0 ? itemsCount - 1 : activeIndex - 1;
-      items[activeIndex].focus({ preventScroll: true });
+      items[activeIndex].focus(focusConfig);
       eventHandled = true;
     } else if (key === "enter") {
-      items[activeIndex].click({ preventScroll: true });
+      items[activeIndex].click();
       eventHandled = true;
     }
 
@@ -40,7 +41,7 @@ const Menu = ({ children, className, ...otherProps }) => {
 
   useEffect(() => {
     const menu = menuRef.current;
-    if (menu) menu.focus({ preventScroll: true });
+    if (menu) menu.focus(focusConfig);
   }, [menuRef]);
 
   return (
