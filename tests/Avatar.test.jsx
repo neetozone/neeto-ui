@@ -1,9 +1,11 @@
 import React from "react";
 
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { Avatar } from "components";
+
+const waitForTooltip = callback => waitFor(() => callback(), { timeout: 400 });
 
 describe("Avatar", () => {
   it("should render without error", () => {
@@ -43,6 +45,8 @@ describe("Avatar", () => {
       <Avatar showTooltip user={{ name: "John Doe" }} />
     );
     await userEvent.hover(getByTestId("avatar"));
-    expect(getByText("John Doe")).toBeInTheDocument();
+    await waitForTooltip(() =>
+      expect(getByText("John Doe")).toBeInTheDocument()
+    );
   });
 });

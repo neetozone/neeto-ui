@@ -1,9 +1,11 @@
 import React from "react";
 
-import { render } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import Label from "components/Label";
+
+const waitForTooltip = callback => waitFor(() => callback(), { timeout: 400 });
 
 describe("Label", () => {
   it("should render without error", () => {
@@ -42,7 +44,9 @@ describe("Label", () => {
       </Label>
     );
     await userEvent.hover(getByTestId("icon"));
-    expect(getByText("Tooltip")).toBeInTheDocument();
+    await waitForTooltip(() =>
+      expect(getByText("Tooltip")).toBeInTheDocument()
+    );
   });
 
   it("should show popover when provided in helpIconProps", async () => {
@@ -57,7 +61,9 @@ describe("Label", () => {
       </Label>
     );
     await userEvent.hover(getByTestId("icon"));
-    expect(getByText("Popover")).toBeInTheDocument();
+    await waitForTooltip(() =>
+      expect(getByText("Popover")).toBeInTheDocument()
+    );
   });
 
   it("should trigger onClick when provided in helpIconProps", async () => {

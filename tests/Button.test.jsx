@@ -1,10 +1,12 @@
 import React from "react";
 
-import { render } from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { BrowserRouter } from "react-router-dom";
 
 import { Button } from "components";
+
+const waitForTooltip = callback => waitFor(() => callback(), { timeout: 400 });
 
 describe("Button", () => {
   it("should render without error", () => {
@@ -14,7 +16,7 @@ describe("Button", () => {
 
   it("should call onClick on button click", async () => {
     const onClick = jest.fn();
-    const { getByText } = render(<Button label="Button" onClick={onClick} />);
+    const { getByText } = render(<Button {...{ onClick }} label="Button" />);
     await userEvent.click(getByText("Button"));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
@@ -22,7 +24,7 @@ describe("Button", () => {
   it("should not call onClick on button click when disabled", async () => {
     const onClick = jest.fn();
     const { getByText } = render(
-      <Button disabled label="Button" onClick={onClick} />
+      <Button {...{ onClick }} disabled label="Button" />
     );
     await userEvent.click(getByText("Button"));
     expect(onClick).toHaveBeenCalledTimes(0);
@@ -31,7 +33,7 @@ describe("Button", () => {
   it("should not call onClick on button click when loading", async () => {
     const onClick = jest.fn();
     const { getByText } = render(
-      <Button loading label="Button" onClick={onClick} />
+      <Button {...{ onClick }} loading label="Button" />
     );
     await userEvent.click(getByText("Button"));
     expect(onClick).toHaveBeenCalledTimes(0);
@@ -42,7 +44,9 @@ describe("Button", () => {
       <Button label="Button" tooltipProps={{ content: "Tooltip" }} />
     );
     await userEvent.hover(getByText("Button"));
-    expect(getByText("Tooltip")).toBeInTheDocument();
+    await waitForTooltip(() =>
+      expect(getByText("Tooltip")).toBeInTheDocument()
+    );
   });
 
   it("should show icon when icon string is provided", () => {

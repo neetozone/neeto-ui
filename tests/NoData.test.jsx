@@ -1,9 +1,11 @@
 import React from "react";
 
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { NoData } from "components";
+
+const waitForTooltip = callback => waitFor(() => callback(), { timeout: 400 });
 
 describe("Typography", () => {
   it("should render without error", () => {
@@ -36,11 +38,15 @@ describe("Typography", () => {
 
     const primaryButton = getByTestId("no-data-primary-button");
     await userEvent.hover(primaryButton);
-    await expect(screen.getByText("Primary tooltip")).toBeInTheDocument();
+    await waitForTooltip(() =>
+      expect(screen.getByText("Primary tooltip")).toBeInTheDocument()
+    );
 
     const secondaryButton = getByTestId("no-data-secondary-button");
     await userEvent.hover(secondaryButton);
-    await expect(screen.getByText("Secondary tooltip")).toBeInTheDocument();
+    await waitForTooltip(() =>
+      expect(screen.getByText("Secondary tooltip")).toBeInTheDocument()
+    );
   });
 
   it("should not display primary and secondary button tooltips when button is disabled and showTooltipWhenDisabled is false", async () => {
@@ -89,10 +95,14 @@ describe("Typography", () => {
 
     const primaryButton = getByTestId("no-data-primary-button");
     await userEvent.hover(primaryButton);
-    await expect(screen.getByText("Primary tooltip")).toBeInTheDocument();
+    await waitForTooltip(() =>
+      expect(screen.getByText("Primary tooltip")).toBeInTheDocument()
+    );
 
     const secondaryButton = getByTestId("no-data-secondary-button");
     await userEvent.hover(secondaryButton);
-    await expect(screen.getByText("Secondary tooltip")).toBeInTheDocument();
+    await waitForTooltip(() =>
+      expect(screen.getByText("Secondary tooltip")).toBeInTheDocument()
+    );
   });
 });

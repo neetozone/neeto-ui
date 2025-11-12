@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { Dropdown } from "components";
@@ -14,6 +14,8 @@ const options = ["option 1", "option 2"].map(option => (
 const secondOptions = ["option 3", "option 4"].map(option => (
   <li key={option}>{option}</li>
 ));
+
+const waitForTooltip = callback => waitFor(() => callback(), { timeout: 400 });
 
 describe("Dropdown", () => {
   it("should render without error", () => {
@@ -123,6 +125,70 @@ describe("Dropdown", () => {
     expect(listItems).toHaveLength(2);
   });
 
+  it("should call onClickOutside when clicking outside the dropdown", async () => {
+    const onClickOutside = jest.fn();
+    const { getByText } = render(
+      <Dropdown {...{ onClickOutside }} closeOnOutsideClick label="Dropdown">
+        {options}
+      </Dropdown>
+    );
+    await userEvent.click(getByText("Dropdown"));
+    await userEvent.click(document.body);
+    expect(onClickOutside).toHaveBeenCalledTimes(1);
+    expect(onClickOutside).toHaveBeenCalledWith(expect.any(Object));
+  });
+
+  it("should not call onClickOutside when closing via Esc key", async () => {
+    const onClickOutside = jest.fn();
+    const { getByText } = render(
+      <Dropdown
+        {...{ onClickOutside }}
+        closeOnEsc
+        closeOnOutsideClick
+        label="Dropdown"
+      >
+        {options}
+      </Dropdown>
+    );
+    await userEvent.click(getByText("Dropdown"));
+    await userEvent.keyboard("{Escape}");
+    expect(onClickOutside).not.toHaveBeenCalled();
+  });
+
+  it("should not call onClickOutside when closing via selecting an item", async () => {
+    const onClickOutside = jest.fn();
+    const { getByText, findByText } = render(
+      <Dropdown
+        {...{ onClickOutside }}
+        closeOnOutsideClick
+        closeOnSelect
+        label="Dropdown"
+      >
+        {options}
+      </Dropdown>
+    );
+    await userEvent.click(getByText("Dropdown"));
+    const listItem = await findByText("option 1");
+    await userEvent.click(listItem);
+    expect(onClickOutside).not.toHaveBeenCalled();
+  });
+
+  it("should not call onClickOutside when closeOnOutsideClick is false", async () => {
+    const onClickOutside = jest.fn();
+    const { getByText } = render(
+      <Dropdown
+        {...{ onClickOutside }}
+        closeOnOutsideClick={false}
+        label="Dropdown"
+      >
+        {options}
+      </Dropdown>
+    );
+    await userEvent.click(getByText("Dropdown"));
+    await userEvent.click(document.body);
+    expect(onClickOutside).not.toHaveBeenCalled();
+  });
+
   it("should not open dropdown on click of custom target if disabled", async () => {
     const { getByText } = render(
       <Dropdown disabled customTarget={<span>Click</span>} label="Dropdown">
@@ -196,9 +262,13 @@ describe("Dropdown", () => {
     );
     await userEvent.click(getByText("Dropdown"));
     await userEvent.hover(getByText("Enabled button"));
-    expect(getByText("Enabled button's tooltip")).toBeInTheDocument();
+    await waitForTooltip(() =>
+      expect(getByText("Enabled button's tooltip")).toBeInTheDocument()
+    );
     await userEvent.hover(getByText("Disabled button"));
-    expect(getByText("Disabled button's tooltip")).toBeInTheDocument();
+    await waitForTooltip(() =>
+      expect(getByText("Disabled button's tooltip")).toBeInTheDocument()
+    );
   });
 
   it("should open menu on click and hover when trigger is all", async () => {
