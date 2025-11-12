@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 
 import classnames from "classnames";
-import { Down, ColorPicker as ColorPickerIcon } from "neetoicons";
+import { ColorPicker as ColorPickerIcon } from "neetoicons";
 import PropTypes from "prop-types";
 import {
   HexColorPicker,
@@ -19,12 +19,8 @@ import { getLocale, noop } from "utils";
 
 import useRecentlyUsedColors from "./hooks/useRecentlyUsedColors";
 import Palette from "./Palette";
-
-const TARGET_SIZES = {
-  large: "large",
-  medium: "medium",
-  small: "small",
-};
+import Target from "./Target";
+import { TARGET_SIZES } from "./constants";
 
 const ColorPicker = ({
   color = "",
@@ -35,6 +31,7 @@ const ColorPicker = ({
   showHexValue = false,
   showTransparencyControl = false,
   showPicker = true,
+  showHexPicker = true,
   portalProps,
   colorPalette,
   showRecentlyUsedColors = showPicker,
@@ -119,52 +116,27 @@ const ColorPicker = ({
     setIsColorSelected(false);
   };
 
-  const Target = ({ size }) => (
-    <button
-      data-cy="color-picker-target"
-      data-testid="neeto-color-picker"
-      type="button"
-      className={classnames("neeto-ui-colorpicker__target", {
-        "neeto-ui-colorpicker__target-size--large": size === TARGET_SIZES.large,
-        "neeto-ui-colorpicker__target-size--medium":
-          size === TARGET_SIZES.medium,
-        "neeto-ui-colorpicker__target-size--small": size === TARGET_SIZES.small,
-      })}
-    >
-      {showHexValue && (
-        <span className="neeto-ui-colorpicker-target__code">{color}</span>
-      )}
-      <span className="neeto-ui-colorpicker-target__color-wrapper">
-        <span
-          className="neeto-ui-colorpicker-target__color neeto-ui-border-gray-200"
-          style={{ backgroundColor: colorValue }}
-        />
-        <span className="neeto-ui-colorpicker-target__icon">
-          <Down size={16} />
-        </span>
-      </span>
-    </button>
-  );
-
   return (
     <Dropdown
       className="neeto-ui-colorpicker__dropdown"
       closeOnSelect={false}
-      customTarget={<Target {...{ size }} />}
       label={colorValue}
       position="bottom-start"
       {...{ ...dropdownProps, onClose }}
+      customTarget={<Target {...{ color, colorValue, showHexValue, size }} />}
       dropdownProps={{ ...dropdownProps?.dropdownProps, ...portalProps }}
     >
       <div className="neeto-ui-colorpicker__popover">
         {showPicker && (
           <>
-            <div
-              className="neeto-ui-colorpicker__pointer"
-              data-testid="neeto-color-picker-section"
-            >
-              <PickerComponent color={colorValue} onChange={onColorChange} />
-            </div>
+            {showHexPicker && (
+              <div
+                className="neeto-ui-colorpicker__pointer"
+                data-testid="neeto-color-picker-section"
+              >
+                <PickerComponent color={colorValue} onChange={onColorChange} />
+              </div>
+            )}
             <div className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-mt-3 neeto-ui-gap-2">
               {showEyeDropper && isSupported() && (
                 <Button
@@ -267,6 +239,10 @@ ColorPicker.propTypes = {
    * To show the color picker. Used to hide the picker in cases where only palette is required. By default it will be true.
    */
   showPicker: PropTypes.bool,
+  /**
+   * To show the hex color picker (color pointer). Used to hide the picker while keeping the hex input and eye dropper. By default it will be true.
+   */
+  showHexPicker: PropTypes.bool,
   /**
    * To specify the props to be passed to the dropdown portal.
    */
