@@ -37,7 +37,7 @@ const Button = React.forwardRef(
       disabled = false,
       size = SIZES.medium,
       href = "",
-      tooltipProps = null,
+      tooltipProps,
       children,
       ...otherProps
     },

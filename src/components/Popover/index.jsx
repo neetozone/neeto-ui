@@ -1,27 +1,107 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-import classnames from "classnames";
 import PropTypes from "prop-types";
 
 import Title from "./Title";
 
-import Tooltip from "../Tooltip";
+import {
+  arrow,
+  autoPlacement,
+  autoUpdate,
+  FloatingArrow,
+  FloatingPortal,
+  hide,
+  offset,
+  safePolygon,
+  useFloating,
+  useHover,
+  useInteractions,
+} from "@floating-ui/react";
+import useAutoHide from "components/Tooltip/hooks/useAutoHide";
 
 const Popover = ({
-  children,
-  className = "",
+  disabled,
+  position = "auto",
   theme = "light",
-  ...otherProps
-}) => (
-  <Tooltip
-    {...{ theme }}
-    arrow
-    interactive
-    className={classnames("neeto-ui-popover", className)}
-    content={children}
-    {...otherProps}
-  />
-);
+  reference,
+  hideAfter,
+  hideOnTargetExit,
+  children,
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const arrowRef = useRef(null);
+
+  const middleware = [offset(10)];
+  if (position === "auto") middleware.push(autoPlacement());
+  middleware.push(arrow({ element: arrowRef, padding: 3 }));
+  if (hideOnTargetExit) middleware.push(hide());
+
+  const { refs, floatingStyles, context, middlewareData } = useFloating({
+    open: isOpen,
+    onOpenChange: setIsOpen,
+    placement: position,
+    middleware,
+    whileElementsMounted: autoUpdate,
+  });
+
+  useAutoHide(context, { enabled: !disabled && !!hideAfter, delay: hideAfter });
+
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    useHover(context, {
+      enabled: !disabled,
+      restMs: 300,
+      handleClose: safePolygon(),
+    }),
+  ]);
+
+  useEffect(() => {
+    const element = reference.current;
+    if (disabled || !element) return undefined;
+
+    const { onMouseMove, onPointerDown, onPointerEnter } = getReferenceProps();
+    const config = { passive: true };
+
+    refs.setReference(element);
+    element.addEventListener("mousemove", onMouseMove, config);
+    element.addEventListener("pointerdown", onPointerDown, config);
+    element.addEventListener("pointerenter", onPointerEnter, config);
+
+    return () => {
+      element.removeEventListener("mousemove", onMouseMove, config);
+      element.removeEventListener("pointerdown", onPointerDown, config);
+      element.removeEventListener("pointerenter", onPointerEnter, config);
+      refs.setReference(null);
+    };
+  }, [disabled, reference]);
+
+  if (disabled || !isOpen) return null;
+  const hidden = middlewareData.hide?.referenceHidden;
+
+  return (
+    <FloatingPortal>
+      <div
+        className="neeto-ui-tooltip neeto-ui-popover"
+        data-theme={theme}
+        ref={refs.setFloating}
+        style={{
+          ...floatingStyles,
+          maxWidth: 350,
+          visibility: hidden ? "hidden" : "visible",
+        }}
+        {...getFloatingProps()}
+      >
+        {children}
+        <FloatingArrow
+          {...{ context }}
+          className="neeto-ui-tooltip-arrow"
+          height={5}
+          ref={arrowRef}
+          width={10}
+        />
+      </div>
+    </FloatingPortal>
+  );
+};
 
 Popover.propTypes = {
   /**

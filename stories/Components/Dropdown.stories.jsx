@@ -109,8 +109,6 @@ const metadata = {
       control: "select",
       options: Object.values({
         auto: "auto",
-        autoStart: "auto-start",
-        autoEnd: "auto-end",
         top: "top",
         topStart: "top-start",
         topEnd: "top-end",
@@ -206,22 +204,6 @@ const metadata = {
         "To specify whether the Dropdown should close on clicking outside the Dropdown content. (will not have any effect if the component is controlled.)",
       control: "boolean",
       table: { type: { summary: "boolean" }, defaultValue: { summary: false } },
-    },
-    dropdownModifiers: {
-      description: "To provide custom modifiers to Dropdown component.",
-      control: "array",
-      table: { type: { summary: "array" } },
-    },
-    onClickOutside: {
-      description:
-        "To specify the action that should be triggered when clicking outside of the controlled dropdown component.",
-      control: "function",
-      table: { type: { summary: "func" } },
-    },
-    ulProps: {
-      description: "Use `dropdownProps` props instead.",
-      control: "object",
-      table: { type: { summary: "object" }, category: "Removed" },
     },
   },
 };
@@ -686,14 +668,6 @@ component.
 
 You can use these variables to customize the component to your liking. Here is
 an example:
-
-\`\`\`css
-.neetix-dropdown {
-  --neeto-ui-dropdown-border-radius: var(--neeto-ui-rounded-none);
-  --neeto-ui-dropdown-item-active-bg-color: rgb(var(--neeto-ui-gray-800));
-}
-\`\`\`
-
 #### Output
 `;
 

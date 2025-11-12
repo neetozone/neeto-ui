@@ -47,15 +47,9 @@ export interface DropdownProps {
   closeOnEsc?: boolean;
   closeOnSelect?: boolean;
   closeOnOutsideClick?: boolean;
-  dropdownModifiers?: any[];
   trigger?: "click" | "hover" | "all" | "manual";
   strategy?: "absolute" | "fixed";
   onClick?: () => void;
-  /** @deprecated Prop deprecated. Use `dropdownProps` prop instead*/
-  ulProps?: React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLUListElement>,
-    HTMLUListElement
-  > & { [key: string]: any };
   [key: string]: any;
 }
 

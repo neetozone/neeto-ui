@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { Dropdown } from "components";
@@ -14,6 +14,8 @@ const options = ["option 1", "option 2"].map(option => (
 const secondOptions = ["option 3", "option 4"].map(option => (
   <li key={option}>{option}</li>
 ));
+
+const waitForTooltip = callback => waitFor(() => callback(), { timeout: 400 });
 
 describe("Dropdown", () => {
   it("should render without error", () => {
@@ -196,9 +198,13 @@ describe("Dropdown", () => {
     );
     await userEvent.click(getByText("Dropdown"));
     await userEvent.hover(getByText("Enabled button"));
-    expect(getByText("Enabled button's tooltip")).toBeInTheDocument();
+    await waitForTooltip(() =>
+      expect(getByText("Enabled button's tooltip")).toBeInTheDocument()
+    );
     await userEvent.hover(getByText("Disabled button"));
-    expect(getByText("Disabled button's tooltip")).toBeInTheDocument();
+    await waitForTooltip(() =>
+      expect(getByText("Disabled button's tooltip")).toBeInTheDocument()
+    );
   });
 
   it("should open menu on click and hover when trigger is all", async () => {

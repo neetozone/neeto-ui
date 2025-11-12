@@ -1,75 +1,88 @@
-import React, { useEffect, useState } from "react";
-
-import Tippy from "@tippyjs/react";
+import React, { useRef, useState } from "react";
+import {
+  autoUpdate,
+  FloatingPortal,
+  useFloating,
+  useHover,
+  useInteractions,
+  FloatingArrow,
+  arrow,
+  offset,
+  autoPlacement,
+  hide,
+  safePolygon,
+} from "@floating-ui/react";
 import PropTypes from "prop-types";
-import { followCursor } from "tippy.js";
-
-import { ARROW } from "./constants";
+import useAutoHide from "./hooks/useAutoHide";
 
 const Tooltip = ({
-  content,
-  children,
+  disabled,
   theme = "dark",
-  disabled = false,
+  content,
   position = "auto",
-  interactive = false,
-  hideAfter = -1,
-  hideOnTargetExit = false,
-  ...otherProps
+  hideOnTargetExit,
+  hideAfter,
+  children,
 }) => {
-  const [instance, setInstance] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const arrowRef = useRef(null);
 
-  const localProps = {};
+  const middleware = [offset(10)];
+  if (position === "auto") middleware.push(autoPlacement());
+  middleware.push(arrow({ element: arrowRef, padding: 3 }));
+  if (hideOnTargetExit) middleware.push(hide());
 
-  if (hideAfter > 0) {
-    localProps["onShow"] = instance =>
-      setTimeout(
-        () => !instance.state?.isDestroyed && instance.hide(),
-        hideAfter
-      );
-  }
+  const { refs, floatingStyles, context, middlewareData } = useFloating({
+    open: isOpen,
+    onOpenChange: setIsOpen,
+    whileElementsMounted: autoUpdate,
+    placement: position,
+    middleware,
+  });
 
-  useEffect(() => {
-    if (hideOnTargetExit) {
-      const intersectionObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => !entry.isIntersecting && instance?.hide());
-      });
-      instance?.reference && intersectionObserver.observe(instance?.reference);
+  useAutoHide(context, { enabled: !disabled && !!hideAfter, delay: hideAfter });
 
-      return () => intersectionObserver.disconnect();
-    }
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    useHover(context, {
+      enabled: !disabled,
+      restMs: 300,
+      handleClose: safePolygon(),
+    }),
+  ]);
 
-    return undefined;
-  }, [instance, hideOnTargetExit]);
+  if (disabled) return children;
 
-  const handleCreate = instance => {
-    setInstance(instance);
-    instance.popper.firstElementChild?.setAttribute("data-cy", "tooltip-box");
-  };
+  const hidden = middlewareData.hide?.referenceHidden;
 
   return (
-    <Tippy
-      animation="scale-subtle"
-      arrow={ARROW}
-      duration={[100, 200]}
-      placement={position}
-      plugins={[followCursor]}
-      role="tooltip"
-      zIndex={100001}
-      onCreate={handleCreate}
-      {...{
-        content,
-        disabled,
-        interactive,
-        theme,
-        ...localProps,
-        ...otherProps,
-      }}
-    >
-      {React.isValidElement(children)
-        ? children
-        : children && <span>{children}</span>}
-    </Tippy>
+    <>
+      <span {...getReferenceProps()} ref={refs.setReference}>
+        {children}
+      </span>
+      {isOpen && (
+        <FloatingPortal>
+          <div
+            data-theme={theme}
+            {...getFloatingProps()}
+            className="neeto-ui-tooltip"
+            ref={refs.setFloating}
+            style={{
+              ...floatingStyles,
+              visibility: hidden ? "hidden" : "visible",
+            }}
+          >
+            {content}
+            <FloatingArrow
+              {...{ context }}
+              className="neeto-ui-tooltip-arrow"
+              height={5}
+              ref={arrowRef}
+              width={10}
+            />
+          </div>
+        </FloatingPortal>
+      )}
+    </>
   );
 };
 
@@ -94,10 +107,6 @@ Tooltip.propTypes = {
    * To specify the position of the Tooltip.
    */
   position: PropTypes.string,
-  /**
-   * To specify whether the Tooltip can be hovered over and clicked inside without hiding.
-   */
-  interactive: PropTypes.bool,
   /**
    * To auto-hide the Tooltip after n-milliseconds.
    * Negative values to this prop disables this feature.

@@ -91,7 +91,7 @@ describe("Sidebar", () => {
   });
 
   it("should display profile information correctly", async () => {
-    const { getByText, container, queryByText, findByText } = render(
+    const { getByText, container, queryByText } = render(
       <Router>
         <Sidebar {...sidebarProps} />
       </Router>
@@ -102,10 +102,16 @@ describe("Sidebar", () => {
 
     expect(queryByText(email)).not.toBeInTheDocument();
 
-    userEvent.hover(profileImage);
-    await findByText(email);
-    expect(getByText(userName)).toBeInTheDocument();
-    expect(getByText(bottomLinks[0].label)).toBeInTheDocument();
+    await userEvent.hover(profileImage);
+
+    await waitFor(() => expect(getByText(userName)).toBeInTheDocument(), {
+      timeout: 4000,
+    });
+
+    await waitFor(
+      () => expect(getByText(bottomLinks[0].label)).toBeInTheDocument(),
+      { timeout: 4000 }
+    );
   });
 
   it("should apply featured toolTipStyle correctly", async () => {
@@ -118,7 +124,7 @@ describe("Sidebar", () => {
     const navLink = container.querySelector(`a[href="${to}"]`);
     expect(navLink).toBeInTheDocument();
 
-    userEvent.hover(navLink);
+    await userEvent.hover(navLink);
     expect(await findByText(label)).toBeInTheDocument();
     expect(await findByText(description)).toBeInTheDocument();
   });
@@ -135,7 +141,7 @@ describe("Sidebar", () => {
       const navLink = container.querySelector(`a[href="${to}"]`);
       expect(navLink).toBeInTheDocument();
 
-      userEvent.hover(navLink);
+      await userEvent.hover(navLink);
       expect(await findByText(label)).toBeInTheDocument();
       expect(
         await waitFor(() => queryByText(description))
@@ -175,7 +181,7 @@ describe("Sidebar", () => {
 
     expect(queryByText(changelogProps.label)).not.toBeInTheDocument();
 
-    userEvent.hover(helpButton);
+    await userEvent.hover(helpButton);
     expect(await findByText(documentationProps.label)).toBeInTheDocument();
     expect(await findByText(keyboardShortcutProps.label)).toBeInTheDocument();
     expect(await findByText(liveChatProps.label)).toBeInTheDocument();

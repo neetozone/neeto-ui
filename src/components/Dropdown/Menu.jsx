@@ -21,14 +21,14 @@ const Menu = ({ children, className, ...otherProps }) => {
 
     if (key === "arrowdown") {
       activeIndex = activeIndex >= itemsCount - 1 ? 0 : activeIndex + 1;
-      items[activeIndex].focus();
+      items[activeIndex].focus({ preventScroll: true });
       eventHandled = true;
     } else if (key === "arrowup") {
       activeIndex = activeIndex <= 0 ? itemsCount - 1 : activeIndex - 1;
-      items[activeIndex].focus();
+      items[activeIndex].focus({ preventScroll: true });
       eventHandled = true;
     } else if (key === "enter") {
-      items[activeIndex].click();
+      items[activeIndex].click({ preventScroll: true });
       eventHandled = true;
     }
 
@@ -40,7 +40,7 @@ const Menu = ({ children, className, ...otherProps }) => {
 
   useEffect(() => {
     const menu = menuRef.current;
-    if (menu) menu.focus();
+    if (menu) menu.focus({ preventScroll: true });
   }, [menuRef]);
 
   return (

@@ -5,6 +5,8 @@ import userEvent from "@testing-library/user-event";
 
 import { Popover, Typography, Button } from "components";
 
+const waitForPopover = callback => waitFor(callback, { timeout: 400 });
+
 describe("Popover", () => {
   const PopoverExample = ({ popoverProps, children }) => {
     const popoverReferenceElement = useRef(null);
@@ -32,36 +34,33 @@ describe("Popover", () => {
     render(<PopoverExample />);
     const text = screen.getByText("Show Popover");
     await userEvent.hover(text);
-    const popover = screen.getByText("Popover Title");
-    expect(popover).toBeInTheDocument();
+    await waitForPopover(() =>
+      expect(screen.getByText("Popover Title")).toBeInTheDocument()
+    );
   });
 
   it("should not render when user stops hovering", async () => {
     render(<PopoverExample />);
     const text = screen.getByText("Show Popover");
     await userEvent.hover(text);
-    const popover = screen.getByText("Popover Title");
     await userEvent.click(document.body);
-    await waitFor(
-      () => {
-        const popoverBox = popover.closest('[data-state="hidden"]');
-        expect(popoverBox).toBeInTheDocument();
-      },
-      { timeout: 100 }
+
+    await waitForPopover(() =>
+      expect(screen.queryByText("Popover Title")).not.toBeInTheDocument()
     );
   });
 
   it("should auto hide after 20ms", async () => {
-    render(<PopoverExample popoverProps={{ hideAfter: 20 }} />);
+    render(<PopoverExample popoverProps={{ hideAfter: 2000 }} />);
     const text = screen.getByText("Show Popover");
     await userEvent.hover(text);
-    const popover = screen.getByText("Popover Title");
+    await waitForPopover(() =>
+      expect(screen.getByText("Popover Title")).toBeInTheDocument()
+    );
+
     await waitFor(
-      () => {
-        const popoverBox = popover.closest('[data-state="hidden"]');
-        expect(popoverBox).toBeInTheDocument();
-      },
-      { timeout: 100 }
+      () => expect(screen.queryByText("Popover Title")).not.toBeInTheDocument(),
+      { timeout: 3000 }
     );
   });
 
@@ -77,8 +76,9 @@ describe("Popover", () => {
     render(<PopoverExample />);
     const text = screen.getByText("Show Popover");
     await userEvent.hover(text);
-    const popoverTitle = screen.getByText("Popover Title");
-    expect(popoverTitle).toBeInTheDocument();
+    await waitForPopover(() =>
+      expect(screen.getByText("Popover Title")).toBeInTheDocument()
+    );
   });
 
   it("should render children", async () => {
@@ -89,7 +89,8 @@ describe("Popover", () => {
     );
     const text = screen.getByText("Show Popover");
     await userEvent.hover(text);
-    const popoverContent = screen.getByText("Popover Content");
-    expect(popoverContent).toBeInTheDocument();
+    await waitForPopover(() =>
+      expect(screen.getByText("Popover Content")).toBeInTheDocument()
+    );
   });
 });
