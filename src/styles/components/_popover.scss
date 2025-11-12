@@ -11,7 +11,7 @@
 }
 
 .neeto-ui-popover {
-  padding: var(--neeto-ui-popover-padding-x);
+  padding: var(--neeto-ui-popover-padding-y) var(--neeto-ui-popover-padding-x);
   --neeto-ui-tooltip-padding-y: var(--neeto-ui-popover-padding-y);
   border: var(--neeto-ui-popover-border-width) solid
     var(--neeto-ui-popover-border-color);
