@@ -118,13 +118,20 @@ const ColorPicker = ({
 
   return (
     <Dropdown
-      className="neeto-ui-colorpicker__dropdown"
       closeOnSelect={false}
       label={colorValue}
       position="bottom-start"
       {...{ ...dropdownProps, onClose }}
       customTarget={<Target {...{ color, colorValue, showHexValue, size }} />}
       dropdownProps={{ ...dropdownProps?.dropdownProps, ...portalProps }}
+      className={classnames("neeto-ui-colorpicker__dropdown", {
+        "neeto-ui-colorpicker__dropdown-size--small":
+          size === TARGET_SIZES.small,
+        "neeto-ui-colorpicker__dropdown-size--medium":
+          size === TARGET_SIZES.medium,
+        "neeto-ui-colorpicker__dropdown-size--large":
+          size === TARGET_SIZES.large,
+      })}
     >
       <div className="neeto-ui-colorpicker__popover">
         {showPicker && (
