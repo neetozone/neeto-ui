@@ -2,6 +2,7 @@ import "./style.scss";
 import "../src/styles/index.scss";
 import { themes } from "storybook/theming";
 import neetoTheme from "./neetoTheme";
+import withRTL from "./decorators/withRTL";
 
 export const parameters = {
   layout: "fullscreen",
@@ -73,4 +74,7 @@ export const parameters = {
     stylePreview: true,
   },
 };
+
+export const decorators = [withRTL];
+
 export const tags = ["autodocs"];

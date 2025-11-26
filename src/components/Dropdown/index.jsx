@@ -12,6 +12,7 @@ import { hyphenize, noop } from "utils";
 import Divider from "./Divider";
 import Menu from "./Menu";
 import MenuItem from "./MenuItem";
+import { getDropdownPlacement } from "./utils";
 
 const BTN_STYLES = {
   primary: "primary",
@@ -84,6 +85,7 @@ const Dropdown = ({
   onClose = noop,
   dropdownProps = {},
   position = PLACEMENT.bottomEnd,
+  placement = position,
   children,
   className,
   buttonStyle = BTN_STYLES.primary,
@@ -129,7 +131,7 @@ const Dropdown = ({
       hideOnEsc={closeOnEsc}
       maxWidth="none"
       offset={0}
-      placement={position || PLACEMENT.bottomEnd}
+      placement={getDropdownPlacement(placement)}
       popperOptions={{ strategy, modifiers: dropdownModifiers }}
       role="dropdown"
       theme="light"

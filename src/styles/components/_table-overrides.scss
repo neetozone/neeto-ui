@@ -9,20 +9,6 @@
   --neeto-ui-table-resize-handle-hover-bg-color: rgb(var(--neeto-ui-gray-300));
 }
 
-// RTL overrides
-[dir="rtl"] {
-  .ant-table-wrapper .ant-table-container::before {
-    transform: scaleX(-1);
-  }
-  .ant-table-wrapper .ant-table-container::after {
-    transform: scaleX(-1);
-  }
-  .ant-pagination .ant-pagination-prev button,
-  .ant-pagination .ant-pagination-next button {
-    transform: scaleX(-1);
-  }
-}
-
 .ant-table-wrapper {
   .ant-table {
     font-size: 0.875rem;
