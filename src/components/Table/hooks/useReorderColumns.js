@@ -26,7 +26,8 @@ const useReorderColumns = ({
       const fromColumn = visibleColumns[fromIndex];
       const toColumn = visibleColumns[toIndex];
 
-      if (isColumnFixed(fromColumn) || isColumnFixed(toColumn)) return;
+      if (!fromColumn || !toColumn) return;
+      else if (isColumnFixed(fromColumn) || isColumnFixed(toColumn)) return;
 
       const fromColumnActualIndex = columns.indexOf(fromColumn);
       const toColumnActualIndex = columns.indexOf(toColumn);
