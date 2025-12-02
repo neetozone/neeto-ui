@@ -1,4 +1,5 @@
 import { move } from "ramda";
+import { filterVisibleColumns } from "../utils";
 
 const useReorderColumns = ({
   isEnabled,
@@ -13,18 +14,31 @@ const useReorderColumns = ({
 
   const dragProps = {
     onDragEnd: (fromIndex, toIndex) => {
-      let from = fromIndex;
-      let to = toIndex;
       if (rowSelection) {
-        from = fromIndex - 1;
-        to = toIndex - 1;
+        fromIndex--;
+        toIndex--;
       }
 
-      if (!columns[from] || !columns[to]) return;
+      if (fromIndex < 0 || toIndex < 0 || fromIndex === toIndex) return;
 
-      if (isColumnFixed(columns[from]) || isColumnFixed(columns[to])) return;
+      const visibleColumns = filterVisibleColumns(columns);
 
-      const newColumns = move(from, to, columns);
+      const fromColumn = visibleColumns[fromIndex];
+      const toColumn = visibleColumns[toIndex];
+
+      if (!fromColumn || !toColumn) return;
+      else if (isColumnFixed(fromColumn) || isColumnFixed(toColumn)) return;
+
+      const fromColumnActualIndex = columns.indexOf(fromColumn);
+      const toColumnActualIndex = columns.indexOf(toColumn);
+      if (fromColumnActualIndex < 0 || toColumnActualIndex < 0) return;
+
+      const newColumns = move(
+        fromColumnActualIndex,
+        toColumnActualIndex,
+        columns
+      );
+
       setColumns(newColumns);
       onColumnUpdateWithChanges(newColumns);
     },

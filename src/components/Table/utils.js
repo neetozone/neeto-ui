@@ -123,3 +123,6 @@ export const calculateRowsPerPage = () => {
 
   return Math.ceil(rowsPerPage / 10) * 10;
 };
+
+export const filterVisibleColumns = columns =>
+  columns.filter(col => col.hidden !== true && col.isShown !== false);
