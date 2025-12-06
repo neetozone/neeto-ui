@@ -1,6 +1,6 @@
 import React from "react";
 
-import { t } from "i18next";
+import i18next, { t } from "i18next";
 import { CheckCircle, Warning, Info, Close } from "neetoicons";
 import { toast, Slide } from "react-toastify";
 
@@ -11,7 +11,10 @@ import Toast from "./Toast";
 const TOAST_CONFIG = {
   autoClose: 3500,
   transition: Slide,
-  position: toast.POSITION.BOTTOM_LEFT,
+  position:
+    i18next.dir() === "rtl"
+      ? toast.POSITION.BOTTOM_RIGHT
+      : toast.POSITION.BOTTOM_LEFT,
   hideProgressBar: true,
   closeButton: ({ closeToast, ...props }) => (
     <Close

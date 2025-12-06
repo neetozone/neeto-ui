@@ -32,6 +32,7 @@ import Button from "../Button";
 import Spinner from "../Spinner";
 import Typography from "../Typography";
 import TableInfoPane from "./components/InfoPane";
+import i18next from "i18next";
 
 const Table = ({
   allowRowClick = true,
@@ -291,6 +292,7 @@ const Table = ({
 
   const renderTable = () => (
     <ConfigProvider
+      direction={i18next.dir()}
       locale={ANTD_LOCALE[i18n.language || "en"]}
       theme={{
         token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
