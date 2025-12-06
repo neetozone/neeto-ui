@@ -1,9 +1,9 @@
 import React from "react";
 
 import classNames from "classnames";
-import { Resizable } from "react-resizable";
 
 import CellContent from "./CellContent";
+import Resizable from "./Resizable";
 
 const HeaderCell = props => {
   const { onResize, width, onResizeStop, className, ...restProps } = props;
