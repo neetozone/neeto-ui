@@ -6,6 +6,7 @@ import { complement, equals, isEmpty, omit, pipe, toPairs } from "ramda";
 import en from "src/translations/en.json";
 
 import dayjs from "./dayjs";
+import i18next from "i18next";
 
 const getEnTranslationValue = translationKey =>
   translationKey.split(".").reduce((acc, key) => acc[key], en);
@@ -213,5 +214,7 @@ export const getFromLocalStorage = (key, defaultValue) => {
     return defaultValue;
   }
 };
+
+export const getContentDir = () => (i18next.language ? i18next.dir() : "ltr");
 
 export { dayjs };

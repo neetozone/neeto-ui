@@ -1,13 +1,13 @@
 import React from "react";
-import i18next from "i18next";
 import { Resizable as ReactResizable } from "react-resizable";
+import { getContentDir } from "utils";
 
-const direction = i18next.dir();
+const rtlResizeHandles = ["w"];
 
 const Resizable = ({ resizeHandles, ...rest }) => (
   <ReactResizable
     {...rest}
-    resizeHandles={direction === "rtl" ? ["w"] : resizeHandles}
+    resizeHandles={getContentDir() === "rtl" ? rtlResizeHandles : resizeHandles}
   />
 );
 

@@ -17,7 +17,12 @@ import { useHistory } from "react-router-dom";
 
 import { ANTD_LOCALE } from "components/constants";
 import { useQueryParams, useTimeout } from "hooks";
-import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
+import {
+  ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES,
+  buildUrl,
+  noop,
+  getContentDir,
+} from "utils";
 
 import AllRowsSelectedCallout from "./components/AllRowsSelectedCallout";
 import SelectAllRowsCallout from "./components/SelectAllRowsCallout";
@@ -32,7 +37,6 @@ import Button from "../Button";
 import Spinner from "../Spinner";
 import Typography from "../Typography";
 import TableInfoPane from "./components/InfoPane";
-import i18next from "i18next";
 
 const Table = ({
   allowRowClick = true,
@@ -292,7 +296,7 @@ const Table = ({
 
   const renderTable = () => (
     <ConfigProvider
-      direction={i18next.dir()}
+      direction={getContentDir()}
       locale={ANTD_LOCALE[i18n.language || "en"]}
       theme={{
         token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
