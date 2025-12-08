@@ -7,8 +7,12 @@ import { useTranslation } from "react-i18next";
 import { ANTD_LOCALE } from "components/constants";
 import Label from "components/Label";
 import { useId } from "hooks";
-import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, hyphenize, noop } from "utils";
-import i18next from "i18next";
+import {
+  ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES,
+  hyphenize,
+  noop,
+  getContentDir,
+} from "utils";
 
 const Slider = ({
   min = 0,
@@ -31,7 +35,7 @@ const Slider = ({
 
   return (
     <ConfigProvider
-      direction={i18next.dir()}
+      direction={getContentDir()}
       locale={ANTD_LOCALE[i18n.language || "en"]}
       theme={{
         token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },

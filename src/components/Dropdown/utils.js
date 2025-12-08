@@ -1,9 +1,9 @@
-import i18next from "i18next";
+import { getContentDir } from "utils";
 
 export const getDropdownPlacement = placement => {
   if (typeof placement !== "string") return placement;
 
-  if (i18next.dir() !== "rtl") return placement;
+  if (getContentDir() !== "rtl") return placement;
 
   if (placement.endsWith("-start")) return placement.replace(/-start$/, "-end");
 

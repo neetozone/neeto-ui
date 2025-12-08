@@ -1,20 +1,16 @@
 import React from "react";
 
-import i18next, { t } from "i18next";
+import { t } from "i18next";
 import { CheckCircle, Warning, Info, Close } from "neetoicons";
 import { toast, Slide } from "react-toastify";
 
-import { UniqueArray } from "utils";
+import { UniqueArray, getContentDir } from "utils";
 
 import Toast from "./Toast";
 
 const TOAST_CONFIG = {
   autoClose: 3500,
   transition: Slide,
-  position:
-    i18next.dir() === "rtl"
-      ? toast.POSITION.BOTTOM_RIGHT
-      : toast.POSITION.BOTTOM_LEFT,
   hideProgressBar: true,
   closeButton: ({ closeToast, ...props }) => (
     <Close
@@ -109,6 +105,10 @@ const withUniqueCheck =
         // PR which addressed this issue: https://github.com/fkhadra/react-toastify/pull/758
         icon: showIcon ? TOAST_ICON[type] : () => null,
         onClose: () => toastrList.remove({ type, message, buttonLabel }),
+        position:
+          getContentDir() === "rtl"
+            ? toast.POSITION.BOTTOM_RIGHT
+            : toast.POSITION.BOTTOM_LEFT,
         ...customConfig,
       };
 
