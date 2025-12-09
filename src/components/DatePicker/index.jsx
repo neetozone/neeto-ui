@@ -11,6 +11,7 @@ import classnames from "classnames";
 import { isNotPresent } from "neetocist";
 import { Left, Right, Calendar, Close } from "neetoicons";
 import PropTypes from "prop-types";
+import { equals } from "ramda";
 
 import { Tag } from "components";
 import Label from "components/Label";
@@ -113,7 +114,7 @@ const DatePicker = forwardRef(
     };
 
     const handleOnOpenChange = open => {
-      if (!open && value !== inputValue) {
+      if (!open && !equals(value, inputValue)) {
         onChange(value, formattedString(value, dateFormat));
       }
 
