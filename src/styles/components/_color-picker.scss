@@ -57,6 +57,24 @@
   }
 }
 
+.neeto-ui-colorpicker__dropdown-size--small {
+  .react-colorful {
+    height: 100px;
+  }
+}
+
+.neeto-ui-colorpicker__dropdown-size--medium {
+  .react-colorful {
+    height: 120px;
+  }
+}
+
+.neeto-ui-colorpicker__dropdown-size--large {
+  .react-colorful {
+    height: 140px;
+  }
+}
+
 .neeto-ui-colorpicker__popover {
   width: var(--neeto-ui-colorpicker-popover-width);
   padding: var(--neeto-ui-colorpicker-popover-padding);

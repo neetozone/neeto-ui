@@ -111,6 +111,15 @@ const metadata = {
         defaultValue: { summary: true },
       },
     },
+    showHexPicker: {
+      description:
+        "To show the hex color picker (color pointer). Used to hide the picker while keeping the hex input and eye dropper. By default it will be true.",
+      control: "boolean",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: true },
+      },
+    },
     portalProps: {
       description: "To specify the props to be passed to the dropdown portal.",
       control: "object",
@@ -267,6 +276,27 @@ const ShowTransparencyControl = args => {
 };
 ShowTransparencyControl.storyName = "Show transparency control";
 ShowTransparencyControl.args = { color: "#4558F9c9" };
+
+const WithoutHexPicker = args => {
+  const [color, setColor] = useState("#4558F9");
+
+  const onChange = value => {
+    action("onChange")(value);
+    setColor(value.hex);
+  };
+
+  useEffect(() => {
+    setColor(args.color || "#4558F9");
+  }, [args.color]);
+
+  return (
+    <div className="h-60 w-40">
+      <ColorPicker {...{ color, onChange }} showHexPicker={false} />
+    </div>
+  );
+};
+WithoutHexPicker.storyName = "Without hex picker";
+WithoutHexPicker.args = { color: "#4558F9" };
 
 const OnlyPalettePicker = args => {
   const [selectedColor, setSelectedColor] = useState("#00ba88");
@@ -443,6 +473,7 @@ export {
   WithEyeDropper,
   ShowHexValue,
   ShowTransparencyControl,
+  WithoutHexPicker,
   OnlyPalettePicker,
   CSSCustomization,
   PortalCustomClassName,

@@ -14,3 +14,9 @@ export const DEFAULT_PALETTE_COLORS = [
   { hex: "#028090" },
   { hex: "#095482" },
 ];
+
+export const TARGET_SIZES = {
+  large: "large",
+  medium: "medium",
+  small: "small",
+};

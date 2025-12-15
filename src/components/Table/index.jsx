@@ -17,7 +17,12 @@ import { useHistory } from "react-router-dom";
 
 import { ANTD_LOCALE } from "components/constants";
 import { useQueryParams, useTimeout } from "hooks";
-import { ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES, buildUrl, noop } from "utils";
+import {
+  ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES,
+  buildUrl,
+  noop,
+  getContentDir,
+} from "utils";
 
 import AllRowsSelectedCallout from "./components/AllRowsSelectedCallout";
 import SelectAllRowsCallout from "./components/SelectAllRowsCallout";
@@ -291,6 +296,7 @@ const Table = ({
 
   const renderTable = () => (
     <ConfigProvider
+      direction={getContentDir()}
       locale={ANTD_LOCALE[i18n.language || "en"]}
       theme={{
         token: { ...ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES },
