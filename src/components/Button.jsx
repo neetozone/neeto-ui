@@ -73,45 +73,57 @@ const Button = React.forwardRef(
           )
         : icon || React.Fragment;
 
+    const buttonElement = (
+      <Parent
+        className={classnames("neeto-ui-btn", [className], {
+          "neeto-ui-btn--style-primary": style === BUTTON_STYLES.primary,
+          "neeto-ui-btn--style-secondary": style === BUTTON_STYLES.secondary,
+          "neeto-ui-btn--style-tertiary": style === BUTTON_STYLES.tertiary,
+          "neeto-ui-btn--style-danger": style === BUTTON_STYLES.danger,
+          "neeto-ui-btn--style-danger-text":
+            style === BUTTON_STYLES.danger_text,
+          "neeto-ui-btn--style-text": style === BUTTON_STYLES.text,
+          "neeto-ui-btn--style-link": style === BUTTON_STYLES.link,
+          "neeto-ui-btn--size-medium": size === SIZES.medium,
+          "neeto-ui-btn--size-large": size === SIZES.large,
+          "neeto-ui-btn--width-full": fullWidth,
+          "neeto-ui-btn--icon-left": iconPosition === ICON_POSITIONS.left,
+          "neeto-ui-btn--icon-only": !renderLabel,
+          "neeto-ui-btn--loading": loading,
+          disabled,
+        })}
+        onClick={handleClick}
+        {...{ disabled, ref, ...elementSpecificProps, ...otherProps }}
+      >
+        {renderLabel && (
+          <span className="neeto-ui-btn__label">{renderLabel}</span>
+        )}
+        {icon && (
+          <Icon
+            aria-hidden="true"
+            className="neeto-ui-btn__icon"
+            size={iconSize}
+          />
+        )}
+        {loading && (
+          <span className="neeto-ui-btn__spinner">
+            <Spinner aria-hidden="true" size="small" />
+          </span>
+        )}
+      </Parent>
+    );
+
+    if (disabled && tooltipProps) {
+      return (
+        <Tooltip disabled={!tooltipProps} {...tooltipProps}>
+          <span className="inline-block">{buttonElement}</span>
+        </Tooltip>
+      );
+    }
+
     return (
       <Tooltip disabled={!tooltipProps} {...tooltipProps}>
-        <Parent
-          className={classnames("neeto-ui-btn", [className], {
-            "neeto-ui-btn--style-primary": style === BUTTON_STYLES.primary,
-            "neeto-ui-btn--style-secondary": style === BUTTON_STYLES.secondary,
-            "neeto-ui-btn--style-tertiary": style === BUTTON_STYLES.tertiary,
-            "neeto-ui-btn--style-danger": style === BUTTON_STYLES.danger,
-            "neeto-ui-btn--style-danger-text":
-              style === BUTTON_STYLES.danger_text,
-            "neeto-ui-btn--style-text": style === BUTTON_STYLES.text,
-            "neeto-ui-btn--style-link": style === BUTTON_STYLES.link,
-            "neeto-ui-btn--size-medium": size === SIZES.medium,
-            "neeto-ui-btn--size-large": size === SIZES.large,
-            "neeto-ui-btn--width-full": fullWidth,
-            "neeto-ui-btn--icon-left": iconPosition === ICON_POSITIONS.left,
-            "neeto-ui-btn--icon-only": !renderLabel,
-            "neeto-ui-btn--loading": loading,
-            disabled,
-          })}
-          onClick={handleClick}
-          {...{ disabled, ref, ...elementSpecificProps, ...otherProps }}
-        >
-          {renderLabel && (
-            <span className="neeto-ui-btn__label">{renderLabel}</span>
-          )}
-          {icon && (
-            <Icon
-              aria-hidden="true"
-              className="neeto-ui-btn__icon"
-              size={iconSize}
-            />
-          )}
-          {loading && (
-            <span className="neeto-ui-btn__spinner">
-              <Spinner aria-hidden="true" size="small" />
-            </span>
-          )}
-        </Parent>
+        {buttonElement}
       </Tooltip>
     );
   }
