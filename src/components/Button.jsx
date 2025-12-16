@@ -116,7 +116,13 @@ const Button = React.forwardRef(
     if (disabled && tooltipProps) {
       return (
         <Tooltip disabled={!tooltipProps} {...tooltipProps}>
-          <span className="inline-block">{buttonElement}</span>
+          <span
+            className={classnames("inline-block", {
+              "w-full": fullWidth,
+            })}
+          >
+            {buttonElement}
+          </span>
         </Tooltip>
       );
     }
