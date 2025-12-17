@@ -37,13 +37,19 @@ const Switch = forwardRef(
         <div className="neeto-ui-switch__container">
           <label
             data-cy="nui-switch-item"
-            tabIndex={0}
             className={classnames("neeto-ui-switch__item", {
               "neeto-ui-switch__item--checked": !!checked,
               "neeto-ui-switch__item--disabled": disabled,
             })}
           >
-            <input {...{ id, onChange }} type="checkbox" {...otherProps} />
+            <input
+              {...{ id, onChange }}
+              aria-describedby={error ? errorId : undefined}
+              aria-invalid={!!error}
+              aria-required={required}
+              type="checkbox"
+              {...otherProps}
+            />
             <span
               aria-hidden="true"
               data-cy={`${hyphenize(renderLabel)}-switch`}
