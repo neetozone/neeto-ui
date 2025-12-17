@@ -125,17 +125,17 @@ const Textarea = forwardRef(
             data-cy={`${hyphenize(label)}-text-input`}
             ref={textareaRef}
             rows={ROWS[size]}
-            onBlur={handleOnBlur}
             {...{
               ...(describedByIds && { "aria-describedby": describedByIds }),
               "aria-invalid": !!error,
               "aria-required": required,
               disabled,
               ...(isMaxLengthPresent && !unlimitedChars && { maxLength }),
-              onChange,
               ...otherProps,
+              onChange,
               value,
             }}
+            onBlur={handleOnBlur}
           />
           {suffix && <div className="neeto-ui-input__suffix">{suffix}</div>}
         </div>
