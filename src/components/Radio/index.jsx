@@ -24,17 +24,27 @@ const Radio = ({
 
   const id = useId(props.id);
   const errorId = `error_${id}`;
+  const labelId = label ? `label_${id}` : undefined;
+  const finalLabelId = label ? labelProps?.id || labelId : undefined;
 
   const internalOnChange = e => setInternalValue(e.target.value);
 
   return (
     <div className={classnames(["neeto-ui-radio__wrapper", className])}>
       {label && (
-        <Label className="neeto-ui-radio__label" {...labelProps}>
+        <Label
+          className="neeto-ui-radio__label"
+          id={finalLabelId}
+          {...labelProps}
+        >
           {label}
         </Label>
       )}
       <div
+        aria-describedby={error ? errorId : undefined}
+        aria-invalid={!!error}
+        aria-labelledby={finalLabelId}
+        role="radiogroup"
         className={classnames(["neeto-ui-radio__container"], {
           "neeto-ui-radio__container--stacked": stacked,
           "neeto-ui-radio__container--error": error,
