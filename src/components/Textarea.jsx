@@ -46,6 +46,11 @@ const Textarea = forwardRef(
     const helpTextId = `helpText_${id}`;
     const textareaRef = useSyncedRef(ref);
 
+    const describedByIds = [
+      ...(error ? [errorId] : []),
+      ...(helpText ? [helpTextId] : []),
+    ].join(" ");
+
     const valueLength = value?.toString().length || 0;
     const isCharacterLimitVisible = valueLength >= maxLength * 0.85;
     const maxLengthError = unlimitedChars && valueLength > maxLength;
@@ -120,14 +125,17 @@ const Textarea = forwardRef(
             data-cy={`${hyphenize(label)}-text-input`}
             ref={textareaRef}
             rows={ROWS[size]}
+            onBlur={handleOnBlur}
             {...{
+              ...(describedByIds && { "aria-describedby": describedByIds }),
+              "aria-invalid": !!error,
+              "aria-required": required,
               disabled,
               ...(isMaxLengthPresent && !unlimitedChars && { maxLength }),
-              ...otherProps,
               onChange,
+              ...otherProps,
               value,
             }}
-            onBlur={handleOnBlur}
           />
           {suffix && <div className="neeto-ui-input__suffix">{suffix}</div>}
         </div>
