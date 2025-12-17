@@ -33,11 +33,6 @@ const Slider = ({
 
   const { i18n } = useTranslation();
 
-  const describedByIds = [
-    ...(error ? [errorId] : []),
-    ...(helpText ? [helpTextId] : []),
-  ].join(" ");
-
   return (
     <ConfigProvider
       direction={getContentDir()}
@@ -79,10 +74,6 @@ const Slider = ({
           className="neeto-ui-w-full"
           tooltip={{ formatter: null }}
           {...{
-            ...(describedByIds && { "aria-describedby": describedByIds }),
-            "aria-invalid": !!error,
-            "aria-label": label || undefined,
-            "aria-required": required,
             defaultValue,
             max,
             min,
