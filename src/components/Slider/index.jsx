@@ -33,6 +33,11 @@ const Slider = ({
 
   const { i18n } = useTranslation();
 
+  const describedByIds = [
+    ...(error ? [errorId] : []),
+    ...(helpText ? [helpTextId] : []),
+  ].join(" ");
+
   return (
     <ConfigProvider
       direction={getContentDir()}
@@ -73,7 +78,19 @@ const Slider = ({
         <AntdSlider
           className="neeto-ui-w-full"
           tooltip={{ formatter: null }}
-          {...{ defaultValue, max, min, onChange, value, ...otherProps, id }}
+          {...{
+            ...(describedByIds && { "aria-describedby": describedByIds }),
+            "aria-invalid": !!error,
+            "aria-label": label || undefined,
+            "aria-required": required,
+            defaultValue,
+            max,
+            min,
+            onChange,
+            value,
+            ...otherProps,
+            id,
+          }}
         />
         {!!error && (
           <p
@@ -100,11 +117,11 @@ const Slider = ({
 
 Slider.propTypes = {
   /**
-   * The minimum value the slider can slide to.
+   * To specify the minimum value the slider can slide to.
    */
   min: PropTypes.number,
   /**
-   * The maximum value the slider can slide to.
+   * To specify the maximum value the slider can slide to.
    */
   max: PropTypes.number,
   /**
@@ -112,14 +129,33 @@ Slider.propTypes = {
    */
   onChange: PropTypes.func,
   /**
-   * The value of slider. When `range` is false, use number, otherwise, use [number, number]
+   * To specify the value of slider. When `range` is false, use number, otherwise, use [number, number]
    */
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
   /**
-   * The value of slider. When `range` is false, use number, otherwise, use [number, number]
-   *
+   * To specify the default value of slider. When `range` is false, use number, otherwise, use [number, number]
    */
   defaultValue: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  /**
+   * To specify the text to be displayed above the Slider.
+   */
+  label: PropTypes.string,
+  /**
+   * To specify the label props to be passed to the Label component.
+   */
+  labelProps: PropTypes.object,
+  /**
+   * To specify the error message to be displayed in the Slider component.
+   */
+  error: PropTypes.string,
+  /**
+   * To specify whether the Slider is required or not.
+   */
+  required: PropTypes.bool,
+  /**
+   * To specify the help text that appears below the Slider component.
+   */
+  helpText: PropTypes.string,
 };
 
 export default Slider;
