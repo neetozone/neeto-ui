@@ -46,6 +46,11 @@ const Textarea = forwardRef(
     const helpTextId = `helpText_${id}`;
     const textareaRef = useSyncedRef(ref);
 
+    const describedByIds = [
+      ...(error ? [errorId] : []),
+      ...(helpText ? [helpTextId] : []),
+    ].join(" ");
+
     const valueLength = value?.toString().length || 0;
     const isCharacterLimitVisible = valueLength >= maxLength * 0.85;
     const maxLengthError = unlimitedChars && valueLength > maxLength;
@@ -121,6 +126,9 @@ const Textarea = forwardRef(
             ref={textareaRef}
             rows={ROWS[size]}
             {...{
+              ...(describedByIds && { "aria-describedby": describedByIds }),
+              "aria-invalid": !!error,
+              "aria-required": required,
               disabled,
               ...(isMaxLengthPresent && !unlimitedChars && { maxLength }),
               ...otherProps,

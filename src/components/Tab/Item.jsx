@@ -25,7 +25,9 @@ const Item = ({
 
   return (
     <Parent
+      aria-selected={active}
       data-cy="tab-item"
+      role="tab"
       className={classnames(
         [
           "neeto-ui-tab neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-select-none",
@@ -33,8 +35,7 @@ const Item = ({
         ],
         { active }
       )}
-      onClick={onClick}
-      {...{ ...otherProps, ...buttonAttributes }}
+      {...{ onClick, ...otherProps, ...buttonAttributes }}
     >
       {icon && <Icon className="neeto-ui-tab__icon" />}
       {children}
