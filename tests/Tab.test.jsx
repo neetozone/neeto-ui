@@ -29,8 +29,9 @@ describe("Tab", () => {
         </Tab>
       </BrowserRouter>
     );
-    expect(screen.getByRole("tab")).toBeInTheDocument();
-    expect(screen.getByRole("tab")).toHaveAttribute("href", "/route");
+    const linkTab = screen.getByRole("tab", { name: "Tab 1" });
+    expect(linkTab).toBeInTheDocument();
+    expect(linkTab).toHaveAttribute("href", "/route");
   });
 
   it("should render icon when provided", () => {
