@@ -29,8 +29,8 @@ describe("Tab", () => {
         </Tab>
       </BrowserRouter>
     );
-    expect(screen.getByRole("link")).toBeInTheDocument();
-    expect(screen.getByRole("link")).toHaveAttribute("href", "/route");
+    expect(screen.getByRole("tab")).toBeInTheDocument();
+    expect(screen.getByRole("tab")).toHaveAttribute("href", "/route");
   });
 
   it("should render icon when provided", () => {
@@ -55,7 +55,7 @@ describe("Tab", () => {
     const onClick = jest.fn();
     render(
       <Tab>
-        <Tab.Item icon="icon" onClick={onClick}>
+        <Tab.Item {...{ onClick }} icon="icon">
           Tab 1
         </Tab.Item>
       </Tab>
