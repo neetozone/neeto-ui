@@ -5,10 +5,10 @@ import PropTypes from "prop-types";
 
 import Typography from "../Typography";
 
-const Header = ({ description = "", children, className, dataTestId }) => (
+const Header = ({ description = "", children, className, dataTestid }) => (
   <div
     className={classnames("neeto-ui-modal__header", className)}
-    data-testid={dataTestId ?? "modal-header"}
+    data-testid={dataTestid ?? "modal-header"}
   >
     {children}
     {description && (

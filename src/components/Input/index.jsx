@@ -25,7 +25,7 @@ const Input = forwardRef(
       size = SIZES.medium,
       type = "text",
       label = "",
-      dataTestId = "",
+      dataTestid = "",
       error = "",
       suffix = null,
       prefix = null,
@@ -114,7 +114,7 @@ const Input = forwardRef(
     };
 
     const dataTestIdLabel =
-      typeof label === "string" ? hyphenize(label) : hyphenize(dataTestId);
+      typeof label === "string" ? hyphenize(label) : hyphenize(dataTestid);
 
     return (
       <div

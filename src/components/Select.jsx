@@ -83,7 +83,7 @@ const CustomOption = props => {
   const ref = useRef();
   const {
     innerProps,
-    data: { dataTestId, tooltipProps = {} },
+    data: { dataTestid, tooltipProps = {} },
   } = props;
 
   useEffect(() => {
@@ -96,7 +96,7 @@ const CustomOption = props => {
       innerRef={ref}
       innerProps={{
         ...innerProps,
-        "data-testid": dataTestId || `${hyphenize(props.label)}-select-option`,
+        "data-testid": dataTestid || `${hyphenize(props.label)}-select-option`,
       }}
     />
   );
@@ -237,7 +237,7 @@ const Select = ({
   onMenuOpen,
   onKeyDown,
   styles = {},
-  dataTestId = "nui",
+  dataTestid = "nui",
   ...otherProps
 }) => {
   const inputId = useId(id);
@@ -246,7 +246,7 @@ const Select = ({
   );
 
   const hyphenatedDataTestIdLabel = isEmpty(label)
-    ? hyphenize(dataTestId)
+    ? hyphenize(dataTestid)
     : hyphenize(label);
 
   let Parent = SelectInput;
@@ -514,7 +514,7 @@ Select.propTypes = {
   /**
    * To specify the custom data-testid label for the Select component and its child components.
    */
-  dataTestId: PropTypes.string,
+  dataTestid: PropTypes.string,
 };
 
 export default Select;

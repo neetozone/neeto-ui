@@ -84,7 +84,7 @@ The auto-migration worked successfully and effectively transitioned the files to
 
 ## 8.2.78 - 2025-04-15
 
-- Added: `dataTestId` prop to *Select* component.
+- Added: `dataTestid` prop to *Select* component.
 
 ## 8.2.77 - 2025-04-11
 
