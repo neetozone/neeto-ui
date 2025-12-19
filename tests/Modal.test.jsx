@@ -78,7 +78,7 @@ describe("Modal", () => {
         <Modal.Body>Sample text</Modal.Body>
       </Modal>
     );
-    await userEvent.click(getByTestId("close-button"));
+    await userEvent.click(getByTestId("modal-close-button"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 

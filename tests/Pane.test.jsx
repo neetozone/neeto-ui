@@ -69,7 +69,7 @@ describe("Pane", () => {
         <Pane.Body>Pane body</Pane.Body>
       </Pane>
     );
-    expect(queryByTestId("close-button")).not.toBeInTheDocument();
+    expect(queryByTestId("pane-close-button")).not.toBeInTheDocument();
   });
 
   it("should trigger onClose when close button is clicked", async () => {
@@ -79,7 +79,7 @@ describe("Pane", () => {
         <Pane.Body>Pane body</Pane.Body>
       </Pane>
     );
-    await userEvent.click(getByTestId("close-button"));
+    await userEvent.click(getByTestId("pane-close-button"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
@@ -125,7 +125,7 @@ describe("Pane", () => {
     );
 
     await waitFor(async () =>
-      expect(await screen.findByTestId("close-button")).toHaveFocus()
+      expect(await screen.findByTestId("pane-close-button")).toHaveFocus()
     );
   });
 

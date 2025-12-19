@@ -23,20 +23,20 @@ describe("Tag", () => {
 
   it("should show close button if onClose function is provided", () => {
     const { getByTestId } = render(<Tag onClose={() => {}} />);
-    expect(getByTestId("tag-close-button")).toBeInTheDocument();
+    expect(getByTestId("tag-close-icon")).toBeInTheDocument();
   });
 
   it("should call onClose on button click", async () => {
     const onClose = jest.fn();
-    const { getByTestId } = render(<Tag onClose={onClose} />);
-    await userEvent.click(getByTestId("tag-close-button"));
+    const { getByTestId } = render(<Tag {...{ onClose }} />);
+    await userEvent.click(getByTestId("tag-close-icon"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   it("should not call onClose function if tag is disabled", async () => {
     const onClose = jest.fn();
-    const { getByTestId } = render(<Tag disabled onClose={onClose} />);
-    await userEvent.click(getByTestId("tag-close-button"));
+    const { getByTestId } = render(<Tag {...{ onClose }} disabled />);
+    await userEvent.click(getByTestId("tag-close-icon"));
     expect(onClose).toHaveBeenCalledTimes(0);
   });
 });

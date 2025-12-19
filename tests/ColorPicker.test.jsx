@@ -9,7 +9,7 @@ import { removeFromLocalStorage } from "utils";
 describe("ColorPicker", () => {
   it("should render without error", () => {
     render(<ColorPicker color="#ffffff" />);
-    expect(screen.getByTestId("neeto-color-picker")).toBeInTheDocument();
+    expect(screen.getByTestId("color-picker-target")).toBeInTheDocument();
   });
 
   it("should trigger onChange when color is changed", async () => {
@@ -21,8 +21,8 @@ describe("ColorPicker", () => {
     });
 
     render(<ColorPicker {...{ onChange }} />);
-    expect(screen.getByTestId("neeto-color-picker")).toBeInTheDocument();
-    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+    expect(screen.getByTestId("color-picker-target")).toBeInTheDocument();
+    await userEvent.click(screen.getByTestId("color-picker-target"));
     await (await screen.findByRole("textbox")).focus();
     await userEvent.paste("#000000");
     await expect(onChange).toHaveBeenCalledTimes(1);
@@ -30,13 +30,13 @@ describe("ColorPicker", () => {
 
   it("should display color palette", async () => {
     render(<ColorPicker color="#ffffff" />);
-    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+    await userEvent.click(screen.getByTestId("color-picker-target"));
     expect(await screen.findByTestId("color-palette")).toBeInTheDocument();
   });
 
   it("should display transparency control when showTransparencyControl is provided", async () => {
     render(<ColorPicker showTransparencyControl color="#ffffff" />);
-    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+    await userEvent.click(screen.getByTestId("color-picker-target"));
     expect(await screen.findByLabelText("Alpha")).toBeInTheDocument();
   });
 
@@ -56,7 +56,7 @@ describe("ColorPicker", () => {
         colorPalette={DEFAULT_COLORS}
       />
     );
-    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+    await userEvent.click(screen.getByTestId("color-picker-target"));
     const paletteItems = await screen.findAllByTestId("color-palette-item");
     await userEvent.click(paletteItems[0]);
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -69,7 +69,7 @@ describe("ColorPicker", () => {
   it("should call onChange when user touches Hue slider", async () => {
     const onChange = jest.fn();
     render(<ColorPicker {...{ onChange }} color="#ffffff" />);
-    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+    await userEvent.click(screen.getByTestId("color-picker-target"));
     const hueSlider = await screen.findByLabelText("Hue");
     await userEvent.click(hueSlider, { clientX: 0 });
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -87,7 +87,7 @@ describe("ColorPicker", () => {
     });
 
     render(<ColorPicker {...{ onChange }} color="#ffffff" />);
-    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+    await userEvent.click(screen.getByTestId("color-picker-target"));
 
     await waitFor(() =>
       expect(screen.getByLabelText("Color")).toBeInTheDocument()
@@ -112,11 +112,11 @@ describe("ColorPicker", () => {
 
     render(<ColorPicker />);
 
-    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+    await userEvent.click(screen.getByTestId("color-picker-target"));
     const paletteItems = await screen.findAllByTestId("color-palette-item");
     await userEvent.click(paletteItems[0]);
     await userEvent.click(document.body);
-    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+    await userEvent.click(screen.getByTestId("color-picker-target"));
 
     expect(
       screen.getByTestId("color-palette-recently-used")
@@ -126,11 +126,11 @@ describe("ColorPicker", () => {
   it("should not display recently used colors if showPicker is false", async () => {
     render(<ColorPicker showPicker={false} />);
 
-    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+    await userEvent.click(screen.getByTestId("color-picker-target"));
     const paletteItems = await screen.findAllByTestId("color-palette-item");
     await userEvent.click(paletteItems[0]);
     await userEvent.click(document.body);
-    await userEvent.click(screen.getByTestId("neeto-color-picker"));
+    await userEvent.click(screen.getByTestId("color-picker-target"));
 
     expect(
       screen.queryByTestId("color-palette-recently-used")

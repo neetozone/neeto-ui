@@ -72,7 +72,7 @@ describe("Sidebar", () => {
         <Sidebar {...sidebarProps} />
       </Router>
     );
-    expect(getByTestId("sidebar")).toBeInTheDocument();
+    expect(getByTestId("sidebar-wrapper")).toBeInTheDocument();
   });
 
   it("should display all navlink elements correctly", () => {
