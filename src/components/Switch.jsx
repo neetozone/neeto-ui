@@ -32,11 +32,11 @@ const Switch = forwardRef(
       <div
         {...{ ref }}
         className={classnames(["neeto-ui-switch__wrapper", className])}
-        data-cy="nui-switch-wrapper"
+        data-testid="nui-switch-wrapper"
       >
         <div className="neeto-ui-switch__container">
           <label
-            data-cy="nui-switch-item"
+            data-testid="nui-switch-item"
             className={classnames("neeto-ui-switch__item", {
               "neeto-ui-switch__item--checked": !!checked,
               "neeto-ui-switch__item--disabled": disabled,
@@ -52,25 +52,15 @@ const Switch = forwardRef(
             />
             <span
               aria-hidden="true"
-              data-cy={`${hyphenize(renderLabel)}-switch`}
+              data-testid={`${hyphenize(renderLabel)}-switch`}
               className={classnames("neeto-ui-switch", {
                 "neeto-ui-switch--checked": !!checked,
               })}
             >
               {checked ? (
-                <Check
-                  data-cy="check-icon"
-                  data-testid="check-icon"
-                  size="12"
-                  strokeWidth={4}
-                />
+                <Check data-testid="check-icon" size="12" strokeWidth={4} />
               ) : (
-                <Close
-                  data-cy="close-icon"
-                  data-testid="close-icon"
-                  size="12"
-                  strokeWidth={3}
-                />
+                <Close data-testid="close-icon" size="12" strokeWidth={3} />
               )}
             </span>
           </label>
@@ -79,7 +69,7 @@ const Switch = forwardRef(
               {...{ required }}
               htmlFor={id}
               {...labelProps}
-              data-cy={`${hyphenize(renderLabel).replace(
+              data-testid={`${hyphenize(renderLabel).replace(
                 /[^a-z0-9-]/gi,
                 ""
               )}-switch-label`}
@@ -91,7 +81,7 @@ const Switch = forwardRef(
         {!!error && (
           <p
             className="neeto-ui-input__error"
-            data-cy={`${hyphenize(renderLabel)}-switch-error`}
+            data-testid={`${hyphenize(renderLabel)}-switch-error`}
             id={errorId}
           >
             {error}

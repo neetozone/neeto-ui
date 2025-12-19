@@ -50,25 +50,29 @@ const Alert = ({
         onClose,
         size,
       }}
-      data-cy="alert-box"
+      data-testid="alert-box"
       {...(hasCustomFocusableElement && {
         initialFocusRef: initialFocusRef || initialFocusElementRef,
       })}
     >
       <Modal.Header>
-        <Typography data-cy="alert-title" style="h2">
+        <Typography data-testid="alert-title" style="h2">
           {title}
         </Typography>
       </Modal.Header>
       <Modal.Body>
-        <Typography data-cy="alert-message" lineHeight="normal" style="body2">
+        <Typography
+          data-testid="alert-message"
+          lineHeight="normal"
+          style="body2"
+        >
           {message}
         </Typography>
       </Modal.Body>
       <Modal.Footer className="neeto-ui-gap-2 neeto-ui-flex neeto-ui-justify-end neeto-ui-items-center">
         {!hideCancelButton && (
           <Button
-            data-cy="alert-cancel-button"
+            data-testid="alert-cancel-button"
             label={cancelButtonLabel}
             ref={cancelButtonRef}
             style="tertiary"
@@ -76,7 +80,7 @@ const Alert = ({
           />
         )}
         <Button
-          data-cy="alert-submit-button"
+          data-testid="alert-submit-button"
           disabled={isSubmitting || !isOpen}
           label={submitButtonLabel}
           loading={isSubmitting}

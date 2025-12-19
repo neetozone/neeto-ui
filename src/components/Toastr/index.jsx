@@ -16,7 +16,7 @@ const TOAST_CONFIG = {
     <Close
       className="neeto-ui-toastr__close-button"
       color="currentColor"
-      data-cy="toastr-close-button"
+      data-testid="toastr-close-button"
       size={16}
       onClick={closeToast}
       {...props}
@@ -30,31 +30,16 @@ const TOAST_ICON = {
   success: (
     <CheckCircle
       className="neeto-ui-text-white"
-      data-cy="success-toast-icon"
       data-testid="success-toast-icon"
     />
   ),
   warning: (
-    <Warning
-      className="neeto-ui-text-white"
-      data-cy="warning-toast-icon"
-      data-testid="warning-toast-icon"
-    />
+    <Warning className="neeto-ui-text-white" data-testid="warning-toast-icon" />
   ),
   error: (
-    <Warning
-      className="neeto-ui-text-white"
-      data-cy="error-toast-icon"
-      data-testid="error-toast-icon"
-    />
+    <Warning className="neeto-ui-text-white" data-testid="error-toast-icon" />
   ),
-  info: (
-    <Info
-      className="neeto-ui-text-white"
-      data-cy="info-toast-icon"
-      data-testid="info-toast-icon"
-    />
-  ),
+  info: <Info className="neeto-ui-text-white" data-testid="info-toast-icon" />,
 };
 
 const toastrList = new UniqueArray();

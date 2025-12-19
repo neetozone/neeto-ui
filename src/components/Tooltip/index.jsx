@@ -44,7 +44,10 @@ const Tooltip = ({
 
   const handleCreate = instance => {
     setInstance(instance);
-    instance.popper.firstElementChild?.setAttribute("data-cy", "tooltip-box");
+    instance.popper.firstElementChild?.setAttribute(
+      "data-testid",
+      "tooltip-box"
+    );
   };
 
   return (

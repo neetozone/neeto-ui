@@ -71,7 +71,7 @@ const MultiValueRemove = props => (
     {...props}
     innerProps={{
       ...props.innerProps,
-      ["data-cy"]: `${hyphenize(props.data.label)}-remove-icon`,
+      ["data-testid"]: `${hyphenize(props.data.label)}-remove-icon`,
     }}
   >
     <Close size={16} />
@@ -94,7 +94,7 @@ const CustomValueContainer = ({ children, ...props }) => {
       {...props}
       innerProps={{
         ...props.innerProps,
-        ["data-cy"]: "multi-email-input-container",
+        ["data-testid"]: "multi-email-input-container",
       }}
     >
       {shouldCollapse ? firstChild.slice(0, visibleEmailsCount) : firstChild}
@@ -114,7 +114,7 @@ const CustomClearIndicator = props => (
     {...props}
     innerProps={{
       ...props.innerProps,
-      ["data-cy"]: "clear-all-button",
+      ["data-testid"]: "clear-all-button",
     }}
   >
     <Close className="cursor-pointer" size={16} />
@@ -126,7 +126,7 @@ const SelectContainer = props => (
     {...props}
     innerProps={{
       ...props.innerProps,
-      ["data-cy"]: "multi-email-select-container",
+      ["data-testid"]: "multi-email-select-container",
     }}
   />
 );
@@ -145,7 +145,7 @@ const Input = props => {
   return (
     <components.Input
       {...props}
-      data-cy="email-select-input-field"
+      data-testid="email-select-input-field"
       onPaste={handlePaste}
     />
   );

@@ -21,8 +21,7 @@ const Sidebar = ({
   onAppSwitcherToggle = noop,
 }) => (
   <div
-    data-cy="sidebar-wrapper"
-    data-testid="sidebar"
+    data-testid="sidebar-wrapper"
     className={classnames(
       "neeto-ui-sidebar neeto-ui-flex neeto-ui-flex-col neeto-ui-flex-shrink-0 neeto-ui-overflow-y-auto neeto-ui-overflow-x-hidden",
       "neeto-ui-sidebar--collapsed"

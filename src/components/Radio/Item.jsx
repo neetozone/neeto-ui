@@ -14,7 +14,7 @@ const Item = forwardRef(
       label = "",
       className = "",
       labelProps,
-      dataCy = "",
+      dataTestId = "",
       ...otherProps
     },
     ref
@@ -26,13 +26,13 @@ const Item = forwardRef(
         <input
           {...{ id, name, ref }}
           className="neeto-ui-radio"
-          data-cy={dataCy || `${hyphenize(label)}-radio-input`}
+          data-testid={dataTestId || `${hyphenize(label)}-radio-input`}
           type="radio"
           {...otherProps}
         />
         {label && (
           <Label
-            data-cy={dataCy || `${hyphenize(label)}-radio-label`}
+            data-testid={dataTestId || `${hyphenize(label)}-radio-label`}
             htmlFor={id}
             {...labelProps}
           >

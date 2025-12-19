@@ -156,7 +156,7 @@ const DatePicker = forwardRef(
         <div className="neeto-ui-input__wrapper">
           {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
           <Component
-            data-cy={label ? `${hyphenize(label)}-input` : "picker-input"}
+            data-testid={label ? `${hyphenize(label)}-input` : "picker-input"}
             defaultValue={convertToDayjsObjects(defaultValue)}
             placeholder={placeholder ?? format}
             ref={datePickerRef}
@@ -202,7 +202,9 @@ const DatePicker = forwardRef(
             superPrevIcon={<IconOverride icon={Left} />}
             allowClear={
               allowClear && {
-                clearIcon: <Close data-cy="date-time-clear-icon" size={16} />,
+                clearIcon: (
+                  <Close data-testid="date-time-clear-icon" size={16} />
+                ),
               }
             }
             suffixIcon={
@@ -216,7 +218,7 @@ const DatePicker = forwardRef(
           {!!error && typeof error === "string" && (
             <p
               className="neeto-ui-input__error"
-              data-cy={`${hyphenize(label)}-input-error`}
+              data-testid={`${hyphenize(label)}-input-error`}
               id={errorId}
             >
               {error}

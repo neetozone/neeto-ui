@@ -25,7 +25,7 @@ const Input = forwardRef(
       size = SIZES.medium,
       type = "text",
       label = "",
-      dataCy = "",
+      dataTestId = "",
       error = "",
       suffix = null,
       prefix = null,
@@ -113,19 +113,19 @@ const Input = forwardRef(
       if (type === "number") e.target.blur();
     };
 
-    const dataCyLabel =
-      typeof label === "string" ? hyphenize(label) : hyphenize(dataCy);
+    const dataTestIdLabel =
+      typeof label === "string" ? hyphenize(label) : hyphenize(dataTestId);
 
     return (
       <div
         className={classnames(["neeto-ui-input__wrapper", className])}
-        data-cy="nui-input-wrapper"
+        data-testid="nui-input-wrapper"
       >
         <div className="neeto-ui-input__label-wrapper">
           {label && (
             <Label
               {...{ required }}
-              data-cy={`${dataCyLabel}-input-label`}
+              data-testid={`${dataTestIdLabel}-input-label`}
               htmlFor={id}
               {...labelProps}
             >
@@ -143,7 +143,7 @@ const Input = forwardRef(
           )}
         </div>
         <div
-          data-cy={`${dataCyLabel}-input`}
+          data-testid={`${dataTestIdLabel}-input`}
           className={classnames("neeto-ui-input", {
             "neeto-ui-input--naked": !!nakedInput,
             "neeto-ui-input--error": !!error,
@@ -156,7 +156,7 @@ const Input = forwardRef(
           {prefix && <div className="neeto-ui-input__prefix">{prefix}</div>}
           <input
             aria-invalid={!!error}
-            data-cy={`${dataCyLabel}-input-field`}
+            data-testid={`${dataTestIdLabel}-input-field`}
             size={contentSize}
             aria-describedby={classnames({
               [errorId]: !!error,
@@ -181,7 +181,7 @@ const Input = forwardRef(
         {!!error && (
           <p
             className="neeto-ui-input__error"
-            data-cy={`${dataCyLabel}-input-error`}
+            data-testid={`${dataTestIdLabel}-input-error`}
             id={errorId}
           >
             {error}
@@ -190,7 +190,7 @@ const Input = forwardRef(
         {helpText && (
           <p
             className="neeto-ui-input__help-text"
-            data-cy={`${dataCyLabel}-input-help`}
+            data-testid={`${dataTestIdLabel}-input-help`}
             id={helpTextId}
           >
             {helpText}

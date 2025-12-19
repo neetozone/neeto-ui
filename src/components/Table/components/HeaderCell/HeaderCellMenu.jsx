@@ -88,7 +88,6 @@ const HeaderCellMenu = ({
           style: "text",
           size: "medium",
           "data-testid": "column-menu-button",
-          "data-cy": "column-menu-button",
           "data-dropdown-button-style": "more-dropdown",
         }}
       >
@@ -99,7 +98,7 @@ const HeaderCellMenu = ({
           {isSortable && (
             <>
               <ActionItem
-                data-cy="ascending-column-menu-button"
+                data-testid="ascending-column-menu-button"
                 icon={Ascending}
                 label={getLocale(i18n, t, "neetoui.table.ascending")}
                 isActive={
@@ -116,7 +115,7 @@ const HeaderCellMenu = ({
                 }
               />
               <ActionItem
-                data-cy="descending-column-menu-button"
+                data-testid="descending-column-menu-button"
                 icon={Descending}
                 label={getLocale(i18n, t, "neetoui.table.descending")}
                 isActive={
@@ -137,12 +136,12 @@ const HeaderCellMenu = ({
           {isAddEnabled && (
             <>
               <ActionItem
-                data-cy="insert-right-column-menu-button"
+                data-testid="insert-right-column-menu-button"
                 label={getLocale(i18n, t, "neetoui.table.insertColRight")}
                 onClick={() => onAddColumn(COLUMN_ADD_DIRECTION.right)}
               />
               <ActionItem
-                data-cy="insert-left-column-menu-button"
+                data-testid="insert-left-column-menu-button"
                 label={getLocale(i18n, t, "neetoui.table.insertColLeft")}
                 onClick={() => onAddColumn(COLUMN_ADD_DIRECTION.left)}
               />
@@ -157,14 +156,14 @@ const HeaderCellMenu = ({
           )}
           {isColumnDeletable && (
             <ActionItem
-              data-cy="delete-column-menu-button"
+              data-testid="delete-column-menu-button"
               label={getLocale(i18n, t, "neetoui.table.deleteColumn")}
               onClick={() => onColumnDelete(column.id)}
             />
           )}
           {isColumnFreezeEnabled && (
             <ActionItem
-              data-cy="freeze-unfreeze-column-menu-button"
+              data-testid="freeze-unfreeze-column-menu-button"
               icon={Pin}
               label={
                 isFixedColumn
@@ -200,7 +199,7 @@ const HeaderCellMenu = ({
           {hasMoreActions &&
             moreActions.map((item, index) => (
               <ActionItem
-                data-cy={`${hyphenize(item.label)}-column-menu-button`}
+                data-testid={`${hyphenize(item.label)}-column-menu-button`}
                 icon={item.icon}
                 key={index}
                 label={item.label}

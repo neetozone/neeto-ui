@@ -18,25 +18,25 @@ const HelpSectionTooltip = ({ helpSectionProps }) => {
       ...documentationProps,
       label: "Documentation",
       icon: Book,
-      "data-cy": "help-link-documentation-button",
+      "data-testid": "help-link-documentation-button",
     },
     keyboardShortcutProps && {
       ...keyboardShortcutProps,
       label: "Keyboard shortcuts",
       icon: Keyboard,
-      "data-cy": "help-link-keyboard-shortcut-button",
+      "data-testid": "help-link-keyboard-shortcut-button",
     },
     liveChatProps && {
       ...liveChatProps,
       label: "Chat with us",
       icon: ChatEmpty,
-      "data-cy": "help-link-live-chat-button",
+      "data-testid": "help-link-live-chat-button",
     },
     changelogProps && {
       ...changelogProps,
       label: "What's new?",
       icon: Gift,
-      "data-cy": "help-link-changelog-button",
+      "data-testid": "help-link-changelog-button",
     },
   ].filter(Boolean);
 

@@ -84,7 +84,7 @@ The auto-migration worked successfully and effectively transitioned the files to
 
 ## 8.2.78 - 2025-04-15
 
-- Added: `dataCy` prop to *Select* component.
+- Added: `dataTestId` prop to *Select* component.
 
 ## 8.2.77 - 2025-04-11
 
@@ -136,13 +136,13 @@ The auto-migration worked successfully and effectively transitioned the files to
 ## 8.2.67 - 2025-03-18
 - Fixed issue with *Table* column reordering
 ## 8.2.65 - 2025-03-10
-Added: `data-cy` labels for *HeaderCellMenu* and *CellContent*.
+Added: `data-testid` labels for *HeaderCellMenu* and *CellContent*.
 ## 8.2.62 - 2025-02-19
 - Fixed: Pane footer cut-off issue in iOS Safari.
 iPad Pro (11-inch) - Tested using Xcode
 ![Simulator Screenshot - iPad Pro (11-inch) (4th generation) - 2025-02-19 at 20 04 00](https://github.com/user-attachments/assets/987f5448-c67f-4b76-b3c9-c58b9364249e)
 ## 8.2.60 - 2025-02-11
-Fixed data-cy label for *Input*.
+Fixed data-testid label for *Input*.
 ## 8.2.59 - 2025-02-07
 - Fixed TypeError in `useOverlay` hook.
 ## 8.2.58 - 2025-02-07
@@ -152,7 +152,7 @@ Fixed data-cy label for *Input*.
 ## 8.2.56 - 2025-02-06
 - Added logic to show clear selection callout when all table rows are selected
 ## 8.2.53 - 2025-01-23
-- Added: `data-cy` label for *ProgressBar*
+- Added: `data-testid` label for *ProgressBar*
 ## 8.2.52 - 2025-01-22
 
 - Fixed TypeError in Pane component.
@@ -185,7 +185,7 @@ Fixed data-cy label for *Input*.
 
 ## 8.2.45 - 2024-12-06
 
-Changed the `data-cy` prop for *Toast* message component.
+Changed the `data-testid` prop for *Toast* message component.
 
 ## 8.2.44 - 2024-12-06
 
@@ -209,17 +209,17 @@ Documentation - https://craig.is/killing/mice
 ## 8.2.40 - 2024-11-27
 
 - The false value of the prop `icon` was ignored in the implementations before v9.0.2.
-  
+
 - After 9.0.2, the [implementation](https://github.com/fkhadra/react-toastify/blob/main/src/components/Toast.tsx#L108-L117) is such that the icon is rendered as passed in the config.
-  
+
 - Since the `false` value was used to show the default icon set internally, replaced it with a function that returns null
   which solved the problem.
-  
+
   - Code ref: https://github.com/fkhadra/react-toastify/blob/v8.0.1/src/components/Toast.tsx#L65-L75.
   - The `if (icon === false)` statement was never success for some reason.
-  
+
 - PR which addressed this issue: https://github.com/fkhadra/react-toastify/pull/758
-  
+
 
 ## 8.2.39 - 2024-11-27
 
@@ -292,7 +292,7 @@ Upgraded the Rollup package to latest version(4.24.1), and its plugins as well!
 
 ## 8.2.23 - 2024-10-08
 
-Added: `data-cy` prop to *Check* and *Close* icons in *Switch* component.
+Added: `data-testid` prop to *Check* and *Close* icons in *Switch* component.
 
 ## 8.2.22 - 2024-10-07
 
@@ -339,7 +339,7 @@ The existing implementation was ignoring the already set fixed columns. This wil
 <img width="1438" alt="Screenshot 2024-09-13 at 12 58 28 PM" src="https://github.com/user-attachments/assets/ab934456-c014-4bdb-b03b-709333e98d6a">
 <img width="1159" alt="Screenshot 2024-09-13 at 12 26 11 PM" src="https://github.com/user-attachments/assets/73317b59-15f5-429b-8458-359934b216de">
 ## 8.2.13 - 2024-09-10
-Added: `data-cy` prop to *Radio* input
+Added: `data-testid` prop to *Radio* input
 ## 8.2.11 - 2024-09-05
 https://deepak-jose.neetorecord.com/watch/ab0a7044-22de-4564-a015-0002ed390736
 ## 8.2.7 - 2024-08-26
@@ -444,7 +444,7 @@ Updates all formik components in neetoUI to use status to show server error and 
 - Updated: Storybook theme to match the branding.
 - Improved: Documentation readability.
 ## 6.8.3 - 2024-06-24
-- Added option to pass data-cy to accordion
+- Added option to pass data-testid to accordion
 
 ## 6.8.2 - 2024-06-19
 
@@ -612,7 +612,7 @@ After
 
 ## 6.2.5 - 2024-02-12
 
-Added: `data-cy` to Tag container div.
+Added: `data-testid` to Tag container div.
 
 ## 6.2.4 - 2024-02-12
 
@@ -643,7 +643,7 @@ Added: Ability to see info about a table column
 ## 6.0.5 - 2023-12-22
 - Fixed: Pane scroll issue.
 ## 6.0.3 - 2023-12-15
-Added: data-cy to *Spinner*
+Added: data-testid to *Spinner*
 **Reviewers**
 <!---
 ------------- FORMAT FOR DESCRIPTION -------------
@@ -734,9 +734,9 @@ Changed: Updated instances of `@reach/autoid` with React `useId`
 - Changed: reduced pagination margin top and margin bottom values to make it
   more compact.
 ## 5.2.24 - 2023-11-07
-Added: data-cy attribute to TextArea
+Added: data-testid attribute to TextArea
 ## 5.2.23 - 2023-11-06
-Added: data-cy attributes to Select, DatePicker and Tags
+Added: data-testid attributes to Select, DatePicker and Tags
 ## 5.2.21 - 2023-10-27
 Added: `TimePickerInput` component
 ## 5.2.20 - 2023-10-26
@@ -941,7 +941,7 @@ This PR adds the following changes to the *Switch* component.
 ## 4.4.11 - 2023-03-14
 
 - Added: `liveChat` prop to *HelpSection* component.
-- Added: data-cy to `helpLink` prop.
+- Added: data-testid to `helpLink` prop.
 - Changed: label into an optional value in LinkType.
 
 ## 4.4.10 - 2023-03-14
@@ -1187,7 +1187,7 @@ Changes documentations to sentence case from title casing.
 ## 4.0.6 - 2022-09-20
 - Changed: default value of `defaultPageSize` prop of *Table* component from 100 to 15.
 ## 4.0.5 - 2022-09-20
-- Added: type support for data-cy props in all components that are forward referenced to HTML native elements.
+- Added: type support for data-testid props in all components that are forward referenced to HTML native elements.
 ## 4.0.4 - 2022-09-16
 - Changed: Allowed `hideOnSinglePage` override in *Table* `paginationProps`
 ## 4.0.3 - 2022-09-13
@@ -1462,7 +1462,7 @@ Fixed: `TypeError` issue in *Toastr* component.
 ## 3.3.4
 - Added: `hideOnTargetExit` prop to *Tooltip* component
 ## 3.3.3
-- Added: data-cy for in *Alert* component elements
+- Added: data-testid for in *Alert* component elements
 ## 3.3.2
 - Fixed: Added override for `onClick` prop in *Dropdown* component
 ## 3.3.1

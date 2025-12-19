@@ -31,16 +31,12 @@ const HelpContent = ({ helpIconProps }) => {
         <Popover reference={popoverReferenceElement} {...otherPopoverProps}>
           <div className="neeto-ui-flex neeto-ui-flex-col">
             {title && (
-              <Popover.Title
-                data-cy="help-popover-title"
-                data-testid="help-popover-title"
-              >
+              <Popover.Title data-testid="help-popover-title">
                 {title}
               </Popover.Title>
             )}
             {typeof description === "string" ? (
               <Typography
-                data-cy="help-popover-description"
                 data-testid="help-popover-description"
                 lineHeight="normal"
                 style="body2"
@@ -54,10 +50,9 @@ const HelpContent = ({ helpIconProps }) => {
             {helpLinkProps && (
               <Button
                 className="neeto-ui-mt-3"
-                data-cy="help-popover-link-button"
+                data-testid="help-popover-link-button"
                 size="small"
                 {...helpLinkProps}
-                data-testid="help-popover-link-button"
                 style="link"
                 target="_blank"
               />

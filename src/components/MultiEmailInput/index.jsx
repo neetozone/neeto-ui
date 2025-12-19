@@ -144,14 +144,14 @@ const MultiEmailInput = forwardRef(
     return (
       <div
         className="neeto-ui-input__wrapper neeto-ui-email-input__wrapper"
-        data-cy="email-input-wrapper"
+        data-testid="email-input-wrapper"
       >
         <div className="neeto-ui-email-input__label-wrapper">
           {label && (
             <Label
               {...{ required }}
               className="neeto-ui-email-input__label"
-              data-cy={`${hyphenize(label)}-input-label`}
+              data-testid={`${hyphenize(label)}-input-label`}
               {...labelProps}
             >
               {label}
@@ -160,7 +160,7 @@ const MultiEmailInput = forwardRef(
           {isCounterVisible && (
             <p
               className="neeto-ui-email-input__counter"
-              data-cy={`${hyphenize(label)}-email-counter`}
+              data-testid={`${hyphenize(label)}-email-counter`}
             >
               {getValidEmailsCount(value)}{" "}
               {counter.label
@@ -213,7 +213,7 @@ const MultiEmailInput = forwardRef(
         {!!error && (
           <p
             className="neeto-ui-input__error"
-            data-cy={`${hyphenize(label)}-input-error`}
+            data-testid={`${hyphenize(label)}-input-error`}
           >
             {error}
             {isFilterEmailsLinkVisible && (
@@ -232,7 +232,7 @@ const MultiEmailInput = forwardRef(
         {!!helpText && (
           <p
             className="neeto-ui-input__help-text"
-            data-cy={`${hyphenize(label)}-input-help`}
+            data-testid={`${hyphenize(label)}-input-help`}
           >
             {helpText}
           </p>
@@ -240,7 +240,7 @@ const MultiEmailInput = forwardRef(
         {!!duplicateEmails.length && (
           <p
             className="neeto-ui-input__error"
-            data-cy={`${hyphenize(label)}-duplicate-emails-warning`}
+            data-testid={`${hyphenize(label)}-duplicate-emails-warning`}
           >
             {renderDuplicateEmailsWarningMessage(duplicateEmails)}
           </p>

@@ -79,8 +79,7 @@ const Avatar = ({
       <span
         {...{ onClick }}
         className={containerClasses}
-        data-cy="nui-avatar"
-        data-testid="avatar"
+        data-testid="nui-avatar"
         {...otherProps}
       >
         <Indicator />
