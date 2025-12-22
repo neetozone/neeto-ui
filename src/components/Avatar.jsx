@@ -60,13 +60,6 @@ const Avatar = ({
     "neeto-ui-avatar__status-xlarge": isExtraLarge,
   });
 
-  const Indicator = () =>
-    isNil(status) ? (
-      React.Fragment
-    ) : (
-      <span className={statusClasses} data-testid="indicator" />
-    );
-
   const shouldDisplayFallbackAvatar = !(imageUrl && !isLoadingFailed);
 
   return (
@@ -82,7 +75,9 @@ const Avatar = ({
         data-testid="nui-avatar"
         {...otherProps}
       >
-        <Indicator />
+        {!isNil(status) && (
+          <span className={statusClasses} data-testid="indicator" />
+        )}
         {shouldDisplayFallbackAvatar ? (
           <Avvvatars
             displayValue={getInitials(name)}
