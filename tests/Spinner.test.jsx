@@ -7,6 +7,6 @@ import { Spinner } from "components";
 describe("Spinner", () => {
   it("should render without error", () => {
     const { getByTestId } = render(<Spinner />);
-    expect(getByTestId("spinner")).toBeInTheDocument();
+    expect(getByTestId("neeto-ui-spinner")).toBeInTheDocument();
   });
 });

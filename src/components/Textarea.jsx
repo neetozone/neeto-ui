@@ -84,13 +84,13 @@ const Textarea = forwardRef(
     return (
       <div
         className={classnames(["neeto-ui-input__wrapper", className])}
-        data-cy="nui-textarea-wrapper"
+        data-testid="nui-textarea-wrapper"
       >
         <div className="neeto-ui-input__label-wrapper">
           {label && (
             <Label
               {...{ required }}
-              data-cy={`${hyphenize(label)}-label`}
+              data-testid={`${hyphenize(label)}-label`}
               htmlFor={id}
               {...labelProps}
             >
@@ -108,7 +108,7 @@ const Textarea = forwardRef(
           )}
         </div>
         <div
-          data-cy={`${hyphenize(label)}-text-input-label`}
+          data-testid={`${hyphenize(label)}-text-input-label`}
           className={classnames("neeto-ui-input", "neeto-ui-input--textarea", {
             "neeto-ui-input--error": !!error,
             "neeto-ui-input--disabled": !!disabled,
@@ -122,7 +122,7 @@ const Textarea = forwardRef(
         >
           {prefix && <div className="neeto-ui-input__prefix">{prefix}</div>}
           <textarea
-            data-cy={`${hyphenize(label)}-text-input`}
+            data-testid={`${hyphenize(label)}-text-input`}
             ref={textareaRef}
             rows={ROWS[size]}
             {...{
@@ -142,7 +142,7 @@ const Textarea = forwardRef(
         {!!error && (
           <p
             className="neeto-ui-input__error"
-            data-cy={`${hyphenize(label)}-input-error`}
+            data-testid={`${hyphenize(label)}-input-error`}
             id={errorId}
           >
             {error}

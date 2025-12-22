@@ -95,7 +95,7 @@ describe("Select", () => {
     const { getByText, getByTestId } = render(
       <Select {...{ options }} error="Error message" label="Select" />
     );
-    expect(getByTestId("select-error")).toBeInTheDocument();
+    expect(getByTestId("select-select-error")).toBeInTheDocument();
     expect(getByText("Error message")).toBeInTheDocument();
   });
 
@@ -103,14 +103,14 @@ describe("Select", () => {
     const { getByText, getByTestId } = render(
       <Select {...{ options }} helpText="Help text" label="Select" />
     );
-    expect(getByTestId("select-help-text")).toBeInTheDocument();
+    expect(getByTestId("select-select-help-text")).toBeInTheDocument();
     expect(getByText("Help text")).toBeInTheDocument();
   });
 
   it("should create new element when Select is creatable", async () => {
     const { getByRole, getByTestId } = render(<Select isCreateable />);
     const select = getByRole("combobox");
-    const selectBox = getByTestId("select");
+    const selectBox = getByTestId("nui-select-container-wrapper");
     await userEvent.click(select);
     expect(selectBox).toHaveTextContent("No options", { exact: false });
     await userEvent.type(select, "hello");

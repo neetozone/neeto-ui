@@ -5,10 +5,7 @@ import Linkify from "linkify-react";
 import { noop } from "utils";
 
 const Toast = ({ type, message, buttonLabel = "", onClick = noop }) => (
-  <div
-    data-cy={`toastr-${type}-container`}
-    data-test={`toastr-${type}-container`}
-  >
+  <div data-testid={`toastr-${type}-container`}>
     <Linkify
       options={{
         defaultProtocol: "https",
@@ -22,7 +19,7 @@ const Toast = ({ type, message, buttonLabel = "", onClick = noop }) => (
       <div className="toastr-message-container__btn-wrapper">
         <button
           className="neeto-ui-btn neeto-ui-btn--style-tertiary"
-          data-cy={`toastr-${type}-button`}
+          data-testid={`toastr-${type}-button`}
           onClick={e => {
             e.stopPropagation();
             onClick();

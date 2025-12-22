@@ -165,7 +165,7 @@ const TimePicker = forwardRef(
           {!!error && (
             <p
               className="neeto-ui-input__error"
-              data-cy={`${hyphenize(label)}-input-error`}
+              data-testid={`${hyphenize(label)}-input-error`}
               id={errorId}
             >
               {error}

@@ -49,7 +49,7 @@ describe("Tab", () => {
         <Tab.Item icon="icon">Tab 1</Tab.Item>
       </Tab>
     );
-    expect(screen.getByTestId("tab-icon")).toBeInTheDocument();
+    expect(screen.getByTestId("tab-item-icon")).toBeInTheDocument();
   });
 
   it("should call onClick when clicked on Tab", async () => {

@@ -68,7 +68,7 @@ describe("Modal", () => {
         <Modal.Body>Sample text</Modal.Body>
       </Modal>
     );
-    expect(queryByTestId("close-button")).not.toBeInTheDocument();
+    expect(queryByTestId("modal-close-button")).not.toBeInTheDocument();
   });
 
   it("should trigger onClose on close button is clicked", async () => {
@@ -78,7 +78,7 @@ describe("Modal", () => {
         <Modal.Body>Sample text</Modal.Body>
       </Modal>
     );
-    await userEvent.click(getByTestId("close-button"));
+    await userEvent.click(getByTestId("modal-close-button"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
@@ -158,7 +158,7 @@ describe("Modal", () => {
     );
 
     setTimeout(() => {
-      expect(getByTestId("close-button")).toHaveFocus();
+      expect(getByTestId("modal-close-button")).toHaveFocus();
     }, 500);
   });
 

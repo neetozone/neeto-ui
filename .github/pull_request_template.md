@@ -8,7 +8,7 @@
 - [ ] I have updated the types definition of modified exports.
 - [ ] I have verified the functionality in some of the neeto web-apps.
 - [ ] I have added tests that prove my fix is effective or that my feature works.
-- [ ] I have added proper `data-cy` and `data-testid` attributes.
+- [ ] I have added proper `data-testid` attributes.
 - [ ] I have added the necessary label (`patch`/`minor`/`major` - If package publish
       is required).
 

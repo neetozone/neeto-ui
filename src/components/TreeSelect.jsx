@@ -75,7 +75,7 @@ const TreeSelect = forwardRef(
               treeData,
               treeDataSimpleMode,
             }}
-            data-cy="neeto-ui-tree-select-wrapper"
+            data-testid="neeto-ui-tree-select-wrapper"
             dropdownStyle={{ zIndex: 100000 }}
             suffixIcon={<SuffixIcon />}
             treeNodeFilterProp={fieldNames?.label ?? "label"}

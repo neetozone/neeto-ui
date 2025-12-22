@@ -108,7 +108,7 @@ const Pane = ({
           )}
         >
           <div
-            data-cy="pane-wrapper"
+            data-testid="pane-wrapper"
             key="pane-wrapper"
             ref={paneWrapperRef}
             className={classnames("neeto-ui-pane__wrapper", {
@@ -123,8 +123,7 @@ const Pane = ({
               <Button
                 aria-label="Close"
                 className="neeto-ui-pane__close"
-                data-cy="pane-close-button"
-                data-testid="close-button"
+                data-testid="pane-close-button"
                 icon={Close}
                 size="small"
                 style="text"

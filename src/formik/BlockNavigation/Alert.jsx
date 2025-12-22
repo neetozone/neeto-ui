@@ -31,29 +31,33 @@ const Alert = ({ isOpen = false, onClose, onSubmit, onDiscardChanges }) => {
       closeButton
       closeOnEsc
       closeOnOutsideClick
-      data-cy="alert-box"
+      data-testid="alert-box"
       initialFocusRef={submitButtonRef}
       size="medium"
     >
       <Modal.Header>
-        <Typography data-cy="alert-title" style="h2">
+        <Typography data-testid="alert-title" style="h2">
           {getLocale(i18n, t, "neetoui.blockNavigation.alertTitle")}
         </Typography>
       </Modal.Header>
       <Modal.Body>
-        <Typography data-cy="alert-message" lineHeight="normal" style="body2">
+        <Typography
+          data-testid="alert-message"
+          lineHeight="normal"
+          style="body2"
+        >
           {getLocale(i18n, t, "neetoui.blockNavigation.alertMessage")}
         </Typography>
       </Modal.Body>
       <Modal.Footer className="neeto-ui-gap-2 neeto-ui-flex neeto-ui-justify-end neeto-ui-items-center">
         <Button
-          data-cy="alert-cancel-button"
+          data-testid="alert-cancel-button"
           label={cancelButtonLabel}
           style="danger"
           onClick={onDiscardChanges}
         />
         <Button
-          data-cy="alert-submit-button"
+          data-testid="alert-submit-button"
           label={submitButtonLabel}
           ref={submitButtonRef}
           style="primary"

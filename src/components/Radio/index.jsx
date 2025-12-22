@@ -66,7 +66,7 @@ const Radio = ({
       {!!error && (
         <p
           className="neeto-ui-radio-input__error"
-          data-cy={`${hyphenize(label)}-radio-input-error`}
+          data-testid={`${hyphenize(label)}-radio-input-error`}
           id={errorId}
         >
           {error}

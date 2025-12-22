@@ -62,7 +62,7 @@ const Slider = ({
           {label && (
             <Label
               {...{ required }}
-              data-cy={`${hyphenize(label)}-slider-label`}
+              data-testid={`${hyphenize(label)}-slider-label`}
               htmlFor={id}
               {...labelProps}
             >
@@ -86,7 +86,7 @@ const Slider = ({
         {!!error && (
           <p
             className="neeto-ui-input__error"
-            data-cy={`${hyphenize(label)}-input-error`}
+            data-testid={`${hyphenize(label)}-input-error`}
             id={errorId}
           >
             {error}
@@ -95,7 +95,7 @@ const Slider = ({
         {helpText && (
           <p
             className="neeto-ui-input__help-text"
-            data-cy={`${hyphenize(label)}-input-help`}
+            data-testid={`${hyphenize(label)}-input-help`}
             id={helpTextId}
           >
             {helpText}

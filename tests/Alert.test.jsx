@@ -42,7 +42,7 @@ describe("Alert", () => {
         title="Alert title"
       />
     );
-    await userEvent.click(getByTestId("close-button"));
+    await userEvent.click(getByTestId("modal-close-button"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 

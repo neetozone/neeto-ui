@@ -29,7 +29,7 @@ const Checkbox = forwardRef(
       <div className={classnames(["neeto-ui-checkbox__wrapper", className])}>
         <div
           className="neeto-ui-checkbox__container"
-          data-cy="nui-checkbox-container"
+          data-testid="nui-checkbox-container"
         >
           <input
             {...{ id, ref, required }}
@@ -37,7 +37,7 @@ const Checkbox = forwardRef(
             aria-invalid={!!error}
             aria-required={required}
             className="neeto-ui-checkbox"
-            data-cy={`${hyphenize(renderLabel)}-checkbox-input`}
+            data-testid={`${hyphenize(renderLabel)}-checkbox-input`}
             name={id}
             type="checkbox"
             {...otherProps}
@@ -45,7 +45,7 @@ const Checkbox = forwardRef(
           {renderLabel && (
             <Label
               {...{ required }}
-              data-cy={`${hyphenize(renderLabel)}-checkbox-label`}
+              data-testid={`${hyphenize(renderLabel)}-checkbox-label`}
               htmlFor={id}
               {...labelProps}
             >
@@ -56,7 +56,7 @@ const Checkbox = forwardRef(
         {!!error && (
           <p
             className="neeto-ui-input__error"
-            data-cy={`${hyphenize(renderLabel)}-checkbox-error`}
+            data-testid={`${hyphenize(renderLabel)}-checkbox-error`}
             id={errorId}
           >
             {error}

@@ -15,9 +15,7 @@ const Item = ({
 }) => {
   const Icon =
     typeof icon === "string"
-      ? () => (
-          <i className={icon} data-cy="tab-item-icon" data-testid="tab-icon" />
-        )
+      ? () => <i className={icon} data-testid="tab-item-icon" />
       : icon || React.Fragment;
 
   const Parent = activeClassName ? NavLink : "button";
@@ -26,7 +24,7 @@ const Item = ({
   return (
     <Parent
       aria-selected={active}
-      data-cy="tab-item"
+      data-testid="tab-item"
       role="tab"
       className={classnames(
         [

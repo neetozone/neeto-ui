@@ -40,7 +40,10 @@ const Control = ({ children, ...props }) => {
 const DropdownIndicator = props => (
   <components.DropdownIndicator
     {...props}
-    innerProps={{ ...props.innerProps, ["data-cy"]: "action-select-indicator" }}
+    innerProps={{
+      ...props.innerProps,
+      ["data-testid"]: "action-select-indicator",
+    }}
   >
     <Down size={16} />
   </components.DropdownIndicator>
@@ -49,7 +52,10 @@ const DropdownIndicator = props => (
 const ClearIndicator = props => (
   <components.ClearIndicator
     {...props}
-    innerProps={{ ...props.innerProps, "data-cy": "clear-select-indicator" }}
+    innerProps={{
+      ...props.innerProps,
+      "data-testid": "clear-select-indicator",
+    }}
   >
     <Close size={16} />
   </components.ClearIndicator>
@@ -67,8 +73,7 @@ const CustomInput = props => {
   return (
     <components.Input
       {...props}
-      data-cy={selectProps ? selectProps["data-cy"] : "select-input"}
-      data-testid={selectProps && selectProps["data-testid"]}
+      data-testid={selectProps ? selectProps["data-testid"] : "select-input"}
       maxLength={selectProps && selectProps.maxLength}
     />
   );
@@ -78,7 +83,7 @@ const CustomOption = props => {
   const ref = useRef();
   const {
     innerProps,
-    data: { dataCy, tooltipProps = {} },
+    data: { dataTestid, tooltipProps = {} },
   } = props;
 
   useEffect(() => {
@@ -91,7 +96,7 @@ const CustomOption = props => {
       innerRef={ref}
       innerProps={{
         ...innerProps,
-        "data-cy": dataCy || `${hyphenize(props.label)}-select-option`,
+        "data-testid": dataTestid || `${hyphenize(props.label)}-select-option`,
       }}
     />
   );
@@ -113,8 +118,8 @@ const Placeholder = props => {
       {...props}
       innerProps={{
         ...props.innerProps,
-        "data-cy": selectProps?.hyphenatedDataCyLabel
-          ? `${selectProps.hyphenatedDataCyLabel}-select-placeholder`
+        "data-testid": selectProps?.hyphenatedDataTestIdLabel
+          ? `${selectProps.hyphenatedDataTestIdLabel}-select-placeholder`
           : "select-placeholder",
       }}
     />
@@ -129,8 +134,8 @@ const Menu = props => {
       {...props}
       innerProps={{
         ...props.innerProps,
-        "data-cy": selectProps
-          ? `${selectProps.hyphenatedDataCyLabel}-select-menu`
+        "data-testid": selectProps
+          ? `${selectProps.hyphenatedDataTestIdLabel}-select-menu`
           : "select-menu",
       }}
     />
@@ -140,7 +145,7 @@ const Menu = props => {
 const SingleValue = props => (
   <components.SingleValue
     {...props}
-    innerProps={{ ...props.innerProps, "data-cy": "select-single-value" }}
+    innerProps={{ ...props.innerProps, "data-testid": "select-single-value" }}
   />
 );
 
@@ -153,8 +158,8 @@ const ValueContainer = props => {
       innerProps={{
         ...props.innerProps,
         name: selectProps.name,
-        "data-cy": selectProps
-          ? `${selectProps.hyphenatedDataCyLabel}-select-value-container`
+        "data-testid": selectProps
+          ? `${selectProps.hyphenatedDataTestIdLabel}-select-value-container`
           : "select-value-container",
       }}
     />
@@ -232,7 +237,7 @@ const Select = ({
   onMenuOpen,
   onKeyDown,
   styles = {},
-  dataCy = "nui",
+  dataTestid = "nui",
   ...otherProps
 }) => {
   const inputId = useId(id);
@@ -240,8 +245,8 @@ const Select = ({
     otherProps.isMenuOpen ?? otherProps.defaultMenuIsOpen ?? false
   );
 
-  const hyphenatedDataCyLabel = isEmpty(label)
-    ? hyphenize(dataCy)
+  const hyphenatedDataTestIdLabel = isEmpty(label)
+    ? hyphenize(dataTestid)
     : hyphenize(label);
 
   let Parent = SelectInput;
@@ -318,14 +323,12 @@ const Select = ({
   return (
     <div
       className={classnames(["neeto-ui-input__wrapper", className])}
-      data-cy={`${hyphenatedDataCyLabel}-select-container-wrapper`}
-      data-testid="select"
+      data-testid={`${hyphenatedDataTestIdLabel}-select-container-wrapper`}
     >
       {label && (
         <Label
           {...{ required }}
-          data-cy={`${hyphenatedDataCyLabel}-input-label`}
-          data-testid="select-label"
+          data-testid={`${hyphenatedDataTestIdLabel}-input-label`}
           htmlFor={inputId}
           {...labelProps}
         >
@@ -336,7 +339,7 @@ const Select = ({
         blurInputOnSelect={false}
         classNamePrefix="neeto-ui-react-select"
         closeMenuOnSelect={!otherProps.isMulti}
-        data-cy={`${hyphenatedDataCyLabel}-select-container`}
+        data-testid={`${hyphenatedDataTestIdLabel}-select-container`}
         defaultValue={findInOptions(defaultValue)}
         ref={innerRef}
         value={findInOptions(value)}
@@ -369,14 +372,13 @@ const Select = ({
           styles,
           ...portalProps,
           ...otherProps,
-          hyphenatedDataCyLabel,
+          hyphenatedDataTestIdLabel,
         }}
       />
       {!!error && (
         <p
           className="neeto-ui-input__error"
-          data-cy={`${hyphenatedDataCyLabel}-select-error`}
-          data-testid="select-error"
+          data-testid={`${hyphenatedDataTestIdLabel}-select-error`}
         >
           {error}
         </p>
@@ -384,8 +386,7 @@ const Select = ({
       {helpText && (
         <p
           className="neeto-ui-input__help-text"
-          data-cy={`${hyphenatedDataCyLabel}-select-help-text`}
-          data-testid="select-help-text"
+          data-testid={`${hyphenatedDataTestIdLabel}-select-help-text`}
         >
           {helpText}
         </p>
@@ -511,9 +512,9 @@ Select.propTypes = {
    */
   styles: PropTypes.object,
   /**
-   * To specify the custom data-cy label for the Select component and its child components.
+   * To specify the custom data-testid label for the Select component and its child components.
    */
-  dataCy: PropTypes.string,
+  dataTestid: PropTypes.string,
 };
 
 export default Select;

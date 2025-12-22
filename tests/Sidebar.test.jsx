@@ -72,7 +72,7 @@ describe("Sidebar", () => {
         <Sidebar {...sidebarProps} />
       </Router>
     );
-    expect(getByTestId("sidebar")).toBeInTheDocument();
+    expect(getByTestId("sidebar-wrapper")).toBeInTheDocument();
   });
 
   it("should display all navlink elements correctly", () => {
@@ -155,7 +155,7 @@ describe("Sidebar", () => {
     );
 
     const appSwitcherButton = container.querySelector(
-      "button[data-cy='app-switcher-button']"
+      "button[data-testid='app-switcher-button']"
     );
     expect(appSwitcherButton).toBeInTheDocument();
 
@@ -170,7 +170,9 @@ describe("Sidebar", () => {
       </Router>
     );
 
-    const helpButton = container.querySelector("button[data-cy='help-button']");
+    const helpButton = container.querySelector(
+      "button[data-testid='help-button']"
+    );
     expect(helpButton).toBeInTheDocument();
 
     expect(queryByText(changelogProps.label)).not.toBeInTheDocument();

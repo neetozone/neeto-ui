@@ -158,14 +158,14 @@ const ColorPicker = ({
               <div className="neeto-ui-input__wrapper">
                 <div
                   className="neeto-ui-colorpicker__input neeto-ui-input neeto-ui-input--small"
-                  data-cy="colorpicker-editable-input"
+                  data-testid="colorpicker-editable-input"
                 >
                   <HexColorInput
                     {...{ onBlur }}
                     prefixed
                     alpha={!!showTransparencyControl}
                     color={colorValue}
-                    data-cy="colorpicker-editable-input-textbox"
+                    data-testid="colorpicker-editable-input-textbox"
                     onChange={onColorInputChange}
                   />
                 </div>

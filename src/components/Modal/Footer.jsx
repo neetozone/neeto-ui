@@ -3,10 +3,10 @@ import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-const Footer = ({ children, className, dataCy }) => (
+const Footer = ({ children, className, dataTestid }) => (
   <div
     className={classnames("neeto-ui-modal__footer", className)}
-    data-cy={dataCy ?? "modal-footer"}
+    data-testid={dataTestid ?? "modal-footer"}
   >
     {children}
   </div>

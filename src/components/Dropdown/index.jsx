@@ -142,7 +142,7 @@ const Dropdown = ({
       content={
         mounted ? (
           <div
-            data-cy={`${hyphenize(label)}-dropdown-container`}
+            data-testid={`${hyphenize(label)}-dropdown-container`}
             className={classnames("neeto-ui-dropdown__popup", {
               [dropdownClassName]: dropdownClassName,
               [dropdownClassnames]: dropdownClassnames,
@@ -172,7 +172,7 @@ const Dropdown = ({
       ) : (
         <Button
           {...{ label, onClick }}
-          data-cy={`${hyphenize(label)}-dropdown-icon`}
+          data-testid={`${hyphenize(label)}-dropdown-icon`}
           disabled={disabled || buttonProps?.disabled}
           icon={icon || Down}
           iconPosition="right"
