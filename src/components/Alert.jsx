@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 
 import PropTypes from "prop-types";
 
+import { useId } from "hooks";
+
 import Button from "./Button";
 import Modal from "./Modal";
 import Typography from "./Typography";
@@ -28,6 +30,7 @@ const Alert = ({
   initialFocusRef,
   initialFocusElement,
   hideCancelButton = false,
+  ...otherProps
 }) => {
   const submitButtonRef = useRef(null);
   const cancelButtonRef = useRef(null);
@@ -37,6 +40,15 @@ const Alert = ({
     initialFocusElement === FOCUSABLE_ELEMENTS.submit
       ? submitButtonRef
       : cancelButtonRef;
+
+  // Generate unique IDs for title and message
+  const baseId = useId();
+  const titleId = `alert-title-${baseId}`;
+  const messageId = `alert-message-${baseId}`;
+  const ariaProps = {
+    ...(title && { "aria-labelledby": titleId }),
+    ...(message && { "aria-describedby": messageId }),
+  };
 
   return (
     <Modal
@@ -49,20 +61,24 @@ const Alert = ({
         isOpen,
         onClose,
         size,
+        ...(hasCustomFocusableElement && {
+          initialFocusRef: initialFocusRef || initialFocusElementRef,
+        }),
+        ...ariaProps,
+        ...otherProps,
       }}
       data-testid="alert-box"
-      {...(hasCustomFocusableElement && {
-        initialFocusRef: initialFocusRef || initialFocusElementRef,
-      })}
+      role="alertdialog"
     >
       <Modal.Header>
-        <Typography data-testid="alert-title" style="h2">
+        <Typography data-testid="alert-title" id={titleId} style="h2">
           {title}
         </Typography>
       </Modal.Header>
       <Modal.Body>
         <Typography
           data-testid="alert-message"
+          id={messageId}
           lineHeight="normal"
           style="body2"
         >
