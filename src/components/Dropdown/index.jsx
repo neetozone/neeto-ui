@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import { isNil } from "ramda";
 
 import Button from "components/Button";
+import { useId } from "hooks";
 import { hyphenize, noop } from "utils";
 
 import Divider from "./Divider";
@@ -104,6 +105,8 @@ const Dropdown = ({
 }) => {
   const [instance, setInstance] = useState(null);
   const [mounted, setMounted] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const menuId = useId();
 
   const isControlled = !isNil(isOpen);
 
@@ -123,6 +126,7 @@ const Dropdown = ({
     <Tippy
       interactive
       animation={false}
+      aria={{ content: null, expanded: false }}
       arrow={false}
       duration={0}
       // hideOnClick determines whether the dropdown should be hidden when the user clicks outside of the dropdown.
@@ -133,7 +137,7 @@ const Dropdown = ({
       offset={0}
       placement={getDropdownPlacement(placement)}
       popperOptions={{ strategy, modifiers: dropdownModifiers }}
-      role="dropdown"
+      role="menu"
       theme="light"
       trigger={isControlled ? undefined : TRIGGERS[trigger]}
       className={classnames("neeto-ui-dropdown", {
@@ -143,6 +147,7 @@ const Dropdown = ({
         mounted ? (
           <div
             data-testid={`${hyphenize(label)}-dropdown-container`}
+            id={menuId}
             className={classnames("neeto-ui-dropdown__popup", {
               [dropdownClassName]: dropdownClassName,
               [dropdownClassnames]: dropdownClassnames,
@@ -156,9 +161,11 @@ const Dropdown = ({
       }
       onCreate={instance => instance && setInstance(instance)}
       onMount={() => setMounted(true)}
+      onShow={() => setIsExpanded(true)}
       onHidden={() => {
         onClose();
         setMounted(false);
+        setIsExpanded(false);
       }}
       {...{ disabled, plugins, ...otherProps, ...controlledProps }}
     >
@@ -172,6 +179,9 @@ const Dropdown = ({
       ) : (
         <Button
           {...{ label, onClick }}
+          aria-controls={menuId}
+          aria-expanded={isControlled ? isOpen : isExpanded}
+          aria-haspopup="true"
           data-testid={`${hyphenize(label)}-dropdown-icon`}
           disabled={disabled || buttonProps?.disabled}
           icon={icon || Down}
