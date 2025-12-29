@@ -113,7 +113,7 @@ describe("Pane", () => {
         <Pane.Body>Pane body</Pane.Body>
       </Pane>
     );
-    await userEvent.click(getByTestId("backdrop"));
+    await userEvent.click(getByTestId("neeto-backdrop"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
@@ -149,7 +149,7 @@ describe("Pane", () => {
         <Pane.Body>Pane body</Pane.Body>
       </Pane>
     );
-    await userEvent.click(getByTestId("backdrop"));
+    await userEvent.click(getByTestId("neeto-backdrop"));
     expect(onClose).not.toHaveBeenCalled();
   });
 });

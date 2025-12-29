@@ -99,7 +99,6 @@ const Pane = ({
         onExited={() => setHasTransitionCompleted(false)}
       >
         <Backdrop
-          data-testid="backdrop"
           key="pane-backdrop"
           ref={backdropRef}
           className={classnames(

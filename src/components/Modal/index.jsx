@@ -72,7 +72,6 @@ const Modal = ({
         onExited={() => setHasTransitionCompleted(false)}
       >
         <Backdrop
-          data-testid="backdrop"
           key="modal-backdrop"
           ref={backdropRef}
           className={classnames(
