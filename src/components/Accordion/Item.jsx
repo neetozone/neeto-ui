@@ -20,6 +20,9 @@ const Item = ({
   const onKeyDown = e => {
     switch (e.key) {
       case " ":
+        e.preventDefault(); // Prevent page scroll (WCAG 2.1.1)
+        onClick();
+        break;
       case "Enter":
         onClick();
         break;
@@ -36,7 +39,6 @@ const Item = ({
       <div
         {...{ onClick, onKeyDown }}
         aria-controls={`neeto-ui-accordion-section-${id}`}
-        aria-disabled={isOpen}
         aria-expanded={isOpen}
         id={`neeto-ui-accordion-item-${id}`}
         role="button"
@@ -54,11 +56,12 @@ const Item = ({
         </div>
         <motion.div
           animate={isOpen ? "open" : "collapsed"}
+          aria-hidden="true"
           className="neeto-ui-accordion__item-toggle-icon neeto-ui-flex-grow-0"
           transition={{ duration: 0.3 }}
           variants={{ open: { rotate: 90 }, collapsed: { rotate: 0 } }}
         >
-          <Right size={16} {...iconProps} />
+          <Right size={16} {...iconProps} aria-hidden="true" />
         </motion.div>
       </div>
       <Collapse
