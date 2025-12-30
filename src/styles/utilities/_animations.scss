@@ -10,3 +10,10 @@
     opacity: 1;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .nuifadeIn {
+    animation: none;
+    opacity: 1;
+  }
+}

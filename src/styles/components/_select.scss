@@ -148,6 +148,10 @@
     min-height: 0;
     transition: border 0.3s;
 
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+
     &:hover:not(.neeto-ui-react-select__control--is-focused) {
       border-color: var(--neeto-ui-select-hover-border-color);
     }

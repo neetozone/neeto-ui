@@ -5,6 +5,7 @@ import useOnClickOutside from "./useOnClickOutside";
 import useOverlay from "./useOverlay";
 import useOverlayManager from "./useOverlayManager";
 import useQueryParams from "./useQueryParams";
+import useReducedMotion from "./useReducedMotion";
 import useSyncedRef from "./useSyncedRef";
 import useTimeout from "./useTimeout";
 
@@ -18,4 +19,5 @@ export {
   useTimeout,
   useQueryParams,
   useFuncDebounce,
+  useReducedMotion,
 };

@@ -4,6 +4,8 @@ import Tippy from "@tippyjs/react";
 import PropTypes from "prop-types";
 import { followCursor } from "tippy.js";
 
+import { useReducedMotion } from "src/hooks";
+
 import { ARROW } from "./constants";
 
 const Tooltip = ({
@@ -18,6 +20,7 @@ const Tooltip = ({
   ...otherProps
 }) => {
   const [instance, setInstance] = useState(null);
+  const prefersReducedMotion = useReducedMotion();
 
   const localProps = {};
 
@@ -36,7 +39,7 @@ const Tooltip = ({
       });
       instance?.reference && intersectionObserver.observe(instance?.reference);
 
-      return () => intersectionObserver.disconnect();
+      return intersectionObserver.disconnect.bind(intersectionObserver);
     }
 
     return undefined;
@@ -52,9 +55,9 @@ const Tooltip = ({
 
   return (
     <Tippy
-      animation="scale-subtle"
+      animation={prefersReducedMotion ? false : "scale-subtle"}
       arrow={ARROW}
-      duration={[100, 200]}
+      duration={prefersReducedMotion ? 0 : [100, 200]}
       placement={position}
       plugins={[followCursor]}
       role="tooltip"

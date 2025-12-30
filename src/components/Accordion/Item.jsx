@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { Right } from "neetoicons";
 import PropTypes from "prop-types";
 
+import { useReducedMotion } from "src/hooks";
+
 import Collapse from "./Collapse";
 
 const Item = ({
@@ -17,6 +19,8 @@ const Item = ({
   titleProps = {},
   iconProps = {},
 }) => {
+  const prefersReducedMotion = useReducedMotion();
+
   const onKeyDown = e => {
     switch (e.key) {
       case " ":
@@ -58,7 +62,7 @@ const Item = ({
           animate={isOpen ? "open" : "collapsed"}
           aria-hidden="true"
           className="neeto-ui-accordion__item-toggle-icon neeto-ui-flex-grow-0"
-          transition={{ duration: 0.3 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
           variants={{ open: { rotate: 90 }, collapsed: { rotate: 0 } }}
         >
           <Right size={16} {...iconProps} aria-hidden="true" />

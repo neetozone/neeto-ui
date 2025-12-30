@@ -122,6 +122,10 @@
   border-radius: 4px;
   display: block;
   transition: all 0.3s;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .react-resizable-handle:hover .neeto-ui-table-react-resizable-handle__inner {
