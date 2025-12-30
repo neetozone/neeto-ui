@@ -20,7 +20,7 @@ const Item = ({
   const onKeyDown = e => {
     switch (e.key) {
       case " ":
-        e.preventDefault(); // Prevent page scroll (WCAG 2.1.1)
+        e.preventDefault();
         onClick();
         break;
       case "Enter":
