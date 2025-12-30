@@ -17,11 +17,11 @@ import { Tag } from "components";
 import Label from "components/Label";
 import { useSyncedRef, useId } from "hooks";
 import {
-  convertToDayjsObjects,
   noop,
   hyphenize,
   dayjs,
   getTimezoneAppliedDateTime,
+  getValidDayjsValue,
 } from "utils";
 
 import IconOverride from "./IconOverride";
@@ -157,11 +157,11 @@ const DatePicker = forwardRef(
           {label && <Label {...{ required, ...labelProps }}>{label}</Label>}
           <Component
             data-testid={label ? `${hyphenize(label)}-input` : "picker-input"}
-            defaultValue={convertToDayjsObjects(defaultValue)}
+            defaultValue={getValidDayjsValue(defaultValue)}
             placeholder={placeholder ?? format}
             ref={datePickerRef}
             showTime={showTime && { format: timeFormat, ...timePickerProps }}
-            value={convertToDayjsObjects(value)}
+            value={getValidDayjsValue(value)}
             className={classnames("neeto-ui-date-input", [className], {
               "neeto-ui-date-input--small": size === "small",
               "neeto-ui-date-input--medium": size === "medium",
