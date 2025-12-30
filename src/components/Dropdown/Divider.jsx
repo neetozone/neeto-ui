@@ -1,7 +1,12 @@
 import React from "react";
 
 const Divider = props => (
-  <li className="neeto-ui-dropdown__popup-divider" {...props} />
+  <li
+    aria-orientation="horizontal"
+    className="neeto-ui-dropdown__popup-divider"
+    role="separator"
+    {...props}
+  />
 );
 
 export default Divider;
