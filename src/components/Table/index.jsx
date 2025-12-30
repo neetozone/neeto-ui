@@ -232,6 +232,20 @@ const Table = ({
     tableOnChangeProps.current = { pagination, filters };
   };
 
+  const handleRow = (record, rowIndex) => {
+    const rowKeyValue = record[rowKey];
+    const isSelected =
+      rowSelection && Array.isArray(selectedRowKeys)
+        ? selectedRowKeys.includes(rowKeyValue)
+        : false;
+
+    return {
+      onClick: event =>
+        allowRowClick && onRowClick && onRowClick(event, record, rowIndex),
+      ...(rowSelection && { "aria-selected": isSelected }),
+    };
+  };
+
   const componentOverrides = {
     ...components,
     header: getHeaderCell({
@@ -394,6 +408,7 @@ const Table = ({
           [className]
         )}
         onChange={handleTableChange}
+        onRow={handleRow}
         onScroll={handleScroll}
         onHeaderRow={() => ({
           ref: headerRef,
@@ -401,10 +416,6 @@ const Table = ({
             "neeto-ui-table-reorderable": enableColumnReorder,
           }),
           id: "neeto-ui-table__header",
-        })}
-        onRow={(record, rowIndex) => ({
-          onClick: event =>
-            allowRowClick && onRowClick && onRowClick(event, record, rowIndex),
         })}
         {...otherProps}
       />
