@@ -6,12 +6,12 @@ const BorderColorDisplay = ({ isDarkMode }) => {
   const theme = isDarkMode ? "dark" : "light";
 
   return (
-    <div className="neeto-ui-bg-white neeto-ui-text-black box-border flex min-h-screen flex-col justify-center gap-12 p-16">
+    <div className="neeto-ui-bg-white neeto-ui-text-black sbdocs box-border flex min-h-screen flex-col justify-center gap-12 p-16">
       <h1 className="neeto-ui-text-black">Border Color</h1>
       <table className="story-demo-table">
         <thead>
           <tr>
-            <td />
+            <td style={{ width: "80px" }} />
             <td>RGB code</td>
             <td>Class</td>
           </tr>

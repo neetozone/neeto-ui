@@ -8,13 +8,14 @@
   }
   .sbdocs p:not(.docs-story p) {
     font-size: 16px;
-    line-height: 1.5 !important;
+    line-height: 1.6 !important;
     max-width: 80ch;
     color: #000 !important;
     -webkit-font-smoothing: initial !important;
   }
-  .sbdocs li {
+  .sbdocs li:not(.docs-story li) {
     font-size: 16px;
+    line-height: 1.6 !important;
     color: #000 !important;
     position: relative;
     -webkit-font-smoothing: initial !important;
@@ -27,12 +28,12 @@
   .neeto-language-page h2 .sbdocs-a {
     color: #1b1f23 !important;
   }
-  .sbdocs h1,
-  .sbdocs h2,
-  .sbdocs h3,
-  .sbdocs h4,
-  .sbdocs h5,
-  .sbdocs h6,
+  .sbdocs h1:not(.docs-story h1),
+  .sbdocs h2:not(.docs-story h2),
+  .sbdocs h3:not(.docs-story h3),
+  .sbdocs h4:not(.docs-story h4),
+  .sbdocs h5:not(.docs-story h5),
+  .sbdocs h6:not(.docs-story h6),
   .sbdocs-title {
     -webkit-font-smoothing: initial !important;
   }
@@ -90,5 +91,80 @@
     color: #2563eb;
     background-color: #fff;
     border-color: #6b7280;
+  }
+
+  /* Table styling for consistent borders and readability */
+  .sbdocs table:not(.docs-story table, .docblock-argstable),
+  .sbdocs .story-demo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 16px;
+    border: 1px solid rgb(var(--neeto-ui-gray-200));
+    border-radius: 6px;
+  }
+
+  .sbdocs table:not(.docs-story table, .docblock-argstable) thead,
+  .sbdocs .story-demo-table thead {
+    background-color: rgb(var(--neeto-ui-white));
+  }
+
+  .sbdocs table:not(.docs-story table, .docblock-argstable) thead tr,
+  .sbdocs .story-demo-table thead tr {
+    border-bottom: 2px solid rgb(var(--neeto-ui-gray-200));
+  }
+
+  .sbdocs table:not(.docs-story table, .docblock-argstable) thead td,
+  .sbdocs table:not(.docs-story table, .docblock-argstable) thead th,
+  .sbdocs .story-demo-table thead td,
+  .sbdocs .story-demo-table thead th {
+    padding: 12px 16px;
+    font-weight: 600;
+    text-align: left;
+    color: rgb(var(--neeto-ui-black));
+    border-right: 1px solid rgb(var(--neeto-ui-gray-200));
+  }
+
+  .sbdocs table:not(.docs-story table, .docblock-argstable) tbody tr,
+  .sbdocs .story-demo-table tbody tr {
+    background: transparent !important;
+    border-bottom: 1px solid rgb(var(--neeto-ui-gray-200));
+    transition: background-color 0.2s ease;
+  }
+
+  .sbdocs table:not(.docs-story table, .docblock-argstable) tbody td,
+  .sbdocs .story-demo-table tbody td {
+    padding: 12px 16px;
+    border-right: 1px solid rgb(var(--neeto-ui-gray-200));
+    vertical-align: top;
+  }
+
+  .sbdocs table:not(.docs-story table, .docblock-argstable) tbody td code,
+  .sbdocs .story-demo-table tbody td code {
+    font-size: 12px;
+    background-color: rgb(var(--neeto-ui-gray-100));
+    color: rgb(var(--neeto-ui-black));
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro",
+      monospace;
+  }
+
+  /* Ensure tables in docs have proper spacing */
+  .sbdocs table:not(.docs-story table) + p,
+  .sbdocs .story-demo-table + p {
+    margin-top: 24px;
+  }
+
+  .sbdocs
+    p:not(.docs-story p)
+    + table:not(.docs-story table, .docblock-argstable),
+  .sbdocs p:not(.docs-story p) + .story-demo-table {
+    margin-top: 16px;
+  }
+
+  .docblock-argstable-body [type="checkbox"],
+  .docblock-argstable-body [type="radio"] {
+    background-color: transparent;
   }
 </style>

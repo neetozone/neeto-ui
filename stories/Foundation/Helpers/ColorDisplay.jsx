@@ -156,17 +156,7 @@ const ColorDisplay = ({ isDarkMode }) => {
   const theme = isDarkMode ? "dark" : "light";
 
   return (
-    <div className="neeto-ui-bg-white neeto-ui-text-black box-border flex min-h-screen flex-col justify-center gap-4 p-16">
-      <style>
-        {`
-          .story-demo-table {
-            table-layout: fixed;
-          }
-          .story-demo-table tr {
-            background: transparent !important;
-          }
-        `}
-      </style>
+    <div className="neeto-ui-bg-white neeto-ui-text-black sbdocs box-border flex min-h-screen flex-col justify-center gap-4 p-16">
       <h1 className="neeto-ui-text-black">Colors</h1>
       <p>
         Colors play a crucial role in creating visually appealing and consistent
