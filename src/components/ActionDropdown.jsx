@@ -31,7 +31,6 @@ const ActionDropdown = ({
   <div className={classnames(["neeto-ui-action-dropdown", className])}>
     <Button
       {...{ disabled, label, onClick }}
-      data-cy="action-dropdown-btn"
       data-testid="action-dropdown-btn"
       size={size ?? buttonSize}
       style={style ?? buttonStyle}

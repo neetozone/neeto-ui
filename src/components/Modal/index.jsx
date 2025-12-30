@@ -72,7 +72,6 @@ const Modal = ({
         onExited={() => setHasTransitionCompleted(false)}
       >
         <Backdrop
-          data-testid="backdrop"
           key="modal-backdrop"
           ref={backdropRef}
           className={classnames(
@@ -101,8 +100,7 @@ const Modal = ({
               <Button
                 aria-label="Close"
                 className="neeto-ui-modal__close"
-                data-cy="modal-close-button"
-                data-testid="close-button"
+                data-testid="modal-close-button"
                 icon={Close}
                 size={isFullScreenModal ? "large" : "small"}
                 style={isFullScreenModal ? "secondary" : "text"}

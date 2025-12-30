@@ -43,7 +43,6 @@ const Tag = forwardRef(
     return (
       <div
         {...{ ref }}
-        data-cy="tag-container"
         data-testid="tag-container"
         className={classnames(
           "neeto-ui-tag",
@@ -85,8 +84,7 @@ const Tag = forwardRef(
         {onClose && (
           <span
             className="neeto-ui-tag__close"
-            data-cy="tag-close-icon"
-            data-testid="tag-close-button"
+            data-testid="tag-close-icon"
             onClick={!disabled ? onClose : null}
           >
             <Close />

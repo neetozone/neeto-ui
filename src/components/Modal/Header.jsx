@@ -5,14 +5,17 @@ import PropTypes from "prop-types";
 
 import Typography from "../Typography";
 
-const Header = ({ description = "", children, className, dataCy }) => (
+const Header = ({ description = "", children, className, dataTestid }) => (
   <div
     className={classnames("neeto-ui-modal__header", className)}
-    data-cy={dataCy ?? "modal-header"}
+    data-testid={dataTestid ?? "modal-header"}
   >
     {children}
     {description && (
-      <div className="neeto-ui-modal__header-desc" data-cy="modal-header-desc">
+      <div
+        className="neeto-ui-modal__header-desc"
+        data-testid="modal-header-desc"
+      >
         <Typography lineHeight="normal" style="body2">
           {description}
         </Typography>

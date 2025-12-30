@@ -32,7 +32,7 @@ const NoData = ({
   return (
     <div
       className={classnames("neeto-ui-no-data", [className])}
-      data-cy="no-data-container"
+      data-testid="no-data-container"
       {...otherProps}
     >
       {image ? (
@@ -41,7 +41,7 @@ const NoData = ({
       {title && (
         <Typography
           className="neeto-ui-text-center"
-          data-cy="no-data-title"
+          data-testid="no-data-title"
           lineHeight="none"
           style="h3"
         >
@@ -51,7 +51,7 @@ const NoData = ({
       {description && (
         <Typography
           className="neeto-ui-text-center neeto-ui-no-data__description"
-          data-cy="no-data-description"
+          data-testid="no-data-description"
           lineHeight="normal"
           style="body2"
         >
@@ -61,7 +61,7 @@ const NoData = ({
       {helpText && (
         <Typography
           className="neeto-ui-text-center neeto-ui-no-data__help-text"
-          data-cy="no-data-help-text"
+          data-testid="no-data-help-text"
           lineHeight="normal"
           style="body2"
         >
@@ -80,7 +80,6 @@ const NoData = ({
             >
               <div>
                 <Button
-                  data-cy="no-data-primary-button"
                   data-testid="no-data-primary-button"
                   {...omit(["tooltipProps"], primaryButtonProps)}
                 />
@@ -103,7 +102,6 @@ const NoData = ({
             >
               <div>
                 <Button
-                  data-cy="no-data-secondary-button"
                   data-testid="no-data-secondary-button"
                   style="secondary"
                   {...omit(["tooltipProps"], secondaryButtonProps)}

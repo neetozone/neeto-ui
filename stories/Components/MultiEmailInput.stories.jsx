@@ -303,7 +303,7 @@ const FormikEmail = _args => {
         name="emails"
       />
       <Button
-        data-cy="add-member-submit-button"
+        data-testid="add-member-submit-button"
         label="Save changes"
         style="primary"
         type="submit"

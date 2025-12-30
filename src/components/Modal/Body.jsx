@@ -3,10 +3,10 @@ import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-const Body = ({ children, className, dataCy }) => (
+const Body = ({ children, className, dataTestid }) => (
   <div
     className={classnames("neeto-ui-modal__body", className)}
-    data-cy={dataCy ?? "modal-body"}
+    data-testid={dataTestid ?? "modal-body"}
   >
     {children}
   </div>

@@ -8,7 +8,7 @@ const HelpSection = forwardRef((_, ref) => (
   <button
     {...{ ref }}
     className="neeto-ui-sidebar__link neeto-ui-sidebar__link--button shadow-none"
-    data-cy="help-button"
+    data-testid="help-button"
   >
     <span className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-sidebar__link-icon">
       <Help size={24} />

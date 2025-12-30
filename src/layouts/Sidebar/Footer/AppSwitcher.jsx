@@ -12,7 +12,7 @@ const AppSwitcher = ({ tooltipStyle, onAppSwitcherToggle }) => (
   >
     <button
       className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-start neeto-ui-w-full neeto-ui-select-none neeto-ui-sidebar__link neeto-ui-sidebar__link--app-switcher neeto-ui-sidebar__link--button shadow-none"
-      data-cy="app-switcher-button"
+      data-testid="app-switcher-button"
       onClick={onAppSwitcherToggle}
     >
       <span className="neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-sidebar__link-icon">

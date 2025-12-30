@@ -33,8 +33,7 @@ const ActionBlock = ({
 
   const cancelButton = (
     <Button
-      data-cy="cancel-button"
-      data-test-id="cancel-button"
+      data-testid="cancel-button"
       disabled={isSubmitting}
       label={getLocale(i18n, t, "neetoui.actionBlock.cancel")}
       style="text"
@@ -46,8 +45,7 @@ const ActionBlock = ({
 
   const submitButton = (
     <SubmitButton
-      data-cy="save-changes-button"
-      data-test-id="save-changes-button"
+      data-testid="save-changes-button"
       disabled={isSubmitting || !dirty}
       label={getLocale(i18n, t, "neetoui.actionBlock.saveChanges")}
       loading={isSubmitting}

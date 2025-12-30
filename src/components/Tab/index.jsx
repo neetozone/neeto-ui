@@ -15,7 +15,8 @@ const Tab = ({
   ...otherProps
 }) => (
   <div
-    data-cy="tab-container"
+    data-testid="tab-container"
+    role="tablist"
     className={classnames(
       {
         "neeto-ui-tab__wrapper neeto-ui-flex": true,

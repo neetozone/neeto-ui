@@ -15,7 +15,7 @@ describe("Avatar", () => {
   it("should call onClick when the avatar is clicked", async () => {
     const onClick = jest.fn();
     render(<Avatar {...{ onClick }} user={{ name: "neeto UI" }} />);
-    const avatar = screen.getByTestId("avatar");
+    const avatar = screen.getByTestId("nui-avatar");
     await userEvent.click(avatar);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
@@ -34,7 +34,7 @@ describe("Avatar", () => {
     const { queryByText, getByTestId } = render(
       <Avatar user={{ name: "John Doe" }} />
     );
-    await userEvent.hover(getByTestId("avatar"));
+    await userEvent.hover(getByTestId("nui-avatar"));
     expect(queryByText("John Doe")).not.toBeInTheDocument();
   });
 
@@ -42,7 +42,7 @@ describe("Avatar", () => {
     const { getByText, getByTestId } = render(
       <Avatar showTooltip user={{ name: "John Doe" }} />
     );
-    await userEvent.hover(getByTestId("avatar"));
+    await userEvent.hover(getByTestId("nui-avatar"));
     expect(getByText("John Doe")).toBeInTheDocument();
   });
 });

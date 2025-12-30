@@ -359,7 +359,7 @@ describe("MultiEmailInput", () => {
     );
 
     const counterElement = container.querySelector(
-      '[data-cy="test-emails-email-counter"]'
+      '[data-testid="test-emails-email-counter"]'
     );
 
     const counterText = counterElement.textContent;

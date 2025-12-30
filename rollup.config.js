@@ -51,10 +51,7 @@ const config = args => {
     }),
     copy({
       targets: [
-        {
-          src: "src/translations",
-          dest: path.resolve(destination, "dist/src"),
-        },
+        { src: "src/translations", dest: path.resolve(destination, "dist/src") },
       ],
     }),
     // Plugins for local development.

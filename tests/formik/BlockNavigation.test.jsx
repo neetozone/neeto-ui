@@ -123,7 +123,7 @@ describe("formik/BlockNavigation", () => {
 
     await userEvent.click(screen.getByRole("link"));
 
-    const alertCloseButton = screen.getByTestId("close-button");
+    const alertCloseButton = screen.getByTestId("modal-close-button");
     await userEvent.click(alertCloseButton);
 
     await waitFor(() =>

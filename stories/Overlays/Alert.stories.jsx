@@ -218,6 +218,90 @@ CSSCustomization.parameters = {
   docs: { description: { story: AlertCSSCustomization } },
 };
 
-export { Default, Sizes, CSSCustomization };
+const Accessibility = () => {
+  const [open, setOpen] = useState(false);
+  const alertId = "alert-dialog";
+
+  return (
+    <div className="p-4">
+      <Button
+        aria-controls={open ? alertId : undefined}
+        aria-expanded={open}
+        aria-haspopup="dialog"
+        label="Show Alert"
+        style="primary"
+        onClick={() => setOpen(true)}
+      />
+      <Alert
+        id={alertId}
+        isOpen={open}
+        message="All of your unsaved changes will be lost. This can't be undone."
+        submitButtonLabel="Discard changes"
+        title="You have unsaved changes"
+        onClose={() => setOpen(false)}
+        onSubmit={() => setOpen(false)}
+      />
+    </div>
+  );
+};
+
+Accessibility.storyName = "Alert with Accessibility";
+
+const AccessibilityDescription = `
+The Alert component automatically implements essential accessibility features for WCAG AA compliance.
+
+## Automatic Accessibility Features
+
+The Alert component automatically:
+- Sets \`aria-labelledby\` on the Modal, pointing to the title Typography element
+- Sets \`aria-describedby\` on the Modal, pointing to the message Typography element
+- Generates unique IDs for the title and message Typography elements (using React's \`useId\` hook)
+- Includes \`role="dialog"\` and \`aria-modal\` attributes (inherited from Modal)
+
+**You don't need to do anything** - \`aria-labelledby\` and \`aria-describedby\` are set automatically.
+
+## Complete Accessibility Implementation
+
+To properly connect the trigger button with the Alert dialog, you should:
+
+### 1. Add accessibility attributes to the trigger button:
+- \`aria-haspopup="dialog"\` - Indicates the button opens a dialog
+- \`aria-expanded\` - Indicates whether the dialog is open (true/false)
+- \`aria-controls\` - References the dialog ID when open (only set when dialog is open)
+
+### 2. Add ID to the Alert:
+- \`id\` - Unique identifier for the dialog (passed via \`otherProps\`)
+
+## Example Implementation
+
+\`\`\`jsx
+const [open, setOpen] = useState(false);
+const alertId = "alert-dialog";
+
+<Button
+  aria-controls={open ? alertId : undefined}
+  aria-expanded={open}
+  aria-haspopup="dialog"
+  label="Show Alert"
+  onClick={() => setOpen(true)}
+/>
+<Alert
+  id={alertId}
+  isOpen={open}
+  message="All of your unsaved changes will be lost."
+  title="You have unsaved changes"
+  onClose={() => setOpen(false)}
+  onSubmit={() => setOpen(false)}
+/>
+\`\`\`
+
+**Note:** The Alert component automatically handles \`aria-labelledby\` and \`aria-describedby\` - no action needed from your side. The IDs are generated automatically using React's \`useId\` hook, ensuring uniqueness across multiple Alert instances.
+`;
+
+Accessibility.parameters = {
+  docs: { description: { story: AccessibilityDescription } },
+};
+
+export { Default, Sizes, CSSCustomization, Accessibility };
 
 export default metadata;

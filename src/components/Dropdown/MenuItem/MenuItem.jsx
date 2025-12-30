@@ -10,6 +10,7 @@ const MenuItem = ({ children, className, tooltipProps, ...otherProps }) => {
   const renderMenuItem = () => (
     <li
       className={classnames("neeto-ui-dropdown__popup-menu-item", className)}
+      role="menuitem"
       {...otherProps}
     >
       {children}

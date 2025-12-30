@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 
 import PropTypes from "prop-types";
 
+import { useId } from "hooks";
+
 import Button from "./Button";
 import Modal from "./Modal";
 import Typography from "./Typography";
@@ -28,6 +30,7 @@ const Alert = ({
   initialFocusRef,
   initialFocusElement,
   hideCancelButton = false,
+  ...otherProps
 }) => {
   const submitButtonRef = useRef(null);
   const cancelButtonRef = useRef(null);
@@ -37,6 +40,15 @@ const Alert = ({
     initialFocusElement === FOCUSABLE_ELEMENTS.submit
       ? submitButtonRef
       : cancelButtonRef;
+
+  // Generate unique IDs for title and message
+  const baseId = useId();
+  const titleId = `alert-title-${baseId}`;
+  const messageId = `alert-message-${baseId}`;
+  const ariaProps = {
+    ...(title && { "aria-labelledby": titleId }),
+    ...(message && { "aria-describedby": messageId }),
+  };
 
   return (
     <Modal
@@ -49,26 +61,34 @@ const Alert = ({
         isOpen,
         onClose,
         size,
+        ...(hasCustomFocusableElement && {
+          initialFocusRef: initialFocusRef || initialFocusElementRef,
+        }),
+        ...ariaProps,
+        ...otherProps,
       }}
-      data-cy="alert-box"
-      {...(hasCustomFocusableElement && {
-        initialFocusRef: initialFocusRef || initialFocusElementRef,
-      })}
+      data-testid="alert-box"
+      role="alertdialog"
     >
       <Modal.Header>
-        <Typography data-cy="alert-title" style="h2">
+        <Typography data-testid="alert-title" id={titleId} style="h2">
           {title}
         </Typography>
       </Modal.Header>
       <Modal.Body>
-        <Typography data-cy="alert-message" lineHeight="normal" style="body2">
+        <Typography
+          data-testid="alert-message"
+          id={messageId}
+          lineHeight="normal"
+          style="body2"
+        >
           {message}
         </Typography>
       </Modal.Body>
       <Modal.Footer className="neeto-ui-gap-2 neeto-ui-flex neeto-ui-justify-end neeto-ui-items-center">
         {!hideCancelButton && (
           <Button
-            data-cy="alert-cancel-button"
+            data-testid="alert-cancel-button"
             label={cancelButtonLabel}
             ref={cancelButtonRef}
             style="tertiary"
@@ -76,7 +96,7 @@ const Alert = ({
           />
         )}
         <Button
-          data-cy="alert-submit-button"
+          data-testid="alert-submit-button"
           disabled={isSubmitting || !isOpen}
           label={submitButtonLabel}
           loading={isSubmitting}

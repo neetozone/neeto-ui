@@ -8,8 +8,7 @@ import { TARGET_SIZES } from "./constants";
 
 const Target = ({ size, showHexValue, color, colorValue }) => (
   <button
-    data-cy="color-picker-target"
-    data-testid="neeto-color-picker"
+    data-testid="color-picker-target"
     type="button"
     className={classnames("neeto-ui-colorpicker__target", {
       "neeto-ui-colorpicker__target-size--large": size === TARGET_SIZES.large,

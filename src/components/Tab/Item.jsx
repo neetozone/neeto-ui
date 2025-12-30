@@ -15,9 +15,7 @@ const Item = ({
 }) => {
   const Icon =
     typeof icon === "string"
-      ? () => (
-          <i className={icon} data-cy="tab-item-icon" data-testid="tab-icon" />
-        )
+      ? () => <i className={icon} data-testid="tab-item-icon" />
       : icon || React.Fragment;
 
   const Parent = activeClassName ? NavLink : "button";
@@ -25,7 +23,9 @@ const Item = ({
 
   return (
     <Parent
-      data-cy="tab-item"
+      aria-selected={active}
+      data-testid="tab-item"
+      role="tab"
       className={classnames(
         [
           "neeto-ui-tab neeto-ui-flex neeto-ui-items-center neeto-ui-justify-center neeto-ui-select-none",
@@ -33,8 +33,7 @@ const Item = ({
         ],
         { active }
       )}
-      onClick={onClick}
-      {...{ ...otherProps, ...buttonAttributes }}
+      {...{ onClick, ...otherProps, ...buttonAttributes }}
     >
       {icon && <Icon className="neeto-ui-tab__icon" />}
       {children}
