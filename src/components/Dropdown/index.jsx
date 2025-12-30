@@ -137,7 +137,6 @@ const Dropdown = ({
       offset={0}
       placement={getDropdownPlacement(placement)}
       popperOptions={{ strategy, modifiers: dropdownModifiers }}
-      role="menu"
       theme="light"
       trigger={isControlled ? undefined : TRIGGERS[trigger]}
       className={classnames("neeto-ui-dropdown", {
@@ -148,6 +147,7 @@ const Dropdown = ({
           <div
             data-testid={`${hyphenize(label)}-dropdown-container`}
             id={menuId}
+            role="menu"
             className={classnames("neeto-ui-dropdown__popup", {
               [dropdownClassName]: dropdownClassName,
               [dropdownClassnames]: dropdownClassnames,
