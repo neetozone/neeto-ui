@@ -53,7 +53,7 @@ const BorderColorDisplay = ({ isDarkMode }) => {
       <table className="story-demo-table">
         <thead>
           <tr>
-            <td />
+            <td style={{ width: "80px" }} />
             <td>RGB code</td>
             <td>Class</td>
           </tr>
