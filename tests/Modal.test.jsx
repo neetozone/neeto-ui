@@ -113,7 +113,7 @@ describe("Modal", () => {
         <Modal.Body>Sample text</Modal.Body>
       </Modal>
     );
-    await userEvent.click(getByTestId("backdrop"));
+    await userEvent.click(getByTestId("neeto-backdrop"));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
@@ -127,7 +127,7 @@ describe("Modal", () => {
         </Modal.Body>
       </Modal>
     );
-    await userEvent.click(getByTestId("backdrop"));
+    await userEvent.click(getByTestId("neeto-backdrop"));
     expect(onClose).not.toHaveBeenCalled();
   });
 

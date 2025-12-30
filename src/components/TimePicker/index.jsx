@@ -11,12 +11,12 @@ import { ANTD_LOCALE } from "components/constants";
 import Label from "components/Label";
 import { useSyncedRef, useId } from "hooks";
 import {
-  convertToDayjsObjects,
   noop,
   hyphenize,
   ANT_DESIGN_GLOBAL_TOKEN_OVERRIDES,
   getLocale,
   getTimezoneAppliedDateTime,
+  getValidDayjsValue,
 } from "utils";
 
 import { TIME_PICKER_TYPES } from "./constants";
@@ -153,11 +153,11 @@ const TimePicker = forwardRef(
             ])}
             onChange={handleOnChange}
             {...{ disabled, format, ...otherProps, panelRender }}
-            defaultValue={convertToDayjsObjects(defaultValue)}
+            defaultValue={getValidDayjsValue(defaultValue)}
             mode={undefined}
             picker="time"
             placeholder={placeholder ?? format}
-            value={convertToDayjsObjects(value)}
+            value={getValidDayjsValue(value)}
             suffixIcon={
               timezone ? <Tag label={timezone} /> : <Clock size={16} />
             }
