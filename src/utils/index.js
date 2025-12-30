@@ -53,10 +53,23 @@ export const hyphenize = input => {
   return fallbackString;
 };
 
-export const convertToDayjsObjects = value =>
-  value instanceof Array
-    ? value.map(date => (date ? dayjs(date) : date))
-    : value && dayjs(value);
+export const getValidDayjsValue = value => {
+  if (Array.isArray(value)) {
+    return value.map(date => {
+      if (!date) return null;
+
+      const parsed = dayjs(date);
+
+      return parsed.isValid() ? parsed : null;
+    });
+  }
+
+  if (!value) return value;
+
+  const parsed = dayjs(value);
+
+  return parsed.isValid() ? parsed : null;
+};
 
 export class UniqueArray {
   constructor() {

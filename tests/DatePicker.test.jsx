@@ -324,4 +324,24 @@ describe("DatePicker", () => {
     await userEvent.click(screen.getByText("UTC"));
     expect(onTimezoneChange).toHaveBeenCalledWith("utc");
   });
+
+  it("should display valid calendar when invalid date is passed", async () => {
+    const invalidDate = new Date("invalid");
+    render(<DatePicker open value={invalidDate} />);
+
+    await waitFor(() => {
+      const dateCells = screen.getAllByText(
+        /^[1-9]$|^1[0-9]$|^2[0-9]$|^3[01]$/
+      );
+      expect(dateCells.length).toBeGreaterThan(0);
+    });
+
+    await waitFor(() => {
+      const calendarPanel = document.querySelector(".ant-picker-date-panel");
+      expect(calendarPanel).toBeInTheDocument();
+      const panelText = calendarPanel.textContent || "";
+      expect(panelText).not.toContain("Invalid Date");
+      expect(panelText).toMatch(/([1-9]|1[0-9]|2[0-9]|3[01])/);
+    });
+  });
 });
