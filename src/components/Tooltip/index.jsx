@@ -39,7 +39,9 @@ const Tooltip = ({
       });
       instance?.reference && intersectionObserver.observe(instance?.reference);
 
-      return intersectionObserver.disconnect.bind(intersectionObserver);
+      return () => {
+        intersectionObserver.disconnect();
+      };
     }
 
     return undefined;
