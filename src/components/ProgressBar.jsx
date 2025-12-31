@@ -4,10 +4,10 @@ import classNames from "classnames";
 import { motion } from "framer-motion";
 import propTypes from "prop-types";
 
-import { useReducedMotion } from "src/hooks";
+import { usePrefersReducedMotion } from "src/hooks";
 
 const ProgressBar = ({ progressPercentage, progressValue, className = "" }) => {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   return (
     <div

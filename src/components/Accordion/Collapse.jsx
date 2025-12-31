@@ -2,7 +2,7 @@ import React from "react";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import { useReducedMotion } from "src/hooks";
+import { usePrefersReducedMotion } from "src/hooks";
 
 const Collapse = ({
   open = false,
@@ -10,7 +10,7 @@ const Collapse = ({
   className = "",
   ...otherProps
 }) => {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   return (
     <AnimatePresence>

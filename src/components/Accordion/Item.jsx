@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Right } from "neetoicons";
 import PropTypes from "prop-types";
 
-import { useReducedMotion } from "src/hooks";
+import { usePrefersReducedMotion } from "src/hooks";
 
 import Collapse from "./Collapse";
 
@@ -19,7 +19,7 @@ const Item = ({
   titleProps = {},
   iconProps = {},
 }) => {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const onKeyDown = e => {
     switch (e.key) {

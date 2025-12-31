@@ -4,7 +4,7 @@ import Tippy from "@tippyjs/react";
 import PropTypes from "prop-types";
 import { followCursor } from "tippy.js";
 
-import { useReducedMotion } from "src/hooks";
+import { usePrefersReducedMotion } from "src/hooks";
 
 import { ARROW } from "./constants";
 
@@ -20,7 +20,7 @@ const Tooltip = ({
   ...otherProps
 }) => {
   const [instance, setInstance] = useState(null);
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   const localProps = {};
 
