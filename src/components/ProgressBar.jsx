@@ -4,24 +4,33 @@ import classNames from "classnames";
 import { motion } from "framer-motion";
 import propTypes from "prop-types";
 
-const ProgressBar = ({ progressPercentage, progressValue, className = "" }) => (
-  <div
-    className={classNames([
-      "neeto-ui-progress-bar__wrapper neeto-ui-rounded-full",
-      className,
-    ])}
-  >
-    <motion.div
-      animate={{ width: `${progressPercentage}%` }}
-      className="neeto-ui-progress-bar neeto-ui-rounded-full"
-      data-testid="progress-bar"
-      initial={{ width: 0 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
+import { usePrefersReducedMotion } from "src/hooks";
+
+const ProgressBar = ({ progressPercentage, progressValue, className = "" }) => {
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  return (
+    <div
+      className={classNames([
+        "neeto-ui-progress-bar__wrapper neeto-ui-rounded-full",
+        className,
+      ])}
     >
-      {progressValue ?? `${progressPercentage}%`}
-    </motion.div>
-  </div>
-);
+      <motion.div
+        animate={{ width: `${progressPercentage}%` }}
+        className="neeto-ui-progress-bar neeto-ui-rounded-full"
+        data-testid="progress-bar"
+        initial={{ width: 0 }}
+        transition={{
+          duration: prefersReducedMotion ? 0 : 0.5,
+          ease: "easeInOut",
+        }}
+      >
+        {progressValue ?? `${progressPercentage}%`}
+      </motion.div>
+    </div>
+  );
+};
 
 ProgressBar.propTypes = {
   /**

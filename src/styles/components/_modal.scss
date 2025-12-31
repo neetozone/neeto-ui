@@ -93,6 +93,12 @@
       }
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      opacity: 1;
+      transform: scale(1);
+    }
+
     .neeto-ui-modal__close {
       position: absolute;
       top: var(--neeto-ui-modal-close-btn-top);
