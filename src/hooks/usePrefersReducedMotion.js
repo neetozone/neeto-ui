@@ -17,14 +17,25 @@ const usePrefersReducedMotion = () => {
 
   useEffect(() => {
     if (isRenderingOnServer) return undefined;
+
     const mediaQueryList = window.matchMedia(QUERY);
+
     const listener = event => {
       setPrefersReducedMotion(!event.matches);
     };
-    mediaQueryList.addEventListener("change", listener);
+
+    if (mediaQueryList.addEventListener) {
+      mediaQueryList.addEventListener("change", listener);
+    } else {
+      mediaQueryList.addListener(listener);
+    }
 
     return () => {
-      mediaQueryList.removeEventListener("change", listener);
+      if (mediaQueryList.removeEventListener) {
+        mediaQueryList.removeEventListener("change", listener);
+      } else {
+        mediaQueryList.removeListener(listener);
+      }
     };
   }, []);
 
