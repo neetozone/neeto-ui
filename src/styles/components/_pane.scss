@@ -83,6 +83,10 @@
 
     transition: all 0.3s;
     background-color: var(--neeto-ui-pane-backdrop-bg-color);
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
     backdrop-filter: var(--neeto-ui-pane-backdrop-backdrop-filter);
   }
   &__wrapper {
@@ -94,6 +98,10 @@
     backdrop-filter: var(--neeto-ui-pane-wrapper-backdrop-filter);
     transform: translateX(100%);
     transition: all 0.3s;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
 
     &--small {
       --neeto-ui-pane-wrapper-width: 480px;

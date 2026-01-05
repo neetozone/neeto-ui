@@ -62,3 +62,10 @@
   --neeto-ui-pane-header-height: #{variables.$neeto-ui-pane-header-height};
   --neeto-ui-pane-footer-height: #{variables.$neeto-ui-pane-footer-height};
 }
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
+    --neeto-ui-transition: none;
+  }
+}

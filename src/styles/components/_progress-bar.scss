@@ -20,6 +20,10 @@
     color: var(--progress-value-text-color);
     background-color: var(--progress-bar-color);
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
   }
 }
 
