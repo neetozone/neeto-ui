@@ -28,7 +28,10 @@ const Menu = ({ children, className, ...otherProps }) => {
       items[activeIndex].focus();
       eventHandled = true;
     } else if (key === "enter") {
-      items[activeIndex].click();
+      const activeItem = items[activeIndex];
+      if (!activeItem) return;
+
+      activeItem.click();
       eventHandled = true;
     }
 
