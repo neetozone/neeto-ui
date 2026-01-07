@@ -14,7 +14,7 @@ const HelpIcon = forwardRef(
           [className]: className,
         })}
       >
-        <HelpIcon size={16} {...otherProps} />
+        <HelpIcon size={20} {...otherProps} />
       </span>
     );
   }
