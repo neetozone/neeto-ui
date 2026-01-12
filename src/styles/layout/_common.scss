@@ -7,3 +7,31 @@
     color: inherit;
   }
 }
+
+.neeto-ui-theme--dark{
+  [data-dark-fill="white"] {
+    fill: white;
+  }
+
+  [data-dark-stroke="white"] {
+    stroke: white;
+  }
+
+  [data-dark-fill-stroke="white"] {
+    fill: white;
+    stroke: white;
+  }
+
+  [data-dark-fill="current"] {
+    fill: currentColor;
+  }
+
+  [data-dark-stroke="current"] {
+    stroke: currentColor;
+  }
+
+  [data-dark-fill-stroke="current"] {
+    fill: currentColor;
+    stroke: currentColor;
+  }
+}
