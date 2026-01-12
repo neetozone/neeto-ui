@@ -1077,34 +1077,32 @@
 
 // fix neeto-icons visibility issue
 
-/* Fill only */
-.neeto-ui-theme--dark [data-dark-fill="white"] {
-  fill: white;
+.neeto-ui-theme--dark{
+  [data-dark-fill="white"] {
+    fill: white;
+  }
+
+  [data-dark-stroke="white"] {
+    stroke: white;
+  }
+
+  [data-dark-fill-stroke="white"] {
+    fill: white;
+    stroke: white;
+  }
+
+  [data-dark-fill="current"] {
+    fill: currentColor;
+  }
+
+  [data-dark-stroke="current"] {
+    stroke: currentColor;
+  }
+
+  [data-dark-fill-stroke="current"] {
+    fill: currentColor;
+    stroke: currentColor;
+  }
 }
 
-/* Stroke only */
-.neeto-ui-theme--dark [data-dark-stroke="white"] {
-  stroke: white;
-}
 
-/* Both fill & stroke */
-.neeto-ui-theme--dark [data-dark-fill-stroke="white"] {
-  fill: white;
-  stroke: white;
-}
-
-/* Fill uses currentColor */
-.neeto-ui-theme--dark [data-dark-fill="current"] {
-  fill: currentColor;
-}
-
-/* Stroke uses currentColor */
-.neeto-ui-theme--dark [data-dark-stroke="current"] {
-  stroke: currentColor;
-}
-
-/* Both fill & stroke use currentColor */
-.neeto-ui-theme--dark [data-dark-fill-stroke="current"] {
-  fill: currentColor;
-  stroke: currentColor;
-}
