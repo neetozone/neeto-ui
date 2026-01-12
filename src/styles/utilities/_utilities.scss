@@ -1075,34 +1075,4 @@
   border-color: rgb(var(--neeto-ui-gray-200));
 }
 
-// fix neeto-icons visibility issue
-
-.neeto-ui-theme--dark{
-  [data-dark-fill="white"] {
-    fill: white;
-  }
-
-  [data-dark-stroke="white"] {
-    stroke: white;
-  }
-
-  [data-dark-fill-stroke="white"] {
-    fill: white;
-    stroke: white;
-  }
-
-  [data-dark-fill="current"] {
-    fill: currentColor;
-  }
-
-  [data-dark-stroke="current"] {
-    stroke: currentColor;
-  }
-
-  [data-dark-fill-stroke="current"] {
-    fill: currentColor;
-    stroke: currentColor;
-  }
-}
-
 
