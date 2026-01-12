@@ -1074,3 +1074,37 @@
 .divide-y > :not([hidden]) ~ :not([hidden]){
   border-color: rgb(var(--neeto-ui-gray-200));
 }
+
+// fix neeto-icons visibility issue
+
+/* Fill only */
+.neeto-ui-theme--dark [data-dark-fill="white"] {
+  fill: white;
+}
+
+/* Stroke only */
+.neeto-ui-theme--dark [data-dark-stroke="white"] {
+  stroke: white;
+}
+
+/* Both fill & stroke */
+.neeto-ui-theme--dark [data-dark-fill-stroke="white"] {
+  fill: white;
+  stroke: white;
+}
+
+/* Fill uses currentColor */
+.neeto-ui-theme--dark [data-dark-fill="current"] {
+  fill: currentColor;
+}
+
+/* Stroke uses currentColor */
+.neeto-ui-theme--dark [data-dark-stroke="current"] {
+  stroke: currentColor;
+}
+
+/* Both fill & stroke use currentColor */
+.neeto-ui-theme--dark [data-dark-fill-stroke="current"] {
+  fill: currentColor;
+  stroke: currentColor;
+}
