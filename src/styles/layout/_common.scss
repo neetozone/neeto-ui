@@ -8,10 +8,10 @@
   }
 }
 
-.neeto-ui-theme--dark [data-dark-mode-color="true"][fill] {
+.neeto-ui-theme--dark [data-dark-mode-color="true"][fill]:not([fill="none"]) {
   fill: currentColor;
 }
 
-.neeto-ui-theme--dark [data-dark-mode-color="true"][stroke] {
+.neeto-ui-theme--dark [data-dark-mode-color="true"][stroke]:not([stroke="none"]) {
   stroke: currentColor;
 }
