@@ -21,6 +21,11 @@ const Menu = ({ children, className, ...otherProps }) => {
     const itemsCount = items.length;
     if (itemsCount === 0) return;
 
+    if (activeIndex >= itemsCount) {
+      activeIndex = -1;
+      activeIndexRef.current = -1;
+    }
+
     if (key === "arrowdown") {
       activeIndex = activeIndex >= itemsCount - 1 ? 0 : activeIndex + 1;
       (items[activeIndex])?.focus();
@@ -30,10 +35,12 @@ const Menu = ({ children, className, ...otherProps }) => {
       (items[activeIndex])?.focus();
       eventHandled = true;
     } else if (key === "enter") {
-      const item = (items[activeIndex]);
-      if (item) {
-        item.click();
-        eventHandled = true;
+      if (activeIndex >= 0 && activeIndex < itemsCount) {
+        const item = items[activeIndex];
+        if (item && typeof item.click === "function") {
+          item.click();
+          eventHandled = true;
+        }
       }
     }
 
