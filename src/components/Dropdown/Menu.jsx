@@ -28,11 +28,11 @@ const Menu = ({ children, className, ...otherProps }) => {
 
     if (key === "arrowdown") {
       activeIndex = activeIndex >= itemsCount - 1 ? 0 : activeIndex + 1;
-      (items[activeIndex])?.focus();
+      items[activeIndex]?.focus();
       eventHandled = true;
     } else if (key === "arrowup") {
       activeIndex = activeIndex <= 0 ? itemsCount - 1 : activeIndex - 1;
-      (items[activeIndex])?.focus();
+      items[activeIndex]?.focus();
       eventHandled = true;
     } else if (key === "enter") {
       if (activeIndex >= 0 && activeIndex < itemsCount) {
