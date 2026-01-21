@@ -35,12 +35,9 @@ const Menu = ({ children, className, ...otherProps }) => {
       items[activeIndex]?.focus();
       eventHandled = true;
     } else if (key === "enter") {
-      if (activeIndex >= 0 && activeIndex < itemsCount) {
-        const item = items[activeIndex];
-        if (item && typeof item.click === "function") {
-          item.click();
-          eventHandled = true;
-        }
+      if (activeIndex >= 0 && activeIndex < itemsCount && items[activeIndex] && typeof items[activeIndex].click === "function") {
+        items[activeIndex].click();
+        eventHandled = true;
       }
     }
 
