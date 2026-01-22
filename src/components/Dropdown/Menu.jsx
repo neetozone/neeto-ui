@@ -37,7 +37,7 @@ const Menu = ({ children, className, ...otherProps }) => {
     } else if (key === "enter") {
       const item = items[activeIndex];
 
-      if (activeIndex >= 0 && activeIndex < itemsCount && typeof item?.click === "function") {
+      if (activeIndex >= 0 && activeIndex < itemsCount) {
         item.click();
         eventHandled = true;
       }
