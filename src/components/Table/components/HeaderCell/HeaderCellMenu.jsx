@@ -149,6 +149,7 @@ const HeaderCellMenu = ({
           )}
           {isHidable && (
             <ActionItem
+              data-testid="hide-column-menu-button"
               icon={Hide}
               label={getLocale(i18n, t, "neetoui.table.hideColumn")}
               onClick={() => onColumnHide(column)}
@@ -175,6 +176,7 @@ const HeaderCellMenu = ({
           )}
           {isPresent(onColumnUpdate) && (
             <ActionItem
+              data-testid="edit-column-info-menu-button"
               icon={InfoRound}
               label={getLocale(i18n, t, "neetoui.table.editColumnInfo")}
               onClick={() => {
@@ -184,6 +186,7 @@ const HeaderCellMenu = ({
           )}
           {isPresent(onColumnUpdate) && isMoveToLeftEnabled && (
             <ActionItem
+              data-testid="move-column-left-menu-button"
               icon={ColumnToLeft}
               label={getLocale(i18n, t, "neetoui.table.moveColumnLeft")}
               onClick={() => onMoveColumn(-1)}
@@ -191,6 +194,7 @@ const HeaderCellMenu = ({
           )}
           {isPresent(onColumnUpdate) && isMoveToRightEnabled && (
             <ActionItem
+              data-testid="move-column-right-menu-button"
               icon={ColumnToRight}
               label={getLocale(i18n, t, "neetoui.table.moveColumnRight")}
               onClick={() => onMoveColumn(1)}
