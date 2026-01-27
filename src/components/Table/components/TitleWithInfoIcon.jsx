@@ -15,6 +15,7 @@ const TitleWithInfoIcon = ({ title, description, ...rest }) => {
         <>
           <span
             className="neeto-ui-table__column-title-info-icon"
+            data-testid="column-info-icon"
             ref={popoverRef}
           >
             <InfoRound color="currentColor" size={14} />
