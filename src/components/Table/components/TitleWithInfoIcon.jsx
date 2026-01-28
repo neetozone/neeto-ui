@@ -22,6 +22,7 @@ const TitleWithInfoIcon = ({ title, description, ...rest }) => {
           </span>
           <Popover
             appendTo={() => document.body}
+            className="max-h-64 overflow-y-auto"
             position="bottom"
             reference={popoverRef}
           >

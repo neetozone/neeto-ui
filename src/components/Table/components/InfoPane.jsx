@@ -30,6 +30,8 @@ const TableInfoPane = ({ onColumnUpdate }) => {
     onClose();
   };
 
+  const hasChanges = description !== (column?.description || "");
+
   useEffect(() => {
     if (!isOpen) return undefined;
     setDescription(column?.description || "");
@@ -61,7 +63,7 @@ const TableInfoPane = ({ onColumnUpdate }) => {
         </div>
       </Pane.Body>
       <Pane.Footer className="neeto-ui-flex neeto-ui-gap-2">
-        <Button onClick={onSubmit}>
+        <Button disabled={!hasChanges} onClick={onSubmit}>
           {getLocale(i18n, t, "neetoui.actionBlock.saveChanges")}
         </Button>
         <Button style="text" onClick={onClose}>
