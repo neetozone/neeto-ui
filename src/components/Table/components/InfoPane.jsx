@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Pane, Typography, Button, Textarea, Label } from "components";
+import { Pane, Typography, Button, Textarea } from "components";
 import { modifyBy } from "neetocist";
 import { useTableStore } from "src/stores/tableStore";
 import { mergeLeft, pick } from "ramda";
@@ -51,7 +51,9 @@ const TableInfoPane = ({ onColumnUpdate }) => {
       <Pane.Body>
         <div className="neeto-ui-w-full space-y-5">
           <div className="neeto-ui-flex neeto-ui-flex-col neeto-ui-gap-1">
-            <Label>{getLocale(i18n, t, "neetoui.table.columnName")}</Label>
+            <Typography lineHeight="none" style="body2" weight="medium">
+              {getLocale(i18n, t, "neetoui.table.columnName")}
+            </Typography>
             <Typography style="body2">{column?.title}</Typography>
           </div>
           <Textarea
