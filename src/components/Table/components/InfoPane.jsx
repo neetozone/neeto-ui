@@ -47,7 +47,7 @@ const TableInfoPane = ({ onColumnUpdate }) => {
         </Typography>
       </Pane.Header>
       <Pane.Body>
-        <div className="neeto-ui-w-full space-y-4">
+        <div className="neeto-ui-w-full space-y-5">
           <div className="neeto-ui-flex neeto-ui-flex-col neeto-ui-gap-1">
             <Label>{getLocale(i18n, t, "neetoui.table.columnName")}</Label>
             <Typography style="body2">{column?.title}</Typography>
