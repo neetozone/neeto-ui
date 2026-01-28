@@ -9,7 +9,7 @@ const TitleWithInfoIcon = ({ title, description, ...rest }) => {
   const popoverRef = useRef();
 
   return (
-    <span className="neeto-ui-pr-5 relative">
+    <span className="neeto-ui-pr-5 neeto-ui-inline-flex relative">
       {typeof title === "function" ? title(rest) : title}
       {description && (
         <>
@@ -22,6 +22,7 @@ const TitleWithInfoIcon = ({ title, description, ...rest }) => {
           </span>
           <Popover
             appendTo={() => document.body}
+            className="max-h-64 overflow-y-auto"
             position="bottom"
             reference={popoverRef}
           >
