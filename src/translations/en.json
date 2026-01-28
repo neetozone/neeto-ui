@@ -36,7 +36,8 @@
       "addColumnInfo": "Add column info",
       "editColumnInfo": "Edit column info",
       "clearSelection": "Clear selection",
-      "info": "Table info"
+      "info": "Table info",
+      "columnName": "Column name"
     },
     "timePicker": {
       "hours": "Hours",

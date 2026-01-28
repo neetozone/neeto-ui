@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Pane, Typography, Button, Textarea } from "components";
+import { Pane, Typography, Button, Textarea, Label } from "components";
 import { modifyBy } from "neetocist";
 import { useTableStore } from "src/stores/tableStore";
 import { mergeLeft, pick } from "ramda";
@@ -42,22 +42,30 @@ const TableInfoPane = ({ onColumnUpdate }) => {
   return (
     <Pane {...{ onClose }} isOpen={infoPaneState.isOpen}>
       <Pane.Header>
-        <Typography style="h3">{column?.title}</Typography>
+        <Typography style="h2" weight="semibold">
+          {getLocale(i18n, t, "neetoui.table.editColumnInfo")}
+        </Typography>
       </Pane.Header>
       <Pane.Body>
-        <Textarea
-          className="neeto-ui-w-full"
-          label={getLocale(i18n, t, "neetoui.common.description")}
-          value={description}
-          onChange={e => setDescription(e.target.value)}
-        />
+        <div className="neeto-ui-w-full space-y-4">
+          <div className="neeto-ui-flex neeto-ui-flex-col neeto-ui-gap-1">
+            <Label>{getLocale(i18n, t, "neetoui.table.columnName")}</Label>
+            <Typography style="body2">{column?.title}</Typography>
+          </div>
+          <Textarea
+            className="neeto-ui-w-full"
+            label={getLocale(i18n, t, "neetoui.common.description")}
+            value={description}
+            onChange={e => setDescription(e.target.value)}
+          />
+        </div>
       </Pane.Body>
-      <Pane.Footer className="neeto-ui-flex neeto-ui-justify-between">
-        <Button style="secondary" onClick={onClose}>
-          {getLocale(i18n, t, "neetoui.actionBlock.cancel")}
-        </Button>
+      <Pane.Footer className="neeto-ui-flex neeto-ui-gap-2">
         <Button onClick={onSubmit}>
           {getLocale(i18n, t, "neetoui.actionBlock.saveChanges")}
+        </Button>
+        <Button style="text" onClick={onClose}>
+          {getLocale(i18n, t, "neetoui.actionBlock.cancel")}
         </Button>
       </Pane.Footer>
     </Pane>
