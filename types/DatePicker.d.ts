@@ -25,6 +25,7 @@ export type DatePickerProps = {
   allowClear?: boolean;
   minDate?: Dayjs;
   maxDate?: Dayjs;
+  needConfirm?: boolean;
   onOk?: () => void;
   onChange?: (date: any, dateString: string) => void;
   onOpenChange?: (open: boolean) => void;

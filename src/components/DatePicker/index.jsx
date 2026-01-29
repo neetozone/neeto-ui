@@ -51,6 +51,7 @@ const DatePicker = forwardRef(
       onOk = noop,
       picker = "date",
       showTime = false,
+      needConfirm,
       type = "date",
       nakedInput = false,
       error = "",
@@ -79,6 +80,7 @@ const DatePicker = forwardRef(
 
     const Component = datePickerTypes[type?.toLowerCase()];
     const format = showTime ? `${dateFormat} ${timeFormat}` : dateFormat;
+    const isOkButtonVisible = showTime || needConfirm;
 
     const errorId = `error_${id}`;
 
@@ -107,14 +109,14 @@ const DatePicker = forwardRef(
     };
 
     const handleOnCalendarChange = date => {
-      if (type === "range" || !date) return;
+      if (type === "range" || !isOkButtonVisible || !date) return;
 
       const allowed = getAllowedValue(getTimezoneAppliedDateTime(date));
       setValue(allowed);
     };
 
     const handleOnOpenChange = open => {
-      if (!open && !equals(value, inputValue)) {
+      if (!open && isOkButtonVisible && !equals(value, inputValue)) {
         onChange(value, formattedString(value, dateFormat));
       }
 
@@ -182,6 +184,7 @@ const DatePicker = forwardRef(
               format,
               maxDate,
               minDate,
+              needConfirm,
               onOk,
               picker,
               renderExtraFooter,
@@ -306,6 +309,10 @@ DatePicker.propTypes = {
    * To show time picker
    */
   showTime: PropTypes.bool,
+  /**
+   * When true, the picker shows an OK button.
+   */
+  needConfirm: PropTypes.bool,
   /**
    * To specify the type of the DatePicker.
    */
