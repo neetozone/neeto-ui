@@ -32,7 +32,8 @@
       "moveColumnRight": "Flytta kolumn till höger",
       "addColumnInfo": "Lägg till kolumninformation",
       "editColumnInfo": "Redigera kolumninformation",
-      "info": "Tabellinformation"
+      "info": "Tabellinformation",
+      "columnName": "Kolumnnamn"
     },
     "timePicker": {
       "hours": "Timmar",

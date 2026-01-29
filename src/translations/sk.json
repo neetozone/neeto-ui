@@ -32,7 +32,8 @@
       "moveColumnRight": "Presunúť stĺpec doprava",
       "addColumnInfo": "Pridať informácie o stĺpci",
       "editColumnInfo": "Upraviť informácie o stĺpci",
-      "info": "Informácie o tabuľke"
+      "info": "Informácie o tabuľke",
+      "columnName": "Názov stĺpca"
     },
     "timePicker": {
       "hours": "Hodiny",

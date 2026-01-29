@@ -32,7 +32,8 @@
       "moveColumnRight": "نقل العمود إلى اليمين",
       "addColumnInfo": "إضافة معلومات العمود",
       "editColumnInfo": "تحرير معلومات العمود",
-      "info": "معلومات الجدول"
+      "info": "معلومات الجدول",
+      "columnName": "اسم العمود"
     },
     "timePicker": {
       "hours": "ساعات",

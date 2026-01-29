@@ -32,7 +32,8 @@
       "moveColumnRight": "Siirrä sarake oikealle",
       "addColumnInfo": "Lisää saraketietoa",
       "editColumnInfo": "Muokkaa saraketietoa",
-      "info": "Taulukkotieto"
+      "info": "Taulukkotieto",
+      "columnName": "Sarakkeen nimi"
     },
     "timePicker": {
       "hours": "Tunnit",

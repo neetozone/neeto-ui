@@ -32,7 +32,8 @@
       "moveColumnRight": "Sütunu sağa kaydır",
       "addColumnInfo": "Sütun bilgisi ekle",
       "editColumnInfo": "Sütun bilgisini düzenle",
-      "info": "Tablo bilgisi"
+      "info": "Tablo bilgisi",
+      "columnName": "Sütun adı"
     },
     "timePicker": {
       "hours": "Saatler",

@@ -32,7 +32,8 @@
       "moveColumnRight": "向右移动列",
       "addColumnInfo": "添加列信息",
       "editColumnInfo": "编辑列信息",
-      "info": "表格信息"
+      "info": "表格信息",
+      "columnName": "列名"
     },
     "timePicker": {
       "hours": "小时",
