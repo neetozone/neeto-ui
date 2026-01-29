@@ -32,7 +32,8 @@
       "moveColumnRight": "Spalte nach rechts verschieben",
       "addColumnInfo": "Spalteninformation hinzufügen",
       "editColumnInfo": "Spalteninformation bearbeiten",
-      "info": "Tabelleninformationen"
+      "info": "Tabelleninformationen",
+      "columnName": "Spaltenname"
     },
     "timePicker": {
       "hours": "Stunden",

@@ -32,7 +32,8 @@
       "moveColumnRight": "열을 오른쪽으로 이동",
       "addColumnInfo": "열 정보 추가",
       "editColumnInfo": "열 정보 편집",
-      "info": "테이블 정보"
+      "info": "테이블 정보",
+      "columnName": "열 이름"
     },
     "timePicker": {
       "hours": "시간",

@@ -32,7 +32,8 @@
       "moveColumnRight": "Mover coluna para a direita",
       "addColumnInfo": "Adicionar informações da coluna",
       "editColumnInfo": "Editar informações da coluna",
-      "info": "Informações da tabela"
+      "info": "Informações da tabela",
+      "columnName": "Nome da coluna"
     },
     "timePicker": {
       "hours": "Horas",

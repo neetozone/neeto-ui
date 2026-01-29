@@ -32,7 +32,8 @@
       "moveColumnRight": "Liiguta veerg paremale",
       "addColumnInfo": "Lisa veeru teave",
       "editColumnInfo": "Muuda veeru teavet",
-      "info": "Tabeli teave"
+      "info": "Tabeli teave",
+      "columnName": "Veeru nimi"
     },
     "timePicker": {
       "hours": "Tunnid",
