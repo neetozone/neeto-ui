@@ -32,7 +32,8 @@
       "moveColumnRight": "ย้ายคอลัมน์ไปทางขวา",
       "addColumnInfo": "เพิ่มข้อมูลคอลัมน์",
       "editColumnInfo": "แก้ไขข้อมูลคอลัมน์",
-      "info": "ข้อมูลตาราง"
+      "info": "ข้อมูลตาราง",
+      "columnName": "ชื่อคอลัมน์"
     },
     "timePicker": {
       "hours": "ชั่วโมง",

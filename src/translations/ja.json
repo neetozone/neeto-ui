@@ -32,7 +32,8 @@
       "moveColumnRight": "列を右に移動",
       "addColumnInfo": "列情報を追加",
       "editColumnInfo": "列情報を編集",
-      "info": "テーブル情報"
+      "info": "テーブル情報",
+      "columnName": "列名"
     },
     "timePicker": {
       "hours": "時間",

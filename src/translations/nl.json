@@ -32,7 +32,8 @@
       "moveColumnRight": "Verplaats kolom naar rechts",
       "addColumnInfo": "Voeg kolominformatie toe",
       "editColumnInfo": "Bewerk kolominformatie",
-      "info": "Tabel informatie"
+      "info": "Tabel informatie",
+      "columnName": "Kolomnaam"
     },
     "timePicker": {
       "hours": "Uur",

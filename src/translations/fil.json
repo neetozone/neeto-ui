@@ -32,7 +32,8 @@
       "moveColumnRight": "Ilipat ang column sa kanan",
       "addColumnInfo": "Magdagdag ng impormasyon sa column",
       "editColumnInfo": "I-edit ang impormasyon sa column",
-      "info": "Impormasyon ng talahanayan"
+      "info": "Impormasyon ng talahanayan",
+      "columnName": "Pangalan ng kolum"
     },
     "timePicker": {
       "hours": "Oras",
