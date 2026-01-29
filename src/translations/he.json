@@ -36,7 +36,8 @@
       "addColumnInfo": "הוסף מידע על העמודה",
       "editColumnInfo": "ערוך מידע על העמודה",
       "clearSelection": "נקה בחירה",
-      "info": "מידע על הטבלה"
+      "info": "מידע על הטבלה",
+      "columnName": "שם עמודה"
     },
     "timePicker": {
       "hours": "שעות",

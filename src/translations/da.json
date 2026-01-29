@@ -32,7 +32,8 @@
       "moveColumnRight": "Flyt kolonne til højre",
       "addColumnInfo": "Tilføj kolonneinformation",
       "editColumnInfo": "Rediger kolonneinformation",
-      "info": "Tabelinformation"
+      "info": "Tabelinformation",
+      "columnName": "Kolonnenavn"
     },
     "timePicker": {
       "hours": "Timer",

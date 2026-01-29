@@ -32,7 +32,8 @@
       "moveColumnRight": "स्तंभ को दाएं ले जाएं",
       "addColumnInfo": "स्तंभ जानकारी जोड़ें",
       "editColumnInfo": "स्तंभ जानकारी संपादित करें",
-      "info": "टेबल जानकारी"
+      "info": "टेबल जानकारी",
+      "columnName": "स्तंभ का नाम"
     },
     "timePicker": {
       "hours": "घंटे",

@@ -32,7 +32,8 @@
       "moveColumnRight": "Premakni stolpec desno",
       "addColumnInfo": "Dodaj informacije o stolpcu",
       "editColumnInfo": "Uredi informacije o stolpcu",
-      "info": "Informacije o tabeli"
+      "info": "Informacije o tabeli",
+      "columnName": "Ime stolpca"
     },
     "timePicker": {
       "hours": "Ure",
