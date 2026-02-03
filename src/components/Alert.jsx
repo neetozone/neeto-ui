@@ -32,7 +32,7 @@ const Alert = ({
   initialFocusRef,
   initialFocusElement,
   hideCancelButton = false,
-  style = ALERT_STYLES.danger,
+  style: submitButtonStyle = ALERT_STYLES.danger,
   ...otherProps
 }) => {
   const submitButtonRef = useRef(null);
@@ -104,7 +104,7 @@ const Alert = ({
           label={submitButtonLabel}
           loading={isSubmitting}
           ref={submitButtonRef}
-          style={style}
+          style={submitButtonStyle}
           onClick={onSubmit}
         />
       </Modal.Footer>
