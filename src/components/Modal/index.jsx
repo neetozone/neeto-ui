@@ -61,7 +61,7 @@ const Modal = ({
   const isFullScreenModal = size === SIZES.fullScreen;
 
   return (
-    <Portal rootId="neeto-ui-portal">
+    <Portal bringToFront={isOpen} rootId="neeto-ui-portal">
       <CSSTransition
         unmountOnExit
         appear={isOpen}
