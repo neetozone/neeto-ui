@@ -121,6 +121,11 @@
     box-shadow: var(--neeto-ui-btn-focus-visible-box-shadow);
   }
 
+  &[aria-expanded="true"] {
+    color: var(--neeto-ui-btn-focus-color);
+    box-shadow: var(--neeto-ui-btn-focus-box-shadow);
+  }
+
   &.disabled {
     cursor: not-allowed;
     opacity: var(--neeto-ui-btn-disabled-opacity);
