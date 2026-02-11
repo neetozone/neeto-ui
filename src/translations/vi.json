@@ -32,7 +32,8 @@
       "moveColumnRight": "Di chuyển cột sang phải",
       "addColumnInfo": "Thêm thông tin cột",
       "editColumnInfo": "Chỉnh sửa thông tin cột",
-      "info": "Thông tin bảng"
+      "info": "Thông tin bảng",
+      "columnName": "Tên cột"
     },
     "timePicker": {
       "hours": "Giờ",

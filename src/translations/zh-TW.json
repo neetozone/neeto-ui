@@ -32,7 +32,8 @@
       "moveColumnRight": "向右移動欄位",
       "addColumnInfo": "添加欄位資訊",
       "editColumnInfo": "編輯欄位資訊",
-      "info": "表格資訊"
+      "info": "表格資訊",
+      "columnName": "列名稱"
     },
     "timePicker": {
       "hours": "小時",

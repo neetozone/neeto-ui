@@ -12,6 +12,8 @@ const SIZES = { small: "small", medium: "medium", large: "large" };
 
 const FOCUSABLE_ELEMENTS = { submit: "submit", cancel: "cancel" };
 
+const ALERT_STYLES = { danger: "danger", warning: "warning" };
+
 const Alert = ({
   size = SIZES.medium,
   isOpen = false,
@@ -30,6 +32,7 @@ const Alert = ({
   initialFocusRef,
   initialFocusElement,
   hideCancelButton = false,
+  style: submitButtonStyle = ALERT_STYLES.danger,
   ...otherProps
 }) => {
   const submitButtonRef = useRef(null);
@@ -101,7 +104,7 @@ const Alert = ({
           label={submitButtonLabel}
           loading={isSubmitting}
           ref={submitButtonRef}
-          style="danger"
+          style={submitButtonStyle}
           onClick={onSubmit}
         />
       </Modal.Footer>
@@ -179,6 +182,10 @@ Alert.propTypes = {
    * To hide the cancel button
    */
   hideCancelButton: PropTypes.bool,
+  /**
+   * To specify the style of the Alert submit button.
+   */
+  style: PropTypes.oneOf(Object.values(ALERT_STYLES)),
 };
 
 export default Alert;

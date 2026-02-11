@@ -32,7 +32,8 @@
       "moveColumnRight": "Premjesti kolonu desno",
       "addColumnInfo": "Dodaj informacije o koloni",
       "editColumnInfo": "Uredi informacije o koloni",
-      "info": "Informacije o tablici"
+      "info": "Informacije o tablici",
+      "columnName": "Naziv stupca"
     },
     "timePicker": {
       "hours": "Sati",

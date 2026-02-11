@@ -30,6 +30,8 @@ const TableInfoPane = ({ onColumnUpdate }) => {
     onClose();
   };
 
+  const hasChanges = description !== (column?.description || "");
+
   useEffect(() => {
     if (!isOpen) return undefined;
     setDescription(column?.description || "");
@@ -42,22 +44,32 @@ const TableInfoPane = ({ onColumnUpdate }) => {
   return (
     <Pane {...{ onClose }} isOpen={infoPaneState.isOpen}>
       <Pane.Header>
-        <Typography style="h3">{column?.title}</Typography>
+        <Typography style="h2" weight="semibold">
+          {getLocale(i18n, t, "neetoui.table.editColumnInfo")}
+        </Typography>
       </Pane.Header>
       <Pane.Body>
-        <Textarea
-          className="neeto-ui-w-full"
-          label={getLocale(i18n, t, "neetoui.common.description")}
-          value={description}
-          onChange={e => setDescription(e.target.value)}
-        />
+        <div className="neeto-ui-w-full space-y-5">
+          <div className="neeto-ui-flex neeto-ui-flex-col neeto-ui-gap-1">
+            <Typography lineHeight="none" style="body2" weight="medium">
+              {getLocale(i18n, t, "neetoui.table.columnName")}
+            </Typography>
+            <Typography style="body2">{column?.title}</Typography>
+          </div>
+          <Textarea
+            className="neeto-ui-w-full"
+            label={getLocale(i18n, t, "neetoui.common.description")}
+            value={description}
+            onChange={e => setDescription(e.target.value)}
+          />
+        </div>
       </Pane.Body>
-      <Pane.Footer className="neeto-ui-flex neeto-ui-justify-between">
-        <Button style="secondary" onClick={onClose}>
-          {getLocale(i18n, t, "neetoui.actionBlock.cancel")}
-        </Button>
-        <Button onClick={onSubmit}>
+      <Pane.Footer className="neeto-ui-flex neeto-ui-gap-2">
+        <Button disabled={!hasChanges} onClick={onSubmit}>
           {getLocale(i18n, t, "neetoui.actionBlock.saveChanges")}
+        </Button>
+        <Button style="text" onClick={onClose}>
+          {getLocale(i18n, t, "neetoui.actionBlock.cancel")}
         </Button>
       </Pane.Footer>
     </Pane>

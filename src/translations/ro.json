@@ -32,7 +32,8 @@
       "moveColumnRight": "Mută coloana la dreapta",
       "addColumnInfo": "Adaugă informații despre coloană",
       "editColumnInfo": "Editează informațiile despre coloană",
-      "info": "Informații despre tabel"
+      "info": "Informații despre tabel",
+      "columnName": "Numele coloanei"
     },
     "timePicker": {
       "hours": "Ore",

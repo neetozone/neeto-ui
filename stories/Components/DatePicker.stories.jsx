@@ -208,6 +208,12 @@ const metadata = {
       control: "object",
       table: { type: { summary: "object" } },
     },
+    needConfirm: {
+      description:
+        "To specify whether the Date picker shows an OK button or not.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
   },
 };
 

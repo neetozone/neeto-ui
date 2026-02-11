@@ -1,9 +1,15 @@
+/* eslint-disable @bigbinary/neeto/file-name-and-export-name-standards */
 import { useEffect, useRef } from "react";
 
 import { isEmpty } from "ramda";
 import { createPortal } from "react-dom";
 
-const Portal = ({ children, rootId = "root-portal", el = "div" }) => {
+const Portal = ({
+  children,
+  rootId = "root-portal",
+  el = "div",
+  bringToFront = false,
+}) => {
   const target = useRef(null);
 
   useEffect(() => {
@@ -23,6 +29,12 @@ const Portal = ({ children, rootId = "root-portal", el = "div" }) => {
       }
     };
   }, [rootId]);
+
+  useEffect(() => {
+    if (bringToFront && target.current?.parentElement) {
+      target.current.parentElement.appendChild(target.current);
+    }
+  }, [bringToFront]);
 
   if (!target.current) {
     target.current = document.createElement(el);
