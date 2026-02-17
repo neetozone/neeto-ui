@@ -11,8 +11,6 @@ const Menu = ({ children, className, ...otherProps }) => {
 
   const onKeyDown = event => {
     const menu = menuRef.current;
-    if (!menu) return;
-
     const key = event.key?.toLowerCase();
     let activeIndex = activeIndexRef.current;
     let eventHandled = false;
@@ -21,26 +19,18 @@ const Menu = ({ children, className, ...otherProps }) => {
     const itemsCount = items.length;
     if (itemsCount === 0) return;
 
-    if (activeIndex >= itemsCount) {
-      activeIndex = -1;
-      activeIndexRef.current = -1;
-    }
 
     if (key === "arrowdown") {
       activeIndex = activeIndex >= itemsCount - 1 ? 0 : activeIndex + 1;
-      items[activeIndex]?.focus();
+      items[activeIndex].focus();
       eventHandled = true;
     } else if (key === "arrowup") {
       activeIndex = activeIndex <= 0 ? itemsCount - 1 : activeIndex - 1;
-      items[activeIndex]?.focus();
+      items[activeIndex].focus();
       eventHandled = true;
-    } else if (key === "enter") {
-      const item = items[activeIndex];
-
-      if (activeIndex >= 0 && activeIndex < itemsCount) {
-        item.click();
-        eventHandled = true;
-      }
+    } else if (key === "enter" && activeIndex >= 0) {
+      items[activeIndex]?.click();
+      eventHandled = true;
     }
 
     if (!eventHandled) return;
