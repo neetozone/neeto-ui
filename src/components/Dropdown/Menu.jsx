@@ -19,7 +19,6 @@ const Menu = ({ children, className, ...otherProps }) => {
     const itemsCount = items.length;
     if (itemsCount === 0) return;
 
-
     if (key === "arrowdown") {
       activeIndex = activeIndex >= itemsCount - 1 ? 0 : activeIndex + 1;
       items[activeIndex].focus();
