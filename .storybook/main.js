@@ -1,6 +1,6 @@
-const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
 import path from "path";
 import { mergeDeepLeft } from "ramda";
+import MonacoWebpackPlugin from "monaco-editor-webpack-plugin";
 
 import commonResolve from "@bigbinary/neeto-commons-frontend/configs/nanos/webpack/resolve.js";
 import projectResolve from "../alias.js";
@@ -15,6 +15,7 @@ const config = {
     "@storybook/addon-docs",
     "@vueless/storybook-dark-mode",
     "storybook-addon-rtl",
+    "@github-ui/storybook-addon-performance-panel/preset",
   ],
 
   webpackFinal: async config => {
@@ -33,8 +34,8 @@ const config = {
         alias: {
           ...config.resolve.alias,
           ...rootResolve.alias,
-          src: path.resolve(__dirname, "..", "src"),
-          "@bigbinary/neetoui": path.resolve(__dirname, "..", "src"),
+          src: path.resolve(import.meta.dirname, "..", "src"),
+          "@bigbinary/neetoui": path.resolve(import.meta.dirname, "..", "src"),
         },
         extensions: [
           ...(config.resolve.extensions || []),

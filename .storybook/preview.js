@@ -1,6 +1,8 @@
 import "./style.scss";
 import "../src/styles/index.scss";
 import { themes } from "storybook/theming";
+import { withPerformanceMonitor } from "@github-ui/storybook-addon-performance-panel";
+
 import neetoTheme from "./neetoTheme";
 import withRTL from "./decorators/withRTL";
 
@@ -75,6 +77,6 @@ export const parameters = {
   },
 };
 
-export const decorators = [withRTL];
+export const decorators = [withPerformanceMonitor, withRTL];
 
 export const tags = ["autodocs"];
