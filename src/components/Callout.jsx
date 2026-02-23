@@ -26,6 +26,7 @@ const Callout = forwardRef(
     return (
       <div
         {...{ ref }}
+        data-testid="callout-element"
         className={classnames("neeto-ui-callout", {
           "neeto-ui-callout--info": style === STYLES.info,
           "neeto-ui-callout--warning": style === STYLES.warning,
