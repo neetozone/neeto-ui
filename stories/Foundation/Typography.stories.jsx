@@ -19,6 +19,7 @@ const metadata = {
       description: "Typography style variant",
       control: "select",
       options: [
+        "jumbo",
         "h1",
         "h2",
         "h3",
@@ -28,6 +29,7 @@ const metadata = {
         "body1",
         "body2",
         "body3",
+        "caption",
         "nano",
       ],
       table: {
@@ -155,25 +157,34 @@ Body3.args = { style: "body3" };
 const Nano = Template.bind({});
 Nano.args = { style: "nano" };
 
+const Jumbo = Template.bind({});
+Jumbo.args = { style: "jumbo" };
+
+const Caption = Template.bind({});
+Caption.args = { style: "caption" };
+
 const Variants = args => (
   <>
+    <Typography {...args} className="mb-4" style="jumbo">
+      jumbo. Heading - 48px
+    </Typography>
     <Typography {...args} className="mb-4" style="h1">
-      h1. Heading - 32px
+      h1. Heading - 40px
     </Typography>
     <Typography {...args} className="mb-4" style="h2">
-      h2. Heading - 24px
+      h2. Heading - 32px
     </Typography>
     <Typography {...args} className="mb-4" style="h3">
-      h3. Heading - 20px
+      h3. Heading - 28px
     </Typography>
     <Typography {...args} className="mb-4" style="h4">
-      h4. Heading - 16px
+      h4. Heading - 24px
     </Typography>
     <Typography {...args} className="mb-4" style="h5">
-      h5. Heading - 14px
+      h5. Heading - 20px
     </Typography>
     <Typography {...args} className="mb-4" style="h6">
-      h6. Heading - 12px
+      h6. Heading - 18px
     </Typography>
     <Typography {...args} className="mb-4" style="body1">
       body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
@@ -186,6 +197,9 @@ const Variants = args => (
     <Typography {...args} className="mb-4" style="body3">
       body3. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
       blanditiis tenetur - 12px
+    </Typography>
+    <Typography {...args} className="mb-4" style="caption">
+      caption. Lorem ipsum dolor sit amet - 15px
     </Typography>
     <Typography {...args} className="mb-4" component="p" style="nano">
       nano. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
@@ -261,6 +275,8 @@ export {
   Body2,
   Body3,
   Nano,
+  Jumbo,
+  Caption,
   Variants,
   Helpers,
 };

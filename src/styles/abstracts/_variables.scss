@@ -264,28 +264,44 @@ $neeto-ui-font-weights: (
 $neeto-ui-text-xxs: 10px;
 $neeto-ui-text-xs: 12px;
 $neeto-ui-text-sm: 14px;
+$neeto-ui-text-md: 15px;
 $neeto-ui-text-base: 16px;
 $neeto-ui-text-lg: 18px;
 $neeto-ui-text-xl: 20px;
 $neeto-ui-text-2xl: 24px;
 $neeto-ui-text-3xl: 32px;
 $neeto-ui-text-4xl: 48px;
+$neeto-ui-text-jumbo: 48px;
+$neeto-ui-text-h1: 40px;
+$neeto-ui-text-h2: 32px;
+$neeto-ui-text-h3: 28px;
+$neeto-ui-text-h4: 24px;
+$neeto-ui-text-h5: 20px;
+$neeto-ui-text-h6: 18px;
+$neeto-ui-text-body1: 16px;
+$neeto-ui-text-body2: 14px;
+$neeto-ui-text-body3: 12px;
+$neeto-ui-text-caption: 15px;
+$neeto-ui-text-nano: 10px;
 
 // neeto-ui-font-sizes-map
 $neeto-ui-font-sizes: (
-  "h1": $neeto-ui-text-3xl,
-  "h2": $neeto-ui-text-2xl,
-  "h3": $neeto-ui-text-xl,
-  "h4": $neeto-ui-text-base,
-  "h5": $neeto-ui-text-sm,
-  "h6": $neeto-ui-text-xs,
-  "body1": $neeto-ui-text-base,
-  "body2": $neeto-ui-text-sm,
-  "body3": $neeto-ui-text-xs,
-  "nano": $neeto-ui-text-xxs,
+  "h1": $neeto-ui-text-h1,
+  "h2": $neeto-ui-text-h2,
+  "h3": $neeto-ui-text-h3,
+  "h4": $neeto-ui-text-h4,
+  "h5": $neeto-ui-text-h5,
+  "h6": $neeto-ui-text-h6,
+  "body1": $neeto-ui-text-body1,
+  "body2": $neeto-ui-text-body2,
+  "body3": $neeto-ui-text-body3,
+  "jumbo": $neeto-ui-text-jumbo,
+  "caption": $neeto-ui-text-caption,
+  "nano": $neeto-ui-text-nano,
   "xxs": $neeto-ui-text-xxs,
   "xs": $neeto-ui-text-xs,
   "sm": $neeto-ui-text-sm,
+  "md": $neeto-ui-text-md,
   "base": $neeto-ui-text-base,
   "lg": $neeto-ui-text-lg,
   "xl": $neeto-ui-text-xl,
