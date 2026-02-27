@@ -1,9 +1,11 @@
 $prefix: "neeto-ui-";
 
 // Body
-$neeto-ui-body-font-family: -apple-system, BlinkMacSystemFont, "Inter", Arial, "Segoe UI",
-"Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue",
-sans-serif !important;
+$neeto-ui-system-font-stack: -apple-system, BlinkMacSystemFont,
+  "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+$neeto-ui-body-font-family: "Inter", $neeto-ui-system-font-stack;
+$neeto-ui-title-font-family: "Poppins", $neeto-ui-system-font-stack;
 $neeto-ui-body-font-size: 14px;
 $neeto-ui-body-font-weight: 400;
 $neeto-ui-body-line-height: 1.5;

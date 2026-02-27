@@ -87,6 +87,14 @@ body {
     }
   }
 
+  // font family (title = Poppins, body = Inter)
+  .neeto-ui-font-title {
+    font-family: var(--neeto-ui-title-font-family);
+  }
+  .neeto-ui-font-body {
+    font-family: var(--neeto-ui-body-font-family);
+  }
+
   // line height
   @each $lh, $value in variables.$neeto-ui-line-heights {
     .neeto-ui-leading-#{$lh} {

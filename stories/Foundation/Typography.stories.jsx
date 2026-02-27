@@ -120,6 +120,13 @@ const metadata = {
         defaultValue: { summary: "normal" },
       },
     },
+    fontFamily: {
+      description:
+        "Font family: 'title' uses Poppins, 'body' uses Inter. Leave unset to use the default for the chosen style (titles → Poppins, body text → Inter).",
+      control: "select",
+      options: ["title", "body"],
+      table: { type: { summary: "string" } },
+    },
     otherProp: {
       description: "Other Prop",
       control: "object",

@@ -39,6 +39,8 @@ const LINE_HEIGHTS = {
   loose: "loose",
 };
 
+const FONT_FAMILIES = { title: "title", body: "body" };
+
 const TEXT_TRANSFORM = {
   none: "none",
   capitalize: "capitalize",
@@ -99,6 +101,7 @@ const Typography = React.forwardRef(
       component,
       children,
       textTransform,
+      fontFamily,
       className = "",
       ...otherProps
     },
@@ -159,6 +162,8 @@ const Typography = React.forwardRef(
           "neeto-ui-leading-normal": lineHeight === LINE_HEIGHTS.normal,
           "neeto-ui-leading-relaxed": lineHeight === LINE_HEIGHTS.relaxed,
           "neeto-ui-leading-loose": lineHeight === LINE_HEIGHTS.loose,
+          "neeto-ui-font-title": fontFamily === FONT_FAMILIES.title,
+          "neeto-ui-font-body": fontFamily === FONT_FAMILIES.body,
           [className]: className,
         })}
         {...otherProps}
@@ -177,6 +182,7 @@ Typography.propTypes = {
   component: PropTypes.oneOf(Object.values(COMPONENTS)),
   textTransform: PropTypes.oneOf(Object.values(TEXT_TRANSFORM)),
   lineHeight: PropTypes.oneOf(Object.values(LINE_HEIGHTS)),
+  fontFamily: PropTypes.oneOf(Object.values(FONT_FAMILIES)),
   otherProps: PropTypes.object,
 };
 
