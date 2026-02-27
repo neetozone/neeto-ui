@@ -5,13 +5,13 @@
       "description": "Leírás"
     },
     "blockNavigation": {
-      "alertMessage": "Az oldal elhagyása esetén a nem mentett adatok elvesznek. Ezt a műveletet nem lehet visszavonni.",
+      "alertMessage": "Az oldal elhagyása el fogja veszíteni a mentetlen adataidat. Ez a művelet nem vonható vissza.",
       "submitButtonLabel": "Maradj ezen az oldalon",
       "cancelButtonLabel": "Elvetés és az oldal elhagyása",
-      "alertTitle": "Nem mentett változtatások vannak"
+      "alertTitle": "Mentetlen változások vannak"
     },
     "actionBlock": {
-      "cancel": "Mégse",
+      "cancel": "Mégsem",
       "saveChanges": "Változások mentése"
     },
     "colorPicker": {
@@ -32,17 +32,17 @@
       "descending": "Csökkenő",
       "freezeColumn": "Oszlop rögzítése",
       "unFreezeColumn": "Oszlop feloldása",
-      "allRowsSelected": "Az összes sor ki van jelölve",
+      "allRowsSelected": "Minden sor ki van választva",
       "addColumnInfo": "Oszlop információ hozzáadása",
       "editColumnInfo": "Oszlop információ szerkesztése",
       "clearSelection": "Kiválasztás törlése",
-      "info": "Táblázat információ",
-      "columnName": "Oszlop név"
+      "info": "Asztal információ",
+      "columnName": "Oszlop neve"
     },
     "timePicker": {
       "hours": "Órák",
       "minutes": "Perc",
-      "seconds": "Másodpercek"
+      "seconds": "Másodperc"
     },
     "treeSelect": {
       "noOptions": "Nincsenek lehetőségek."
