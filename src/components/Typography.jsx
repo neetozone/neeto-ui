@@ -116,6 +116,7 @@ const Typography = React.forwardRef(
     return (
       <Component
         {...{ ref }}
+        data-testid="typography-element"
         className={classnames({
           "neeto-ui-typography": true,
           "neeto-ui-text-jumbo": style === STYLES.jumbo,
