@@ -16,6 +16,7 @@ const FONT_WEIGHTS = {
 };
 
 const STYLES = {
+  jumbo: "jumbo",
   h1: "h1",
   h2: "h2",
   h3: "h3",
@@ -25,6 +26,7 @@ const STYLES = {
   body1: "body1",
   body2: "body2",
   body3: "body3",
+  caption: "caption",
   nano: "nano",
 };
 
@@ -36,6 +38,8 @@ const LINE_HEIGHTS = {
   relaxed: "relaxed",
   loose: "loose",
 };
+
+const FONT_FAMILIES = { title: "title", body: "body" };
 
 const TEXT_TRANSFORM = {
   none: "none",
@@ -50,6 +54,7 @@ const TEXT_TRANSFORM = {
 };
 
 const DEFAULT_COMPONENTS = {
+  jumbo: "h1",
   h1: "h1",
   h2: "h2",
   h3: "h3",
@@ -59,6 +64,7 @@ const DEFAULT_COMPONENTS = {
   body1: "p",
   body2: "p",
   body3: "p",
+  caption: "p",
   nano: "span",
 };
 
@@ -95,6 +101,7 @@ const Typography = React.forwardRef(
       component,
       children,
       textTransform,
+      fontFamily,
       className = "",
       ...otherProps
     },
@@ -108,9 +115,11 @@ const Typography = React.forwardRef(
 
     return (
       <Component
-        ref={ref}
+        {...{ ref }}
+        data-testid="typography-element"
         className={classnames({
           "neeto-ui-typography": true,
+          "neeto-ui-text-jumbo": style === STYLES.jumbo,
           "neeto-ui-text-h1": style === STYLES.h1,
           "neeto-ui-text-h2": style === STYLES.h2,
           "neeto-ui-text-h3": style === STYLES.h3,
@@ -120,6 +129,7 @@ const Typography = React.forwardRef(
           "neeto-ui-text-body1": style === STYLES.body1,
           "neeto-ui-text-body2": style === STYLES.body2,
           "neeto-ui-text-body3": style === STYLES.body3,
+          "neeto-ui-text-caption": style === STYLES.caption,
           "neeto-ui-text-nano": style === STYLES.nano,
           "neeto-ui-text-transform-none": textTransform === TEXT_TRANSFORM.none,
           "neeto-ui-text-transform-capitalize":
@@ -153,6 +163,8 @@ const Typography = React.forwardRef(
           "neeto-ui-leading-normal": lineHeight === LINE_HEIGHTS.normal,
           "neeto-ui-leading-relaxed": lineHeight === LINE_HEIGHTS.relaxed,
           "neeto-ui-leading-loose": lineHeight === LINE_HEIGHTS.loose,
+          "neeto-ui-font-title": fontFamily === FONT_FAMILIES.title,
+          "neeto-ui-font-body": fontFamily === FONT_FAMILIES.body,
           [className]: className,
         })}
         {...otherProps}
@@ -171,6 +183,7 @@ Typography.propTypes = {
   component: PropTypes.oneOf(Object.values(COMPONENTS)),
   textTransform: PropTypes.oneOf(Object.values(TEXT_TRANSFORM)),
   lineHeight: PropTypes.oneOf(Object.values(LINE_HEIGHTS)),
+  fontFamily: PropTypes.oneOf(Object.values(FONT_FAMILIES)),
   otherProps: PropTypes.object,
 };
 

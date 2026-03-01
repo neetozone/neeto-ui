@@ -2,8 +2,8 @@
 @use "variables";
 
 :root, .neeto-ui-theme--light{
-  // Body
-  --neeto-ui-body-color: 16, 24, 40;
+  // Body (body text uses gray-800)
+  --neeto-ui-body-color: #{variables.$neeto-ui-gray-800};
   --neeto-ui-body-bg: 255, 255, 255;
   // Color
   @each $color, $value in variables.$neeto-ui-theme-colors {
@@ -14,6 +14,7 @@
 :root {
   // Body
   --neeto-ui-body-font-family: #{variables.$neeto-ui-body-font-family};
+  --neeto-ui-title-font-family: #{variables.$neeto-ui-title-font-family};
   --neeto-ui-body-font-size: #{variables.$neeto-ui-body-font-size};
   --neeto-ui-body-font-weight: #{variables.$neeto-ui-body-font-weight};
   --neeto-ui-body-line-height: #{variables.$neeto-ui-body-line-height};
