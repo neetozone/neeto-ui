@@ -14,7 +14,7 @@ describe("Button", () => {
 
   it("should call onClick on button click", async () => {
     const onClick = jest.fn();
-    const { getByText } = render(<Button label="Button" onClick={onClick} />);
+    const { getByText } = render(<Button {...{ onClick }} label="Button" />);
     await userEvent.click(getByText("Button"));
     expect(onClick).toHaveBeenCalledTimes(1);
   });
@@ -22,7 +22,7 @@ describe("Button", () => {
   it("should not call onClick on button click when disabled", async () => {
     const onClick = jest.fn();
     const { getByText } = render(
-      <Button disabled label="Button" onClick={onClick} />
+      <Button {...{ onClick }} disabled label="Button" />
     );
     await userEvent.click(getByText("Button"));
     expect(onClick).toHaveBeenCalledTimes(0);
@@ -31,7 +31,7 @@ describe("Button", () => {
   it("should not call onClick on button click when loading", async () => {
     const onClick = jest.fn();
     const { getByText } = render(
-      <Button loading label="Button" onClick={onClick} />
+      <Button {...{ onClick }} loading label="Button" />
     );
     await userEvent.click(getByText("Button"));
     expect(onClick).toHaveBeenCalledTimes(0);
@@ -71,5 +71,31 @@ describe("Button", () => {
       </BrowserRouter>
     );
     expect(getByRole("link")).toHaveAttribute("href", "/some-path");
+  });
+
+  it("should render without error for all style variants", () => {
+    const styles = [
+      "primary",
+      "secondary",
+      "tertiary",
+      "danger",
+      "danger-text",
+      "text",
+      "link",
+      "link-underline",
+    ];
+
+    styles.forEach(style => {
+      const { getByText } = render(<Button {...{ style }} label={style} />);
+      expect(getByText(style)).toBeInTheDocument();
+    });
+  });
+
+  it("should call onClick on repeated clicks", async () => {
+    const onClick = jest.fn();
+    const { getByText } = render(<Button {...{ onClick }} label="Button" />);
+    await userEvent.click(getByText("Button"));
+    await userEvent.click(getByText("Button"));
+    expect(onClick).toHaveBeenCalledTimes(2);
   });
 });
