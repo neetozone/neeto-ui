@@ -286,6 +286,9 @@ component.
 --neeto-ui-btn-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
 --neeto-ui-btn-focus-visible-outline-offset: 1px;
 --neeto-ui-btn-focus-visible-box-shadow: none;
+
+// Active effect
+--neeto-ui-btn-ripple-color: rgba(var(--neeto-ui-white), 0.3);
 \`\`\`
 
 You can use these variables to customize the component to your liking. Here is
