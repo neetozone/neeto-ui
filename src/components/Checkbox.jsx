@@ -42,6 +42,21 @@ const Checkbox = forwardRef(
             type="checkbox"
             {...otherProps}
           />
+          <span aria-hidden="true" className="neeto-ui-checkbox__indicator">
+            <svg
+              fill="none"
+              overflow="visible"
+              viewBox="0 0 11 8"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                className="neeto-ui-checkbox__checkmark"
+                points="1.333 4 4 6.667 9.667 1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
           {renderLabel && (
             <Label
               {...{ required }}
