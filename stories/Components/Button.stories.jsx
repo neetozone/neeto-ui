@@ -35,6 +35,7 @@ const metadata = {
         danger_text: "danger-text",
         text: "text",
         link: "link",
+        link_underline: "link-underline",
       }),
       table: {
         type: { summary: "string" },
@@ -186,6 +187,7 @@ const Styles = args => (
         <Button {...args} label="Tertiary" style="tertiary" />
         <Button {...args} label="Text" style="text" />
         <Button {...args} label="Link" style="link" />
+        <Button {...args} label="Link Underline" style="link-underline" />
       </div>
       <div className="flex flex-wrap items-start gap-4">
         <Button {...args} label="Danger" style="danger" />
@@ -262,6 +264,7 @@ component.
 --neeto-ui-btn-icon-size: 16px;
 --neeto-ui-btn-box-shadow: none;
 --neeto-ui-btn-outline: none;
+--neeto-ui-btn-text-decoration: none;
 
 // Disabled
 --neeto-ui-btn-disabled-opacity: 0.5;
@@ -271,6 +274,7 @@ component.
 --neeto-ui-btn-hover-bg-color: transparent;
 --neeto-ui-btn-hover-box-shadow: none;
 --neeto-ui-btn-hover-opacity: 1;
+--neeto-ui-btn-hover-text-decoration: none;
 
 // Focus
 --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-black));

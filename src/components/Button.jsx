@@ -15,6 +15,7 @@ const BUTTON_STYLES = {
   danger_text: "danger-text",
   text: "text",
   link: "link",
+  link_underline: "link-underline",
 };
 const SIZES = { small: "small", medium: "medium", large: "large" };
 const ICON_POSITIONS = { left: "left", right: "right" };
@@ -85,6 +86,8 @@ const Button = React.forwardRef(
               style === BUTTON_STYLES.danger_text,
             "neeto-ui-btn--style-text": style === BUTTON_STYLES.text,
             "neeto-ui-btn--style-link": style === BUTTON_STYLES.link,
+            "neeto-ui-btn--style-link-underline":
+              style === BUTTON_STYLES.link_underline,
             "neeto-ui-btn--size-medium": size === SIZES.medium,
             "neeto-ui-btn--size-large": size === SIZES.large,
             "neeto-ui-btn--width-full": fullWidth,
