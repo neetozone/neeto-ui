@@ -64,6 +64,22 @@ const metadata = {
 
 const Template = args => <Checkbox {...args} />;
 
+const Sizes = args => (
+  <div className="w-full">
+    <div className="flex w-full gap-4">
+      <div className="flex flex-wrap items-start gap-4">
+        <Checkbox {...args} id="checkbox_small" label="Small" size="small" />
+      </div>
+      <div className="flex flex-wrap items-start gap-4">
+        <Checkbox {...args} id="checkbox_medium" label="Medium" size="medium" />
+      </div>
+      <div className="flex flex-wrap items-start gap-4">
+        <Checkbox {...args} id="checkbox_large" label="Large" size="large" />
+      </div>
+    </div>
+  </div>
+);
+
 const Checked = Template.bind({});
 Checked.args = {
   id: "checkbox_name",
@@ -158,6 +174,6 @@ CSSCustomization.parameters = {
   docs: { description: { story: CheckboxCSSCustomization } },
 };
 
-export { Checked, Disabled, Required, Error, CSSCustomization };
+export { Checked, Sizes, Disabled, Required, Error, CSSCustomization };
 
 export default metadata;

@@ -14,7 +14,7 @@ describe("Checkbox", () => {
   it("should call onChange when checkbox value is changed", async () => {
     const onChange = jest.fn();
     const { getByRole } = render(
-      <Checkbox label="Checkbox" onChange={onChange} />
+      <Checkbox {...{ onChange }} label="Checkbox" />
     );
     await userEvent.click(getByRole("checkbox"));
     expect(onChange).toHaveBeenCalledTimes(1);

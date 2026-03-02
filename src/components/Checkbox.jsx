@@ -8,6 +8,8 @@ import { hyphenize } from "utils";
 
 import Label from "./Label";
 
+const SIZES = { small: "small", medium: "medium", large: "large" };
+
 const Checkbox = forwardRef(
   (
     {
@@ -15,6 +17,7 @@ const Checkbox = forwardRef(
       error = "",
       className = "",
       required = false,
+      size = SIZES.small,
       labelProps,
       children,
       ...otherProps
@@ -26,7 +29,13 @@ const Checkbox = forwardRef(
     const renderLabel = label || children;
 
     return (
-      <div className={classnames(["neeto-ui-checkbox__wrapper", className])}>
+      <div
+        className={classnames(["neeto-ui-checkbox__wrapper", className], {
+          "neeto-ui-checkbox__wrapper--size-small": size === SIZES.small,
+          "neeto-ui-checkbox__wrapper--size-medium": size === SIZES.medium,
+          "neeto-ui-checkbox__wrapper--size-large": size === SIZES.large,
+        })}
+      >
         <div
           className="neeto-ui-checkbox__container"
           data-testid="nui-checkbox-container"
@@ -101,6 +110,10 @@ Checkbox.propTypes = {
    * To specify the error message to be shown.
    */
   error: PropTypes.string,
+  /**
+   * To set the size of the Checkbox.
+   */
+  size: PropTypes.oneOf(Object.values(SIZES)),
   /**
    * To provide external classnames to Checkbox component.
    */

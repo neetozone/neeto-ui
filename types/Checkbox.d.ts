@@ -7,6 +7,7 @@ export type CheckboxProps = {
   className?: string;
   required?: false;
   id?: string;
+  size?: "small" | "medium" | "large";
   labelProps?: LabelProps;
   children?: string;
 } & React.DetailedHTMLProps<

@@ -26,6 +26,7 @@
   // Margin
   --neeto-ui-checkbox-label-margin: 0.5rem;
   --neeto-ui-checkbox-label-line-height: 1.2;
+  --neeto-ui-checkbox-label-font-size: 0.875rem;
 }
 
 .neeto-ui-checkbox__wrapper {
@@ -34,6 +35,10 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-grow: 1;
+
+  &--size-small  { --neeto-ui-checkbox-size: 1rem;    --neeto-ui-checkbox-label-font-size: 0.875rem; }
+  &--size-medium { --neeto-ui-checkbox-size: 1.25rem; --neeto-ui-checkbox-label-font-size: 1rem; }
+  &--size-large  { --neeto-ui-checkbox-size: 1.5rem;  --neeto-ui-checkbox-label-font-size: 1.125rem; }
 
   .neeto-ui-checkbox__container {
     position: relative;
@@ -45,6 +50,7 @@
     .neeto-ui-label {
       margin-inline-start: var(--neeto-ui-checkbox-label-margin);
       line-height: var(--neeto-ui-checkbox-label-line-height);
+      font-size: var(--neeto-ui-checkbox-label-font-size);
     }
 
     .neeto-ui-checkbox[type="checkbox"] {
