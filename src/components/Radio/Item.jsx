@@ -12,6 +12,7 @@ const Item = forwardRef(
     {
       name = "",
       label = "",
+      description = "",
       className = "",
       labelProps,
       dataTestid = "",
@@ -30,15 +31,20 @@ const Item = forwardRef(
           type="radio"
           {...otherProps}
         />
-        {label && (
-          <Label
-            data-testid={dataTestid || `${hyphenize(label)}-radio-label`}
-            htmlFor={id}
-            {...labelProps}
-          >
-            {label}
-          </Label>
-        )}
+        <div className="neeto-ui-radio__item-content">
+          {label && (
+            <Label
+              data-testid={dataTestid || `${hyphenize(label)}-radio-label`}
+              htmlFor={id}
+              {...labelProps}
+            >
+              {label}
+            </Label>
+          )}
+          {description && (
+            <p className="neeto-ui-radio__item-description">{description}</p>
+          )}
+        </div>
       </div>
     );
   }
@@ -55,6 +61,10 @@ Item.propTypes = {
    * To specify the label to be displayed for radio item.
    */
   label: PropTypes.node,
+  /**
+   * To specify descriptive text below the label.
+   */
+  description: PropTypes.string,
   /**
    * To specify external classnames as overrides to the radio item.
    */

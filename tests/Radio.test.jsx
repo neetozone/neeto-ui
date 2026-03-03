@@ -96,6 +96,20 @@ describe("Radio", () => {
     ).toHaveClass("neeto-ui-radio__wrapper--size-small");
   });
 
+  it("should render description when provided", () => {
+    const { getByText } = render(
+      <Radio label="Radio">
+        <Radio.Item
+          description="Option description"
+          label="option1"
+          name="options"
+          value="option1"
+        />
+      </Radio>
+    );
+    expect(getByText("Option description")).toBeInTheDocument();
+  });
+
   it("should apply medium size class when size is medium", () => {
     const { getByRole } = render(
       <Radio label="Radio" size="medium">
