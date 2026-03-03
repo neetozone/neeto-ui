@@ -245,6 +245,7 @@
     --neeto-ui-btn-focus-visible-outline: 3px solid rgba(var(--neeto-ui-info-600), 50%);
     --neeto-ui-btn-text-decoration: none;
     --neeto-ui-btn-hover-text-decoration: underline;
+    --neeto-ui-btn-border-radius: var(--neeto-ui-rounded-none);
     --neeto-ui-btn-ripple-color: transparent;
   }
 
@@ -260,6 +261,7 @@
     --neeto-ui-btn-focus-visible-outline: 3px solid rgba(var(--neeto-ui-info-600), 50%);
     --neeto-ui-btn-text-decoration: underline;
     --neeto-ui-btn-hover-text-decoration: underline;
+    --neeto-ui-btn-border-radius: var(--neeto-ui-rounded-none);
     --neeto-ui-btn-ripple-color: transparent;
   }
 

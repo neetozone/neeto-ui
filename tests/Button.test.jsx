@@ -91,6 +91,16 @@ describe("Button", () => {
     });
   });
 
+  it("should apply link-underline class when style is link-underline", () => {
+    const { getByRole } = render(
+      <Button label="Link" style="link-underline" />
+    );
+
+    expect(getByRole("button")).toHaveClass(
+      "neeto-ui-btn--style-link-underline"
+    );
+  });
+
   it("should call onClick on repeated clicks", async () => {
     const onClick = jest.fn();
     const { getByText } = render(<Button {...{ onClick }} label="Button" />);

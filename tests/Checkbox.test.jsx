@@ -38,4 +38,25 @@ describe("Checkbox", () => {
     await userEvent.click(checkbox);
     expect(checkbox).toBeChecked();
   });
+
+  it("should apply small size class by default", () => {
+    const { getByRole } = render(<Checkbox label="Checkbox" />);
+    expect(
+      getByRole("checkbox").closest(".neeto-ui-checkbox__wrapper")
+    ).toHaveClass("neeto-ui-checkbox__wrapper--size-small");
+  });
+
+  it("should apply medium size class when size is medium", () => {
+    const { getByRole } = render(<Checkbox label="Checkbox" size="medium" />);
+    expect(
+      getByRole("checkbox").closest(".neeto-ui-checkbox__wrapper")
+    ).toHaveClass("neeto-ui-checkbox__wrapper--size-medium");
+  });
+
+  it("should apply large size class when size is large", () => {
+    const { getByRole } = render(<Checkbox label="Checkbox" size="large" />);
+    expect(
+      getByRole("checkbox").closest(".neeto-ui-checkbox__wrapper")
+    ).toHaveClass("neeto-ui-checkbox__wrapper--size-large");
+  });
 });
