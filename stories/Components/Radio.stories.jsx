@@ -69,8 +69,42 @@ const metadata = {
       control: "text",
       table: { type: { summary: "string" } },
     },
+    size: {
+      description: "To set the size of the Radio.",
+      control: "select",
+      options: ["small", "medium"],
+      table: { type: { summary: "string" } },
+    },
   },
 };
+
+const Default = args => (
+  <Radio {...args}>
+    <Radio.Item label="Option 1" name="default" value="Option1" />
+    <Radio.Item label="Option 2" name="default" value="Option2" />
+  </Radio>
+);
+
+Default.args = { label: "Radio options", size: "small" };
+
+const Sizes = args => (
+  <div className="w-full">
+    <div className="flex w-full flex-col gap-6">
+      <div className="flex flex-wrap items-start gap-4">
+        <Radio {...args} label="Small" size="small">
+          <Radio.Item label="Option 1" name="sizeSmall" value="Option1" />
+          <Radio.Item label="Option 2" name="sizeSmall" value="Option2" />
+        </Radio>
+      </div>
+      <div className="flex flex-wrap items-start gap-4">
+        <Radio {...args} label="Medium" size="medium">
+          <Radio.Item label="Option 1" name="sizeMedium" value="Option1" />
+          <Radio.Item label="Option 2" name="sizeMedium" value="Option2" />
+        </Radio>
+      </div>
+    </div>
+  </div>
+);
 
 const Options = args => (
   <Radio {...args}>
@@ -191,8 +225,8 @@ component.
 --neeto-ui-radio-checked-border-color: rgb(var(--neeto-ui-primary-500));
 
 // Error
---neeto-ui-radio-error-border-color: rgb(var(--neeto-ui-error-500));
---neeto-ui-radio-error-color: rgb(var(--neeto-ui-error-500));
+--neeto-ui-radio-error-border-color: rgb(var(--neeto-ui-error-600));
+--neeto-ui-radio-error-color: rgb(var(--neeto-ui-error-600));
 --neeto-ui-radio-error-font-size: var(--neeto-ui-text-xs);
 
 // Margin
@@ -224,6 +258,8 @@ CSSCustomization.parameters = {
 };
 
 export {
+  Default,
+  Sizes,
   Options,
   OptionsStacked,
   ControlledRadio,
