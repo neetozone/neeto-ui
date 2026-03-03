@@ -8,7 +8,7 @@ import { hyphenize } from "utils";
 
 import Label from "./Label";
 
-const SIZES = { small: "small", medium: "medium", large: "large" };
+const SIZES = { small: "small", medium: "medium" };
 
 const Checkbox = forwardRef(
   (
@@ -33,7 +33,6 @@ const Checkbox = forwardRef(
         className={classnames(["neeto-ui-checkbox__wrapper", className], {
           "neeto-ui-checkbox__wrapper--size-small": size === SIZES.small,
           "neeto-ui-checkbox__wrapper--size-medium": size === SIZES.medium,
-          "neeto-ui-checkbox__wrapper--size-large": size === SIZES.large,
         })}
       >
         <div

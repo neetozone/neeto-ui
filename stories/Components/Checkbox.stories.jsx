@@ -73,9 +73,6 @@ const Sizes = args => (
       <div className="flex flex-wrap items-start gap-4">
         <Checkbox {...args} id="checkbox_medium" label="Medium" size="medium" />
       </div>
-      <div className="flex flex-wrap items-start gap-4">
-        <Checkbox {...args} id="checkbox_large" label="Large" size="large" />
-      </div>
     </div>
   </div>
 );
@@ -144,6 +141,7 @@ component.
 
 // Label
 --neeto-ui-checkbox-label-line-height: 1.2;
+--neeto-ui-checkbox-label-font-size: 14px;
 \`\`\`
 
 You can use these variables to customize the component to your liking. Here is

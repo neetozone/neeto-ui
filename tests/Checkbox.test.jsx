@@ -52,11 +52,4 @@ describe("Checkbox", () => {
       getByRole("checkbox").closest(".neeto-ui-checkbox__wrapper")
     ).toHaveClass("neeto-ui-checkbox__wrapper--size-medium");
   });
-
-  it("should apply large size class when size is large", () => {
-    const { getByRole } = render(<Checkbox label="Checkbox" size="large" />);
-    expect(
-      getByRole("checkbox").closest(".neeto-ui-checkbox__wrapper")
-    ).toHaveClass("neeto-ui-checkbox__wrapper--size-large");
-  });
 });
