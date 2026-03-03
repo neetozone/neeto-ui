@@ -35,14 +35,10 @@
   --neeto-ui-btn-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 40%);
   --neeto-ui-btn-focus-visible-outline-offset: 1px;
   --neeto-ui-btn-focus-visible-box-shadow: none;
-
-  // Active effect
-  --neeto-ui-btn-ripple-color: rgba(var(--neeto-ui-white), 0.3);
 }
 
 .neeto-ui-btn {
   position: relative;
-  overflow: hidden;
   display: inline-flex !important;
   align-items: center;
   padding: var(--neeto-ui-btn-padding-y) var(--neeto-ui-btn-padding-x);
@@ -138,23 +134,6 @@
     opacity: var(--neeto-ui-btn-disabled-opacity);
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle, var(--neeto-ui-btn-ripple-color) 10%, transparent 10.01%) no-repeat 50%;
-    transform: scale(10);
-    opacity: 0;
-    transition: transform 0.5s, opacity 0.8s;
-    pointer-events: none;
-  }
-
-  &:active:not(:disabled)::after {
-    transform: scale(0);
-    opacity: 1;
-    transition: 0s;
-  }
-
   .neeto-ui-btn__spinner{
     position: absolute;
     inset-inline-start: 50%;
@@ -209,7 +188,6 @@
     --neeto-ui-btn-focus-box-shadow: inset 0 0 0 1px rgba(var(--neeto-ui-primary-500)), 0 0 0 1px rgba(var(--neeto-ui-primary-500));
     --neeto-ui-btn-focus-visible-box-shadow: inset 0 0 0 1px rgba(var(--neeto-ui-primary-500)), 0 0 0 1px rgba(var(--neeto-ui-primary-500));
     --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-primary-500));
-    --neeto-ui-btn-ripple-color: rgba(var(--neeto-ui-primary-500), 0.2);
   }
 
   &-tertiary {
@@ -220,7 +198,6 @@
     --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-primary-700));
     --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-beige-600), 50%);
     --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-primary-700));
-    --neeto-ui-btn-ripple-color: rgba(var(--neeto-ui-primary-600), 0.2);
   }
 
   &-text {
@@ -230,7 +207,6 @@
     --neeto-ui-btn-focus-color: rgb(var(--neeto-ui-primary-500));
     --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-beige-100));
     --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-primary-500));
-    --neeto-ui-btn-ripple-color: rgba(var(--neeto-ui-primary-500), 0.2);
   }
 
   &-link {
@@ -246,7 +222,6 @@
     --neeto-ui-btn-text-decoration: none;
     --neeto-ui-btn-hover-text-decoration: underline;
     --neeto-ui-btn-border-radius: var(--neeto-ui-rounded-none);
-    --neeto-ui-btn-ripple-color: transparent;
   }
 
   &-link-underline {
@@ -262,7 +237,6 @@
     --neeto-ui-btn-text-decoration: underline;
     --neeto-ui-btn-hover-text-decoration: underline;
     --neeto-ui-btn-border-radius: var(--neeto-ui-rounded-none);
-    --neeto-ui-btn-ripple-color: transparent;
   }
 
   &-danger {
@@ -284,7 +258,6 @@
     --neeto-ui-btn-focus-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-error-600), 30%);
     --neeto-ui-btn-focus-visible-color: rgb(var(--neeto-ui-error-600));
     --neeto-ui-btn-focus-visible-outline: 3px solid rgba(var(--neeto-ui-error-600), 40%);
-    --neeto-ui-btn-ripple-color: rgba(var(--neeto-ui-error-600), 0.2);
   }
 }
 
