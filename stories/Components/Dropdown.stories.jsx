@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Settings, Customize, Delete, Search } from "neetoicons";
+import { Settings, Customize, Delete, Search, Right } from "neetoicons";
 
 import { Button, Dropdown, Tag, Input, Typography } from "components";
 
@@ -91,7 +91,7 @@ const metadata = {
     },
     strategy: {
       description:
-        "To specify the positioning strategy to use. By default, it is absolute, which in the simplest cases does not require repositioning of the Dropdown.\n\nIf your reference element is in a fixed container, use the fixed strategy",
+        "To specify the positioning strategy to use. By default, it is absolute, which in the simplest cases does not require repositioning of the Dropdown. <br /> <br />If your reference element is in a fixed container, use the fixed strategy",
       control: "select",
       options: Object.values({ absolute: "absolute", fixed: "fixed" }),
       table: {
@@ -359,7 +359,7 @@ const WithPrefixAndSuffix = args => {
             <MenuItem.Button
               key={idx}
               prefix={<Settings size={20} />}
-              suffix={<Settings size={20} />}
+              suffix={<Right size={20} />}
             >
               {item}
             </MenuItem.Button>
@@ -368,7 +368,7 @@ const WithPrefixAndSuffix = args => {
           <MenuItem.Button
             prefix={<Delete size={20} />}
             style="danger"
-            suffix={<Settings size={20} />}
+            suffix={<Right size={20} />}
           >
             Delete
           </MenuItem.Button>
@@ -392,8 +392,13 @@ const MultiDropdownWithClickTrigger = args => {
           ))}
           <Divider />
           <Dropdown
-            customTarget={<MenuItem.Button>Another Dropdown</MenuItem.Button>}
+            offset={[0, 18]}
             position="right-start"
+            customTarget={
+              <MenuItem.Button suffix={<Right size={18} />}>
+                Another Dropdown
+              </MenuItem.Button>
+            }
             onClick={e => e.stopPropagation()}
           >
             <Menu>
@@ -435,9 +440,14 @@ const MultiDropdownWithHoverTrigger = args => {
           ))}
           <Divider />
           <Dropdown
-            customTarget={<MenuItem.Button>Another Dropdown</MenuItem.Button>}
+            offset={[0, 18]}
             position="right-start"
             trigger="hover"
+            customTarget={
+              <MenuItem.Button suffix={<Right size={18} />}>
+                Another Dropdown
+              </MenuItem.Button>
+            }
           >
             <Menu>
               {listItems.map((item, idx) => (
@@ -543,9 +553,11 @@ const CustomDropdown = args => {
   return (
     <div className="h-56">
       <Dropdown {...args} closeOnSelect={false} label="Custom Dropdown">
-        <div className="neeto-ui-rounded-md flex flex-col gap-y-1 p-2">
-          <Input placeholder="Search members" prefix={<Search />} />
-          <Typography style="body3">Results</Typography>
+        <div className="flex flex-col">
+          <div className="flex flex-col gap-y-1.5 p-3 pb-0">
+            <Input placeholder="Search members" prefix={<Search />} />
+            <Typography style="body3">Results</Typography>
+          </div>
           <Menu className="flex flex-col gap-y-1">
             {members.map((item, idx) => (
               <MenuItem.Button key={idx}>{item}</MenuItem.Button>
