@@ -106,7 +106,7 @@ component.
 --neeto-ui-callout-padding-y: 10px;
 --neeto-ui-callout-font-size: var(--neeto-ui-text-sm);
 --neeto-ui-callout-font-weight: var(--neeto-ui-font-normal);
---neeto-ui-callout-line-height: 16px;
+--neeto-ui-callout-line-height: 1.5;
 --neeto-ui-callout-color: rgb(var(--neeto-ui-primary-900));
 --neeto-ui-callout-bg-color: transparent;
 --neeto-ui-callout-border-radius: var(--neeto-ui-rounded-md);

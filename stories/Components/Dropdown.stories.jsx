@@ -644,11 +644,11 @@ component.
 
 \`\`\`css
 --neeto-ui-dropdown-margin-x: 0px;
---neeto-ui-dropdown-margin-y: 6px;
+--neeto-ui-dropdown-margin-y: 8px;
 --neeto-ui-dropdown-padding-x: 0px;
 --neeto-ui-dropdown-padding-y: 0px;
 --neeto-ui-dropdown-border-radius: var(--neeto-ui-rounded-md);
---neeto-ui-dropdown-box-shadow: var(--neeto-ui-shadow-lg);
+--neeto-ui-dropdown-box-shadow: 0px 0px 10px 0px #10182826;
 
 // Popup
 --neeto-ui-dropdown-popup-width: auto;

@@ -56,6 +56,12 @@
 .neeto-ui-dropdown {
   margin: var(--neeto-ui-dropdown-margin-y) var(--neeto-ui-dropdown-margin-x);
 
+  &[data-placement^="right"],
+  &[data-placement^="left"] {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   .tippy-content:not(.neeto-ui-popover .tippy-content) {
     position: relative;
     padding: var(--neeto-ui-dropdown-padding-y)
