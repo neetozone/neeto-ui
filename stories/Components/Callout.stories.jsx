@@ -103,18 +103,16 @@ component.
 
 \`\`\`css
 --neeto-ui-callout-padding-x: 12px;
---neeto-ui-callout-padding-y: 9px;
+--neeto-ui-callout-padding-y: 10px;
 --neeto-ui-callout-font-size: var(--neeto-ui-text-sm);
---neeto-ui-callout-font-weight: var(--neeto-ui-font-medium);
+--neeto-ui-callout-font-weight: var(--neeto-ui-font-normal);
 --neeto-ui-callout-line-height: 16px;
---neeto-ui-callout-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-callout-color: rgb(var(--neeto-ui-primary-900));
 --neeto-ui-callout-bg-color: transparent;
---neeto-ui-callout-border-width: 1px;
---neeto-ui-callout-border-color: transparent;
 --neeto-ui-callout-border-radius: var(--neeto-ui-rounded-md);
---neeto-ui-callout-gap: 12px;
+--neeto-ui-callout-gap: 8px;
 --neeto-ui-callout-icon-size: 20px;
---neeto-ui-callout-icon-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-callout-icon-color: rgb(var(--neeto-ui-primary-900));
 \`\`\`
 
 You can use these variables to customize the component to your liking. Here is
@@ -122,9 +120,8 @@ an example:
 
 \`\`\`css
 .neetix-callout--success {
-  --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-primary-100));
-  --neeto-ui-callout-border-color: rgb(var(--neeto-ui-primary-500));
-  --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-success-100));
+  --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-success-900));
 }
 \`\`\`
 
