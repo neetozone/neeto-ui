@@ -80,6 +80,11 @@
     --neeto-ui-btn-padding-y: 0.5rem;
     --neeto-ui-btn-gap: 0.5rem;
     --neeto-ui-btn-icon-size: 1rem;
+
+    &.neeto-ui-btn--icon-only {
+      --neeto-ui-btn-padding-x: 0.5rem;
+      --neeto-ui-btn-padding-y: 0.5rem;
+    }
   }
 
   // size - large - 40px
@@ -91,8 +96,8 @@
     --neeto-ui-btn-icon-size: 1rem;
 
     &.neeto-ui-btn--icon-only {
-      --neeto-ui-btn-padding-x: 0.5rem;
-      --neeto-ui-btn-padding-y: 0.5rem;
+      --neeto-ui-btn-padding-x: 0.75rem;
+      --neeto-ui-btn-padding-y: 0.75rem;
     }
   }
 
