@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Settings, Delete, Search } from "neetoicons";
+import { Settings, Customize, Delete, Search } from "neetoicons";
 
 import { Button, Dropdown, Tag, Input, Typography } from "components";
 
@@ -333,7 +333,7 @@ const TriggerWithCustomIcon = args => {
 
   return (
     <div className="h-40">
-      <Dropdown {...args} icon={Settings} label="Dropdown with custom icon">
+      <Dropdown {...args} icon={Customize} label="Dropdown with custom icon">
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button key={idx}>{item}</MenuItem.Button>
