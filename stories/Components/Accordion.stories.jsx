@@ -213,7 +213,6 @@ const AccordionWithCustomizedIcon = args => (
 );
 
 AccordionWithCustomizedIcon.storyName = "Accordion with customized icon";
-AccordionWithCustomizedIcon.parameters = { layout: "default" };
 
 const AccordionCSSCustomization = `
 Starting from v6, neeto-ui supports enhanced customization of components using

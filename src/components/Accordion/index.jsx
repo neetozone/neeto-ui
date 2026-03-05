@@ -30,12 +30,15 @@ const Accordion = ({
 
   return (
     <div
-      className={classnames("neeto-ui-accordions-outer-wrapper", {
-        "neeto-ui-accordions-outer-wrapper--padded": padded,
-        "neeto-ui-accordions-outer-wrapper--secondary":
-          style === ACCORDION_STYLES.secondary,
-        [className]: className,
-      })}
+      className={classnames(
+        "neeto-ui-accordions-outer-wrapper",
+        {
+          "neeto-ui-accordions-outer-wrapper--padded": padded,
+          "neeto-ui-accordions-outer-wrapper--secondary":
+            style === ACCORDION_STYLES.secondary,
+        },
+        className
+      )}
       {...otherProps}
     >
       {React.Children.map(children, (child, index) => {
@@ -45,7 +48,7 @@ const Accordion = ({
         return React.cloneElement(child, {
           id: index,
           key: index,
-          iconPosition,
+          iconPosition: child.props.iconPosition ?? iconPosition,
           isOpen: openTab === index,
           className: classnames(child.props.className, {
             "neeto-ui-accordion__wrapper--last-item": isSingleOrLastChild,

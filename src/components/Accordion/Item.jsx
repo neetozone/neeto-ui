@@ -50,14 +50,22 @@ const Item = ({
 
   return (
     <div
-      className={classnames("neeto-ui-accordion__wrapper", {
-        "neeto-ui-accordion__wrapper--icon-left": isIconLeft,
-        "neeto-ui-accordion__wrapper--icon-right": !isIconLeft,
-        [className]: className,
-      })}
+      className={classnames(
+        "neeto-ui-accordion__wrapper",
+        {
+          "neeto-ui-accordion__wrapper--icon-left": isIconLeft,
+          "neeto-ui-accordion__wrapper--icon-right": !isIconLeft,
+        },
+        className
+      )}
       style={
         iconProps?.size
-          ? { "--neeto-ui-accordion-icon-size": `${iconProps.size}px` }
+          ? {
+              "--neeto-ui-accordion-icon-size":
+                typeof iconProps.size === "number"
+                  ? `${iconProps.size}px`
+                  : iconProps.size,
+            }
           : undefined
       }
     >
