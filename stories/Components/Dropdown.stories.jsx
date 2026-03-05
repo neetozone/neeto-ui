@@ -647,7 +647,7 @@ component.
 --neeto-ui-dropdown-margin-y: 8px;
 --neeto-ui-dropdown-padding-x: 0px;
 --neeto-ui-dropdown-padding-y: 0px;
---neeto-ui-dropdown-border-radius: var(--neeto-ui-rounded-md);
+--neeto-ui-dropdown-border-radius: var(--neeto-ui-rounded-lg);
 --neeto-ui-dropdown-box-shadow: 0px 0px 10px 0px #10182826;
 
 // Popup
@@ -655,7 +655,7 @@ component.
 --neeto-ui-dropdown-popup-min-width: 168px;
 --neeto-ui-dropdown-popup-max-height: 480px;
 --neeto-ui-dropdown-popup-bg-color: rgb(var(--neeto-ui-white));
---neeto-ui-dropdown-popup-border-radius: var(--neeto-ui-rounded-md);
+--neeto-ui-dropdown-popup-border-radius: var(--neeto-ui-rounded-lg);
 --neeto-ui-dropdown-popup-z-index: 99999;
 
 // Popup Menu
