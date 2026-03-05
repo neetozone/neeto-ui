@@ -10,10 +10,10 @@
   --neeto-ui-avatar-border-radius: var(--neeto-ui-rounded-full);
 
   // Status
-  --neeto-ui-avatar-status-width: 0.75rem;
-  --neeto-ui-avatar-status-height: 0.75rem;
+  --neeto-ui-avatar-status-width: 0.5rem;
+  --neeto-ui-avatar-status-height: 0.5rem;
   --neeto-ui-avatar-status-bg-color: var(--neeto-ui-white);
-  --neeto-ui-avatar-status-border-width: 2px;
+  --neeto-ui-avatar-status-border-width: 1px;
   --neeto-ui-avatar-status-border-color: rgb(var(--neeto-ui-white));
   --neeto-ui-avatar-status-border-radius: var(--neeto-ui-rounded-full);
   --neeto-ui-avatar-status-transform: translate(0, 0);
@@ -76,15 +76,15 @@
     }
 
     &.online {
-      --neeto-ui-avatar-status-bg-color: rgb(var(--neeto-ui-success-500));
+      --neeto-ui-avatar-status-bg-color: rgb(var(--neeto-ui-green-500));
     }
 
     &.idle {
-      --neeto-ui-avatar-status-bg-color: rgb(var(--neeto-ui-warning-500));
+      --neeto-ui-avatar-status-bg-color: rgb(var(--neeto-ui-warning-400));
     }
 
     &.offline {
-      --neeto-ui-avatar-status-bg-color: rgb(var(--neeto-ui-gray-300));
+      --neeto-ui-avatar-status-bg-color: rgb(var(--neeto-ui-gray-400));
     }
   }
 
