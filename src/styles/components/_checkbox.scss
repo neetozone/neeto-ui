@@ -1,6 +1,6 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   --neeto-ui-checkbox-size: 1rem;
-  --neeto-ui-checkbox-color: rgb(var(--neeto-ui-green-600));
+  --neeto-ui-checkbox-color: rgb(var(--neeto-ui-primary-600));
   --neeto-ui-checkbox-border-width: 2px;
   --neeto-ui-checkbox-border-color: rgb(var(--neeto-ui-gray-300));
   --neeto-ui-checkbox-border-radius: var(--neeto-ui-rounded-sm);
@@ -16,12 +16,12 @@
   --neeto-ui-checkbox-focus-outline-offset: 0px;
 
   // Focus Visible
-  --neeto-ui-checkbox-focus-visible-outline: 3px solid rgba(var(--neeto-ui-green-600), 50%);
+  --neeto-ui-checkbox-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-600), 50%);
   --neeto-ui-checkbox-focus-visible-outline-offset: 1px;
   --neeto-ui-checkbox-focus-visible-box-shadow: none;
 
   // Checked
-  --neeto-ui-checkbox-checked-border-color: rgb(var(--neeto-ui-green-600));
+  --neeto-ui-checkbox-checked-border-color: rgb(var(--neeto-ui-primary-600));
 
   // Margin
   --neeto-ui-checkbox-label-margin: 0.5rem;

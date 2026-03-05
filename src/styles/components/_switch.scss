@@ -20,7 +20,7 @@
   --neeto-ui-switch-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
 
   // Checked
-  --neeto-ui-switch-item-checked-bg-color: rgb(var(--neeto-ui-green-600));
+  --neeto-ui-switch-item-checked-bg-color: rgb(var(--neeto-ui-primary-600));
   --neeto-ui-switch-checked-transform: translateX(1.25rem);
   --neeto-ui-switch-checked-transform-rtl: translateX(-1.25rem);
 
@@ -28,10 +28,10 @@
   --neeto-ui-switch-label-margin: 0.625rem;
 
   // Focus Within
-  --neeto-ui-switch-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-green-500), 50%);
+  --neeto-ui-switch-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-primary-500), 50%);
 
   // Focus Visible
-  --neeto-ui-switch-focus-visible-outline: 3px solid rgba(var(--neeto-ui-green-500), 50%);
+  --neeto-ui-switch-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
   --neeto-ui-switch-focus-visible-outline-offset: 1px;
   --neeto-ui-switch-focus-visible-box-shadow: none;
 }
@@ -124,5 +124,5 @@
 }
 
 .neetix-switch {
-  --neeto-ui-switch-item-checked-bg-color: rgb(var(--neeto-ui-green-500));
+  --neeto-ui-switch-item-checked-bg-color: rgb(var(--neeto-ui-primary-600));
 }

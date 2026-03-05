@@ -1,6 +1,6 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   --neeto-ui-radio-size: 1rem;
-  --neeto-ui-radio-color: rgb(var(--neeto-ui-green-600));
+  --neeto-ui-radio-color: rgb(var(--neeto-ui-primary-600));
   --neeto-ui-radio-border-width: 2px;
   --neeto-ui-radio-border-color: rgb(var(--neeto-ui-gray-300));
 
@@ -15,12 +15,12 @@
   --neeto-ui-radio-focus-outline-offset: 0px;
 
   // Focus Visible
-  --neeto-ui-radio-focus-visible-outline: 3px solid rgba(var(--neeto-ui-green-600), 50%);
+  --neeto-ui-radio-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-600), 50%);
   --neeto-ui-radio-focus-visible-outline-offset: 1px;
   --neeto-ui-radio-focus-visible-box-shadow: none;
 
   // Checked
-  --neeto-ui-radio-checked-border-color: rgb(var(--neeto-ui-green-600));
+  --neeto-ui-radio-checked-border-color: rgb(var(--neeto-ui-primary-600));
 
   // Error
   --neeto-ui-radio-error-border-color: rgb(var(--neeto-ui-error-600));
