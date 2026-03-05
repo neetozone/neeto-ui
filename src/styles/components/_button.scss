@@ -227,6 +227,7 @@
     --neeto-ui-btn-text-decoration: none;
     --neeto-ui-btn-hover-text-decoration: underline;
     --neeto-ui-btn-border-radius: var(--neeto-ui-rounded-none);
+    text-underline-offset: 2px;
   }
 
   &-link-underline {
@@ -242,6 +243,7 @@
     --neeto-ui-btn-text-decoration: underline;
     --neeto-ui-btn-hover-text-decoration: underline;
     --neeto-ui-btn-border-radius: var(--neeto-ui-rounded-none);
+    text-underline-offset: 2px;
   }
 
   &-danger {

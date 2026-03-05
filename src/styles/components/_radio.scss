@@ -125,6 +125,17 @@
     &:disabled {
       opacity: var(--neeto-ui-radio-disabled-opacity);
       cursor: not-allowed;
+
+      ~ .neeto-ui-radio__item-content {
+        .neeto-ui-label {
+          opacity: var(--neeto-ui-radio-disabled-opacity);
+          cursor: not-allowed;
+        }
+
+        .neeto-ui-radio__item-description {
+          opacity: var(--neeto-ui-radio-disabled-opacity);
+        }
+      }
     }
 
     &:checked {

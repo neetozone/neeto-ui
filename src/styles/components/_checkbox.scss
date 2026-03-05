@@ -81,6 +81,11 @@
         + .neeto-ui-checkbox__indicator {
           opacity: var(--neeto-ui-checkbox-disabled-opacity);
         }
+
+        ~ .neeto-ui-label {
+          opacity: var(--neeto-ui-checkbox-disabled-opacity);
+          cursor: not-allowed;
+        }
       }
 
       &:focus {

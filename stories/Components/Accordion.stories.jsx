@@ -108,7 +108,7 @@ const Styles = args => (
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Accordion.Item>
-        <Accordion.Item title="Accordion 3">
+        <Accordion.Item title="Accordion 2">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Accordion.Item>
@@ -121,7 +121,7 @@ const Styles = args => (
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Accordion.Item>
-        <Accordion.Item title="Accordion 3">
+        <Accordion.Item title="Accordion 2">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Accordion.Item>
@@ -177,6 +177,10 @@ const IconPositionLeft = args => (
       <h4 className="mb-6 capitalize">Secondary</h4>
       <Accordion {...args} iconPosition="left" style="secondary">
         <Accordion.Item title="Accordion 1">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </Accordion.Item>
+        <Accordion.Item title="Accordion 2">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Accordion.Item>
