@@ -8,7 +8,7 @@ import {
   modifyBy,
   snakeToCamelCase,
 } from "neetocist";
-import { Left, Right, MenuHorizontal } from "neetoicons";
+import { Left, Right, MenuVertical } from "neetoicons";
 import PropTypes from "prop-types";
 import { assoc, isEmpty, mergeLeft, pluck } from "ramda";
 import ReactDragListView from "react-drag-listview";
@@ -265,7 +265,7 @@ const Table = ({
     if (type === "next") return <Button icon={Right} {...commonProps} />;
 
     if (type === "jump-prev" || type === "jump-next") {
-      return <Button icon={MenuHorizontal} {...commonProps} />;
+      return <Button icon={MenuVertical} {...commonProps} />;
     }
 
     return originalElement;
@@ -331,27 +331,27 @@ const Table = ({
             borderRadius: 6,
           },
           Table: {
-            headerBorderRadius: 0,
+            headerBorderRadius: 12,
             bodySortBg: "rgb(var(--neeto-ui-gray-50))",
             borderColor: "rgb(var(--neeto-ui-gray-200))",
             expandIconBg: "rgb(var(--neeto-ui-white))",
             filterDropdownBg: "rgb(var(--neeto-ui-white))",
             filterDropdownMenuBg: "rgb(var(--neeto-ui-white))",
-            fixedHeaderSortActiveBg: "rgb(var(--neeto-ui-gray-200))",
-            footerBg: "rgb(var(--neeto-ui-gray-100))",
+            fixedHeaderSortActiveBg: "rgb(var(--neeto-ui-beige-300))",
+            footerBg: "rgb(var(--neeto-ui-beige-100))",
             footerColor: "rgb(var(--neeto-ui-black))",
-            headerBg: "rgb(var(--neeto-ui-gray-100))",
+            headerBg: "rgb(var(--neeto-ui-beige-300))",
             headerColor: "rgb(var(--neeto-ui-black))",
-            headerFilterHoverBg: "rgb(var(--neeto-ui-gray-100))",
-            headerSortActiveBg: "rgb(var(--neeto-ui-gray-200))",
-            headerSortHoverBg: "rgb(var(--neeto-ui-gray-200))",
-            headerSplitColor: "rgb(var(--neeto-ui-gray-100))",
-            rowExpandedBg: "rgb(var(--neeto-ui-gray-100))",
-            rowHoverBg: "rgb(var(--neeto-ui-gray-50))",
-            rowSelectedBg: "rgb(var(--neeto-ui-accent-50))",
-            rowSelectedHoverBg: "rgb(var(--neeto-ui-accent-50))",
-            stickyScrollBarBg: "rgb(var(--neeto-ui-gray-300))",
-            cellPaddingBlock: 11,
+            headerFilterHoverBg: "rgb(var(--neeto-ui-beige-300))",
+            headerSortActiveBg: "rgb(var(--neeto-ui-beige-400))",
+            headerSortHoverBg: "rgb(var(--neeto-ui-beige-400))",
+            headerSplitColor: "rgb(var(--neeto-ui-beige-300))",
+            rowExpandedBg: "rgb(var(--neeto-ui-beige-100))",
+            rowHoverBg: "rgb(var(--neeto-ui-beige-100))",
+            rowSelectedBg: "rgb(var(--neeto-ui-beige-100))",
+            rowSelectedHoverBg: "rgb(var(--neeto-ui-beige-100))",
+            stickyScrollBarBg: "rgb(var(--neeto-ui-beige-300))",
+            cellPaddingBlock: 8,
 
             // Global overrides
             colorPrimary: "rgb(var(--neeto-ui-primary-500))",
