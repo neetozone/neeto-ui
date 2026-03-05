@@ -2,7 +2,7 @@ import React from "react";
 
 import {
   Check,
-  MenuHorizontal,
+  MenuVertical,
   Ascending,
   Descending,
   Pin,
@@ -79,7 +79,7 @@ const HeaderCellMenu = ({
       <Dropdown
         appendTo={() => document.body}
         className="neeto-ui-flex"
-        icon={MenuHorizontal}
+        icon={MenuVertical}
         position="bottom"
         strategy="fixed"
         zIndex={99999}
