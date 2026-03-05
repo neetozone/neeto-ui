@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 
-import { MenuHorizontal } from "neetoicons";
+import { MenuVertical } from "neetoicons";
 import { assoc } from "ramda";
 import { BrowserRouter } from "react-router-dom";
 
@@ -423,7 +423,7 @@ const getColumns = (fixed = false) => [
         <Dropdown
           appendTo={document.body}
           buttonStyle="text"
-          icon={MenuHorizontal}
+          icon={MenuVertical}
           strategy="fixed"
         >
           <Menu>

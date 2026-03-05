@@ -1,12 +1,13 @@
 :root,
 .neeto-ui-theme--light,
 .neeto-ui-theme--dark {
-  --neeto-ui-table-header-font-size: 0.8125rem;
-  --neeto-ui-table-header-font-weight: 600;
-  --neeto-ui-table-header-text-transform: uppercase;
+  --neeto-ui-table-header-font-size: 0.875rem;
+  --neeto-ui-table-header-font-weight: 500;
+  --neeto-ui-table-header-text-transform: none;
   --neeto-ui-table-header-border-bottom-width: 1px;
-  --neeto-ui-table-resize-handle-width: 6px;
-  --neeto-ui-table-resize-handle-hover-bg-color: rgb(var(--neeto-ui-gray-300));
+  --neeto-ui-table-resize-handle-width: 4px;
+  --neeto-ui-table-resize-handle-bg-color: rgb(var(--neeto-ui-beige-400));
+  --neeto-ui-table-resize-handle-hover-bg-color: rgb(var(--neeto-ui-beige-900));
 }
 
 // RTL overrides
@@ -27,14 +28,26 @@
   .ant-table {
     font-size: 0.875rem;
   }
+  .ant-table.ant-table-bordered > .ant-table-container {
+    border-radius: 12px;
+    border-inline-end: 1px solid rgb(var(--neeto-ui-gray-200));
+    overflow: hidden;
+  }
+  .ant-table.ant-table-bordered .ant-table-cell {
+    border-inline-end: none !important;
+  }
+  .ant-table-ping-left .ant-table-cell-fix-left-last::after {
+    box-shadow: inset 10px 0 8px -8px rgb(var(--neeto-ui-beige-400));
+  }
   table {
     font-family: var(--neeto-ui-body-font-family) !important;
     thead {
       tr {
         th {
+          font-family: var(--neeto-ui-title-font-family) !important;
           font-size: var(--neeto-ui-table-header-font-size);
           font-weight: var(--neeto-ui-table-header-font-weight) !important;
-          text-transform: var(--neeto-ui-table-header-text-transform);
+          text-transform: var(--neeto-ui-table-header-text-transform) !important;
           border-bottom-width: var(
             --neeto-ui-table-header-border-bottom-width
           ) !important;
@@ -112,16 +125,22 @@
   z-index: 1;
   padding-inline-end: 1px;
   padding-inline-start: 1px;
+  visibility: hidden;
+}
+
+.ant-table .ant-table-thead:hover .react-resizable-handle {
+  visibility: visible;
 }
 
 .neeto-ui-table-react-resizable-handle__inner {
   position: relative;
-  height: 90%;
-  top: 5%;
+  height: 80%;
+  top: 10%;
   width: 100%;
   border-radius: 4px;
   display: block;
   transition: all 0.3s;
+  background-color: var(--neeto-ui-table-resize-handle-bg-color);
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
@@ -139,7 +158,6 @@
 
 .neetix-table {
   --neeto-ui-table-header-font-size: var(--neeto-ui-text-sm);
-  --neeto-ui-table-header-text-transform: capitalize;
 }
 
 .ant-table-wrapper {
