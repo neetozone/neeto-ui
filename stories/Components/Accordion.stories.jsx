@@ -54,6 +54,15 @@ const metadata = {
       control: "number",
       table: { type: { summary: "number" } },
     },
+    iconPosition: {
+      description: "To specify the position of the toggle icon.",
+      control: "radio",
+      options: ["left", "right"],
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "right" },
+      },
+    },
     className: {
       description: "To provide external classnames to Accordion container.",
       control: "text",
@@ -146,6 +155,42 @@ AccordionWithPadding.args = { padded: true };
 AccordionWithPadding.storyName = "Accordion with padding";
 AccordionWithPadding.parameters = { layout: "default" };
 
+const IconPositionLeft = args => (
+  <div className="flex flex-col space-y-5">
+    <div>
+      <Accordion {...args} iconPosition="left">
+        <Accordion.Item title="Accordion 1">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </Accordion.Item>
+        <Accordion.Item title="Accordion 2">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </Accordion.Item>
+        <Accordion.Item title="Accordion 3">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </Accordion.Item>
+      </Accordion>
+    </div>
+    <div>
+      <h4 className="mb-6 capitalize">Secondary</h4>
+      <Accordion {...args} iconPosition="left" style="secondary">
+        <Accordion.Item title="Accordion 1">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </Accordion.Item>
+        <Accordion.Item title="Accordion 3">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </Accordion.Item>
+      </Accordion>
+    </div>
+  </div>
+);
+
+IconPositionLeft.storyName = "Icon position left";
+
 const AccordionWithCustomizedIcon = args => (
   <Accordion {...args}>
     <Accordion.Item iconProps={{ color: "red", size: 28 }} title="Accordion 1">
@@ -180,34 +225,41 @@ component.
 
 // Wrapper
 --neeto-ui-accordion-wrapper-border-width: 1px;
---neeto-ui-accordion-wrapper-border-color: rgb(var(--neeto-ui-gray-300));
+--neeto-ui-accordion-wrapper-border-color: rgba(var(--neeto-ui-gray-200), 0.5);
 --neeto-ui-accordion-wrapper-border-radius: 0px;
+--neeto-ui-accordion-wrapper-bg-color: transparent;
 
 // Item
---neeto-ui-accordion-item-padding-x: 8px;
---neeto-ui-accordion-item-padding-y: 16px;
+--neeto-ui-accordion-item-padding-x: 0px;
+--neeto-ui-accordion-item-padding-y: 12px;
 --neeto-ui-accordion-item-font-size: var(--neeto-ui-text-base);
 --neeto-ui-accordion-item-font-weight: var(--neeto-ui-font-medium);
 --neeto-ui-accordion-item-line-height: 16px;
---neeto-ui-accordion-item-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-accordion-item-color: rgb(var(--neeto-ui-gray-900));
 --neeto-ui-accordion-item-bg-color: transparent;
+--neeto-ui-accordion-item-font-family: var(--neeto-ui-title-font-family);
 
 // Drop
---neeto-ui-accordion-drop-padding-x: 8px;
---neeto-ui-accordion-drop-padding-top: 4px;
+--neeto-ui-accordion-drop-padding-x: 0px;
+--neeto-ui-accordion-drop-padding-top: 0px;
 --neeto-ui-accordion-drop-padding-bottom: 16px;
---neeto-ui-accordion-drop-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-accordion-drop-color: rgb(var(--neeto-ui-gray-500));
 --neeto-ui-accordion-drop-margin-bottom: 0px;
 
+// Icon
+--neeto-ui-accordion-icon-gap: 12px;
+--neeto-ui-accordion-icon-color: rgb(var(--neeto-ui-gray-600));
+--neeto-ui-accordion-icon-size: 20px;
+
 // Item - Open
---neeto-ui-accordion-item-open-color: rgb(var(--neeto-ui-black));
+--neeto-ui-accordion-item-open-color: rgb(var(--neeto-ui-gray-900));
 
 // Item - Hover
---neeto-ui-accordion-item-hover-color: rgb(var(--neeto-ui-black));
+--neeto-ui-accordion-item-hover-color: rgb(var(--neeto-ui-gray-900));
 
 // Item - Focus Visible
---neeto-ui-accordion-item-focus-visible-color: rgb(var(--neeto-ui-black));
---neeto-ui-accordion-item-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+--neeto-ui-accordion-item-focus-visible-color: rgb(var(--neeto-ui-gray-900));
+--neeto-ui-accordion-item-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 40%);
 --neeto-ui-accordion-item-focus-visible-outline-offset: 1px;
 --neeto-ui-accordion-item-focus-visible-box-shadow: none;
 \`\`\`
@@ -217,8 +269,6 @@ an example:
 
 \`\`\`css
 .neetix-accordion {
-  --neeto-ui-accordion-item-padding-x: 0px;
-  --neeto-ui-accordion-drop-padding-x: 0px;
   --neeto-ui-accordion-item-color: rgb(var(--neeto-ui-primary-500));
   --neeto-ui-accordion-item-hover-color: rgb(var(--neeto-ui-primary-600));
   --neeto-ui-accordion-item-open-color: rgb(var(--neeto-ui-primary-800));
@@ -253,6 +303,7 @@ export {
   Styles,
   DefaultActiveKeyStory,
   AccordionWithPadding,
+  IconPositionLeft,
   AccordionWithCustomizedIcon,
   CSSCustomization,
 };
