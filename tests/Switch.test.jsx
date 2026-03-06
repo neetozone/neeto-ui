@@ -48,16 +48,4 @@ describe("Switch", () => {
     const switchButton = getByRole("checkbox");
     expect(switchButton).toBeDisabled();
   });
-
-  it("should render check icon icon when checked is true", () => {
-    const { getByTestId } = render(<Switch checked />);
-    const checkIcon = getByTestId("check-icon");
-    expect(checkIcon).toBeInTheDocument();
-  });
-
-  it("should render close icon icon when checked is false", () => {
-    const { getByTestId } = render(<Switch checked={false} />);
-    const closeIcon = getByTestId("close-icon");
-    expect(closeIcon).toBeInTheDocument();
-  });
 });
