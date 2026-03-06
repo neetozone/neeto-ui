@@ -1,31 +1,32 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   --neeto-ui-checkbox-size: 1rem;
-  --neeto-ui-checkbox-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-checkbox-color: rgb(var(--neeto-ui-primary-600));
   --neeto-ui-checkbox-border-width: 2px;
-  --neeto-ui-checkbox-border-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-checkbox-border-color: rgb(var(--neeto-ui-gray-300));
   --neeto-ui-checkbox-border-radius: var(--neeto-ui-rounded-sm);
 
   // Disabled
   --neeto-ui-checkbox-disabled-opacity: 0.5;
 
   // Hover
-  --neeto-ui-checkbox-hover-border-color: rgb(var(--neeto-ui-gray-500));
+  --neeto-ui-checkbox-hover-border-color: rgb(var(--neeto-ui-gray-400));
 
   // Focus
   --neeto-ui-checkbox-focus-outline: transparent;
   --neeto-ui-checkbox-focus-outline-offset: 0px;
 
   // Focus Visible
-  --neeto-ui-checkbox-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+  --neeto-ui-checkbox-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-600), 50%);
   --neeto-ui-checkbox-focus-visible-outline-offset: 1px;
   --neeto-ui-checkbox-focus-visible-box-shadow: none;
 
   // Checked
-  --neeto-ui-checkbox-checked-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-checkbox-checked-border-color: rgb(var(--neeto-ui-primary-600));
 
   // Margin
   --neeto-ui-checkbox-label-margin: 0.5rem;
   --neeto-ui-checkbox-label-line-height: 1.2;
+  --neeto-ui-checkbox-label-font-size: 0.875rem;
 }
 
 .neeto-ui-checkbox__wrapper {
@@ -36,14 +37,16 @@
   flex-grow: 1;
 
   .neeto-ui-checkbox__container {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
 
     .neeto-ui-label {
       margin-inline-start: var(--neeto-ui-checkbox-label-margin);
       line-height: var(--neeto-ui-checkbox-label-line-height);
+      font-size: var(--neeto-ui-checkbox-label-font-size);
     }
 
     .neeto-ui-checkbox[type="checkbox"] {
@@ -52,6 +55,7 @@
       color: var(--neeto-ui-checkbox-color);
       border: var(--neeto-ui-checkbox-border-width) solid var(--neeto-ui-checkbox-border-color);
       border-radius: var(--neeto-ui-checkbox-border-radius);
+      transition: background-color 0.2s ease, border-color 0.2s ease;
 
       &:not(:disabled) {
         cursor: pointer;
@@ -63,12 +67,25 @@
 
       &:checked {
         border-color: var(--neeto-ui-checkbox-checked-border-color);
-        background-size: calc(var(--neeto-ui-checkbox-size) * 0.6875) calc(var(--neeto-ui-checkbox-size) / 2);
+        background-image: none;
+
+        + .neeto-ui-checkbox__indicator .neeto-ui-checkbox__checkmark {
+          stroke-dashoffset: 0;
+        }
       }
 
       &:disabled {
         opacity: var(--neeto-ui-checkbox-disabled-opacity);
         cursor: not-allowed;
+
+        + .neeto-ui-checkbox__indicator {
+          opacity: var(--neeto-ui-checkbox-disabled-opacity);
+        }
+
+        ~ .neeto-ui-label {
+          opacity: var(--neeto-ui-checkbox-disabled-opacity);
+          cursor: not-allowed;
+        }
       }
 
       &:focus {
@@ -82,6 +99,42 @@
         box-shadow: var(--neeto-ui-checkbox-focus-visible-box-shadow);
       }
     }
+
+    .neeto-ui-checkbox__indicator {
+      position: absolute;
+      top: 0;
+      inset-inline-start: 0;
+      width: var(--neeto-ui-checkbox-size);
+      height: var(--neeto-ui-checkbox-size);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+
+      svg {
+        width: calc(var(--neeto-ui-checkbox-size) * 0.6875);
+        height: calc(var(--neeto-ui-checkbox-size) * 0.5);
+        overflow: visible;
+      }
+
+      .neeto-ui-checkbox__checkmark {
+        stroke: rgb(var(--neeto-ui-white));
+        stroke-width: 1.5;
+        stroke-dasharray: 12;
+        stroke-dashoffset: 12;
+        transition: stroke-dashoffset 0.3s ease-in;
+      }
+    }
+  }
+
+  &--size-small  {
+    --neeto-ui-checkbox-size: 1rem;
+    --neeto-ui-checkbox-label-font-size: 0.875rem;
+  }
+
+  &--size-medium {
+    --neeto-ui-checkbox-size: 1.125rem;
+    --neeto-ui-checkbox-label-font-size: 1rem;
   }
 }
 

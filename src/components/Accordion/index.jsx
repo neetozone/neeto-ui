@@ -11,11 +11,14 @@ const ACCORDION_STYLES = {
   secondary: "secondary",
 };
 
+const ICON_POSITIONS = { left: "left", right: "right" };
+
 const Accordion = ({
   children,
   defaultActiveKey = null,
   padded = false,
   style = ACCORDION_STYLES.primary,
+  iconPosition = ICON_POSITIONS.right,
   className = "",
   ...otherProps
 }) => {
@@ -27,12 +30,15 @@ const Accordion = ({
 
   return (
     <div
-      className={classnames("neeto-ui-accordions-outer-wrapper", {
-        "neeto-ui-accordions-outer-wrapper--padded": padded,
-        "neeto-ui-accordions-outer-wrapper--secondary":
-          style === ACCORDION_STYLES.secondary,
-        [className]: className,
-      })}
+      className={classnames(
+        "neeto-ui-accordions-outer-wrapper",
+        {
+          "neeto-ui-accordions-outer-wrapper--padded": padded,
+          "neeto-ui-accordions-outer-wrapper--secondary":
+            style === ACCORDION_STYLES.secondary,
+        },
+        className
+      )}
       {...otherProps}
     >
       {React.Children.map(children, (child, index) => {
@@ -42,6 +48,7 @@ const Accordion = ({
         return React.cloneElement(child, {
           id: index,
           key: index,
+          iconPosition: child.props.iconPosition ?? iconPosition,
           isOpen: openTab === index,
           className: classnames(child.props.className, {
             "neeto-ui-accordion__wrapper--last-item": isSingleOrLastChild,
@@ -73,6 +80,10 @@ Accordion.propTypes = {
    * Index of the Accordion item to be opened initially.
    */
   defaultActiveKey: PropTypes.number,
+  /**
+   * To specify the position of the toggle icon for all items.
+   */
+  iconPosition: PropTypes.oneOf(Object.values(ICON_POSITIONS)),
   /**
    * To provide external classnames to Accordion container.
    */

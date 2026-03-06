@@ -190,7 +190,7 @@ export const colorPalette = {
       {
         name: "neeto-ui-beige-200",
         text: "black",
-        value: { dark: "65, 65, 64", light: "246, 244, 240" },
+        value: { dark: "65, 65, 64", light: "244, 241, 236" },
       },
       {
         name: "neeto-ui-beige-100",
@@ -297,7 +297,7 @@ export const colorPalette = {
       {
         name: "neeto-ui-error-100",
         text: "black",
-        value: { dark: "44, 22, 24", light: "237, 188, 190" },
+        value: { dark: "44, 22, 24", light: "255, 221, 221" },
       },
       {
         name: "neeto-ui-error-50",
@@ -397,7 +397,7 @@ export const colorPalette = {
       {
         name: "neeto-ui-info-100",
         text: "black",
-        value: { dark: "17, 26, 44", light: "183, 209, 232" },
+        value: { dark: "17, 26, 44", light: "216, 238, 255" },
       },
       {
         name: "neeto-ui-info-50",

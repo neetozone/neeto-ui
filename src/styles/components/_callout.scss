@@ -1,17 +1,15 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   --neeto-ui-callout-padding-x: 12px;
-  --neeto-ui-callout-padding-y: 9px;
+  --neeto-ui-callout-padding-y: 10px;
   --neeto-ui-callout-font-size: var(--neeto-ui-text-sm);
-  --neeto-ui-callout-font-weight: var(--neeto-ui-font-medium);
+  --neeto-ui-callout-font-weight: var(--neeto-ui-font-normal);
   --neeto-ui-callout-line-height: 1.5;
-  --neeto-ui-callout-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-callout-color: rgb(var(--neeto-ui-primary-900));
   --neeto-ui-callout-bg-color: transparent;
-  --neeto-ui-callout-border-width: 1px;
-  --neeto-ui-callout-border-color: transparent;
   --neeto-ui-callout-border-radius: var(--neeto-ui-rounded-md);
-  --neeto-ui-callout-gap: 12px;
+  --neeto-ui-callout-gap: 8px;
   --neeto-ui-callout-icon-size: 20px;
-  --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-primary-900));
 }
 
 .neeto-ui-callout {
@@ -41,31 +39,30 @@
 
   &--info {
     --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-info-100));
-    --neeto-ui-callout-border-color: rgb(var(--neeto-ui-info-100));
-    --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-info-500));
+    --neeto-ui-callout-color: rgb(var(--neeto-ui-primary-900));
+    --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-primary-900));
   }
 
   &--warning {
     --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-warning-100));
-    --neeto-ui-callout-border-color: rgb(var(--neeto-ui-warning-100));
-    --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-warning-500));
+    --neeto-ui-callout-color: rgb(var(--neeto-ui-warning-900));
+    --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-warning-900));
   }
 
   &--danger {
     --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-error-100));
-    --neeto-ui-callout-border-color: rgb(var(--neeto-ui-error-100));
-    --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-error-500));
+    --neeto-ui-callout-color: rgb(var(--neeto-ui-error-600));
+    --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-error-600));
   }
 
   &--success {
     --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-success-100));
-    --neeto-ui-callout-border-color: rgb(var(--neeto-ui-success-100));
-    --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-success-500));
+    --neeto-ui-callout-color: rgb(var(--neeto-ui-green-900));
+    --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-green-900));
   }
 }
 
 .neetix-callout--success {
   --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-success-100));
-  --neeto-ui-callout-border-color: rgb(var(--neeto-ui-success-100));
-  --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-success-900));
 }

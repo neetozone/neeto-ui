@@ -75,7 +75,7 @@ describe("Accordion", () => {
     const onClick = jest.fn();
     const { getByText } = render(
       <Accordion>
-        <Accordion.Item title="Item 1" onClick={onClick}>
+        <Accordion.Item {...{ onClick }} title="Item 1">
           <p>Content 1</p>
         </Accordion.Item>
       </Accordion>
@@ -101,6 +101,18 @@ describe("Accordion", () => {
     await waitForElementToBeRemoved(() => queryByText("Content 1"));
     expect(queryByText("Content 1")).not.toBeInTheDocument();
     expect(getByText("Content 2")).toBeInTheDocument();
+  });
+
+  it("should render icon on the left when iconPosition is left", () => {
+    const { getByText } = render(
+      <Accordion iconPosition="left">
+        <Accordion.Item title="Item 1">
+          <p>Content 1</p>
+        </Accordion.Item>
+      </Accordion>
+    );
+    const item = getByText("Item 1").closest(".neeto-ui-accordion__item");
+    expect(item).toHaveClass("neeto-ui-accordion__item--icon-left");
   });
 
   it("should open the the accordion when defaultActiveKey is provided", () => {

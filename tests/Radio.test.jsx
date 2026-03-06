@@ -9,7 +9,11 @@ const ControlledRadio = () => {
   const [value, setValue] = useState("");
 
   return (
-    <Radio label="Radio" value={value} onChange={e => setValue(e.target.value)}>
+    <Radio
+      {...{ value }}
+      label="Radio"
+      onChange={e => setValue(e.target.value)}
+    >
       <Radio.Item label="option1" name="options" value="option1" />
       <Radio.Item label="option2" name="options" value="option2" />
     </Radio>
@@ -32,7 +36,7 @@ describe("Radio", () => {
     });
 
     const { getByText } = render(
-      <Radio label="Radio" onChange={onChange}>
+      <Radio {...{ onChange }} label="Radio">
         <Radio.Item label="option1" name="options" value="option1" />
       </Radio>
     );
@@ -78,5 +82,43 @@ describe("Radio", () => {
     const radio = getByRole("radio");
     await userEvent.click(radio);
     expect(radio).toBeChecked();
+  });
+
+  it("should apply small size class by default", () => {
+    const { getByRole } = render(
+      <Radio label="Radio">
+        <Radio.Item label="option1" name="options" value="option1" />
+      </Radio>
+    );
+
+    expect(
+      getByRole("radiogroup").closest(".neeto-ui-radio__wrapper")
+    ).toHaveClass("neeto-ui-radio__wrapper--size-small");
+  });
+
+  it("should render description when provided", () => {
+    const { getByText } = render(
+      <Radio label="Radio">
+        <Radio.Item
+          description="Option description"
+          label="option1"
+          name="options"
+          value="option1"
+        />
+      </Radio>
+    );
+    expect(getByText("Option description")).toBeInTheDocument();
+  });
+
+  it("should apply medium size class when size is medium", () => {
+    const { getByRole } = render(
+      <Radio label="Radio" size="medium">
+        <Radio.Item label="option1" name="options" value="option1" />
+      </Radio>
+    );
+
+    expect(
+      getByRole("radiogroup").closest(".neeto-ui-radio__wrapper")
+    ).toHaveClass("neeto-ui-radio__wrapper--size-medium");
   });
 });

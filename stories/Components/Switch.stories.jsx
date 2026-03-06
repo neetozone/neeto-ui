@@ -151,31 +151,29 @@ component.
 --neeto-ui-switch-item-border-width: 2px;
 --neeto-ui-switch-item-border-color: transparent;
 --neeto-ui-switch-item-border-radius: 20px;
---neeto-ui-switch-item-bg-color: rgb(var(--neeto-ui-gray-300));
+--neeto-ui-switch-item-bg-color: rgb(var(--neeto-ui-primary-100));
 --neeto-ui-switch-item-opacity: 1;
 
 // Switch
 --neeto-ui-switch-width: 20px;
 --neeto-ui-switch-height: 20px;
---neeto-ui-switch-color: rgb(var(--neeto-ui-gray-400));
 --neeto-ui-switch-bg-color: rgb(var(--neeto-ui-white));
 --neeto-ui-switch-transform: translateX(0);
 --neeto-ui-switch-border-radius: 16px;
 --neeto-ui-switch-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
 
 // Checked
---neeto-ui-switch-item-checked-bg-color: rgb(var(--neeto-ui-success-500));
---neeto-ui-switch-checked-color: rgb(var(--neeto-ui-success-500));
+--neeto-ui-switch-item-checked-bg-color: rgb(var(--neeto-ui-green-600));
 --neeto-ui-switch-checked-transform: translateX(20px);
 
 // Margin
---neeto-ui-switch-label-margin: 12px;
+--neeto-ui-switch-label-margin: 10px;
 
 // Focus Within
---neeto-ui-switch-focus-within-box-shadow: 0 0 0 3px rgb(var(--neeto-ui-gray-200));
+--neeto-ui-switch-focus-within-box-shadow: 0 0 0 3px rgba(var(--neeto-ui-green-500), 50%);
 
 // Focus Visible
---neeto-ui-switch-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+--neeto-ui-switch-focus-visible-outline: 3px solid rgba(var(--neeto-ui-green-500), 50%);
 --neeto-ui-switch-focus-visible-outline-offset: 1px;
 --neeto-ui-switch-focus-visible-box-shadow: none;
 \`\`\`
@@ -184,9 +182,8 @@ You can use these variables to customize the component to your liking. Here is
 an example:
 
 \`\`\`css
-.neetix-radio {
-  --neeto-ui-switch-item-checked-bg-color: rgb(var(--neeto-ui-primary-500));
-  --neeto-ui-switch-checked-color: rgb(var(--neeto-ui-primary-500));
+.neetix-switch {
+  --neeto-ui-switch-item-checked-bg-color: rgb(var(--neeto-ui-green-500));
 }
 \`\`\`
 

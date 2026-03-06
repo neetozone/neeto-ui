@@ -1,7 +1,6 @@
 import React, { forwardRef } from "react";
 
 import classnames from "classnames";
-import { Check, Close } from "neetoicons";
 import PropTypes from "prop-types";
 
 import { useId } from "hooks";
@@ -56,13 +55,7 @@ const Switch = forwardRef(
               className={classnames("neeto-ui-switch", {
                 "neeto-ui-switch--checked": !!checked,
               })}
-            >
-              {checked ? (
-                <Check data-testid="check-icon" size="12" strokeWidth={4} />
-              ) : (
-                <Close data-testid="close-icon" size="12" strokeWidth={3} />
-              )}
-            </span>
+            />
           </label>
           {renderLabel && (
             <Label

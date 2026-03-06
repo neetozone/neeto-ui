@@ -91,7 +91,7 @@ const CSSCustomization = args => (
 );
 
 CSSCustomization.args = {
-  count: 500,
+  count: 700,
   pageNo: 3,
   pageSize: 100,
   navigate: pageNumber => {
@@ -109,22 +109,23 @@ component.
 \`\`\`css
 --neeto-ui-pagination-item-padding-x: 4px;
 --neeto-ui-pagination-item-padding-y: 4px;
---neeto-ui-pagination-item-width: 28px;
---neeto-ui-pagination-item-height: 28px;
---neeto-ui-pagination-item-margin-x: 4px;
+--neeto-ui-pagination-item-width: 26px;
+--neeto-ui-pagination-item-height: 26px;
+--neeto-ui-pagination-item-margin-x: 3px;
 --neeto-ui-pagination-item-margin-y: 0px;
---neeto-ui-pagination-item-font-size: var(--neeto-ui-text-sm);
---neeto-ui-pagination-item-font-weight: var(--neeto-ui-font-medium);
---neeto-ui-pagination-item-color: rgb(var(--neeto-ui-gray-700));
+--neeto-ui-pagination-item-font-size: var(--neeto-ui-text-xs);
+--neeto-ui-pagination-item-font-weight: var(--neeto-ui-font-normal);
+--neeto-ui-pagination-item-color: rgb(var(--neeto-ui-gray-900));
 --neeto-ui-pagination-item-bg-color: rgb(var(--neeto-ui-white));
 --neeto-ui-pagination-item-line-height: 1;
 --neeto-ui-pagination-item-border-width: 1px;
 --neeto-ui-pagination-item-border-color: transparent;
 --neeto-ui-pagination-item-border-radius: var(--neeto-ui-rounded);
+--neeto-ui-pagination-item-dots-color: rgb(var(--neeto-ui-gray-300));
 
 // Hover
---neeto-ui-pagination-item-hover-color: rgb(var(--neeto-ui-gray-800));
---neeto-ui-pagination-item-hover-bg-color: rgb(var(--neeto-ui-gray-200));
+--neeto-ui-pagination-item-hover-color: rgb(var(--neeto-ui-primary-500));
+--neeto-ui-pagination-item-hover-bg-color: rgb(var(--neeto-ui-primary-50));
 
 // Focus Visible
 --neeto-ui-pagination-item-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);

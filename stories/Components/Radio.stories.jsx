@@ -69,8 +69,61 @@ const metadata = {
       control: "text",
       table: { type: { summary: "string" } },
     },
+    size: {
+      description: "To set the size of the Radio.",
+      control: "select",
+      options: ["small", "medium"],
+      table: { type: { summary: "string" } },
+    },
   },
 };
+
+const Default = args => (
+  <Radio {...args}>
+    <Radio.Item label="Option 1" name="default" value="Option1" />
+    <Radio.Item label="Option 2" name="default" value="Option2" />
+  </Radio>
+);
+
+Default.args = { label: "Radio options", size: "small" };
+
+const Sizes = args => (
+  <div className="w-full">
+    <div className="flex w-full flex-col gap-6">
+      <div className="flex flex-wrap items-start gap-4">
+        <Radio {...args} label="Small" size="small">
+          <Radio.Item label="Option 1" name="sizeSmall" value="Option1" />
+          <Radio.Item label="Option 2" name="sizeSmall" value="Option2" />
+        </Radio>
+      </div>
+      <div className="flex flex-wrap items-start gap-4">
+        <Radio {...args} label="Medium" size="medium">
+          <Radio.Item label="Option 1" name="sizeMedium" value="Option1" />
+          <Radio.Item label="Option 2" name="sizeMedium" value="Option2" />
+        </Radio>
+      </div>
+    </div>
+  </div>
+);
+
+const WithDescription = args => (
+  <Radio {...args}>
+    <Radio.Item
+      description="First option description"
+      label="Option 1"
+      name="desc"
+      value="Option1"
+    />
+    <Radio.Item
+      description="Second option description"
+      label="Option 2"
+      name="desc"
+      value="Option2"
+    />
+  </Radio>
+);
+WithDescription.args = { label: "Radio with descriptions" };
+WithDescription.storyName = "With description";
 
 const Options = args => (
   <Radio {...args}>
@@ -147,6 +200,21 @@ FormikRadioStory.parameters = {
   },
 };
 
+const Error = args => (
+  <Radio {...args}>
+    <Radio.Item label="Option 1" name="errorOptions" value="Option1" />
+    <Radio.Item label="Option 2" name="errorOptions" value="Option2" />
+  </Radio>
+);
+
+Error.args = {
+  label: "Radio options",
+  error: "Please select an option",
+  value: "",
+  disabled: true,
+};
+Error.storyName = "Error";
+
 const CSSCustomization = args => (
   <Radio {...args}>
     <Radio.Item label="Option 1" name="options" value="Option1" />
@@ -191,8 +259,9 @@ component.
 --neeto-ui-radio-checked-border-color: rgb(var(--neeto-ui-primary-500));
 
 // Error
---neeto-ui-radio-error-border-color: rgb(var(--neeto-ui-error-500));
---neeto-ui-radio-error-color: rgb(var(--neeto-ui-error-500));
+--neeto-ui-radio-error-border-color: rgb(var(--neeto-ui-error-600));
+--neeto-ui-radio-error-color: rgb(var(--neeto-ui-error-600));
+--neeto-ui-radio-error-description-color: rgb(var(--neeto-ui-error-400));
 --neeto-ui-radio-error-font-size: var(--neeto-ui-text-xs);
 
 // Margin
@@ -203,6 +272,10 @@ component.
 
 // Label
 --neeto-ui-radio-label-line-height: 1.2;
+
+// Description
+--neeto-ui-radio-description-color: rgb(var(--neeto-ui-gray-500));
+--neeto-ui-radio-description-font-size: 0.688rem;
 \`\`\`
 
 You can use these variables to customize the component to your liking. Here is
@@ -224,8 +297,12 @@ CSSCustomization.parameters = {
 };
 
 export {
+  Default,
+  Sizes,
+  WithDescription,
   Options,
   OptionsStacked,
+  Error,
   ControlledRadio,
   FormikRadioStory,
   CSSCustomization,

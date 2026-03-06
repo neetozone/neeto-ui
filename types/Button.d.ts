@@ -17,7 +17,8 @@ export interface ButtonProps {
     | "danger"
     | "danger-text"
     | "text"
-    | "link";
+    | "link"
+    | "link-underline";
   fullWidth?: boolean;
   className?: string;
   disabled?: boolean;

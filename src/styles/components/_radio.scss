@@ -1,30 +1,31 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
   --neeto-ui-radio-size: 1rem;
-  --neeto-ui-radio-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-radio-color: rgb(var(--neeto-ui-primary-600));
   --neeto-ui-radio-border-width: 2px;
-  --neeto-ui-radio-border-color: rgb(var(--neeto-ui-gray-400));
+  --neeto-ui-radio-border-color: rgb(var(--neeto-ui-gray-300));
 
   // Disabled
   --neeto-ui-radio-disabled-opacity: 0.5;
 
   // Hover
-  --neeto-ui-radio-hover-border-color: rgb(var(--neeto-ui-gray-500));
+  --neeto-ui-radio-hover-border-color: rgb(var(--neeto-ui-gray-400));
 
   // Focus
   --neeto-ui-radio-focus-outline: transparent;
   --neeto-ui-radio-focus-outline-offset: 0px;
 
   // Focus Visible
-  --neeto-ui-radio-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+  --neeto-ui-radio-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-600), 50%);
   --neeto-ui-radio-focus-visible-outline-offset: 1px;
   --neeto-ui-radio-focus-visible-box-shadow: none;
 
   // Checked
-  --neeto-ui-radio-checked-border-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-radio-checked-border-color: rgb(var(--neeto-ui-primary-600));
 
   // Error
-  --neeto-ui-radio-error-border-color: rgb(var(--neeto-ui-error-500));
-  --neeto-ui-radio-error-color: rgb(var(--neeto-ui-error-500));
+  --neeto-ui-radio-error-border-color: rgb(var(--neeto-ui-error-600));
+  --neeto-ui-radio-error-color: rgb(var(--neeto-ui-error-600));
+  --neeto-ui-radio-error-description-color: rgb(var(--neeto-ui-error-400));
   --neeto-ui-radio-error-font-size: var(--neeto-ui-text-xs);
 
   // Margin
@@ -33,6 +34,11 @@
   --neeto-ui-radio-label-margin: 0.5rem;
   --neeto-ui-radio-label-line-height: 1.2;
   --neeto-ui-radio-margin: 1rem;
+  --neeto-ui-radio-label-font-size: 0.875rem;
+
+  // Description
+  --neeto-ui-radio-description-color: rgb(var(--neeto-ui-gray-500));
+  --neeto-ui-radio-description-font-size: 0.688rem;
 }
 
 .neeto-ui-radio__wrapper {
@@ -44,12 +50,25 @@
 
   .neeto-ui-radio__label {
     margin-bottom: var(--neeto-ui-radio-wrapper-label-margin);
+    font-size: var(--neeto-ui-radio-label-font-size);
   }
 
   .neeto-ui-radio-input__error {
     margin-top: var(--neeto-ui-radio-wrapper-error-margin);
     color: var(--neeto-ui-radio-error-color);
     font-size: var(--neeto-ui-radio-error-font-size);
+  }
+
+  &--size-small {
+    --neeto-ui-radio-size: 1rem;
+    --neeto-ui-radio-label-font-size: 0.875rem;
+    --neeto-ui-radio-description-font-size: 0.688rem;
+  }
+
+  &--size-medium {
+    --neeto-ui-radio-size: 1.125rem;
+    --neeto-ui-radio-label-font-size: 1rem;
+    --neeto-ui-radio-description-font-size: 0.75rem;
   }
 }
 
@@ -65,9 +84,21 @@
     justify-content: flex-start;
     align-items: flex-start;
 
-    .neeto-ui-label {
+    .neeto-ui-radio__item-content {
       margin-inline-start: var(--neeto-ui-radio-label-margin);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .neeto-ui-label {
       line-height: var(--neeto-ui-radio-label-line-height);
+      font-size: var(--neeto-ui-radio-label-font-size);
+    }
+
+    .neeto-ui-radio__item-description {
+      color: var(--neeto-ui-radio-description-color);
+      font-size: var(--neeto-ui-radio-description-font-size);
+      margin-top: 0.125rem;
     }
 
     &:not(:last-child) {
@@ -80,6 +111,8 @@
     height: var(--neeto-ui-radio-size);
     color: var(--neeto-ui-radio-color);
     border: var(--neeto-ui-radio-border-width) solid var(--neeto-ui-radio-border-color);
+    transition: border-color 0.15s ease-in-out, background-size 0.2s ease-out;
+    background-size: 0;
 
     &:not(:disabled) {
       cursor: pointer;
@@ -92,6 +125,17 @@
     &:disabled {
       opacity: var(--neeto-ui-radio-disabled-opacity);
       cursor: not-allowed;
+
+      ~ .neeto-ui-radio__item-content {
+        .neeto-ui-label {
+          opacity: var(--neeto-ui-radio-disabled-opacity);
+          cursor: not-allowed;
+        }
+
+        .neeto-ui-radio__item-description {
+          opacity: var(--neeto-ui-radio-disabled-opacity);
+        }
+      }
     }
 
     &:checked {
@@ -114,6 +158,12 @@
   &.neeto-ui-radio__container--error {
     .neeto-ui-radio[type="radio"] {
       border-color: var(--neeto-ui-radio-error-border-color);
+    }
+    .neeto-ui-label {
+      color: var(--neeto-ui-radio-error-color);
+    }
+    .neeto-ui-radio__item-description {
+      color: var(--neeto-ui-radio-error-description-color);
     }
   }
 

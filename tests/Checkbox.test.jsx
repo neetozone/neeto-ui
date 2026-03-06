@@ -14,7 +14,7 @@ describe("Checkbox", () => {
   it("should call onChange when checkbox value is changed", async () => {
     const onChange = jest.fn();
     const { getByRole } = render(
-      <Checkbox label="Checkbox" onChange={onChange} />
+      <Checkbox {...{ onChange }} label="Checkbox" />
     );
     await userEvent.click(getByRole("checkbox"));
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -37,5 +37,19 @@ describe("Checkbox", () => {
     const checkbox = getByRole("checkbox");
     await userEvent.click(checkbox);
     expect(checkbox).toBeChecked();
+  });
+
+  it("should apply small size class by default", () => {
+    const { getByRole } = render(<Checkbox label="Checkbox" />);
+    expect(
+      getByRole("checkbox").closest(".neeto-ui-checkbox__wrapper")
+    ).toHaveClass("neeto-ui-checkbox__wrapper--size-small");
+  });
+
+  it("should apply medium size class when size is medium", () => {
+    const { getByRole } = render(<Checkbox label="Checkbox" size="medium" />);
+    expect(
+      getByRole("checkbox").closest(".neeto-ui-checkbox__wrapper")
+    ).toHaveClass("neeto-ui-checkbox__wrapper--size-medium");
   });
 });

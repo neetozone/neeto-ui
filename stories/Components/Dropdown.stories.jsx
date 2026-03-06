@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Settings, Delete, Search } from "neetoicons";
+import { Settings, Customize, Delete, Search, Right } from "neetoicons";
 
 import { Button, Dropdown, Tag, Input, Typography } from "components";
 
@@ -91,7 +91,7 @@ const metadata = {
     },
     strategy: {
       description:
-        "To specify the positioning strategy to use. By default, it is absolute, which in the simplest cases does not require repositioning of the Dropdown.\n\nIf your reference element is in a fixed container, use the fixed strategy",
+        "To specify the positioning strategy to use. By default, it is absolute, which in the simplest cases does not require repositioning of the Dropdown. <br /> <br />If your reference element is in a fixed container, use the fixed strategy",
       control: "select",
       options: Object.values({ absolute: "absolute", fixed: "fixed" }),
       table: {
@@ -333,7 +333,7 @@ const TriggerWithCustomIcon = args => {
 
   return (
     <div className="h-40">
-      <Dropdown {...args} icon={Settings} label="Dropdown with custom icon">
+      <Dropdown {...args} icon={Customize} label="Dropdown with custom icon">
         <Menu>
           {listItems.map((item, idx) => (
             <MenuItem.Button key={idx}>{item}</MenuItem.Button>
@@ -359,7 +359,7 @@ const WithPrefixAndSuffix = args => {
             <MenuItem.Button
               key={idx}
               prefix={<Settings size={20} />}
-              suffix={<Settings size={20} />}
+              suffix={<Right size={20} />}
             >
               {item}
             </MenuItem.Button>
@@ -368,7 +368,7 @@ const WithPrefixAndSuffix = args => {
           <MenuItem.Button
             prefix={<Delete size={20} />}
             style="danger"
-            suffix={<Settings size={20} />}
+            suffix={<Right size={20} />}
           >
             Delete
           </MenuItem.Button>
@@ -392,8 +392,13 @@ const MultiDropdownWithClickTrigger = args => {
           ))}
           <Divider />
           <Dropdown
-            customTarget={<MenuItem.Button>Another Dropdown</MenuItem.Button>}
+            offset={[0, 18]}
             position="right-start"
+            customTarget={
+              <MenuItem.Button suffix={<Right size={18} />}>
+                Another Dropdown
+              </MenuItem.Button>
+            }
             onClick={e => e.stopPropagation()}
           >
             <Menu>
@@ -435,9 +440,14 @@ const MultiDropdownWithHoverTrigger = args => {
           ))}
           <Divider />
           <Dropdown
-            customTarget={<MenuItem.Button>Another Dropdown</MenuItem.Button>}
+            offset={[0, 18]}
             position="right-start"
             trigger="hover"
+            customTarget={
+              <MenuItem.Button suffix={<Right size={18} />}>
+                Another Dropdown
+              </MenuItem.Button>
+            }
           >
             <Menu>
               {listItems.map((item, idx) => (
@@ -543,9 +553,11 @@ const CustomDropdown = args => {
   return (
     <div className="h-56">
       <Dropdown {...args} closeOnSelect={false} label="Custom Dropdown">
-        <div className="neeto-ui-rounded-md flex flex-col gap-y-1 p-2">
-          <Input placeholder="Search members" prefix={<Search />} />
-          <Typography style="body3">Results</Typography>
+        <div className="flex flex-col">
+          <div className="flex flex-col gap-y-1.5 p-3 pb-0">
+            <Input placeholder="Search members" prefix={<Search />} />
+            <Typography style="body3">Results</Typography>
+          </div>
           <Menu className="flex flex-col gap-y-1">
             {members.map((item, idx) => (
               <MenuItem.Button key={idx}>{item}</MenuItem.Button>
@@ -632,56 +644,54 @@ component.
 
 \`\`\`css
 --neeto-ui-dropdown-margin-x: 0px;
---neeto-ui-dropdown-margin-y: 6px;
+--neeto-ui-dropdown-margin-y: 8px;
 --neeto-ui-dropdown-padding-x: 0px;
 --neeto-ui-dropdown-padding-y: 0px;
---neeto-ui-dropdown-border-width: 1px;
---neeto-ui-dropdown-border-color: rgb(var(--neeto-ui-gray-400));
---neeto-ui-dropdown-border-radius: var(--neeto-ui-rounded);
---neeto-ui-dropdown-box-shadow: var(--neeto-ui-shadow-lg);
+--neeto-ui-dropdown-border-radius: var(--neeto-ui-rounded-lg);
+--neeto-ui-dropdown-box-shadow: 0px 0px 10px 0px #10182826;
 
 // Popup
 --neeto-ui-dropdown-popup-width: auto;
 --neeto-ui-dropdown-popup-min-width: 168px;
 --neeto-ui-dropdown-popup-max-height: 480px;
 --neeto-ui-dropdown-popup-bg-color: rgb(var(--neeto-ui-white));
---neeto-ui-dropdown-popup-border-radius: var(--neeto-ui-rounded);
+--neeto-ui-dropdown-popup-border-radius: var(--neeto-ui-rounded-lg);
 --neeto-ui-dropdown-popup-z-index: 99999;
 
 // Popup Menu
---neeto-ui-dropdown-popup-menu-padding-x: 0px;
---neeto-ui-dropdown-popup-menu-padding-y: 4px;
+--neeto-ui-dropdown-popup-menu-padding-x: 12px;
+--neeto-ui-dropdown-popup-menu-padding-y: 12px;
+--neeto-ui-dropdown-popup-menu-gap: 6px;
 
 // Item
 --neeto-ui-dropdown-item-padding-y: 6px;
---neeto-ui-dropdown-item-padding-x: 12px;
+--neeto-ui-dropdown-item-padding-x: 8px;
 --neeto-ui-dropdown-item-font-size: var(--neeto-ui-text-sm);
 --neeto-ui-dropdown-item-font-weight: var(--neeto-ui-font-normal);
 --neeto-ui-dropdown-item-line-height: 1.143;
---neeto-ui-dropdown-item-color: rgb(var(--neeto-ui-gray-800));
+--neeto-ui-dropdown-item-color: rgb(var(--neeto-ui-gray-900));
 --neeto-ui-dropdown-item-bg-color: rgb(var(--neeto-ui-white));
 --neeto-ui-dropdown-item-white-space: nowrap;
 --neeto-ui-dropdown-item-min-height: 32px;
---neeto-ui-dropdown-item-gap: 8px;
---neeto-ui-dropdown-item-border-radius: 0px;
+--neeto-ui-dropdown-item-gap: 12px;
+--neeto-ui-dropdown-item-border-radius: 4px;
 
 // Item - Active
---neeto-ui-dropdown-item-active-bg-color: rgb(var(--neeto-ui-primary-500));
---neeto-ui-dropdown-item-active-color: rgb(var(--neeto-ui-white));
+--neeto-ui-dropdown-item-active-bg-color: rgb(var(--neeto-ui-beige-100));
+--neeto-ui-dropdown-item-active-color: rgb(var(--neeto-ui-gray-900));
 
 // Item - Disabled
 --neeto-ui-dropdown-item-disabled-opacity: 0.5;
 
 // Item - Hover
---neeto-ui-dropdown-item-hover-bg-color: rgb(var(--neeto-ui-gray-200));
+--neeto-ui-dropdown-item-hover-bg-color: rgb(var(--neeto-ui-beige-100));
 
 // Item - Focus
---neeto-ui-dropdown-item-focus-bg-color: rgb(var(--neeto-ui-gray-200));
+--neeto-ui-dropdown-item-focus-bg-color: rgb(var(--neeto-ui-beige-100));
 
 // Divider
 --neeto-ui-dropdown-divider-height: 1px;
---neeto-ui-dropdown-divider-bg-color: rgb(var(--neeto-ui-gray-200));
---neeto-ui-dropdown-divider-margin: 4px;
+--neeto-ui-dropdown-divider-bg-color: rgb(var(--neeto-ui-beige-300));
 \`\`\`
 
 You can use these variables to customize the component to your liking. Here is

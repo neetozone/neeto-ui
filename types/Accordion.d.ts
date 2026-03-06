@@ -5,6 +5,7 @@ export interface AccordionProps {
   defaultActiveKey?: number;
   padded?: boolean;
   style?: "primary" | "secondary";
+  iconPosition?: "left" | "right";
   [key: string]: any;
 }
 
@@ -19,6 +20,7 @@ export interface AccordionItemProps {
     HTMLDivElement
   > & { [key: string]: any };
   iconProps?: React.SVGProps<SVGSVGElement>;
+  iconPosition?: "left" | "right";
 }
 
 const Accordion: React.FC<AccordionProps> & {

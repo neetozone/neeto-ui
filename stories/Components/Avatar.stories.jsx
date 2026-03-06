@@ -263,10 +263,10 @@ component.
 --neeto-ui-avatar-border-radius: var(--neeto-ui-rounded-full);
 
 // Status
---neeto-ui-avatar-status-width: 0.4rem;
---neeto-ui-avatar-status-height: 0.4rem;
+--neeto-ui-avatar-status-width: 0.5rem;
+--neeto-ui-avatar-status-height: 0.5rem;
 --neeto-ui-avatar-status-bg-color: var(--neeto-ui-white);
---neeto-ui-avatar-status-border-width: 0.5px;
+--neeto-ui-avatar-status-border-width: 1px;
 --neeto-ui-avatar-status-border-color: rgb(var(--neeto-ui-white));
 --neeto-ui-avatar-status-border-radius: var(--neeto-ui-rounded-full);
 --neeto-ui-avatar-status-transform: translateX(-40%);
