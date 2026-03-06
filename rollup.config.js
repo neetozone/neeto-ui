@@ -51,7 +51,10 @@ const config = args => {
     }),
     copy({
       targets: [
-        { src: "src/translations", dest: path.resolve(destination, "dist/src") },
+        {
+          src: "src/translations",
+          dest: path.resolve(destination, "dist/src"),
+        },
       ],
     }),
     // Plugins for local development.
@@ -65,6 +68,7 @@ const config = args => {
       format,
       sourcemap: true,
       exports: "auto",
+      interop: "auto",
       assetFileNames: "[name][extname]",
     })),
     plugins,
