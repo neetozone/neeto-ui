@@ -128,7 +128,7 @@ const Dropdown = ({
       animation="scale-subtle"
       aria={{ content: null, expanded: false }}
       arrow={false}
-      duration={[200, 0]}
+      duration={[200, 150]}
       // hideOnClick determines whether the dropdown should be hidden when the user clicks outside of the dropdown.
       // https://atomiks.github.io/tippyjs/v6/all-props/#hideonclick
       hideOnClick={isControlled ? undefined : closeOnOutsideClick || "toggle"}
