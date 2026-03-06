@@ -7,10 +7,10 @@ import Typography from "../Typography";
 
 const Title = ({ className, children }) => (
   <Typography
-    className={classnames("neeto-ui-mb-1", className)}
+    className={classnames("neeto-ui-mb-2", className)}
     data-testid="popover-title"
     lineHeight="snug"
-    style="h5"
+    style="h6"
     weight="semibold"
   >
     {children}
