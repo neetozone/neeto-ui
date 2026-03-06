@@ -19,6 +19,7 @@ const Popover = ({
     interactive
     className={classnames("neeto-ui-popover", className)}
     content={children}
+    offset={[0, 24]}
     {...otherProps}
   />
 );

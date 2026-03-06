@@ -32,7 +32,7 @@ const ShowPopover = args => {
       <Button
         label="Show Popover"
         ref={popoverReferenceElement}
-        style="secondary"
+        style="primary"
       />
       <Popover reference={popoverReferenceElement} {...args}>
         <Popover.Title>What is KB keywords?</Popover.Title>
@@ -61,7 +61,7 @@ const CSSCustomization = args => {
       <Button
         label="Show Popover"
         ref={popoverReferenceElement}
-        style="secondary"
+        style="primary"
       />
       <Popover reference={popoverReferenceElement} {...args}>
         <Popover.Title>What is KB keywords?</Popover.Title>
@@ -88,13 +88,19 @@ CSS variables. These are the variables that are being used in the \`Popover\`
 component.
 
 \`\`\`css
+/* Global */
 --neeto-ui-popover-border-width: 1px;
---neeto-ui-popover-border-color: rgb(var(--neeto-ui-gray-800));
---neeto-ui-popover-padding-x: 1rem;
---neeto-ui-popover-padding-y: 1rem;
+--neeto-ui-popover-border-color: rgb(var(--neeto-ui-beige-300));
+--neeto-ui-popover-padding-x: 2rem;
+--neeto-ui-popover-padding-y: 2rem;
+--neeto-ui-popover-border-radius: var(--neeto-ui-rounded-xl);
 
-// Light theme
---neeto-ui-popover-light-theme-border-color: rgb(var(--neeto-ui-gray-400));
+/* Light theme */
+--neeto-ui-popover-light-theme-border-color: rgb(var(--neeto-ui-beige-300));
+
+/* Scoped to .neeto-ui-popover */
+--neeto-ui-tooltip-arrow-size: 0.75rem;
+--neeto-ui-tooltip-arrow-offset: 1.5rem;
 \`\`\`
 
 You can use these variables to customize the component to your liking. Here is
