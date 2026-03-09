@@ -796,8 +796,8 @@ component.
 --neeto-ui-pane-wrapper-backdrop-filter: blur(2px);
 
 // Close Button
---neeto-ui-pane-close-btn-top: 1.25rem;
---neeto-ui-pane-close-btn-right: 1.25rem;
+--neeto-ui-pane-close-btn-top: 20px;
+--neeto-ui-pane-close-btn-right: 20px;
 
 // Header
 --neeto-ui-pane-header-padding-top: 56px;
@@ -808,13 +808,13 @@ component.
 // Body
 --neeto-ui-pane-body-padding-x: var(--neeto-ui-pane-spacing);
 --neeto-ui-pane-body-padding-top: 0px;
---neeto-ui-pane-body-padding-bottom: 1.5rem;
+--neeto-ui-pane-body-padding-bottom: 24px;
 --neeto-ui-pane-body-height: calc(100dvh - var(--neeto-ui-pane-header-height));
 --neeto-ui-pane-body-font-size: var(--neeto-ui-text-sm);
 
 // Footer
 --neeto-ui-pane-footer-padding-x: var(--neeto-ui-pane-spacing);
---neeto-ui-pane-footer-padding-y: 1.5rem;
+--neeto-ui-pane-footer-padding-y: 24px;
 --neeto-ui-pane-footer-bg-color: rgb(var(--neeto-ui-beige-100));
 --neeto-ui-pane-footer-min-height: var(--neeto-ui-pane-footer-height);
 \`\`\`

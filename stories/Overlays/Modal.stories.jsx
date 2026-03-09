@@ -58,7 +58,7 @@ const Default = args => {
           </Typography>
         </Modal.Header>
         <Modal.Body className="space-y-2">
-          <Typography lineHeight="normal" style="body1">
+          <Typography lineHeight="normal" style="body2">
             Somewhere out in space live the Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
             Gleep, the formless, fearless wonders! With Zandor, their leader,
@@ -453,7 +453,7 @@ CSS variables. These are the variables that are being used in the \`Modal\`
 component.
 
 \`\`\`css
---neeto-ui-modal-spacing: 2rem;
+--neeto-ui-modal-spacing: 32px;
 
 // Backdrop
 --neeto-ui-modal-backdrop-z-index: var(--neeto-ui-modal-z-index);
@@ -469,17 +469,17 @@ component.
 --neeto-ui-modal-wrapper-backdrop-filter: blur(2px);
 
 // Close Button
---neeto-ui-modal-close-btn-top: 1rem;
---neeto-ui-modal-close-btn-right: 1rem;
+--neeto-ui-modal-close-btn-top: 16px;
+--neeto-ui-modal-close-btn-right: 16px;
 
 // Header
 --neeto-ui-modal-header-padding-top: var(--neeto-ui-modal-spacing);
---neeto-ui-modal-header-padding-right: 4rem;
---neeto-ui-modal-header-padding-bottom: 1rem;
+--neeto-ui-modal-header-padding-right: 56px;
+--neeto-ui-modal-header-padding-bottom: 16px;
 --neeto-ui-modal-header-padding-left: var(--neeto-ui-modal-spacing);
 
 // Header Description
---neeto-ui-modal-header-description-margin-y: 0.5rem;
+--neeto-ui-modal-header-description-margin-y: 8px;
 --neeto-ui-modal-header-description-color: rgb(var(--neeto-ui-gray-500));
 
 // Body
@@ -490,7 +490,7 @@ component.
 --neeto-ui-modal-body-line-height: 1.5;
 
 // Footer
---neeto-ui-modal-footer-padding-y: 1rem;
+--neeto-ui-modal-footer-padding-y: 16px;
 --neeto-ui-modal-footer-padding-x: var(--neeto-ui-modal-spacing);
 --neeto-ui-modal-footer-bg: rgb(var(--neeto-ui-beige-100));
 --neeto-ui-modal-footer-border-radius: var(--neeto-ui-rounded-xl);
@@ -501,14 +501,14 @@ an example:
 
 \`\`\`css
 .neetix-modal {
-  --neeto-ui-modal-close-btn-top: 2rem;
-  --neeto-ui-modal-close-btn-right: 2rem;
-  --neeto-ui-modal-header-padding-top: 2rem;
-  --neeto-ui-modal-header-padding-left: 2rem;
-  --neeto-ui-modal-body-padding-bottom: 2rem;
-  --neeto-ui-modal-body-padding-x: 2rem;
-  --neeto-ui-modal-footer-padding-y: 2rem;
-  --neeto-ui-modal-footer-padding-x: 2rem;
+  --neeto-ui-modal-close-btn-top: 32px;
+  --neeto-ui-modal-close-btn-right: 32px;
+  --neeto-ui-modal-header-padding-top: 32px;
+  --neeto-ui-modal-header-padding-left: 32px;
+  --neeto-ui-modal-body-padding-bottom: 32px;
+  --neeto-ui-modal-body-padding-x: 32px;
+  --neeto-ui-modal-footer-padding-y: 32px;
+  --neeto-ui-modal-footer-padding-x: 32px;
   --neeto-ui-modal-wrapper-border-radius: var(--neeto-ui-rounded-none);
 }
 \`\`\`

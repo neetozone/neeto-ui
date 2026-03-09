@@ -74,7 +74,7 @@ const Alert = ({
       role="alertdialog"
     >
       <Modal.Header>
-        <Typography data-testid="alert-title" id={titleId} style="h2">
+        <Typography data-testid="alert-title" id={titleId} style="h4">
           {title}
         </Typography>
       </Modal.Header>
@@ -88,13 +88,13 @@ const Alert = ({
           {message}
         </Typography>
       </Modal.Body>
-      <Modal.Footer className="neeto-ui-gap-2 neeto-ui-flex neeto-ui-justify-end neeto-ui-items-center">
+      <Modal.Footer className="neeto-ui-gap-3 neeto-ui-flex neeto-ui-justify-end neeto-ui-items-center">
         {!hideCancelButton && (
           <Button
             data-testid="alert-cancel-button"
             label={cancelButtonLabel}
             ref={cancelButtonRef}
-            style="tertiary"
+            style="text"
             onClick={onClose}
           />
         )}
