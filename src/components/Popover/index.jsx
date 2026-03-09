@@ -51,14 +51,11 @@ Popover.propTypes = {
    */
   position: PropTypes.string,
   /**
-   * To auto-hide the Popover after n-milliseconds.
-   * Negative values to this prop disables this feature.
-   * By default it's disabled.
+   * To auto-hide the Popover after n-milliseconds. Negative values to this prop disables this feature. <br />By default it's disabled.
    */
   hideAfter: PropTypes.number,
   /**
-   * To auto-hide the Popover on when target leaves the screen.
-   * By default it's disabled.
+   * To auto-hide the Popover on when target leaves the screen. <br />By default it's disabled.
    */
   hideOnTargetExit: PropTypes.bool,
 };
