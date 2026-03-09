@@ -53,12 +53,12 @@ const Default = args => {
       </div>
       <Modal {...args} isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Header description="Short description">
-          <Typography id="dialog1Title" style="h2">
+          <Typography id="dialog1Title" style="h3">
             They're creepy & they're kooky
           </Typography>
         </Modal.Header>
         <Modal.Body className="space-y-2">
-          <Typography lineHeight="normal" style="body2">
+          <Typography lineHeight="normal" style="body1">
             Somewhere out in space live the Herculoids! Zok, the laser-ray
             dragon! Igoo, the giant rock ape! Tundro, the tremendous! Gloop and
             Gleep, the formless, fearless wonders! With Zandor, their leader,
@@ -70,7 +70,7 @@ const Default = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModal(false)}
           />
           <Button label="Continue" onClick={() => setShowModal(false)} />
@@ -111,7 +111,7 @@ const Sizes = args => {
         onClose={() => setShowModalExtraSmall(false)}
       >
         <Modal.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
+          <Typography style="h3">They're creepy & they're kooky</Typography>
         </Modal.Header>
         <Modal.Body>
           <Typography lineHeight="normal" style="body2">
@@ -122,7 +122,7 @@ const Sizes = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModalExtraSmall(false)}
           />
           <Button
@@ -138,7 +138,7 @@ const Sizes = args => {
         onClose={() => setShowModalMedium(false)}
       >
         <Modal.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
+          <Typography style="h3">They're creepy & they're kooky</Typography>
         </Modal.Header>
         <Modal.Body>
           <Typography lineHeight="normal" style="body2">
@@ -149,7 +149,7 @@ const Sizes = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModalMedium(false)}
           />
           <Button label="Continue" onClick={() => setShowModalMedium(false)} />
@@ -162,7 +162,7 @@ const Sizes = args => {
         onClose={() => setShowModalLarge(false)}
       >
         <Modal.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
+          <Typography style="h3">They're creepy & they're kooky</Typography>
         </Modal.Header>
         <Modal.Body>
           <Typography lineHeight="normal" style="body2">
@@ -177,7 +177,7 @@ const Sizes = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModalLarge(false)}
           />
           <Button label="Continue" onClick={() => setShowModalLarge(false)} />
@@ -190,7 +190,7 @@ const Sizes = args => {
         onClose={() => setShowModalFullScreen(false)}
       >
         <Modal.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
+          <Typography style="h3">They're creepy & they're kooky</Typography>
         </Modal.Header>
         <Modal.Body>
           <Typography lineHeight="normal" style="body2">
@@ -205,7 +205,7 @@ const Sizes = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModalFullScreen(false)}
           />
           <Button
@@ -236,7 +236,7 @@ const ModalFocusTrapping = args => {
             that the focus is trapped to within the Modal. This is done
             inherently by the Modal component."
         >
-          <Typography id="dialog1Title" style="h2">
+          <Typography id="dialog1Title" style="h3">
             They're creepy & they're kooky
           </Typography>
         </Modal.Header>
@@ -256,7 +256,7 @@ const ModalFocusTrapping = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModal(false)}
           />
           <Button label="Continue" onClick={() => setShowModal(false)} />
@@ -286,7 +286,7 @@ const NestedModals = args => {
             that the focus is trapped to within the Modal. This is done
             inherently by the Modal component."
         >
-          <Typography id="dialog1Title" style="h2">
+          <Typography id="dialog1Title" style="h3">
             They're creepy & they're kooky
           </Typography>
         </Modal.Header>
@@ -303,7 +303,7 @@ const NestedModals = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModal(false)}
           />
           <Button
@@ -314,7 +314,7 @@ const NestedModals = args => {
       </Modal>
       <Modal {...args} isOpen={showModal2} onClose={() => setShowModal2(false)}>
         <Modal.Header description="Now, you would notice that the focus is trapped inside of the second Modal.">
-          <Typography id="dialog1Title" style="h2">
+          <Typography id="dialog1Title" style="h3">
             They're creepy & they're kooky
           </Typography>
         </Modal.Header>
@@ -331,7 +331,7 @@ const NestedModals = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModal2(false)}
           />
           <Button label="Continue" onClick={() => setShowModal2(false)} />
@@ -369,7 +369,7 @@ const InitialAndFinalFocusRef = args => {
         onClose={() => setShowModal(false)}
       >
         <Modal.Header description="The focous would be on the input field for first name on opening of the Modal and on the secondary button on close.">
-          <Typography id="dialog1Title" style="h2">
+          <Typography id="dialog1Title" style="h3">
             They're creepy & they're kooky
           </Typography>
         </Modal.Header>
@@ -389,7 +389,7 @@ const InitialAndFinalFocusRef = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModal(false)}
           />
           <Button label="Continue" onClick={() => setShowModal(false)} />
@@ -418,7 +418,7 @@ const CSSCustomization = () => {
         onClose={() => setShowModal(false)}
       >
         <Modal.Header description="Short description">
-          <Typography id="dialog1Title" style="h2">
+          <Typography id="dialog1Title" style="h3">
             They're creepy & they're kooky
           </Typography>
         </Modal.Header>
@@ -435,7 +435,7 @@ const CSSCustomization = () => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModal(false)}
           />
           <Button label="Continue" onClick={() => setShowModal(false)} />
