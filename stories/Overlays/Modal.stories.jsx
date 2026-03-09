@@ -453,11 +453,11 @@ CSS variables. These are the variables that are being used in the \`Modal\`
 component.
 
 \`\`\`css
---neeto-ui-modal-spacing: 24px;
+--neeto-ui-modal-spacing: 2rem;
 
 // Backdrop
 --neeto-ui-modal-backdrop-z-index: var(--neeto-ui-modal-z-index);
---neeto-ui-modal-backdrop-bg-color: #1b1f23dd;
+--neeto-ui-modal-backdrop-bg-color: rgba(var(--neeto-ui-black), 0.66);
 --neeto-ui-modal-backdrop-backdrop-filter: blur(2px);
 
 // Wrapper
@@ -469,30 +469,31 @@ component.
 --neeto-ui-modal-wrapper-backdrop-filter: blur(2px);
 
 // Close Button
---neeto-ui-modal-close-btn-top: var(--neeto-ui-modal-spacing);
---neeto-ui-modal-close-btn-right: var(--neeto-ui-modal-spacing);
+--neeto-ui-modal-close-btn-top: 1rem;
+--neeto-ui-modal-close-btn-right: 1rem;
 
 // Header
 --neeto-ui-modal-header-padding-top: var(--neeto-ui-modal-spacing);
---neeto-ui-modal-header-padding-right: 64px;
---neeto-ui-modal-header-padding-bottom: 16px;
+--neeto-ui-modal-header-padding-right: 4rem;
+--neeto-ui-modal-header-padding-bottom: 1rem;
 --neeto-ui-modal-header-padding-left: var(--neeto-ui-modal-spacing);
 
 // Header Description
---neeto-ui-modal-header-description-margin-top: 8px;
---neeto-ui-modal-header-description-color: rgb(var(--neeto-ui-gray-700));
+--neeto-ui-modal-header-description-margin-y: 0.5rem;
+--neeto-ui-modal-header-description-color: rgb(var(--neeto-ui-gray-500));
 
 // Body
 --neeto-ui-modal-body-padding-top: 0;
 --neeto-ui-modal-body-padding-bottom: var(--neeto-ui-modal-spacing);
 --neeto-ui-modal-body-padding-x: var(--neeto-ui-modal-spacing);
---neeto-ui-modal-body-font-size: --neeto-ui-text-sm;
+--neeto-ui-modal-body-font-size: var(--neeto-ui-text-sm);
 --neeto-ui-modal-body-line-height: 1.5;
 
 // Footer
---neeto-ui-modal-footer-padding-top: 0;
---neeto-ui-modal-footer-padding-bottom: var(--neeto-ui-modal-spacing);
+--neeto-ui-modal-footer-padding-y: 1rem;
 --neeto-ui-modal-footer-padding-x: var(--neeto-ui-modal-spacing);
+--neeto-ui-modal-footer-bg: rgb(var(--neeto-ui-beige-100));
+--neeto-ui-modal-footer-border-radius: var(--neeto-ui-rounded-xl);
 \`\`\`
 
 You can use these variables to customize the component to your liking. Here is
@@ -500,14 +501,14 @@ an example:
 
 \`\`\`css
 .neetix-modal {
-  --neeto-ui-modal-close-btn-top: 32px;
-  --neeto-ui-modal-close-btn-right: 32px;
-  --neeto-ui-modal-header-padding-top: 32px;
-  --neeto-ui-modal-header-padding-left: 32px;
-  --neeto-ui-modal-body-padding-bottom: 32px;
-  --neeto-ui-modal-body-padding-x: 32px;
-  --neeto-ui-modal-footer-padding-bottom: 32px;
-  --neeto-ui-modal-footer-padding-x: 32px;
+  --neeto-ui-modal-close-btn-top: 2rem;
+  --neeto-ui-modal-close-btn-right: 2rem;
+  --neeto-ui-modal-header-padding-top: 2rem;
+  --neeto-ui-modal-header-padding-left: 2rem;
+  --neeto-ui-modal-body-padding-bottom: 2rem;
+  --neeto-ui-modal-body-padding-x: 2rem;
+  --neeto-ui-modal-footer-padding-y: 2rem;
+  --neeto-ui-modal-footer-padding-x: 2rem;
   --neeto-ui-modal-wrapper-border-radius: var(--neeto-ui-rounded-none);
 }
 \`\`\`
