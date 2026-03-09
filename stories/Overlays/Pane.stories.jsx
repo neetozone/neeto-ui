@@ -62,7 +62,7 @@ const Default = args => {
         onClose={() => setShowPane(false)}
       >
         <Pane.Header>
-          <Typography style="h2" weight="semibold">
+          <Typography style="h3" weight="semibold">
             Typography
           </Typography>
         </Pane.Header>
@@ -79,7 +79,7 @@ const Default = args => {
             They're the Herculoids!
           </Typography>
         </Pane.Body>
-        <Pane.Footer className="flex items-center gap-x-2">
+        <Pane.Footer className="flex items-center gap-x-3">
           <Button label="Continue" onClick={() => setShowPane(false)} />
           <Button
             label="Cancel"
@@ -118,7 +118,7 @@ const Sizes = args => {
         onClose={() => setShowPaneExtraSmall(false)}
       >
         <Pane.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
+          <Typography style="h3">They're creepy & they're kooky</Typography>
         </Pane.Header>
         <Pane.Body>
           <Typography lineHeight="normal" style="body2">
@@ -145,7 +145,7 @@ const Sizes = args => {
         onClose={() => setShowPaneLarge(false)}
       >
         <Pane.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
+          <Typography style="h3">They're creepy & they're kooky</Typography>
         </Pane.Header>
         <Pane.Body>
           <Typography lineHeight="normal" style="body2">
@@ -173,7 +173,7 @@ const Sizes = args => {
         onClose={() => setShowPaneExtraLarge(false)}
       >
         <Pane.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
+          <Typography style="h3">They're creepy & they're kooky</Typography>
         </Pane.Header>
         <Pane.Body>
           <Typography lineHeight="normal" style="body2">
@@ -221,7 +221,7 @@ const PaneWithLongTitle = args => {
         onClose={() => setShowPane(false)}
       >
         <Pane.Header>
-          <Typography style="h2" weight="semibold">
+          <Typography style="h3" weight="semibold">
             This is a title that will break into two or maybe three lines! But,
             the footer will stay at the bottom. Yay!
           </Typography>
@@ -269,7 +269,7 @@ const PaneWithModalAndAlert = args => {
       </div>
       <Pane {...args} isOpen={showPane} onClose={() => setShowPane(false)}>
         <Pane.Header>
-          <Typography style="h2" weight="semibold">
+          <Typography style="h3" weight="semibold">
             Typography
           </Typography>
         </Pane.Header>
@@ -298,7 +298,7 @@ const PaneWithModalAndAlert = args => {
       </Pane>
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Header>
-          <h2>Add label</h2>
+          <h3>Add label</h3>
         </Modal.Header>
         <Modal.Body>
           <Typography style="body2">
@@ -360,7 +360,7 @@ const MultiplePanes = args => {
         onClose={() => setIsFirstPaneVisible(false)}
       >
         <Pane.Header>
-          <Typography style="h2" weight="semibold">
+          <Typography style="h3" weight="semibold">
             Typography
           </Typography>
         </Pane.Header>
@@ -398,7 +398,7 @@ const MultiplePanes = args => {
         onClose={() => setIsSecondPaneVisible(false)}
       >
         <Pane.Header>
-          <Typography style="h2" weight="semibold">
+          <Typography style="h3" weight="semibold">
             Typography
           </Typography>
         </Pane.Header>
@@ -432,7 +432,7 @@ const MultiplePanes = args => {
       </Pane>
       <Modal isOpen={isModalVisible} onClose={() => setIsModalVisible(false)}>
         <Modal.Header>
-          <h2>Add label</h2>
+          <h3>Add label</h3>
         </Modal.Header>
         <Modal.Body>
           <Typography style="body2">
@@ -488,7 +488,7 @@ const PaneWithOverlayManager = args => {
         onClose={() => setIsFirstPaneVisible(false)}
       >
         <Pane.Header>
-          <Typography style="h2" weight="semibold">
+          <Typography style="h3" weight="semibold">
             Typography
           </Typography>
         </Pane.Header>
@@ -541,7 +541,7 @@ const PaneWithOverlayManager = args => {
         onClose={() => setIsSecondPaneVisible(false)}
       >
         <Pane.Header>
-          <Typography style="h2" weight="semibold">
+          <Typography style="h3" weight="semibold">
             Typography
           </Typography>
         </Pane.Header>
@@ -590,7 +590,7 @@ const PaneWithOverlayManager = args => {
       </Pane>
       <Modal isOpen={isModalVisible} onClose={() => setIsModalVisible(false)}>
         <Modal.Header>
-          <h2>Add label</h2>
+          <h3>Add label</h3>
         </Modal.Header>
         <Modal.Body>
           <Typography style="body2">
@@ -663,7 +663,7 @@ const DynamicFieldFocusInsidePane = args => {
         {({ setFocusField }) => (
           <>
             <Pane.Header>
-              <Typography style="h2" weight="semibold">
+              <Typography style="h3" weight="semibold">
                 Typography
               </Typography>
             </Pane.Header>
@@ -743,7 +743,7 @@ const CSSCustomization = args => {
         onClose={() => setShowPane(false)}
       >
         <Pane.Header>
-          <Typography style="h2" weight="semibold">
+          <Typography style="h3" weight="semibold">
             Typography
           </Typography>
         </Pane.Header>

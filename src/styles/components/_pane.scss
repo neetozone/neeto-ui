@@ -1,11 +1,11 @@
 @use "../abstracts/mixins";
 
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
-  --neeto-ui-pane-spacing: 24px;
+  --neeto-ui-pane-spacing: 40px;
 
   // Backdrop
   --neeto-ui-pane-backdrop-z-index: var(--neeto-ui-modal-z-index);
-  --neeto-ui-pane-backdrop-bg-color: #1b1f23dd;
+  --neeto-ui-pane-backdrop-bg-color: rgba(var(--neeto-ui-black), 0.66);
   --neeto-ui-pane-backdrop-backdrop-filter: blur(2px);
 
   // Wrapper
@@ -16,25 +16,27 @@
   --neeto-ui-pane-wrapper-backdrop-filter: blur(2px);
 
   // Close Button
-  --neeto-ui-pane-close-btn-top: var(--neeto-ui-pane-spacing);
-  --neeto-ui-pane-close-btn-right: var(--neeto-ui-pane-spacing);
+  --neeto-ui-pane-close-btn-top: 1.25rem;
+  --neeto-ui-pane-close-btn-right: 1.25rem;
 
   // Header
-  --neeto-ui-pane-header-padding-y: var(--neeto-ui-pane-spacing);
-  --neeto-ui-pane-header-padding-right: 64px;
+  --neeto-ui-pane-header-padding-top: 56px;
+  --neeto-ui-pane-header-padding-bottom: var(--neeto-ui-pane-spacing);
+  --neeto-ui-pane-header-padding-right: var(--neeto-ui-pane-spacing);
   --neeto-ui-pane-header-padding-left: var(--neeto-ui-pane-spacing);
 
   // Body
   --neeto-ui-pane-body-padding-x: var(--neeto-ui-pane-spacing);
-  --neeto-ui-pane-body-padding-y: 0px;
+  --neeto-ui-pane-body-padding-top: 0px;
+  --neeto-ui-pane-body-padding-bottom: 1.5rem;
   --neeto-ui-pane-body-height: calc(100dvh - var(--neeto-ui-pane-header-height));
   --neeto-ui-pane-body-font-size: var(--neeto-ui-text-sm);
 
   // Footer
-  --neeto-ui-pane-footer-padding: var(--neeto-ui-pane-spacing);
-  --neeto-ui-pane-footer-bg-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-pane-footer-padding-x: var(--neeto-ui-pane-spacing);
+  --neeto-ui-pane-footer-padding-y: 1.5rem;
+  --neeto-ui-pane-footer-bg-color: rgb(var(--neeto-ui-beige-100));
   --neeto-ui-pane-footer-min-height: var(--neeto-ui-pane-footer-height);
-  --neeto-ui-pane-footer-box-shadow: var(--neeto-ui-shadow-m);
 }
 
 // RTL overrides
@@ -104,17 +106,29 @@
     }
 
     &--small {
-      --neeto-ui-pane-wrapper-width: 480px;
+      --neeto-ui-pane-wrapper-width: 524px;
     }
 
     &--large {
+      --neeto-ui-pane-spacing: 48px;
+      --neeto-ui-pane-header-padding-bottom: var(--neeto-ui-pane-spacing);
+      --neeto-ui-pane-header-padding-right: var(--neeto-ui-pane-spacing);
+      --neeto-ui-pane-header-padding-left: var(--neeto-ui-pane-spacing);
+      --neeto-ui-pane-body-padding-x: var(--neeto-ui-pane-spacing);
+      --neeto-ui-pane-footer-padding-x: var(--neeto-ui-pane-spacing);
       --neeto-ui-pane-wrapper-width: 50vw;
-      min-width: 600px;
+      min-width: 720px;
     }
 
     &--extralarge {
+      --neeto-ui-pane-spacing: 48px;
+      --neeto-ui-pane-header-padding-bottom: var(--neeto-ui-pane-spacing);
+      --neeto-ui-pane-header-padding-right: var(--neeto-ui-pane-spacing);
+      --neeto-ui-pane-header-padding-left: var(--neeto-ui-pane-spacing);
+      --neeto-ui-pane-body-padding-x: var(--neeto-ui-pane-spacing);
+      --neeto-ui-pane-footer-padding-x: var(--neeto-ui-pane-spacing);
       --neeto-ui-pane-wrapper-width: 90vw;
-      min-width: 700px;
+      min-width: 800px;
     }
 
     @include mixins.viewport(mob) {
@@ -131,7 +145,7 @@
 
   &__header {
     width: 100%;
-    padding-block: var(--neeto-ui-pane-header-padding-y) var(--neeto-ui-pane-header-padding-y);
+    padding-block: var(--neeto-ui-pane-header-padding-top) var(--neeto-ui-pane-header-padding-bottom);
     padding-inline: var(--neeto-ui-pane-header-padding-left) var(--neeto-ui-pane-header-padding-right);
   }
 
@@ -139,7 +153,7 @@
     --neeto-ui-pane-body-height: calc(100dvh - var(--neeto-ui-pane-header-height));
     width: 100%;
     height: var(--neeto-ui-pane-body-height);
-    padding: var(--neeto-ui-pane-body-padding-y) var(--neeto-ui-pane-body-padding-x);
+    padding: var(--neeto-ui-pane-body-padding-top) var(--neeto-ui-pane-body-padding-x) var(--neeto-ui-pane-body-padding-bottom);
     font-size: var(--neeto-ui-pane-body-font-size);
     overflow-y: auto;
 
@@ -160,10 +174,9 @@
 
   &__footer {
     width: 100%;
-    padding: var(--neeto-ui-pane-footer-padding);
+    padding: var(--neeto-ui-pane-footer-padding-y) var(--neeto-ui-pane-footer-padding-x);
     background-color: var(--neeto-ui-pane-footer-bg-color);
     min-height: var(--neeto-ui-pane-footer-min-height);
-    box-shadow: var(--neeto-ui-pane-footer-box-shadow);
 
     &.neeto-ui-pane__footer__absolute {
       width: 100%;
