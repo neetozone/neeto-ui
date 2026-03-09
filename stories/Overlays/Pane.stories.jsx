@@ -781,11 +781,11 @@ CSS variables. These are the variables that are being used in the \`Pane\`
 component.
 
 \`\`\`css
---neeto-ui-pane-spacing: 24px;
+--neeto-ui-pane-spacing: 40px;
 
 // Backdrop
 --neeto-ui-pane-backdrop-z-index: var(--neeto-ui-modal-z-index);
---neeto-ui-pane-backdrop-bg-color: #1b1f23dd;
+--neeto-ui-pane-backdrop-bg-color: rgba(var(--neeto-ui-black), 0.66);
 --neeto-ui-pane-backdrop-backdrop-filter: blur(2px);
 
 // Wrapper
@@ -796,25 +796,27 @@ component.
 --neeto-ui-pane-wrapper-backdrop-filter: blur(2px);
 
 // Close Button
---neeto-ui-pane-close-btn-top: var(--neeto-ui-pane-spacing);
---neeto-ui-pane-close-btn-right: var(--neeto-ui-pane-spacing);
+--neeto-ui-pane-close-btn-top: 1.25rem;
+--neeto-ui-pane-close-btn-right: 1.25rem;
 
 // Header
---neeto-ui-pane-header-padding-y: var(--neeto-ui-pane-spacing);
---neeto-ui-pane-header-padding-right: 64px;
+--neeto-ui-pane-header-padding-top: 56px;
+--neeto-ui-pane-header-padding-bottom: var(--neeto-ui-pane-spacing);
+--neeto-ui-pane-header-padding-right: var(--neeto-ui-pane-spacing);
 --neeto-ui-pane-header-padding-left: var(--neeto-ui-pane-spacing);
 
 // Body
 --neeto-ui-pane-body-padding-x: var(--neeto-ui-pane-spacing);
---neeto-ui-pane-body-padding-y: 0px;
---neeto-ui-pane-body-height: calc(100vh - var(--neeto-ui-pane-header-height));
+--neeto-ui-pane-body-padding-top: 0px;
+--neeto-ui-pane-body-padding-bottom: 1.5rem;
+--neeto-ui-pane-body-height: calc(100dvh - var(--neeto-ui-pane-header-height));
 --neeto-ui-pane-body-font-size: var(--neeto-ui-text-sm);
 
 // Footer
---neeto-ui-pane-footer-padding: var(--neeto-ui-pane-spacing);
---neeto-ui-pane-footer-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-pane-footer-padding-x: var(--neeto-ui-pane-spacing);
+--neeto-ui-pane-footer-padding-y: 1.5rem;
+--neeto-ui-pane-footer-bg-color: rgb(var(--neeto-ui-beige-100));
 --neeto-ui-pane-footer-min-height: var(--neeto-ui-pane-footer-height);
---neeto-ui-pane-footer-box-shadow: var(--neeto-ui-shadow-m);
 \`\`\`
 
 You can use these variables to customize the component to your liking. Here is
@@ -823,6 +825,7 @@ an example:
 \`\`\`css
 .neetix-pane {
   --neeto-ui-pane-wrapper-bg-color: rgb(var(--neeto-ui-gray-100));
+  --neeto-ui-pane-footer-bg-color: rgb(var(--neeto-ui-beige-300));
 }
 \`\`\`
 
