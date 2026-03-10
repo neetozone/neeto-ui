@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 import { usePrefersReducedMotion } from "src/hooks";
 
 import Collapse from "./Collapse";
+import { ICON_POSITIONS } from "./constants";
 
 const Item = ({
   id,
@@ -141,7 +142,7 @@ Item.propTypes = {
   /**
    * To specify the position of the toggle icon.
    */
-  iconPosition: PropTypes.oneOf(["left", "right"]),
+  iconPosition: PropTypes.oneOf(Object.values(ICON_POSITIONS)),
   /**
    * To provide external classnames to Accordion item.
    */
