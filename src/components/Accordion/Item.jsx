@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 import { usePrefersReducedMotion } from "src/hooks";
 
 import Collapse from "./Collapse";
+import { ICON_POSITIONS } from "./constants";
 
 const Item = ({
   id,
@@ -18,8 +19,10 @@ const Item = ({
   className = "",
   titleProps = {},
   iconProps = {},
+  iconPosition = "right",
 }) => {
   const prefersReducedMotion = usePrefersReducedMotion();
+  const isIconLeft = iconPosition === "left";
 
   const onKeyDown = e => {
     switch (e.key) {
@@ -34,11 +37,38 @@ const Item = ({
     }
   };
 
+  const icon = (
+    <motion.div
+      animate={isOpen ? "open" : "collapsed"}
+      aria-hidden="true"
+      className="neeto-ui-accordion__item-toggle-icon neeto-ui-flex-grow-0"
+      transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
+      variants={{ open: { rotate: 90 }, collapsed: { rotate: 0 } }}
+    >
+      <Right size={20} {...iconProps} aria-hidden="true" />
+    </motion.div>
+  );
+
   return (
     <div
-      className={classnames("neeto-ui-accordion__wrapper", {
-        [className]: className,
-      })}
+      className={classnames(
+        "neeto-ui-accordion__wrapper",
+        {
+          "neeto-ui-accordion__wrapper--icon-left": isIconLeft,
+          "neeto-ui-accordion__wrapper--icon-right": !isIconLeft,
+        },
+        className
+      )}
+      style={
+        iconProps?.size
+          ? {
+              "--neeto-ui-accordion-icon-size":
+                typeof iconProps.size === "number"
+                  ? `${iconProps.size}px`
+                  : iconProps.size,
+            }
+          : undefined
+      }
     >
       <div
         {...{ onClick, onKeyDown }}
@@ -48,29 +78,26 @@ const Item = ({
         role="button"
         tabIndex={0}
         className={classnames(
-          "neeto-ui-accordion__item neeto-ui-flex neeto-ui-justify-between neeto-ui-items-center",
+          "neeto-ui-accordion__item neeto-ui-flex neeto-ui-items-center",
+          {
+            "neeto-ui-justify-between": !isIconLeft,
+            "neeto-ui-accordion__item--icon-left": isIconLeft,
+          },
           { "neeto-ui-accordion__item--open": isOpen }
         )}
       >
+        {isIconLeft && icon}
         <div
           {...titleProps}
           className="neeto-ui-accordion__item-handle neeto-ui-flex neeto-ui-flex-grow neeto-ui-items-center neeto-ui-break-words"
         >
           {title}
         </div>
-        <motion.div
-          animate={isOpen ? "open" : "collapsed"}
-          aria-hidden="true"
-          className="neeto-ui-accordion__item-toggle-icon neeto-ui-flex-grow-0"
-          transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
-          variants={{ open: { rotate: 90 }, collapsed: { rotate: 0 } }}
-        >
-          <Right size={16} {...iconProps} aria-hidden="true" />
-        </motion.div>
+        {!isIconLeft && icon}
       </div>
       <Collapse
         aria-labelledby={`neeto-ui-accordion-item-${id}`}
-        className="neeto-ui-accordion__drop"
+        className="neeto-ui-accordion__drop antialiased"
         id={`neeto-ui-accordion-section-${id}`}
         open={isOpen}
         role="region"
@@ -112,6 +139,10 @@ Item.propTypes = {
    * To pass props to Accordion toggle icon.
    */
   iconProps: PropTypes.object,
+  /**
+   * To specify the position of the toggle icon.
+   */
+  iconPosition: PropTypes.oneOf(Object.values(ICON_POSITIONS)),
   /**
    * To provide external classnames to Accordion item.
    */

@@ -4,21 +4,14 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-import Spinner from "./Spinner";
-import Tooltip from "./Tooltip";
-
-const BUTTON_STYLES = {
-  primary: "primary",
-  secondary: "secondary",
-  tertiary: "tertiary",
-  danger: "danger",
-  danger_text: "danger-text",
-  text: "text",
-  link: "link",
-};
-const SIZES = { small: "small", medium: "medium", large: "large" };
-const ICON_POSITIONS = { left: "left", right: "right" };
-const BUTTON_TYPES = { button: "button", reset: "reset", submit: "submit" };
+import Spinner from "../Spinner";
+import Tooltip from "../Tooltip";
+import {
+  BUTTON_STYLES,
+  ICON_POSITIONS,
+  BUTTON_TYPES,
+  SIZES,
+} from "./constants";
 
 const Button = React.forwardRef(
   (
@@ -76,7 +69,7 @@ const Button = React.forwardRef(
     return (
       <Tooltip disabled={!tooltipProps} {...tooltipProps}>
         <Parent
-          className={classnames("neeto-ui-btn", [className], {
+          className={classnames("neeto-ui-btn antialiased", [className], {
             "neeto-ui-btn--style-primary": style === BUTTON_STYLES.primary,
             "neeto-ui-btn--style-secondary": style === BUTTON_STYLES.secondary,
             "neeto-ui-btn--style-tertiary": style === BUTTON_STYLES.tertiary,
@@ -85,6 +78,8 @@ const Button = React.forwardRef(
               style === BUTTON_STYLES.danger_text,
             "neeto-ui-btn--style-text": style === BUTTON_STYLES.text,
             "neeto-ui-btn--style-link": style === BUTTON_STYLES.link,
+            "neeto-ui-btn--style-link-underline":
+              style === BUTTON_STYLES.link_underline,
             "neeto-ui-btn--size-medium": size === SIZES.medium,
             "neeto-ui-btn--size-large": size === SIZES.large,
             "neeto-ui-btn--width-full": fullWidth,

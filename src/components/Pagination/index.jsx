@@ -56,7 +56,7 @@ const Pagination = ({
           onClick={onPrevious}
         >
           <a>
-            <Left size={20} />
+            <Left size={16} />
           </a>
         </li>
         {paginationRange.map((pageNumber, index) => {
@@ -104,7 +104,7 @@ const Pagination = ({
           onClick={onNext}
         >
           <a>
-            <Right size={20} />
+            <Right size={16} />
           </a>
         </li>
       </ul>

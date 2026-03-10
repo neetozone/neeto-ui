@@ -8,6 +8,7 @@ import { useId } from "hooks";
 import { hyphenize } from "utils";
 
 import Item from "./Item";
+import { SIZES } from "./constants";
 
 const Radio = ({
   label = "",
@@ -18,6 +19,7 @@ const Radio = ({
   error = "",
   onChange,
   labelProps,
+  size = SIZES.small,
   ...props
 }) => {
   const [internalValue, setInternalValue] = useState("");
@@ -30,7 +32,12 @@ const Radio = ({
   const internalOnChange = e => setInternalValue(e.target.value);
 
   return (
-    <div className={classnames(["neeto-ui-radio__wrapper", className])}>
+    <div
+      className={classnames(["neeto-ui-radio__wrapper", className], {
+        "neeto-ui-radio__wrapper--size-small": size === SIZES.small,
+        "neeto-ui-radio__wrapper--size-medium": size === SIZES.medium,
+      })}
+    >
       {label && (
         <Label
           className="neeto-ui-radio__label"
@@ -105,6 +112,10 @@ Radio.propTypes = {
    * To specify the error message to be displayed when the Radio input is invalid.
    */
   error: PropTypes.string,
+  /**
+   * To set the size of the Radio.
+   */
+  size: PropTypes.oneOf(Object.values(SIZES)),
 };
 
 Radio.Item = Item;

@@ -64,6 +64,19 @@ const metadata = {
 
 const Template = args => <Checkbox {...args} />;
 
+const Sizes = args => (
+  <div className="w-full">
+    <div className="flex w-full gap-4">
+      <div className="flex flex-wrap items-start gap-4">
+        <Checkbox {...args} id="checkbox_small" label="Small" size="small" />
+      </div>
+      <div className="flex flex-wrap items-start gap-4">
+        <Checkbox {...args} id="checkbox_medium" label="Medium" size="medium" />
+      </div>
+    </div>
+  </div>
+);
+
 const Checked = Template.bind({});
 Checked.args = {
   id: "checkbox_name",
@@ -100,34 +113,35 @@ component.
 
 \`\`\`css
 --neeto-ui-checkbox-size: 16px;
---neeto-ui-checkbox-color: rgb(var(--neeto-ui-primary-500));
+--neeto-ui-checkbox-color: rgb(var(--neeto-ui-green-600));
 --neeto-ui-checkbox-border-width: 2px;
---neeto-ui-checkbox-border-color: rgb(var(--neeto-ui-gray-400));
+--neeto-ui-checkbox-border-color: rgb(var(--neeto-ui-gray-300));
 --neeto-ui-checkbox-border-radius: var(--neeto-ui-rounded-sm);
 
 // Disabled
 --neeto-ui-checkbox-disabled-opacity: 0.5;
 
 // Hover
---neeto-ui-checkbox-hover-border-color: rgb(var(--neeto-ui-gray-500));
+--neeto-ui-checkbox-hover-border-color: rgb(var(--neeto-ui-gray-400));
 
 // Focus
 --neeto-ui-checkbox-focus-outline: transparent;
 --neeto-ui-checkbox-focus-outline-offset: 0px;
 
 // Focus Visible
---neeto-ui-checkbox-focus-visible-outline: 3px solid rgba(var(--neeto-ui-primary-500), 50%);
+--neeto-ui-checkbox-focus-visible-outline: 3px solid rgba(var(--neeto-ui-green-600), 50%);
 --neeto-ui-checkbox-focus-visible-outline-offset: 1px;
 --neeto-ui-checkbox-focus-visible-box-shadow: none;
 
 // Checked
---neeto-ui-checkbox-checked-border-color: rgb(var(--neeto-ui-primary-500));
+--neeto-ui-checkbox-checked-border-color: rgb(var(--neeto-ui-green-600));
 
 // Margin
 --neeto-ui-checkbox-label-margin: 8px;
 
 // Label
 --neeto-ui-checkbox-label-line-height: 1.2;
+--neeto-ui-checkbox-label-font-size: 14px;
 \`\`\`
 
 You can use these variables to customize the component to your liking. Here is
@@ -158,6 +172,6 @@ CSSCustomization.parameters = {
   docs: { description: { story: CheckboxCSSCustomization } },
 };
 
-export { Checked, Disabled, Required, Error, CSSCustomization };
+export { Checked, Sizes, Disabled, Required, Error, CSSCustomization };
 
 export default metadata;

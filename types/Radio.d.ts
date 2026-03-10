@@ -11,9 +11,10 @@ export interface RadioProps {
   id?: any;
   value?: any;
   labelProps?: LabelProps;
+  size?: "small" | "medium";
 }
 
-export type RadioItemProps = { label: string } & React.DetailedHTMLProps<
+export type RadioItemProps = { label: string; description?: string } & React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 > & { [key: string]: any };

@@ -28,7 +28,12 @@ const ActionDropdown = ({
   children,
   portalProps,
 }) => (
-  <div className={classnames(["neeto-ui-action-dropdown", className])}>
+  <div
+    className={classnames(["neeto-ui-action-dropdown", className], {
+      "neeto-ui-action-dropdown--secondary":
+        (style ?? buttonStyle) === BTN_STYLES.secondary,
+    })}
+  >
     <Button
       {...{ disabled, label, onClick }}
       data-testid="action-dropdown-btn"

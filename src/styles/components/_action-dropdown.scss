@@ -21,6 +21,15 @@
     border-start-start-radius: var(--neeto-ui-action-dropdown-border-radius);
     border-end-start-radius: var(--neeto-ui-action-dropdown-border-radius);
   }
+
+  &--secondary {
+    --neeto-ui-action-dropdown-gap: 0px;
+
+    > .neeto-ui-btn:first-child {
+      margin-inline-end: -1px;
+      z-index: 1;
+    }
+  }
 }
 
 .neetix-actiondropdown {

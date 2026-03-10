@@ -6,7 +6,8 @@ import PropTypes from "prop-types";
 import { useId } from "hooks";
 import { hyphenize } from "utils";
 
-import Label from "./Label";
+import Label from "../Label";
+import { SIZES } from "./constants";
 
 const Checkbox = forwardRef(
   (
@@ -15,6 +16,7 @@ const Checkbox = forwardRef(
       error = "",
       className = "",
       required = false,
+      size = SIZES.small,
       labelProps,
       children,
       ...otherProps
@@ -26,7 +28,12 @@ const Checkbox = forwardRef(
     const renderLabel = label || children;
 
     return (
-      <div className={classnames(["neeto-ui-checkbox__wrapper", className])}>
+      <div
+        className={classnames(["neeto-ui-checkbox__wrapper", className], {
+          "neeto-ui-checkbox__wrapper--size-small": size === SIZES.small,
+          "neeto-ui-checkbox__wrapper--size-medium": size === SIZES.medium,
+        })}
+      >
         <div
           className="neeto-ui-checkbox__container"
           data-testid="nui-checkbox-container"
@@ -42,6 +49,21 @@ const Checkbox = forwardRef(
             type="checkbox"
             {...otherProps}
           />
+          <span aria-hidden="true" className="neeto-ui-checkbox__indicator">
+            <svg
+              fill="none"
+              overflow="visible"
+              viewBox="0 0 11 8"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polyline
+                className="neeto-ui-checkbox__checkmark"
+                points="1.333 4 4 6.667 9.667 1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
           {renderLabel && (
             <Label
               {...{ required }}
@@ -86,6 +108,10 @@ Checkbox.propTypes = {
    * To specify the error message to be shown.
    */
   error: PropTypes.string,
+  /**
+   * To set the size of the Checkbox.
+   */
+  size: PropTypes.oneOf(Object.values(SIZES)),
   /**
    * To provide external classnames to Checkbox component.
    */
