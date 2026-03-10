@@ -8,8 +8,7 @@ import { useId } from "hooks";
 import { hyphenize } from "utils";
 
 import Item from "./Item";
-
-const SIZES = { small: "small", medium: "medium" };
+import { SIZES } from "./constants";
 
 const Radio = ({
   label = "",

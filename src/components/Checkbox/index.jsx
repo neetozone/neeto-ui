@@ -6,9 +6,8 @@ import PropTypes from "prop-types";
 import { useId } from "hooks";
 import { hyphenize } from "utils";
 
-import Label from "./Label";
-
-const SIZES = { small: "small", medium: "medium" };
+import Label from "../Label";
+import { SIZES } from "./constants";
 
 const Checkbox = forwardRef(
   (

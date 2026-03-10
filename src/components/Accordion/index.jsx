@@ -5,13 +5,7 @@ import PropTypes from "prop-types";
 import { isEmpty } from "ramda";
 
 import Item from "./Item";
-
-const ACCORDION_STYLES = {
-  primary: "primary",
-  secondary: "secondary",
-};
-
-const ICON_POSITIONS = { left: "left", right: "right" };
+import { ACCORDION_STYLES, ICON_POSITIONS } from "./constants";
 
 const Accordion = ({
   children,

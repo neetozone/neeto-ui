@@ -4,22 +4,14 @@ import classnames from "classnames";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-import Spinner from "./Spinner";
-import Tooltip from "./Tooltip";
-
-const BUTTON_STYLES = {
-  primary: "primary",
-  secondary: "secondary",
-  tertiary: "tertiary",
-  danger: "danger",
-  danger_text: "danger-text",
-  text: "text",
-  link: "link",
-  link_underline: "link-underline",
-};
-const SIZES = { small: "small", medium: "medium", large: "large" };
-const ICON_POSITIONS = { left: "left", right: "right" };
-const BUTTON_TYPES = { button: "button", reset: "reset", submit: "submit" };
+import Spinner from "../Spinner";
+import Tooltip from "../Tooltip";
+import {
+  BUTTON_STYLES,
+  ICON_POSITIONS,
+  BUTTON_TYPES,
+  SIZES,
+} from "./constants";
 
 const Button = React.forwardRef(
   (
