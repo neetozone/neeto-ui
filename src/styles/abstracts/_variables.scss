@@ -330,6 +330,10 @@ $neeto-ui-line-heights: (
   "loose": $neeto-ui-leading-loose,
 );
 
+// Font Smoothing
+$neeto-ui-antialiased: antialiased;
+$neeto-ui-moz-antialiased: grayscale;
+
 // Text-transform
 $neeto-ui-text-transform-none: none;
 $neeto-ui-text-transform-capitalize: capitalize;

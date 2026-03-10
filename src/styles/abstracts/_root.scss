@@ -39,6 +39,10 @@
     --neeto-ui-leading-#{$lh}: #{$value};
   }
 
+  // Font smoothing
+  --neeto-ui-antialiased: #{variables.$neeto-ui-antialiased};
+  --neeto-ui-moz-antialiased: #{variables.$neeto-ui-moz-antialiased};
+
   // Text transform
   @each $tt, $value in variables.$neeto-ui-text-transform {
     --neeto-ui-text-transform-#{$tt}: #{$value};
