@@ -83,7 +83,7 @@
     overflow-x: hidden;
     overflow-y: auto;
 
-    transition: all 0.3s;
+    transition: opacity 0.3s ease;
     background-color: var(--neeto-ui-pane-backdrop-bg-color);
 
     @media (prefers-reduced-motion: reduce) {
@@ -99,7 +99,7 @@
     background-color: var(--neeto-ui-pane-wrapper-bg-color);
     backdrop-filter: var(--neeto-ui-pane-wrapper-backdrop-filter);
     transform: translateX(100%);
-    transition: all 0.3s;
+    transition: transform 0.3s ease;
 
     @media (prefers-reduced-motion: reduce) {
       transition: none;
