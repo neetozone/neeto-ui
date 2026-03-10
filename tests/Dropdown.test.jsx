@@ -1,11 +1,22 @@
 import React from "react";
 
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { Dropdown } from "components";
 
 const { MenuItem } = Dropdown;
+
+// jsdom doesn't fire CSS transitionend events, so Tippy's hide animation
+// callback (onHidden) never executes. This helper dispatches the event on
+// tippy boxes to unblock it.
+const completeTippyTransitions = () => {
+  act(() => {
+    document.querySelectorAll(".tippy-box").forEach(box => {
+      box.dispatchEvent(new Event("transitionend", { bubbles: true }));
+    });
+  });
+};
 
 const options = ["option 1", "option 2"].map(option => (
   <li key={option}>{option}</li>
@@ -61,6 +72,7 @@ describe("Dropdown", () => {
     await userEvent.click(getByText("Dropdown"));
     const listItem = await findByText("option 1");
     await userEvent.click(listItem);
+    completeTippyTransitions();
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);
   });
 
@@ -85,6 +97,7 @@ describe("Dropdown", () => {
     );
     await userEvent.click(getByText("Dropdown"));
     await userEvent.keyboard("{Escape}");
+    completeTippyTransitions();
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);
   });
 
@@ -108,6 +121,7 @@ describe("Dropdown", () => {
     );
     await userEvent.click(getByText("Dropdown"));
     await userEvent.click(document.body);
+    completeTippyTransitions();
     expect(screen.queryAllByRole("listitem")).toHaveLength(0);
   });
 
@@ -177,6 +191,7 @@ describe("Dropdown", () => {
     );
     await userEvent.click(getByText("Dropdown"));
     await userEvent.click(document.body);
+    completeTippyTransitions();
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
