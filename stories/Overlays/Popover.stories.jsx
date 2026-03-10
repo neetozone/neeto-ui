@@ -89,14 +89,14 @@ component.
 
 \`\`\`css
 /* Global */
---neeto-ui-popover-border-width: 1px;
---neeto-ui-popover-border-color: rgb(var(--neeto-ui-beige-300));
---neeto-ui-popover-padding-x: 2rem;
---neeto-ui-popover-padding-y: 2rem;
+--neeto-ui-popover-border-width: 0px;
+--neeto-ui-popover-border-color: transparent;
+--neeto-ui-popover-padding-x: 1.75rem;
+--neeto-ui-popover-padding-y: 1.75rem;
 --neeto-ui-popover-border-radius: var(--neeto-ui-rounded-xl);
 
 /* Light theme */
---neeto-ui-popover-light-theme-border-color: rgb(var(--neeto-ui-beige-300));
+--neeto-ui-popover-light-theme-border-color: transparent;
 
 /* Scoped to .neeto-ui-popover */
 --neeto-ui-tooltip-arrow-size: 0.75rem;

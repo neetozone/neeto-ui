@@ -4,20 +4,8 @@
   --neeto-ui-popover-padding-x:   1.75rem;
   --neeto-ui-popover-padding-y: 1.75rem;
   --neeto-ui-popover-border-radius: var(--neeto-ui-rounded-xl);
-}
 
-.neeto-ui-theme--light {
   --neeto-ui-popover-light-theme-border-color: transparent;
-  --neeto-ui-popover-shadow-color: rgba(var(--neeto-ui-black), 0.13);
-  --neeto-ui-tooltip-light-theme-box-shadow: none;
-}
-
-.neeto-ui-theme--dark {
-  --neeto-ui-popover-light-theme-border-color: transparent;
-  --neeto-ui-popover-shadow-color: rgba(var(--neeto-ui-white), 0.13);
-  --neeto-ui-tooltip-light-theme-box-shadow: none;
-  --neeto-ui-tooltip-light-theme-bg-color: rgb(var(--neeto-ui-gray-300));
-  --neeto-ui-tooltip-light-theme-arrow-color: rgb(var(--neeto-ui-gray-300));
 }
 
 .neeto-ui-popover {
@@ -27,7 +15,6 @@
   --neeto-ui-tooltip-arrow-offset: 1.5rem;
   border: var(--neeto-ui-popover-border-width) solid var(--neeto-ui-popover-border-color);
   border-radius: var(--neeto-ui-popover-border-radius);
-  filter: drop-shadow(0px 0px 3px var(--neeto-ui-popover-shadow-color));
 
 
   &[data-theme~=light] {
