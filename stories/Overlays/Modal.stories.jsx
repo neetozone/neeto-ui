@@ -492,7 +492,7 @@ component.
 // Footer
 --neeto-ui-modal-footer-padding-y: 16px;
 --neeto-ui-modal-footer-padding-x: var(--neeto-ui-modal-spacing);
---neeto-ui-modal-footer-bg: rgb(var(--neeto-ui-beige-100));
+--neeto-ui-modal-footer-bg: rgb(var(--neeto-ui-beige-50));
 --neeto-ui-modal-footer-border-radius: var(--neeto-ui-rounded-xl);
 \`\`\`
 

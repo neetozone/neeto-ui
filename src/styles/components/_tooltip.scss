@@ -3,7 +3,7 @@
 .neeto-ui-theme--dark {
   --neeto-ui-tooltip-max-width: calc(100vw - 10px);
   --neeto-ui-tooltip-font-size: var(--neeto-ui-text-xs);
-  --neeto-ui-tooltip-bg-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-tooltip-bg-color: rgb(var(--neeto-ui-gray-700));
   --neeto-ui-tooltip-color: rgb(var(--neeto-ui-white));
   --neeto-ui-tooltip-border-radius: var(--neeto-ui-rounded);
   --neeto-ui-tooltip-line-height: 1.4;
@@ -11,16 +11,16 @@
   --neeto-ui-tooltip-padding-x: 16px;
   --neeto-ui-tooltip-padding-y: 6px;
   --neeto-ui-tooltip-z-index: 1;
+  --neeto-ui-tooltip-shadow-color: 0px 0px 4px rgba(var(--neeto-ui-black), 0.13);
 
   // Arrow
-  --neeto-ui-tooltip-arrow-color: rgb(var(--neeto-ui-primary-500));
+  --neeto-ui-tooltip-arrow-color: rgb(var(--neeto-ui-gray-700));
   --neeto-ui-tooltip-arrow-size: 8px;
   --neeto-ui-tooltip-arrow-offset: 12px;
 
   // Light theme
   --neeto-ui-tooltip-light-theme-bg-color: rgb(var(--neeto-ui-white));
   --neeto-ui-tooltip-light-theme-color: rgb(var(--neeto-ui-gray-800));
-  --neeto-ui-tooltip-light-theme-box-shadow: none;
   --neeto-ui-tooltip-light-theme-backdrop-bg-color: rgb(var(--neeto-ui-white));
 
   // Light theme arrow
@@ -46,8 +46,8 @@
   outline: 0;
   transition-property: transform, visibility, opacity;
   word-wrap: var(--neeto-ui-tooltip-word-wrap);
-  box-shadow: var(--neeto-ui-tooltip-box-shadow);
-  filter: drop-shadow(0px 0px 3px rgba(var(--neeto-ui-black), 0.13));
+  box-shadow: none;
+  filter: drop-shadow(var(--neeto-ui-tooltip-shadow-color));
 
   h1,
   h2,

@@ -88,7 +88,7 @@ CSS variables. These are the variables that are being used in the \`Popover\`
 component.
 
 \`\`\`css
-/* Global */
+
 --neeto-ui-popover-border-width: 0px;
 --neeto-ui-popover-border-color: transparent;
 --neeto-ui-popover-padding-x: 1.75rem;
@@ -98,9 +98,6 @@ component.
 /* Light theme */
 --neeto-ui-popover-light-theme-border-color: transparent;
 
-/* Scoped to .neeto-ui-popover */
---neeto-ui-tooltip-arrow-size: 0.75rem;
---neeto-ui-tooltip-arrow-offset: 1.5rem;
 \`\`\`
 
 You can use these variables to customize the component to your liking. Here is

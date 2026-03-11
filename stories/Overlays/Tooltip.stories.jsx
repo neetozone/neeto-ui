@@ -276,7 +276,7 @@ component.
 \`\`\`css
 --neeto-ui-tooltip-max-width: calc(100vw - 10px);
 --neeto-ui-tooltip-font-size: var(--neeto-ui-text-xs);
---neeto-ui-tooltip-bg-color: rgb(var(--neeto-ui-primary-500));
+--neeto-ui-tooltip-bg-color: rgb(var(--neeto-ui-gray-700));
 --neeto-ui-tooltip-color: rgb(var(--neeto-ui-white));
 --neeto-ui-tooltip-border-radius: var(--neeto-ui-rounded);
 --neeto-ui-tooltip-line-height: 1.4;
@@ -284,16 +284,14 @@ component.
 --neeto-ui-tooltip-padding-x: 16px;
 --neeto-ui-tooltip-padding-y: 6px;
 --neeto-ui-tooltip-z-index: 1;
+--neeto-ui-tooltip-shadow-color: 0px 0px 4px rgba(var(--neeto-ui-black), 0.13);
 
 // Arrow
---neeto-ui-tooltip-arrow-color: rgb(var(--neeto-ui-primary-500));
---neeto-ui-tooltip-arrow-size: 8px;
---neeto-ui-tooltip-arrow-offset: 12px;
+--neeto-ui-tooltip-arrow-color: rgb(var(--neeto-ui-gray-700));
 
 // Light theme
 --neeto-ui-tooltip-light-theme-bg-color: rgb(var(--neeto-ui-white));
 --neeto-ui-tooltip-light-theme-color: rgb(var(--neeto-ui-gray-800));
---neeto-ui-tooltip-light-theme-box-shadow: none;
 --neeto-ui-tooltip-light-theme-backdrop-bg-color: rgb(var(--neeto-ui-white));
 
 // Light theme arrow

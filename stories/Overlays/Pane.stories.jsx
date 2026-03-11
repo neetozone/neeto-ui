@@ -815,7 +815,7 @@ component.
 // Footer
 --neeto-ui-pane-footer-padding-x: var(--neeto-ui-pane-spacing);
 --neeto-ui-pane-footer-padding-y: 24px;
---neeto-ui-pane-footer-bg-color: rgb(var(--neeto-ui-beige-100));
+--neeto-ui-pane-footer-bg-color: rgb(var(--neeto-ui-beige-50));
 --neeto-ui-pane-footer-min-height: var(--neeto-ui-pane-footer-height);
 \`\`\`
 
