@@ -7,21 +7,25 @@
   --neeto-ui-toastr-z-index: 100000;
 
   // Styles
-  --neeto-ui-info-toastr-bg-color: rgb(var(--neeto-ui-info-600));
-  --neeto-ui-error-toastr-bg-color: rgb(var(--neeto-ui-error-600));
-  --neeto-ui-success-toastr-bg-color: rgb(var(--neeto-ui-success-600));
-  --neeto-ui-warning-toastr-bg-color: rgb(var(--neeto-ui-warning-600));
+  --neeto-ui-info-toastr-bg-color: rgb(var(--neeto-ui-info-100));
+  --neeto-ui-error-toastr-bg-color: rgb(var(--neeto-ui-error-100));
+  --neeto-ui-success-toastr-bg-color: rgb(var(--neeto-ui-success-100));
+  --neeto-ui-warning-toastr-bg-color: rgb(var(--neeto-ui-warning-100));
+  --neeto-ui-info-toastr-color: rgb(var(--neeto-ui-info-900));
+  --neeto-ui-error-toastr-color: rgb(var(--neeto-ui-error-600));
+  --neeto-ui-success-toastr-color: rgb(var(--neeto-ui-green-900));
+  --neeto-ui-warning-toastr-color: rgb(var(--neeto-ui-warning-900));
 
   // Toastr
   --neeto-ui-toastr-min-height: 48px;
-  --neeto-ui-toastr-padding-x: 1rem;
-  --neeto-ui-toastr-padding-y: 0.75rem;
+  --neeto-ui-toastr-padding-x: 0.75rem;
+  --neeto-ui-toastr-padding-y: 0.625rem;
   --neeto-ui-toastr-margin-x: 0;
   --neeto-ui-toastr-margin-y: 1rem;
   --neeto-ui-toastr-box-shadow: none;
   --neeto-ui-toastr-border-radius: var(--neeto-ui-rounded-md);
-  --neeto-ui-toastr-icon-size: 24px;
-  --neeto-ui-toastr-gap: 12px;
+  --neeto-ui-toastr-icon-size: 1.25rem;
+  --neeto-ui-toastr-gap: 0.5rem;
   --neeto-ui-toastr-color: rgb(var(--neeto-ui-white));
   --neeto-ui-toastr-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-toastr-font-weight: var(--neeto-ui-font-normal);
@@ -30,7 +34,7 @@
   --neeto-ui-toastr-close-btn-color: rgb(var(--neeto-ui-white));
   --neeto-ui-toastr-close-btn-margin-y: auto;
   --neeto-ui-toastr-close-btn-margin-right: 0px;
-  --neeto-ui-toastr-close-btn-margin-left: 8px;
+  --neeto-ui-toastr-close-btn-margin-left: 0.5rem;
 }
 
 body {
@@ -43,18 +47,25 @@ body {
     min-width: var(--neeto-ui-toastr-min-width);
 
     .Toastify__toast.Toastify__toast--info {
+      --neeto-ui-toastr-color: var(--neeto-ui-info-toastr-color);
+      --neeto-ui-toastr-close-btn-color: var(--neeto-ui-info-toastr-color);
       background-color: var(--neeto-ui-info-toastr-bg-color);
     }
 
     .Toastify__toast.Toastify__toast--error {
-      background-color: var(--neeto-ui-error-toastr-bg-color);
+      --neeto-ui-toastr-color: var(--neeto-ui-error-toastr-color);
+      --neeto-ui-toastr-close-btn-color: var(--neeto-ui-error-toastr-color);
     }
 
     .Toastify__toast.Toastify__toast--success {
+      --neeto-ui-toastr-color: var(--neeto-ui-success-toastr-color);
+      --neeto-ui-toastr-close-btn-color: var(--neeto-ui-success-toastr-color);
       background-color: var(--neeto-ui-success-toastr-bg-color);
     }
 
     .Toastify__toast.Toastify__toast--warning {
+      --neeto-ui-toastr-color: var(--neeto-ui-warning-toastr-color);
+      --neeto-ui-toastr-close-btn-color: var(--neeto-ui-warning-toastr-color);
       background-color: var(--neeto-ui-warning-toastr-bg-color);
     }
 
@@ -130,6 +141,10 @@ body {
         &:active {
           opacity: 1;
         }
+      }
+
+      .Toastify__progress-bar {
+        background: var(--neeto-ui-toastr-color);
       }
     }
   }

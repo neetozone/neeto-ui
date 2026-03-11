@@ -1,14 +1,14 @@
 :root, .neeto-ui-theme--light, .neeto-ui-theme--dark {
-  --neeto-ui-callout-padding-x: 12px;
-  --neeto-ui-callout-padding-y: 10px;
+  --neeto-ui-callout-padding-x: 0.75rem;
+  --neeto-ui-callout-padding-y: 0.625rem;
   --neeto-ui-callout-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-callout-font-weight: var(--neeto-ui-font-normal);
   --neeto-ui-callout-line-height: 1.5;
   --neeto-ui-callout-color: rgb(var(--neeto-ui-primary-900));
   --neeto-ui-callout-bg-color: transparent;
   --neeto-ui-callout-border-radius: var(--neeto-ui-rounded-md);
-  --neeto-ui-callout-gap: 8px;
-  --neeto-ui-callout-icon-size: 20px;
+  --neeto-ui-callout-gap: 0.5rem;
+  --neeto-ui-callout-icon-size: 1.25rem;
   --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-primary-900));
 }
 
@@ -39,8 +39,8 @@
 
   &--info {
     --neeto-ui-callout-bg-color: rgb(var(--neeto-ui-info-100));
-    --neeto-ui-callout-color: rgb(var(--neeto-ui-primary-900));
-    --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-primary-900));
+    --neeto-ui-callout-color: rgb(var(--neeto-ui-info-900));
+    --neeto-ui-callout-icon-color: rgb(var(--neeto-ui-info-900));
   }
 
   &--warning {
