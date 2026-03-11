@@ -234,28 +234,32 @@ component.
 --neeto-ui-toastr-max-width: 640px;
 --neeto-ui-toastr-z-index: 100000;
 
-// Styles
---neeto-ui-info-toastr-bg-color: rgb(var(--neeto-ui-info-800));
---neeto-ui-error-toastr-bg-color: rgb(var(--neeto-ui-error-800));
---neeto-ui-success-toastr-bg-color: rgb(var(--neeto-ui-success-800));
---neeto-ui-warning-toastr-bg-color: rgb(var(--neeto-ui-warning-800));
+// Background colors
+--neeto-ui-info-toastr-bg-color: rgb(var(--neeto-ui-info-100));
+--neeto-ui-error-toastr-bg-color: rgb(var(--neeto-ui-error-100));
+--neeto-ui-success-toastr-bg-color: rgb(var(--neeto-ui-success-100));
+--neeto-ui-warning-toastr-bg-color: rgb(var(--neeto-ui-warning-100));
+
+// Text colors
+--neeto-ui-info-toastr-color: rgb(var(--neeto-ui-info-900));
+--neeto-ui-error-toastr-color: rgb(var(--neeto-ui-error-600));
+--neeto-ui-success-toastr-color: rgb(var(--neeto-ui-green-900));
+--neeto-ui-warning-toastr-color: rgb(var(--neeto-ui-warning-900));
 
 // Toastr
 --neeto-ui-toastr-min-height: 48px;
---neeto-ui-toastr-padding-x: 1rem;
---neeto-ui-toastr-padding-y: 0.75rem;
+--neeto-ui-toastr-padding-x: 12px;
+--neeto-ui-toastr-padding-y: 10px;
 --neeto-ui-toastr-margin-x: 0;
---neeto-ui-toastr-margin-y: 1rem;
+--neeto-ui-toastr-margin-y: 16px;
 --neeto-ui-toastr-box-shadow: none;
 --neeto-ui-toastr-border-radius: var(--neeto-ui-rounded-md);
---neeto-ui-toastr-icon-size: 24px;
---neeto-ui-toastr-gap: 12px;
---neeto-ui-toastr-color: rgb(var(--neeto-ui-white));
+--neeto-ui-toastr-icon-size: 20px;
+--neeto-ui-toastr-gap: 8px;
 --neeto-ui-toastr-font-size: var(--neeto-ui-text-sm);
 --neeto-ui-toastr-font-weight: var(--neeto-ui-font-normal);
 
 // Close Button
---neeto-ui-toastr-close-btn-color: rgb(var(--neeto-ui-white));
 --neeto-ui-toastr-close-btn-margin-y: auto;
 --neeto-ui-toastr-close-btn-margin-right: 0px;
 --neeto-ui-toastr-close-btn-margin-left: 8px;
@@ -266,10 +270,14 @@ an example:
 
 \`\`\`css
 .neetix-toastr {
-  --neeto-ui-info-toastr-bg-color: rgb(var(--neeto-ui-gray-800));
-  --neeto-ui-error-toastr-bg-color: rgb(var(--neeto-ui-gray-800));
-  --neeto-ui-success-toastr-bg-color: rgb(var(--neeto-ui-gray-800));
-  --neeto-ui-warning-toastr-bg-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-info-toastr-bg-color: rgb(var(--neeto-ui-info-300));
+  --neeto-ui-error-toastr-bg-color: rgb(var(--neeto-ui-error-300));
+  --neeto-ui-success-toastr-bg-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-warning-toastr-bg-color: rgb(var(--neeto-ui-warning-300));
+  --neeto-ui-info-toastr-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-error-toastr-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-success-toastr-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-warning-toastr-color: rgb(var(--neeto-ui-white));
 }
 \`\`\`
 

@@ -26,12 +26,10 @@
   --neeto-ui-toastr-border-radius: var(--neeto-ui-rounded-md);
   --neeto-ui-toastr-icon-size: 1.25rem;
   --neeto-ui-toastr-gap: 0.5rem;
-  --neeto-ui-toastr-color: rgb(var(--neeto-ui-white));
   --neeto-ui-toastr-font-size: var(--neeto-ui-text-sm);
   --neeto-ui-toastr-font-weight: var(--neeto-ui-font-normal);
 
   // Close Button
-  --neeto-ui-toastr-close-btn-color: rgb(var(--neeto-ui-white));
   --neeto-ui-toastr-close-btn-margin-y: auto;
   --neeto-ui-toastr-close-btn-margin-right: 0px;
   --neeto-ui-toastr-close-btn-margin-left: 0.5rem;
@@ -55,6 +53,7 @@ body {
     .Toastify__toast.Toastify__toast--error {
       --neeto-ui-toastr-color: var(--neeto-ui-error-toastr-color);
       --neeto-ui-toastr-close-btn-color: var(--neeto-ui-error-toastr-color);
+      background-color: var(--neeto-ui-error-toastr-bg-color);
     }
 
     .Toastify__toast.Toastify__toast--success {
@@ -151,8 +150,12 @@ body {
 }
 
 .neetix-toastr {
-  --neeto-ui-info-toastr-bg-color: rgb(var(--neeto-ui-gray-800));
-  --neeto-ui-error-toastr-bg-color: rgb(var(--neeto-ui-gray-800));
-  --neeto-ui-success-toastr-bg-color: rgb(var(--neeto-ui-gray-800));
-  --neeto-ui-warning-toastr-bg-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-info-toastr-bg-color: rgb(var(--neeto-ui-info-300));
+  --neeto-ui-error-toastr-bg-color: rgb(var(--neeto-ui-error-300));
+  --neeto-ui-success-toastr-bg-color: rgb(var(--neeto-ui-success-500));
+  --neeto-ui-warning-toastr-bg-color: rgb(var(--neeto-ui-warning-300));
+  --neeto-ui-info-toastr-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-error-toastr-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-success-toastr-color: rgb(var(--neeto-ui-white));
+  --neeto-ui-warning-toastr-color: rgb(var(--neeto-ui-white));
 }
