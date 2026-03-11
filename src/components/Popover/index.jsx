@@ -5,21 +5,26 @@ import PropTypes from "prop-types";
 
 import Title from "./Title";
 
+import { POPOVER_THEMES } from "./constants";
 import Tooltip from "../Tooltip";
 
 const Popover = ({
   children,
   className = "",
-  theme = "light",
+  theme = POPOVER_THEMES.light,
   ...otherProps
 }) => (
   <Tooltip
-    {...{ theme }}
     arrow
     interactive
-    className={classnames("neeto-ui-popover", className)}
     content={children}
     offset={[0, 24]}
+    theme={theme === POPOVER_THEMES.beige ? POPOVER_THEMES.light : theme}
+    className={classnames(
+      "neeto-ui-popover",
+      { "neeto-ui-popover--beige": theme === POPOVER_THEMES.beige },
+      className
+    )}
     {...otherProps}
   />
 );
@@ -39,9 +44,9 @@ Popover.propTypes = {
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]),
   /**
-   * To display Popover in dark or light theme. By default the theme is dark.
+   * To display Popover in dark, light, or beige theme. By default the theme is light.
    */
-  theme: PropTypes.oneOf(["dark", "light"]),
+  theme: PropTypes.oneOf(Object.values(POPOVER_THEMES)),
   /**
    * To specify whether the Popover is disabled or not.
    */

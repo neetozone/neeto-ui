@@ -44,6 +44,16 @@ const metadata = {
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1064%3A3081",
     },
   },
+  argTypes: {
+    theme: {
+      options: Object.values({ dark: "dark", light: "light" }),
+      control: "radio",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "dark" },
+      },
+    },
+  },
 };
 
 const FollowCursor = args => (
@@ -306,7 +316,7 @@ an example:
 .neetix-tooltip {
   --neeto-ui-tooltip-bg-color: rgb(var(--neeto-ui-primary-800));
   --neeto-ui-tooltip-arrow-color: rgb(var(--neeto-ui-primary-800));
-  --neeto-ui-tooltip-light-theme-color: rgb(var(--neeto-ui-primary-800));
+  --neeto-ui-tooltip-color: rgb(var(--neeto-ui-gray-100));
 }
 \`\`\`
 
