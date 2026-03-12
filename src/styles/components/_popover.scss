@@ -108,9 +108,8 @@
   }
 
   p {
-    font-smoothing: antialiased;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: var(--neeto-ui-antialiased);
+    -moz-osx-font-smoothing: var(--neeto-ui-moz-antialiased);
   }
 }
 
