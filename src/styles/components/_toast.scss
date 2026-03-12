@@ -122,6 +122,12 @@ body {
         .toastr-message-container__btn-wrapper {
           display: flex;
           align-items: center;
+          .neeto-ui-btn {
+            --neeto-ui-btn-color: rgb(var(--neeto-ui-white));
+            --neeto-ui-btn-bg-color: var(--neeto-ui-toastr-color);
+            --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-white));
+            --neeto-ui-btn-hover-bg-color: color-mix(in srgb, var(--neeto-ui-toastr-color), transparent 15%);
+          }
         }
       }
 

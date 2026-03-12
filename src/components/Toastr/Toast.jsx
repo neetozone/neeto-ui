@@ -22,7 +22,6 @@ const Toast = ({ type, message, buttonLabel = "", onClick = noop }) => (
           data-testid={`toastr-${type}-button`}
           label={buttonLabel}
           size="small"
-          style="secondary"
           onClick={e => {
             e.stopPropagation();
             onClick();
