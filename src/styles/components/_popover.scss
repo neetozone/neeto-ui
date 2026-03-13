@@ -36,6 +36,10 @@
 
   &[data-theme~=dark] {
     p { color: var(--neeto-ui-gray-700); }
+    .neeto-ui-btn {
+      --neeto-ui-btn-color: rgb(var(--neeto-ui-info-200));
+      --neeto-ui-btn-hover-color: rgb(var(--neeto-ui-info-300));
+    }
   }
 
   // Unified arrow technique for all themes
