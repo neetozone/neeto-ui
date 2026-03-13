@@ -102,6 +102,7 @@ const Typography = React.forwardRef(
       children,
       textTransform,
       fontFamily,
+      fontSmoothing,
       className = "",
       ...otherProps
     },
@@ -165,6 +166,7 @@ const Typography = React.forwardRef(
           "neeto-ui-leading-loose": lineHeight === LINE_HEIGHTS.loose,
           "neeto-ui-font-title": fontFamily === FONT_FAMILIES.title,
           "neeto-ui-font-body": fontFamily === FONT_FAMILIES.body,
+          "neeto-ui-antialiased": fontSmoothing,
           [className]: className,
         })}
         {...otherProps}
@@ -184,6 +186,7 @@ Typography.propTypes = {
   textTransform: PropTypes.oneOf(Object.values(TEXT_TRANSFORM)),
   lineHeight: PropTypes.oneOf(Object.values(LINE_HEIGHTS)),
   fontFamily: PropTypes.oneOf(Object.values(FONT_FAMILIES)),
+  fontSmoothing: PropTypes.bool,
   otherProps: PropTypes.object,
 };
 

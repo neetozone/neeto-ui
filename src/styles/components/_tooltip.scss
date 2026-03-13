@@ -3,24 +3,24 @@
 .neeto-ui-theme--dark {
   --neeto-ui-tooltip-max-width: calc(100vw - 10px);
   --neeto-ui-tooltip-font-size: var(--neeto-ui-text-xs);
-  --neeto-ui-tooltip-bg-color: rgb(var(--neeto-ui-gray-800));
+  --neeto-ui-tooltip-bg-color: rgb(var(--neeto-ui-gray-700));
   --neeto-ui-tooltip-color: rgb(var(--neeto-ui-white));
   --neeto-ui-tooltip-border-radius: var(--neeto-ui-rounded);
   --neeto-ui-tooltip-line-height: 1.4;
   --neeto-ui-tooltip-word-wrap: break-word;
-  --neeto-ui-tooltip-padding-x: 8px;
-  --neeto-ui-tooltip-padding-y: 4px;
+  --neeto-ui-tooltip-padding-x: 16px;
+  --neeto-ui-tooltip-padding-y: 6px;
   --neeto-ui-tooltip-z-index: 1;
+  --neeto-ui-tooltip-shadow-color: 0px 0px 4px rgba(var(--neeto-ui-black), 0.13);
 
   // Arrow
-  --neeto-ui-tooltip-arrow-color: rgb(var(--neeto-ui-gray-800));
-  --neeto-ui-tooltip-arrow-size: 6px;
+  --neeto-ui-tooltip-arrow-color: rgb(var(--neeto-ui-gray-700));
+  --neeto-ui-tooltip-arrow-size: 8px;
   --neeto-ui-tooltip-arrow-offset: 12px;
 
   // Light theme
   --neeto-ui-tooltip-light-theme-bg-color: rgb(var(--neeto-ui-white));
   --neeto-ui-tooltip-light-theme-color: rgb(var(--neeto-ui-gray-800));
-  --neeto-ui-tooltip-light-theme-box-shadow: var(--neeto-ui-shadow-sm);
   --neeto-ui-tooltip-light-theme-backdrop-bg-color: rgb(var(--neeto-ui-white));
 
   // Light theme arrow
@@ -46,6 +46,8 @@
   outline: 0;
   transition-property: transform, visibility, opacity;
   word-wrap: var(--neeto-ui-tooltip-word-wrap);
+  box-shadow: none;
+  filter: drop-shadow(var(--neeto-ui-tooltip-shadow-color));
 
   h1,
   h2,
@@ -139,16 +141,17 @@
 
 .tippy-box[data-placement^="top"] > .tippy-svg-arrow:after,
 .tippy-box[data-placement^="top"] > .tippy-svg-arrow > svg {
-  top: 16px;
-  transform: rotate(180deg);
+  top: 15px;
 }
 
 .tippy-box[data-placement^="bottom"] > .tippy-svg-arrow {
   top: 0;
+
 }
 
 .tippy-box[data-placement^="bottom"] > .tippy-svg-arrow > svg {
-  bottom: 16px;
+  bottom: 15px;
+  transform: rotate(180deg);
 }
 
 .tippy-box[data-placement^="left"] > .tippy-svg-arrow {
@@ -157,7 +160,7 @@
 
 .tippy-box[data-placement^="left"] > .tippy-svg-arrow:after,
 .tippy-box[data-placement^="left"] > .tippy-svg-arrow > svg {
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
   top: calc(50% - 3px);
   inset-inline-start: 13px;
 }
@@ -168,7 +171,7 @@
 
 .tippy-box[data-placement^="right"] > .tippy-svg-arrow:after,
 .tippy-box[data-placement^="right"] > .tippy-svg-arrow > svg {
-  transform: rotate(-90deg);
+  transform: rotate(90deg);
   top: calc(50% - 3px);
   inset-inline-end: 13px;
 }
@@ -228,63 +231,5 @@
 .neetix-tooltip {
   --neeto-ui-tooltip-bg-color: rgb(var(--neeto-ui-primary-800));
   --neeto-ui-tooltip-arrow-color: rgb(var(--neeto-ui-primary-800));
-  --neeto-ui-tooltip-light-theme-color: rgb(var(--neeto-ui-primary-800));
-}
-
-// Adding border to popover
-
-.tippy-box[data-theme~="light"] {
-  .tippy-arrow {
-    transform-style: preserve-3d;
-    width: 0;
-    height: 0;
-    border: var(--neeto-ui-tooltip-arrow-size) solid transparent;
-    color: rgb(var(--neeto-ui-white));
-
-    &::before {
-      transform: translateZ(-1px);
-      border: var(--neeto-ui-tooltip-arrow-size) solid transparent;
-    }
-  }
-  &[data-placement^="right"] .tippy-arrow {
-    border-inline-end-color: rgb(var(--neeto-ui-white));
-    inset-inline-start: calc(-1 * var(--neeto-ui-tooltip-arrow-offset));
-
-    &::before {
-      inset-inline-start: calc(-1 * (var(--neeto-ui-tooltip-arrow-size) + 1px));
-      top: calc(-1 * var(--neeto-ui-tooltip-arrow-size));
-      border-inline-end-color: var(--neeto-ui-popover-light-theme-border-color);
-    }
-  }
-  &[data-placement^="left"] .tippy-arrow {
-    border-inline-start-color: rgb(var(--neeto-ui-white));
-    inset-inline-end: calc(-1 * var(--neeto-ui-tooltip-arrow-offset));
-
-    &::before {
-      inset-inline-end: calc(-1 * (var(--neeto-ui-tooltip-arrow-size) + 1px));
-      top: calc(-1 * var(--neeto-ui-tooltip-arrow-size));
-      border-inline-start-color: var(--neeto-ui-popover-light-theme-border-color);
-    }
-  }
-  &[data-placement^="bottom"] .tippy-arrow {
-    border-bottom-color: rgb(var(--neeto-ui-white));
-    top: calc(-1 * var(--neeto-ui-tooltip-arrow-offset));
-
-    &::before {
-      top: calc(-1 * (var(--neeto-ui-tooltip-arrow-size) + 1px));
-      inset-inline-start: calc(-1 * var(--neeto-ui-tooltip-arrow-size));
-      bottom: auto;
-      border-bottom-color: var(--neeto-ui-popover-light-theme-border-color);
-    }
-  }
-  &[data-placement^="top"] .tippy-arrow {
-    border-top-color: rgb(var(--neeto-ui-white));
-    bottom: calc(-1 * var(--neeto-ui-tooltip-arrow-offset));
-
-    &::before {
-      inset-inline-start: calc(-1 * var(--neeto-ui-tooltip-arrow-size));
-      top: calc(-1 * (var(--neeto-ui-tooltip-arrow-size) - 1px));
-      border-top-color: var(--neeto-ui-popover-light-theme-border-color);
-    }
-  }
+  --neeto-ui-tooltip-color: rgb(var(--neeto-ui-gray-100));
 }

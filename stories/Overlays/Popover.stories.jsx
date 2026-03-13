@@ -22,7 +22,37 @@ const metadata = {
       url: "https://www.figma.com/file/zhdsnPzXzr264x1WUeVdmA/02-Components?node-id=1064%3A3081",
     },
   },
+  argTypes: {
+    theme: {
+      options: Object.values({
+        light: "light",
+        dark: "dark",
+        beige: "beige",
+      }),
+      control: "radio",
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "light" },
+      },
+    },
+  },
 };
+
+const PopoverContent = () => (
+  <>
+    <Popover.Title>What is KB keywords?</Popover.Title>
+    <Typography lineHeight="normal" style="body2">
+      Keywords represent the key concepts of an article. These will be shown on
+      the KB and will be used for SEO
+    </Typography>
+    <Button
+      className="neeto-ui-mt-3"
+      label="View help article"
+      size="small"
+      style="link"
+    />
+  </>
+);
 
 const ShowPopover = args => {
   const popoverReferenceElement = useRef();
@@ -32,26 +62,47 @@ const ShowPopover = args => {
       <Button
         label="Show Popover"
         ref={popoverReferenceElement}
-        style="secondary"
+        style="primary"
       />
       <Popover reference={popoverReferenceElement} {...args}>
-        <Popover.Title>What is KB keywords?</Popover.Title>
-        <Typography lineHeight="normal" style="body2">
-          Keywords represent the key concepts of an article. These will be shown
-          on the KB and will be used for SEO
-        </Typography>
-        <Button
-          className="neeto-ui-mt-3"
-          label="View help article"
-          size="small"
-          style="link"
-        />
+        <PopoverContent />
       </Popover>
     </div>
   );
 };
 
 ShowPopover.storyName = "Show Popover";
+
+const Themes = args => {
+  const lightRef = useRef();
+  const beigeRef = useRef();
+  const darkRef = useRef();
+
+  return (
+    <div className="flex items-start gap-8 p-10">
+      <div className="space-y-4">
+        <Button label="Light" ref={lightRef} style="primary" />
+        <Popover reference={lightRef} theme="light" {...args}>
+          <PopoverContent />
+        </Popover>
+      </div>
+      <div className="space-y-4">
+        <Button label="Beige" ref={beigeRef} style="primary" />
+        <Popover reference={beigeRef} theme="beige" {...args}>
+          <PopoverContent />
+        </Popover>
+      </div>
+      <div className="space-y-4">
+        <Button label="Dark" ref={darkRef} style="primary" />
+        <Popover reference={darkRef} theme="dark" {...args}>
+          <PopoverContent />
+        </Popover>
+      </div>
+    </div>
+  );
+};
+
+Themes.storyName = "Themes";
 
 const CSSCustomization = args => {
   const popoverReferenceElement = useRef();
@@ -61,7 +112,7 @@ const CSSCustomization = args => {
       <Button
         label="Show Popover"
         ref={popoverReferenceElement}
-        style="secondary"
+        style="primary"
       />
       <Popover reference={popoverReferenceElement} {...args}>
         <Popover.Title>What is KB keywords?</Popover.Title>
@@ -88,13 +139,16 @@ CSS variables. These are the variables that are being used in the \`Popover\`
 component.
 
 \`\`\`css
---neeto-ui-popover-border-width: 1px;
---neeto-ui-popover-border-color: rgb(var(--neeto-ui-gray-800));
---neeto-ui-popover-padding-x: 1rem;
---neeto-ui-popover-padding-y: 1rem;
 
-// Light theme
---neeto-ui-popover-light-theme-border-color: rgb(var(--neeto-ui-gray-400));
+--neeto-ui-popover-border-width: 0px;
+--neeto-ui-popover-border-color: transparent;
+--neeto-ui-popover-padding-x: 1.75rem;
+--neeto-ui-popover-padding-y: 1.75rem;
+--neeto-ui-popover-border-radius: var(--neeto-ui-rounded-xl);
+
+/* Light theme */
+--neeto-ui-popover-light-theme-border-color: transparent;
+
 \`\`\`
 
 You can use these variables to customize the component to your liking. Here is
@@ -114,6 +168,6 @@ CSSCustomization.parameters = {
   docs: { description: { story: PopoverCSSCustomization } },
 };
 
-export { ShowPopover, CSSCustomization };
+export { ShowPopover, Themes, CSSCustomization };
 
 export default metadata;

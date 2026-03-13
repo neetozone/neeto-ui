@@ -1,2 +1,3 @@
-export const ARROW =
-  "<svg width='12' height='6' viewBox='0 0 10 5' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M10 5H0.926697L3.95208 1.63847C4.74227 0.760478 6.11722 0.754951 6.91445 1.62656L10 5Z' /></svg>";
+export const ARROW = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" fill="none" viewBox="0 0 8 4"><path fill="#002F34" d="M8 0H0l4 4z"></path></svg>`;
+
+export const TOOLTIP_THEMES = { dark: "dark", light: "light" };

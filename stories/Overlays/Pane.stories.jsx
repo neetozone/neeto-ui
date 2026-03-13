@@ -62,7 +62,7 @@ const Default = args => {
         onClose={() => setShowPane(false)}
       >
         <Pane.Header>
-          <Typography style="h2" weight="semibold">
+          <Typography style="h3" weight="semibold">
             Typography
           </Typography>
         </Pane.Header>
@@ -79,7 +79,7 @@ const Default = args => {
             They're the Herculoids!
           </Typography>
         </Pane.Body>
-        <Pane.Footer className="flex items-center gap-x-2">
+        <Pane.Footer className="flex items-center gap-x-3">
           <Button label="Continue" onClick={() => setShowPane(false)} />
           <Button
             label="Cancel"
@@ -118,7 +118,7 @@ const Sizes = args => {
         onClose={() => setShowPaneExtraSmall(false)}
       >
         <Pane.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
+          <Typography style="h3">They're creepy & they're kooky</Typography>
         </Pane.Header>
         <Pane.Body>
           <Typography lineHeight="normal" style="body2">
@@ -145,7 +145,7 @@ const Sizes = args => {
         onClose={() => setShowPaneLarge(false)}
       >
         <Pane.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
+          <Typography style="h3">They're creepy & they're kooky</Typography>
         </Pane.Header>
         <Pane.Body>
           <Typography lineHeight="normal" style="body2">
@@ -173,7 +173,7 @@ const Sizes = args => {
         onClose={() => setShowPaneExtraLarge(false)}
       >
         <Pane.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
+          <Typography style="h3">They're creepy & they're kooky</Typography>
         </Pane.Header>
         <Pane.Body>
           <Typography lineHeight="normal" style="body2">
@@ -221,7 +221,7 @@ const PaneWithLongTitle = args => {
         onClose={() => setShowPane(false)}
       >
         <Pane.Header>
-          <Typography style="h2" weight="semibold">
+          <Typography style="h3" weight="semibold">
             This is a title that will break into two or maybe three lines! But,
             the footer will stay at the bottom. Yay!
           </Typography>
@@ -269,7 +269,7 @@ const PaneWithModalAndAlert = args => {
       </div>
       <Pane {...args} isOpen={showPane} onClose={() => setShowPane(false)}>
         <Pane.Header>
-          <Typography style="h2" weight="semibold">
+          <Typography style="h3" weight="semibold">
             Typography
           </Typography>
         </Pane.Header>
@@ -298,7 +298,7 @@ const PaneWithModalAndAlert = args => {
       </Pane>
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Header>
-          <h2>Add label</h2>
+          <h3>Add label</h3>
         </Modal.Header>
         <Modal.Body>
           <Typography style="body2">
@@ -360,7 +360,7 @@ const MultiplePanes = args => {
         onClose={() => setIsFirstPaneVisible(false)}
       >
         <Pane.Header>
-          <Typography style="h2" weight="semibold">
+          <Typography style="h3" weight="semibold">
             Typography
           </Typography>
         </Pane.Header>
@@ -398,7 +398,7 @@ const MultiplePanes = args => {
         onClose={() => setIsSecondPaneVisible(false)}
       >
         <Pane.Header>
-          <Typography style="h2" weight="semibold">
+          <Typography style="h3" weight="semibold">
             Typography
           </Typography>
         </Pane.Header>
@@ -432,7 +432,7 @@ const MultiplePanes = args => {
       </Pane>
       <Modal isOpen={isModalVisible} onClose={() => setIsModalVisible(false)}>
         <Modal.Header>
-          <h2>Add label</h2>
+          <h3>Add label</h3>
         </Modal.Header>
         <Modal.Body>
           <Typography style="body2">
@@ -488,7 +488,7 @@ const PaneWithOverlayManager = args => {
         onClose={() => setIsFirstPaneVisible(false)}
       >
         <Pane.Header>
-          <Typography style="h2" weight="semibold">
+          <Typography style="h3" weight="semibold">
             Typography
           </Typography>
         </Pane.Header>
@@ -541,7 +541,7 @@ const PaneWithOverlayManager = args => {
         onClose={() => setIsSecondPaneVisible(false)}
       >
         <Pane.Header>
-          <Typography style="h2" weight="semibold">
+          <Typography style="h3" weight="semibold">
             Typography
           </Typography>
         </Pane.Header>
@@ -590,7 +590,7 @@ const PaneWithOverlayManager = args => {
       </Pane>
       <Modal isOpen={isModalVisible} onClose={() => setIsModalVisible(false)}>
         <Modal.Header>
-          <h2>Add label</h2>
+          <h3>Add label</h3>
         </Modal.Header>
         <Modal.Body>
           <Typography style="body2">
@@ -663,7 +663,7 @@ const DynamicFieldFocusInsidePane = args => {
         {({ setFocusField }) => (
           <>
             <Pane.Header>
-              <Typography style="h2" weight="semibold">
+              <Typography style="h3" weight="semibold">
                 Typography
               </Typography>
             </Pane.Header>
@@ -743,7 +743,7 @@ const CSSCustomization = args => {
         onClose={() => setShowPane(false)}
       >
         <Pane.Header>
-          <Typography style="h2" weight="semibold">
+          <Typography style="h3" weight="semibold">
             Typography
           </Typography>
         </Pane.Header>
@@ -781,11 +781,11 @@ CSS variables. These are the variables that are being used in the \`Pane\`
 component.
 
 \`\`\`css
---neeto-ui-pane-spacing: 24px;
+--neeto-ui-pane-spacing: 40px;
 
 // Backdrop
 --neeto-ui-pane-backdrop-z-index: var(--neeto-ui-modal-z-index);
---neeto-ui-pane-backdrop-bg-color: #1b1f23dd;
+--neeto-ui-pane-backdrop-bg-color: rgba(var(--neeto-ui-black), 0.66);
 --neeto-ui-pane-backdrop-backdrop-filter: blur(2px);
 
 // Wrapper
@@ -796,25 +796,27 @@ component.
 --neeto-ui-pane-wrapper-backdrop-filter: blur(2px);
 
 // Close Button
---neeto-ui-pane-close-btn-top: var(--neeto-ui-pane-spacing);
---neeto-ui-pane-close-btn-right: var(--neeto-ui-pane-spacing);
+--neeto-ui-pane-close-btn-top: 20px;
+--neeto-ui-pane-close-btn-right: 20px;
 
 // Header
---neeto-ui-pane-header-padding-y: var(--neeto-ui-pane-spacing);
---neeto-ui-pane-header-padding-right: 64px;
+--neeto-ui-pane-header-padding-top: 56px;
+--neeto-ui-pane-header-padding-bottom: var(--neeto-ui-pane-spacing);
+--neeto-ui-pane-header-padding-right: var(--neeto-ui-pane-spacing);
 --neeto-ui-pane-header-padding-left: var(--neeto-ui-pane-spacing);
 
 // Body
 --neeto-ui-pane-body-padding-x: var(--neeto-ui-pane-spacing);
---neeto-ui-pane-body-padding-y: 0px;
---neeto-ui-pane-body-height: calc(100vh - var(--neeto-ui-pane-header-height));
+--neeto-ui-pane-body-padding-top: 0px;
+--neeto-ui-pane-body-padding-bottom: 24px;
+--neeto-ui-pane-body-height: calc(100dvh - var(--neeto-ui-pane-header-height));
 --neeto-ui-pane-body-font-size: var(--neeto-ui-text-sm);
 
 // Footer
---neeto-ui-pane-footer-padding: var(--neeto-ui-pane-spacing);
---neeto-ui-pane-footer-bg-color: rgb(var(--neeto-ui-white));
+--neeto-ui-pane-footer-padding-x: var(--neeto-ui-pane-spacing);
+--neeto-ui-pane-footer-padding-y: 24px;
+--neeto-ui-pane-footer-bg-color: rgb(var(--neeto-ui-beige-50));
 --neeto-ui-pane-footer-min-height: var(--neeto-ui-pane-footer-height);
---neeto-ui-pane-footer-box-shadow: var(--neeto-ui-shadow-m);
 \`\`\`
 
 You can use these variables to customize the component to your liking. Here is
@@ -823,6 +825,7 @@ an example:
 \`\`\`css
 .neetix-pane {
   --neeto-ui-pane-wrapper-bg-color: rgb(var(--neeto-ui-gray-100));
+  --neeto-ui-pane-footer-bg-color: rgb(var(--neeto-ui-beige-300));
 }
 \`\`\`
 

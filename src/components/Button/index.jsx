@@ -69,25 +69,30 @@ const Button = React.forwardRef(
     return (
       <Tooltip disabled={!tooltipProps} {...tooltipProps}>
         <Parent
-          className={classnames("neeto-ui-btn antialiased", [className], {
-            "neeto-ui-btn--style-primary": style === BUTTON_STYLES.primary,
-            "neeto-ui-btn--style-secondary": style === BUTTON_STYLES.secondary,
-            "neeto-ui-btn--style-tertiary": style === BUTTON_STYLES.tertiary,
-            "neeto-ui-btn--style-danger": style === BUTTON_STYLES.danger,
-            "neeto-ui-btn--style-danger-text":
-              style === BUTTON_STYLES.danger_text,
-            "neeto-ui-btn--style-text": style === BUTTON_STYLES.text,
-            "neeto-ui-btn--style-link": style === BUTTON_STYLES.link,
-            "neeto-ui-btn--style-link-underline":
-              style === BUTTON_STYLES.link_underline,
-            "neeto-ui-btn--size-medium": size === SIZES.medium,
-            "neeto-ui-btn--size-large": size === SIZES.large,
-            "neeto-ui-btn--width-full": fullWidth,
-            "neeto-ui-btn--icon-left": iconPosition === ICON_POSITIONS.left,
-            "neeto-ui-btn--icon-only": !renderLabel,
-            "neeto-ui-btn--loading": loading,
-            disabled,
-          })}
+          className={classnames(
+            "neeto-ui-btn neeto-ui-antialiased",
+            [className],
+            {
+              "neeto-ui-btn--style-primary": style === BUTTON_STYLES.primary,
+              "neeto-ui-btn--style-secondary":
+                style === BUTTON_STYLES.secondary,
+              "neeto-ui-btn--style-tertiary": style === BUTTON_STYLES.tertiary,
+              "neeto-ui-btn--style-danger": style === BUTTON_STYLES.danger,
+              "neeto-ui-btn--style-danger-text":
+                style === BUTTON_STYLES.danger_text,
+              "neeto-ui-btn--style-text": style === BUTTON_STYLES.text,
+              "neeto-ui-btn--style-link": style === BUTTON_STYLES.link,
+              "neeto-ui-btn--style-link-underline":
+                style === BUTTON_STYLES.link_underline,
+              "neeto-ui-btn--size-medium": size === SIZES.medium,
+              "neeto-ui-btn--size-large": size === SIZES.large,
+              "neeto-ui-btn--width-full": fullWidth,
+              "neeto-ui-btn--icon-left": iconPosition === ICON_POSITIONS.left,
+              "neeto-ui-btn--icon-only": !renderLabel,
+              "neeto-ui-btn--loading": loading,
+              disabled,
+            }
+          )}
           onClick={handleClick}
           {...{ disabled, ref, ...elementSpecificProps, ...otherProps }}
         >

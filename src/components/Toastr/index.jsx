@@ -29,17 +29,25 @@ const TOAST_CONFIG = {
 const TOAST_ICON = {
   success: (
     <CheckCircle
-      className="neeto-ui-text-white"
+      className="neeto-ui-text-green-900"
       data-testid="success-toast-icon"
     />
   ),
   warning: (
-    <Warning className="neeto-ui-text-white" data-testid="warning-toast-icon" />
+    <Warning
+      className="neeto-ui-text-warning-900"
+      data-testid="warning-toast-icon"
+    />
   ),
   error: (
-    <Warning className="neeto-ui-text-white" data-testid="error-toast-icon" />
+    <Warning
+      className="neeto-ui-text-error-600"
+      data-testid="error-toast-icon"
+    />
   ),
-  info: <Info className="neeto-ui-text-white" data-testid="info-toast-icon" />,
+  info: (
+    <Info className="neeto-ui-text-info-900" data-testid="info-toast-icon" />
+  ),
 };
 
 const toastrList = new UniqueArray();

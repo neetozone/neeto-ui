@@ -127,6 +127,11 @@ const metadata = {
       options: ["title", "body"],
       table: { type: { summary: "string" } },
     },
+    fontSmoothing: {
+      description: "Enables font smoothing for improved text rendering.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
     otherProp: {
       description: "Other Prop",
       control: "object",

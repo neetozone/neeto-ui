@@ -53,7 +53,7 @@ const Default = args => {
       </div>
       <Modal {...args} isOpen={showModal} onClose={() => setShowModal(false)}>
         <Modal.Header description="Short description">
-          <Typography id="dialog1Title" style="h2">
+          <Typography id="dialog1Title" style="h3">
             They're creepy & they're kooky
           </Typography>
         </Modal.Header>
@@ -70,7 +70,7 @@ const Default = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModal(false)}
           />
           <Button label="Continue" onClick={() => setShowModal(false)} />
@@ -111,7 +111,7 @@ const Sizes = args => {
         onClose={() => setShowModalExtraSmall(false)}
       >
         <Modal.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
+          <Typography style="h3">They're creepy & they're kooky</Typography>
         </Modal.Header>
         <Modal.Body>
           <Typography lineHeight="normal" style="body2">
@@ -122,7 +122,7 @@ const Sizes = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModalExtraSmall(false)}
           />
           <Button
@@ -138,7 +138,7 @@ const Sizes = args => {
         onClose={() => setShowModalMedium(false)}
       >
         <Modal.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
+          <Typography style="h3">They're creepy & they're kooky</Typography>
         </Modal.Header>
         <Modal.Body>
           <Typography lineHeight="normal" style="body2">
@@ -149,7 +149,7 @@ const Sizes = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModalMedium(false)}
           />
           <Button label="Continue" onClick={() => setShowModalMedium(false)} />
@@ -162,7 +162,7 @@ const Sizes = args => {
         onClose={() => setShowModalLarge(false)}
       >
         <Modal.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
+          <Typography style="h3">They're creepy & they're kooky</Typography>
         </Modal.Header>
         <Modal.Body>
           <Typography lineHeight="normal" style="body2">
@@ -177,7 +177,7 @@ const Sizes = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModalLarge(false)}
           />
           <Button label="Continue" onClick={() => setShowModalLarge(false)} />
@@ -190,7 +190,7 @@ const Sizes = args => {
         onClose={() => setShowModalFullScreen(false)}
       >
         <Modal.Header>
-          <Typography style="h2">They're creepy & they're kooky</Typography>
+          <Typography style="h3">They're creepy & they're kooky</Typography>
         </Modal.Header>
         <Modal.Body>
           <Typography lineHeight="normal" style="body2">
@@ -205,7 +205,7 @@ const Sizes = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModalFullScreen(false)}
           />
           <Button
@@ -236,7 +236,7 @@ const ModalFocusTrapping = args => {
             that the focus is trapped to within the Modal. This is done
             inherently by the Modal component."
         >
-          <Typography id="dialog1Title" style="h2">
+          <Typography id="dialog1Title" style="h3">
             They're creepy & they're kooky
           </Typography>
         </Modal.Header>
@@ -256,7 +256,7 @@ const ModalFocusTrapping = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModal(false)}
           />
           <Button label="Continue" onClick={() => setShowModal(false)} />
@@ -286,7 +286,7 @@ const NestedModals = args => {
             that the focus is trapped to within the Modal. This is done
             inherently by the Modal component."
         >
-          <Typography id="dialog1Title" style="h2">
+          <Typography id="dialog1Title" style="h3">
             They're creepy & they're kooky
           </Typography>
         </Modal.Header>
@@ -303,7 +303,7 @@ const NestedModals = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModal(false)}
           />
           <Button
@@ -314,7 +314,7 @@ const NestedModals = args => {
       </Modal>
       <Modal {...args} isOpen={showModal2} onClose={() => setShowModal2(false)}>
         <Modal.Header description="Now, you would notice that the focus is trapped inside of the second Modal.">
-          <Typography id="dialog1Title" style="h2">
+          <Typography id="dialog1Title" style="h3">
             They're creepy & they're kooky
           </Typography>
         </Modal.Header>
@@ -331,7 +331,7 @@ const NestedModals = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModal2(false)}
           />
           <Button label="Continue" onClick={() => setShowModal2(false)} />
@@ -369,7 +369,7 @@ const InitialAndFinalFocusRef = args => {
         onClose={() => setShowModal(false)}
       >
         <Modal.Header description="The focous would be on the input field for first name on opening of the Modal and on the secondary button on close.">
-          <Typography id="dialog1Title" style="h2">
+          <Typography id="dialog1Title" style="h3">
             They're creepy & they're kooky
           </Typography>
         </Modal.Header>
@@ -389,7 +389,7 @@ const InitialAndFinalFocusRef = args => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModal(false)}
           />
           <Button label="Continue" onClick={() => setShowModal(false)} />
@@ -418,7 +418,7 @@ const CSSCustomization = () => {
         onClose={() => setShowModal(false)}
       >
         <Modal.Header description="Short description">
-          <Typography id="dialog1Title" style="h2">
+          <Typography id="dialog1Title" style="h3">
             They're creepy & they're kooky
           </Typography>
         </Modal.Header>
@@ -435,7 +435,7 @@ const CSSCustomization = () => {
         <Modal.Footer className="flex items-center justify-end gap-x-2">
           <Button
             label="Cancel"
-            style="tertiary"
+            style="text"
             onClick={() => setShowModal(false)}
           />
           <Button label="Continue" onClick={() => setShowModal(false)} />
@@ -453,11 +453,11 @@ CSS variables. These are the variables that are being used in the \`Modal\`
 component.
 
 \`\`\`css
---neeto-ui-modal-spacing: 24px;
+--neeto-ui-modal-spacing: 32px;
 
 // Backdrop
 --neeto-ui-modal-backdrop-z-index: var(--neeto-ui-modal-z-index);
---neeto-ui-modal-backdrop-bg-color: #1b1f23dd;
+--neeto-ui-modal-backdrop-bg-color: rgba(var(--neeto-ui-black), 0.66);
 --neeto-ui-modal-backdrop-backdrop-filter: blur(2px);
 
 // Wrapper
@@ -469,30 +469,31 @@ component.
 --neeto-ui-modal-wrapper-backdrop-filter: blur(2px);
 
 // Close Button
---neeto-ui-modal-close-btn-top: var(--neeto-ui-modal-spacing);
---neeto-ui-modal-close-btn-right: var(--neeto-ui-modal-spacing);
+--neeto-ui-modal-close-btn-top: 16px;
+--neeto-ui-modal-close-btn-right: 16px;
 
 // Header
 --neeto-ui-modal-header-padding-top: var(--neeto-ui-modal-spacing);
---neeto-ui-modal-header-padding-right: 64px;
+--neeto-ui-modal-header-padding-right: 56px;
 --neeto-ui-modal-header-padding-bottom: 16px;
 --neeto-ui-modal-header-padding-left: var(--neeto-ui-modal-spacing);
 
 // Header Description
---neeto-ui-modal-header-description-margin-top: 8px;
---neeto-ui-modal-header-description-color: rgb(var(--neeto-ui-gray-700));
+--neeto-ui-modal-header-description-margin-y: 8px;
+--neeto-ui-modal-header-description-color: rgb(var(--neeto-ui-gray-500));
 
 // Body
 --neeto-ui-modal-body-padding-top: 0;
 --neeto-ui-modal-body-padding-bottom: var(--neeto-ui-modal-spacing);
 --neeto-ui-modal-body-padding-x: var(--neeto-ui-modal-spacing);
---neeto-ui-modal-body-font-size: --neeto-ui-text-sm;
+--neeto-ui-modal-body-font-size: var(--neeto-ui-text-sm);
 --neeto-ui-modal-body-line-height: 1.5;
 
 // Footer
---neeto-ui-modal-footer-padding-top: 0;
---neeto-ui-modal-footer-padding-bottom: var(--neeto-ui-modal-spacing);
+--neeto-ui-modal-footer-padding-y: 16px;
 --neeto-ui-modal-footer-padding-x: var(--neeto-ui-modal-spacing);
+--neeto-ui-modal-footer-bg: rgb(var(--neeto-ui-beige-50));
+--neeto-ui-modal-footer-border-radius: var(--neeto-ui-rounded-xl);
 \`\`\`
 
 You can use these variables to customize the component to your liking. Here is
@@ -506,7 +507,7 @@ an example:
   --neeto-ui-modal-header-padding-left: 32px;
   --neeto-ui-modal-body-padding-bottom: 32px;
   --neeto-ui-modal-body-padding-x: 32px;
-  --neeto-ui-modal-footer-padding-bottom: 32px;
+  --neeto-ui-modal-footer-padding-y: 32px;
   --neeto-ui-modal-footer-padding-x: 32px;
   --neeto-ui-modal-wrapper-border-radius: var(--neeto-ui-rounded-none);
 }

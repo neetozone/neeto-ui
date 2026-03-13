@@ -1,0 +1,53 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta
+  title="Foundation/Helpers/Font smoothing"
+  parameters={{
+    viewMode: "docs",
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
+
+<style>
+  {`
+  .story-demo-table tr{
+      background: transparent !important;
+  }
+  `}
+</style>
+
+# Font smoothing
+
+<table className="table-auto">
+  <thead>
+    <tr>
+      <td className="border p-2">Preview</td>
+      <td className="border p-2">CSS Variable</td>
+      <td className="border p-2">Class</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td className="neeto-ui-bg-gray-800 p-2" rowSpan={2}>
+        <div className="p-6">
+          <div className="neeto-ui-bg-white neeto-ui-text-black neeto-ui-antialiased flex h-12 w-36 items-center justify-center rounded-sm">
+            Antialiased
+          </div>
+        </div>
+      </td>
+      <td className="border p-2">
+        <code>--neeto-ui-antialiased</code>
+      </td>
+      <td className="border p-2" rowSpan={2}>
+        <code>neeto-ui-antialiased</code>
+      </td>
+    </tr>
+    <tr>
+      <td className="border p-2">
+        <code>--neeto-ui-moz-antialiased</code>
+      </td>
+    </tr>
+  </tbody>
+</table>

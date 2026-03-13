@@ -6,12 +6,12 @@ import { followCursor } from "tippy.js";
 
 import { usePrefersReducedMotion } from "src/hooks";
 
-import { ARROW } from "./constants";
+import { ARROW, TOOLTIP_THEMES } from "./constants";
 
 const Tooltip = ({
   content,
   children,
-  theme = "dark",
+  theme = TOOLTIP_THEMES.dark,
   disabled = false,
   position = "auto",
   interactive = false,
@@ -93,7 +93,7 @@ Tooltip.propTypes = {
   /**
    * To display Tooltip in dark or light theme. By default the theme is dark.
    */
-  theme: PropTypes.oneOf(["dark", "light"]),
+  theme: PropTypes.oneOf(Object.values(TOOLTIP_THEMES)),
   /**
    * To specify whether the Tooltip is disabled or not.
    */

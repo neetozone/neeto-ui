@@ -94,7 +94,7 @@ const Pane = ({
         appear={isOpen}
         classNames="neeto-ui-pane"
         in={isOpen}
-        timeout={230}
+        timeout={300}
         onEntered={() => setHasTransitionCompleted(true)}
         onExited={() => setHasTransitionCompleted(false)}
       >

@@ -97,7 +97,7 @@ const Item = ({
       </div>
       <Collapse
         aria-labelledby={`neeto-ui-accordion-item-${id}`}
-        className="neeto-ui-accordion__drop antialiased"
+        className="neeto-ui-accordion__drop neeto-ui-antialiased"
         id={`neeto-ui-accordion-section-${id}`}
         open={isOpen}
         role="region"
