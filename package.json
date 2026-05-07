@@ -161,7 +161,7 @@
     "lint-staged": "11.0.0",
     "monaco-editor": "^0.50.0",
     "monaco-editor-webpack-plugin": "^7.1.0",
-    "postcss": "8.4.49",
+    "postcss": "8.5.10",
     "postcss-import": "^15.0.0",
     "postcss-loader": "^7.0.1",
     "postcss-preset-env": "7.8.2",
