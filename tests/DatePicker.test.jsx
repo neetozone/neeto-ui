@@ -34,7 +34,14 @@ describe("DatePicker", () => {
   });
 
   it("should show only hours if format is HH", async () => {
-    render(<DatePicker open showTime defaultValue={today} timeFormat="HH" />);
+    render(
+      <DatePicker
+        open
+        showTime
+        defaultValue={theDate.hour(10)}
+        timeFormat="HH"
+      />
+    );
     expect(await screen.findAllByText("00")).toHaveLength(1);
   });
 
