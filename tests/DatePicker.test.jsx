@@ -6,7 +6,6 @@ import DatePicker from "components/DatePicker";
 import { dayjs } from "utils";
 import userEvent from "@testing-library/user-event";
 
-const today = dayjs();
 const theDate = dayjs(new Date(1999, 7, 16));
 const anotherDate = theDate.add(1, "day");
 
