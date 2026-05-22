@@ -1,3 +1,4 @@
+// eslint-disable-next-line @bigbinary/neeto/use-dayjs-from-neeto-commons-fronted
 import pureDayjs from "dayjs";
 import localeData from "dayjs/plugin/localeData";
 import utc from "dayjs/plugin/utc";
@@ -10,7 +11,7 @@ pureDayjs.extend(weekOfYear);
 pureDayjs.extend(weekday);
 pureDayjs.extend(localeData);
 pureDayjs.extend(utc);
-pureDayjs.extend(timezone);
+if (!pureDayjs.tz) pureDayjs.extend(timezone);
 
 class LRUCache {
   constructor(limit) {
