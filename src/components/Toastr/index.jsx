@@ -1,5 +1,6 @@
 import React from "react";
 
+import classnames from "classnames";
 import { t } from "i18next";
 import { CheckCircle, Warning, Info, Close } from "neetoicons";
 import { toast, Slide } from "react-toastify";
@@ -95,6 +96,7 @@ const withUniqueCheck =
             ? toast.POSITION.BOTTOM_RIGHT
             : toast.POSITION.BOTTOM_LEFT,
         ...customConfig,
+        className: classnames(TOAST_CONFIG.className, customConfig?.className),
       };
 
       toastId = toastFunc({ message, buttonLabel, onClick, config });
