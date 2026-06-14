@@ -410,4 +410,32 @@ describe("Toastr", () => {
       expect(toastrIcon).toBeInTheDocument();
     });
   });
+
+  it("should retain neeto-ui-toastr class on thumbs-up Success Toastr", async () => {
+    const button = renderToastrButton("Success", () =>
+      // eslint-disable-next-line @bigbinary/neeto/use-show-thumbs-up-toastr
+      Toastr.success("", { icon: "👍", className: "w-20" })
+    );
+    await userEvent.click(button);
+
+    const icon = await screen.findByText("👍");
+    const toastrElement = icon.closest(".neeto-ui-toastr");
+    expect(toastrElement).toBeInTheDocument();
+    expect(toastrElement).toHaveClass("neeto-ui-toastr", "w-20");
+  });
+
+  ["Success", "Info", "Warning", "Error"].forEach(type => {
+    it(`should retain neeto-ui-toastr class on message-passing ${type} Toastr`, async () => {
+      const message = i18next.t("message.toastr");
+      const button = renderToastrButton(type, () =>
+        Toastr[type.toLowerCase()](message)
+      );
+      await userEvent.click(button);
+
+      const toastr = await screen.findByText(message);
+      const toastrElement = toastr.closest(".neeto-ui-toastr");
+      expect(toastrElement).toBeInTheDocument();
+      expect(toastrElement).toHaveClass("neeto-ui-toastr");
+    });
+  });
 });
