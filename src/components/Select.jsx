@@ -87,7 +87,7 @@ const CustomOption = props => {
   } = props;
 
   useEffect(() => {
-    props.isSelected && ref.current.scrollIntoView();
+    props.isSelected && ref.current?.scrollIntoView();
   }, [props.isSelected]);
 
   const optionComponent = (
