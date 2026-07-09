@@ -8,7 +8,7 @@ paths:
   - stories/**
   - jest-config/**
   - jest-setup.js
-  - .scripts/*
+  - .scripts/**
   - .neetoci/default.yml
   - package.json
   - yarn.lock
