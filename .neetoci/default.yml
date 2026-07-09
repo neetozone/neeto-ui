@@ -26,6 +26,8 @@ paths:
   - .active_record_doctor.rb
   - .prettierrc.js
   - "*.config.*"
+  - .eslintignore
+  - .eslintrc.js
 
 global_job_config:
   setup:
