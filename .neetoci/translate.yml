@@ -5,8 +5,7 @@ fail_fast: true
 plan: standard-2
 
 paths:
-  - "**/en.json"
-  - "**/en.yml"
+  - "**/en.{json,yml}"
 
 commands:
   - checkout
