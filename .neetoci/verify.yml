@@ -9,7 +9,7 @@ paths:
   - jest-config/**
   - jest-setup.js
   - .scripts/**
-  - .neetoci/default.yml
+  - .neetoci/verify.yml
   - package.json
   - yarn.lock
   - .yarnrc.yml
