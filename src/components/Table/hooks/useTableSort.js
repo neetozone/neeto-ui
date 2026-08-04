@@ -1,13 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { isPresent } from "neetocist";
 import { isNil, mergeLeft } from "ramda";
 import { useHistory } from "react-router-dom";
 
 import { useQueryParams } from "hooks";
-import { buildUrl, setToLocalStorage } from "utils";
+import { buildUrl, getQueryParams, setToLocalStorage } from "utils";
 
-import { URL_SORT_ORDERS } from "../constants";
+import { TABLE_SORT_ORDERS, URL_SORT_ORDERS } from "../constants";
 import {
   getSortInfoFromQueryParams,
   getSortField,
@@ -23,7 +23,6 @@ const useTableSort = ({
   const [sortedInfo, setSortedInfo] = useState(() =>
     getSortInfoFromQueryParams(queryParams)
   );
-  const hasRestoredPersistedSort = useRef(false);
 
   useEffect(() => {
     setSortedInfo(getSortInfoFromQueryParams(queryParams));
@@ -41,13 +40,18 @@ const useTableSort = ({
   };
 
   useEffect(() => {
-    if (hasRestoredPersistedSort.current) return;
-    hasRestoredPersistedSort.current = true;
+    if (!shouldPersistSort) return;
 
-    if (!shouldPersistSort || isPresent(queryParams.sort_by)) return;
+    const currentQueryParams = getQueryParams();
+    if (isPresent(currentQueryParams.sort_by)) return;
 
     const persistedSort = getPersistedTableSort(localStorageKeyPrefix);
-    if (isNil(persistedSort?.sort_by) || isNil(persistedSort?.order_by)) return;
+    if (
+      isNil(persistedSort?.sort_by) ||
+      isNil(TABLE_SORT_ORDERS[persistedSort?.order_by])
+    ) {
+      return;
+    }
 
     // Restore the persisted sort into the URL on mount; the URL remains the
     // single source of truth afterwards.
@@ -56,11 +60,11 @@ const useTableSort = ({
         window.location.pathname,
         mergeLeft(
           { sort_by: persistedSort.sort_by, order_by: persistedSort.order_by },
-          queryParams
+          currentQueryParams
         )
       )
     );
-  }, [shouldPersistSort, localStorageKeyPrefix, queryParams, history]);
+  }, [shouldPersistSort, localStorageKeyPrefix, history]);
 
   const handleTableChange = (pagination, sorter) => {
     const params = {
