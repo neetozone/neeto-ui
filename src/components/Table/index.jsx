@@ -71,6 +71,7 @@ const Table = ({
   onMoreActionClick,
   bulkSelectAllRowsProps,
   localStorageKeyPrefix,
+  persistUserSortPreferences = false,
   virtual = false,
   ...otherProps
 }) => {
@@ -79,16 +80,19 @@ const Table = ({
   const [columns, setColumns] = useState(columnData);
   const [bulkSelectedAllRows, setBulkSelectedAllRows] = useState(false);
   const [columnChanges, setColumnChanges] = useState({});
+  const isDefaultPageChangeHandler = handlePageChange === noop;
+
   const {
     handleTableChange: handleTableSortChange,
     sortedInfo,
     setSortedInfo,
-  } = useTableSort();
+  } = useTableSort({
+    shouldPersistSort: persistUserSortPreferences && isDefaultPageChangeHandler,
+    localStorageKeyPrefix,
+  });
 
   const { setBulkSelectedAllRows: handleSetBulkSelectedAllRows } =
     bulkSelectAllRowsProps ?? {};
-
-  const isDefaultPageChangeHandler = handlePageChange === noop;
 
   const history = useHistory();
 
@@ -558,9 +562,13 @@ Table.propTypes = {
     clearSelectionButtonLabel: PropTypes.string,
   }),
   /**
-   * String to set as the prefix of the local storage key where the data is persisted, eg: fixed columns.
+   * String to set as the prefix of the local storage key where the data is persisted, eg: fixed columns, sort preference.
    */
   localStorageKeyPrefix: PropTypes.string,
+  /**
+   * Persists the sorting state in local storage and restores it when the table mounts without sort params in the URL. A URL with explicit sort params takes precedence over the persisted preference. Applicable only when the default page change handler is used. The storage key can be customized with `localStorageKeyPrefix`.
+   */
+  persistUserSortPreferences: PropTypes.bool,
   /**
    * Whether to use virtual scrolling (beta).
    */

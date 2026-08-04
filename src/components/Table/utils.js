@@ -1,6 +1,8 @@
 import { isPresent, snakeToCamelCase, camelToSnakeCase } from "neetocist";
 import { __, all, equals, filter, includes, pipe, pluck } from "ramda";
 
+import { getFromLocalStorage } from "utils";
+
 import {
   CellContent,
   HeaderCell,
@@ -90,6 +92,19 @@ export const getFrozenColumnsLocalStorageKey = localStorageKeyPrefix => {
 
   return `NEETOUI-${prefix}-FIXED_COLUMNS`;
 };
+
+export const getSortPreferenceLocalStorageKey = localStorageKeyPrefix => {
+  const prefix = isPresent(localStorageKeyPrefix)
+    ? localStorageKeyPrefix
+    : convertLocationPathnameToId();
+
+  return `NEETOUI-${prefix}-SORT`;
+};
+
+export const getPersistedTableSort = localStorageKeyPrefix =>
+  getFromLocalStorage(
+    getSortPreferenceLocalStorageKey(localStorageKeyPrefix)
+  ) ?? null;
 
 export const getSortInfoFromQueryParams = queryParams => {
   const sortedInfo = {};
