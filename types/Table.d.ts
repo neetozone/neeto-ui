@@ -36,7 +36,7 @@ export interface TableProps {
   onColumnHide?: (columnKey: string) => void;
   onMoreActionClick?: (actionType: string, column: any) => void;
   localStorageKeyPrefix?: string;
-  persistUserSortPreferences?: boolean;
+  persistSort?: boolean;
   enableColumnFreeze?: boolean;
   bulkSelectAllRowsProps?: {
     setBulkSelectedAllRows: () => void;
