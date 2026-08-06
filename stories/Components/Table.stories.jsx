@@ -234,6 +234,12 @@ const metadata = {
       control: "function",
       table: { type: { summary: "func" } },
     },
+    persistSort: {
+      description:
+        "Persists the sorting state in the local storage and restores it when the Table mounts without sort params in the URL. Applicable only when the default page change handler is used.",
+      control: "boolean",
+      table: { type: { summary: "boolean" } },
+    },
     loading: {
       description: "Show loading state in Table.",
       control: "boolean",
@@ -724,6 +730,8 @@ const columns = [
   - \`page_size\`: The page size specified by the product.
 
   By default, this functionality is enabled. However, it will only take effect if the \`handlePageChange\` handler is not provided.
+
+- Pass the \`persistSort\` prop to persist the sorting state in the local storage and restore it across navigation. The local storage key can be customized with the \`localStorageKeyPrefix\` prop, similar to frozen columns.
 `;
 
 TableWithSorting.parameters = {
