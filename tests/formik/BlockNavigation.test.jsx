@@ -15,7 +15,7 @@ const firstName = "Oliver",
   lastName = "Smith";
 const TestComponent = () => <div>Home page</div>;
 const mockSubmit = jest.fn();
-const TestForm = ({ isDirty }) => (
+const TestForm = ({ isDirty, saveAndContinue }) => (
   <>
     <Link to="/home">Home</Link>
     <Form
@@ -28,7 +28,7 @@ const TestForm = ({ isDirty }) => (
         onSubmit: mockSubmit,
       }}
     >
-      <BlockNavigation {...{ isDirty }} />
+      <BlockNavigation {...{ isDirty, saveAndContinue }} />
       <Input
         label="First name"
         name="firstName"
@@ -45,11 +45,11 @@ const TestForm = ({ isDirty }) => (
   </>
 );
 
-const TestBlockNavigation = ({ isDirty }) => (
+const TestBlockNavigation = ({ isDirty, saveAndContinue }) => (
   <Router>
     <Switch>
       <Route exact path="/">
-        <TestForm {...{ isDirty }} />
+        <TestForm {...{ isDirty, saveAndContinue }} />
       </Route>
       <Route component={TestComponent} path="/home" />
     </Switch>
@@ -178,5 +178,77 @@ describe("formik/BlockNavigation", () => {
     await waitFor(() => expect(submitButton).not.toBeInTheDocument());
     expect(screen.queryByText(/Home page/i)).not.toBeInTheDocument();
     expect(mockSubmit).not.toHaveBeenCalled();
+  });
+
+  describe("with saveAndContinue", () => {
+    it("should display the `Save and continue` button instead of `Stay on this page`", async () => {
+      render(<TestBlockNavigation isDirty saveAndContinue />);
+
+      await userEvent.click(screen.getByRole("link"));
+
+      expect(
+        screen.getByRole("button", { name: "Save and continue" })
+      ).toBeInTheDocument();
+
+      expect(
+        screen.queryByRole("button", { name: "Stay on this page" })
+      ).not.toBeInTheDocument();
+    });
+
+    it("should submit the form and continue the blocked navigation once the save resolves", async () => {
+      mockSubmit.mockResolvedValueOnce();
+      render(<TestBlockNavigation saveAndContinue />);
+
+      const firstNameInput = screen.getByPlaceholderText("First name");
+      await userEvent.type(firstNameInput, "Sam");
+      await userEvent.click(screen.getByRole("link"));
+
+      await userEvent.click(
+        screen.getByRole("button", { name: "Save and continue" })
+      );
+
+      await waitFor(() =>
+        expect(screen.getByText(/Home page/i)).toBeInTheDocument()
+      );
+      expect(mockSubmit).toHaveBeenCalledTimes(1);
+    });
+
+    it("should stay on the page when the save fails", async () => {
+      mockSubmit.mockRejectedValueOnce(new Error("save failed"));
+      render(<TestBlockNavigation saveAndContinue />);
+
+      const firstNameInput = screen.getByPlaceholderText("First name");
+      await userEvent.type(firstNameInput, "Sam");
+      await userEvent.click(screen.getByRole("link"));
+
+      await userEvent.click(
+        screen.getByRole("button", { name: "Save and continue" })
+      );
+
+      await waitFor(() =>
+        expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
+      );
+      expect(screen.queryByText(/Home page/i)).not.toBeInTheDocument();
+      expect(mockSubmit).toHaveBeenCalledTimes(1);
+    });
+
+    it("should stay on the page without submitting when the form has validation errors", async () => {
+      render(<TestBlockNavigation saveAndContinue />);
+
+      const firstNameInput = screen.getByPlaceholderText("First name");
+      await userEvent.clear(firstNameInput);
+      await userEvent.click(screen.getByRole("link"));
+
+      await userEvent.click(
+        screen.getByRole("button", { name: "Save and continue" })
+      );
+
+      await waitFor(() =>
+        expect(screen.queryByRole("dialog")).not.toBeInTheDocument()
+      );
+      expect(screen.queryByText(/Home page/i)).not.toBeInTheDocument();
+      expect(screen.getByText(/First name is required/i)).toBeInTheDocument();
+      expect(mockSubmit).not.toHaveBeenCalled();
+    });
   });
 });

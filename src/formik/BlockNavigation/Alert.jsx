@@ -8,7 +8,14 @@ import Modal from "components/Modal";
 import Typography from "components/Typography";
 import { getLocale } from "utils";
 
-const Alert = ({ isOpen = false, onClose, onSubmit, onDiscardChanges }) => {
+const Alert = ({
+  isOpen = false,
+  isSaving = false,
+  saveAndContinue = false,
+  onClose,
+  onSubmit,
+  onDiscardChanges,
+}) => {
   const { t, i18n } = useTranslation();
 
   const submitButtonRef = useRef(null);
@@ -22,15 +29,17 @@ const Alert = ({ isOpen = false, onClose, onSubmit, onDiscardChanges }) => {
   const submitButtonLabel = getLocale(
     i18n,
     t,
-    "neetoui.blockNavigation.submitButtonLabel"
+    saveAndContinue
+      ? "neetoui.blockNavigation.saveAndContinueButtonLabel"
+      : "neetoui.blockNavigation.submitButtonLabel"
   );
 
   return (
     <Modal
       {...{ isOpen, onClose }}
-      closeButton
-      closeOnEsc
-      closeOnOutsideClick
+      closeButton={!isSaving}
+      closeOnEsc={!isSaving}
+      closeOnOutsideClick={!isSaving}
       data-testid="alert-box"
       initialFocusRef={submitButtonRef}
       size="medium"
@@ -52,6 +61,7 @@ const Alert = ({ isOpen = false, onClose, onSubmit, onDiscardChanges }) => {
       <Modal.Footer className="neeto-ui-gap-2 neeto-ui-flex neeto-ui-justify-end neeto-ui-items-center">
         <Button
           data-testid="alert-cancel-button"
+          disabled={isSaving}
           label={cancelButtonLabel}
           style="danger"
           onClick={onDiscardChanges}
@@ -59,6 +69,7 @@ const Alert = ({ isOpen = false, onClose, onSubmit, onDiscardChanges }) => {
         <Button
           data-testid="alert-submit-button"
           label={submitButtonLabel}
+          loading={isSaving}
           ref={submitButtonRef}
           style="primary"
           onClick={onSubmit}

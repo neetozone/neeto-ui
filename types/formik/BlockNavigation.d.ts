@@ -3,6 +3,7 @@ import { AlertProps } from "../Alert";
 
 export interface BlockNavigationProps {
   isDirty?: boolean;
+  saveAndContinue?: boolean;
 }
 
 const BlockNavigation: React.FC<BlockNavigationProps & Partial<AlertProps>>;

@@ -16,6 +16,11 @@ are unsaved changes. It is designed to enhance the user experience by alerting
 users to the presence of pending modifications and giving them the option to
 save or discard those changes before navigating away from the current page or
 route.
+
+Pass \`saveAndContinue\` to replace the "Stay on this page" button with
+"Save and continue", which submits the surrounding Formik form and resumes the
+blocked navigation once the save settles. Return the save request's promise
+from \`onSubmit\` so the navigation waits for (and a failure cancels) the save.
 `;
 
 const metadata = {
@@ -54,7 +59,7 @@ const FormikStory = args => (
             }}
             {...args}
           >
-            <BlockNavigation />
+            <BlockNavigation saveAndContinue={args.saveAndContinue} />
             <div className="space-y-4">
               <Input required label="First name" name="firstName" />
               <Input required label="Last name" name="lastName" />
@@ -72,7 +77,7 @@ const FormikStory = args => (
 );
 
 FormikStory.storyName = "BlockNavigation";
-FormikStory.args = {};
+FormikStory.args = { saveAndContinue: false };
 
 export { FormikStory };
 
