@@ -213,7 +213,7 @@ describe("formik/BlockNavigation", () => {
       expect(mockSubmit).toHaveBeenCalledTimes(1);
     });
 
-    it("should stay on the page when the save fails", async () => {
+    it("should stay on the page with the block still active when the save fails", async () => {
       mockSubmit.mockRejectedValueOnce(new Error("save failed"));
       render(<TestBlockNavigation saveAndContinue />);
 
@@ -230,6 +230,14 @@ describe("formik/BlockNavigation", () => {
       );
       expect(screen.queryByText(/Home page/i)).not.toBeInTheDocument();
       expect(mockSubmit).toHaveBeenCalledTimes(1);
+
+      // The form is still dirty, so navigating again must be blocked.
+      expect(firstNameInput.value).toBe(`${firstName}Sam`);
+      await userEvent.click(screen.getByRole("link"));
+      expect(
+        screen.getByRole("button", { name: "Save and continue" })
+      ).toBeInTheDocument();
+      expect(screen.queryByText(/Home page/i)).not.toBeInTheDocument();
     });
 
     it("should stay on the page without submitting when the form has validation errors", async () => {

@@ -1,7 +1,7 @@
 /* eslint-disable @bigbinary/neeto/file-name-and-export-name-standards */
 import React, { useState } from "react";
 
-import { setNestedObjectValues, useFormikContext } from "formik";
+import { useFormikContext } from "formik";
 import PropTypes from "prop-types";
 import { isEmpty } from "ramda";
 
@@ -41,7 +41,7 @@ const BlockNavigation = ({
     try {
       const errors = await formikContext.validateForm();
       if (!isEmpty(errors)) {
-        formikContext.setTouched(setNestedObjectValues(errors, true), false);
+        await formikContext.submitForm();
         hidePrompt();
 
         return;
