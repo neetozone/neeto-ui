@@ -4,7 +4,8 @@
       "alertMessage": "離開此頁面將會丟失您的未儲存資料。此動作無法撤銷。",
       "submitButtonLabel": "停留在此頁面",
       "cancelButtonLabel": "放棄並離開此頁面",
-      "alertTitle": "您有未儲存的更改"
+      "alertTitle": "您有未儲存的更改",
+      "saveAndContinueButtonLabel": "儲存並繼續"
     },
     "actionBlock": {
       "cancel": "取消",

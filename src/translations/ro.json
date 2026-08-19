@@ -4,7 +4,8 @@
       "alertMessage": "Părăsind această pagină se vor pierde datele nesalvate. Această acțiune nu poate fi anulată.",
       "submitButtonLabel": "Rămâi pe această pagină",
       "cancelButtonLabel": "Anulează și pleacă de pe această pagină",
-      "alertTitle": "Ai modificări nesalvate"
+      "alertTitle": "Ai modificări nesalvate",
+      "saveAndContinueButtonLabel": "Salvează și continuă"
     },
     "actionBlock": {
       "cancel": "Anulează",

@@ -4,7 +4,8 @@
       "alertMessage": "Att lämna denna sida kommer att kasta bort din osparade data. Denna åtgärd kan inte ångras.",
       "submitButtonLabel": "Stanna på denna sida",
       "cancelButtonLabel": "Kasta bort och lämna denna sida",
-      "alertTitle": "Du har osparade ändringar"
+      "alertTitle": "Du har osparade ändringar",
+      "saveAndContinueButtonLabel": "Spara och fortsätt"
     },
     "actionBlock": {
       "cancel": "Avbryt",

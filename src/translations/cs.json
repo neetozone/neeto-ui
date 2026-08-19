@@ -4,7 +4,8 @@
       "alertMessage": "Opustit tuto stránku znamená ztratit neuložená data. Tuto akci nelze vrátit zpět.",
       "submitButtonLabel": "Zůstat na této stránce",
       "cancelButtonLabel": "Zrušit a opustit tuto stránku",
-      "alertTitle": "Máte neuložené změny"
+      "alertTitle": "Máte neuložené změny",
+      "saveAndContinueButtonLabel": "Uložit a pokračovat"
     },
     "actionBlock": {
       "cancel": "Zrušit",

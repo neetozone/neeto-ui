@@ -4,7 +4,8 @@
       "alertMessage": "At forlade denne side vil forkaste dine uskrevne data. Denne handling kan ikke fortrydes.",
       "submitButtonLabel": "Bliv på denne side",
       "cancelButtonLabel": "Forkast og forlad denne side",
-      "alertTitle": "Du har uskrevne ændringer"
+      "alertTitle": "Du har uskrevne ændringer",
+      "saveAndContinueButtonLabel": "Gem og fortsæt"
     },
     "actionBlock": {
       "cancel": "Annuller",

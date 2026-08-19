@@ -4,7 +4,8 @@
       "alertMessage": "Opustenie tejto stránky spôsobí stratu vašich neuložených údajov. Túto akciu nie je možné vrátiť späť.",
       "submitButtonLabel": "Zostať na tejto stránke",
       "cancelButtonLabel": "Zahoď a opusti stránku",
-      "alertTitle": "Máte neuložené zmeny"
+      "alertTitle": "Máte neuložené zmeny",
+      "saveAndContinueButtonLabel": "Uložiť a pokračovať"
     },
     "actionBlock": {
       "cancel": "Zrušiť",

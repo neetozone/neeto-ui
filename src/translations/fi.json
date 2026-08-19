@@ -4,7 +4,8 @@
       "alertMessage": "Sivun jättäminen hylkää tallentamattomat tietosi. Tätä toimintoa ei voi peruuttaa.",
       "submitButtonLabel": "Pysy tällä sivulla",
       "cancelButtonLabel": "Hylkää ja poistu tältä sivulta",
-      "alertTitle": "Sinulla on tallentamattomia muutoksia"
+      "alertTitle": "Sinulla on tallentamattomia muutoksia",
+      "saveAndContinueButtonLabel": "Tallenna ja jatka"
     },
     "actionBlock": {
       "cancel": "Peruuta",

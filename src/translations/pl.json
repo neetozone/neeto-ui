@@ -4,7 +4,8 @@
       "alertMessage": "Opuszczenie tej strony spowoduje utratę niezapisanych danych. Ta akcja nie może być cofnięta.",
       "submitButtonLabel": "Zostań na tej stronie",
       "alertTitle": "masz niezapisane zmiany",
-      "cancelButtonLabel": "Anuluj i opuść tę stronę"
+      "cancelButtonLabel": "Anuluj i opuść tę stronę",
+      "saveAndContinueButtonLabel": "Zapisz i kontynuuj"
     },
     "actionBlock": {
       "cancel": "Anulować",

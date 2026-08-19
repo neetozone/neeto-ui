@@ -4,7 +4,8 @@
       "alertMessage": "Zapuščanje te strani bo odvzelo vaše neshranjene podatke. Te akcije ni mogoče razveljaviti.",
       "submitButtonLabel": "Ostani na tej strani",
       "cancelButtonLabel": "Odvrzi in zapusti to stran",
-      "alertTitle": "Imate neshranjene spremembe"
+      "alertTitle": "Imate neshranjene spremembe",
+      "saveAndContinueButtonLabel": "Shrani in nadaljuj"
     },
     "actionBlock": {
       "cancel": "Prekliči",

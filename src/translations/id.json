@@ -4,7 +4,8 @@
       "alertMessage": " meninggalkan halaman ini akan membuang data yang belum disimpan. Tindakan ini tidak dapat dibatalkan.",
       "submitButtonLabel": "Tetap di halaman ini",
       "cancelButtonLabel": "Buang dan tinggalkan halaman ini",
-      "alertTitle": "Anda memiliki perubahan yang belum disimpan"
+      "alertTitle": "Anda memiliki perubahan yang belum disimpan",
+      "saveAndContinueButtonLabel": "Simpan dan lanjutkan"
     },
     "actionBlock": {
       "cancel": "Batal",

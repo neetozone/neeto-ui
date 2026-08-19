@@ -8,7 +8,8 @@
       "alertMessage": "עזיבת העמוד הזה תגרום לאובדן הנתונים שלא נשמרו. פעולה זו אינה ניתנת לביטול.",
       "submitButtonLabel": "השאר בעמוד הזה",
       "cancelButtonLabel": "מחק ועזוב את העמוד הזה",
-      "alertTitle": "יש לך שינויים שלא נשמרו"
+      "alertTitle": "יש לך שינויים שלא נשמרו",
+      "saveAndContinueButtonLabel": "שמור והמשך"
     },
     "actionBlock": {
       "cancel": "ביטול",

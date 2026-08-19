@@ -4,7 +4,8 @@
       "alertMessage": "このページを離れると、保存されていないデータが破棄されます。この操作は元に戻せません。",
       "submitButtonLabel": "このページに留まる",
       "cancelButtonLabel": "破棄してこのページを離れる",
-      "alertTitle": "保存されていない変更があります"
+      "alertTitle": "保存されていない変更があります",
+      "saveAndContinueButtonLabel": "保存して続行"
     },
     "actionBlock": {
       "cancel": "キャンセル",
