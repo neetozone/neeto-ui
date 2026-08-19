@@ -7,6 +7,7 @@
     "blockNavigation": {
       "alertMessage": "Leaving this page will discard your unsaved data. This action cannot be undone.",
       "submitButtonLabel": "Stay on this page",
+      "saveAndContinueButtonLabel": "Save and continue",
       "cancelButtonLabel": "Discard and leave this page",
       "alertTitle": "You have unsaved changes"
     },
