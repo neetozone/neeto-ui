@@ -4,7 +4,8 @@
       "alertMessage": "Napustite li ovu stranicu, izgubit ćete nespremljene podatke. Ova radnja se ne može poništiti.",
       "submitButtonLabel": "Ostani na ovoj stranici",
       "cancelButtonLabel": "Odustani i napusti ovu stranicu",
-      "alertTitle": "Imate nespremljene promjene"
+      "alertTitle": "Imate nespremljene promjene",
+      "saveAndContinueButtonLabel": "Spremi i nastavi"
     },
     "actionBlock": {
       "cancel": "Odustani",

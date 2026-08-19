@@ -4,7 +4,8 @@
       "alertMessage": "Ang pag-alis sa pahinang ito ay magwawalang-bisa sa iyong hindi nai-save na data. Ang aksyong ito ay hindi maibabalik.",
       "submitButtonLabel": "Manatili sa pahinang ito",
       "cancelButtonLabel": "I-discard at umalis sa pahinang ito",
-      "alertTitle": "Mayroon kang mga hindi nai-save na pagbabago"
+      "alertTitle": "Mayroon kang mga hindi nai-save na pagbabago",
+      "saveAndContinueButtonLabel": "I-save at magpatuloy"
     },
     "actionBlock": {
       "cancel": "Kanselahin",

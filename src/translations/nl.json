@@ -4,7 +4,8 @@
       "alertMessage": "Het verlaten van deze pagina gaat jouw niet-opgeslagen gegevens verliezen. Deze actie kan niet ongedaan worden gemaakt.",
       "submitButtonLabel": "Blijf op deze pagina",
       "alertTitle": "U heeft niet-opgeslagen wijzigingen",
-      "cancelButtonLabel": "Verwerp en verlaat deze pagina"
+      "cancelButtonLabel": "Verwerp en verlaat deze pagina",
+      "saveAndContinueButtonLabel": "Opslaan en doorgaan"
     },
     "actionBlock": {
       "cancel": "Annuleren",

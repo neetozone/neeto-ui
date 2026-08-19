@@ -4,7 +4,8 @@
       "alertMessage": "Sortir d'aquesta pàgina descartarà les teves dades no desades. Aquesta acció no es pot desfer.",
       "submitButtonLabel": "Romandre a aquesta pàgina",
       "cancelButtonLabel": "Descarteu i sortiu d'aquesta pàgina",
-      "alertTitle": "Tens canvis no desats"
+      "alertTitle": "Tens canvis no desats",
+      "saveAndContinueButtonLabel": "Desa i continuar"
     },
     "actionBlock": {
       "cancel": "Cancel·la",

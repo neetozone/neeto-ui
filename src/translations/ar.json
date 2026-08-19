@@ -4,7 +4,8 @@
       "alertMessage": "مغادرة هذه الصفحة سيتسبب في فقدان البيانات غير المحفوظة. لا يمكن التراجع عن هذا الإجراء.",
       "submitButtonLabel": "البقاء في هذه الصفحة",
       "cancelButtonLabel": "التخلص وترك هذه الصفحة",
-      "alertTitle": "لديك تغييرات غير محفوظة"
+      "alertTitle": "لديك تغييرات غير محفوظة",
+      "saveAndContinueButtonLabel": "احفظ واستمر"
     },
     "actionBlock": {
       "cancel": "إلغاء",

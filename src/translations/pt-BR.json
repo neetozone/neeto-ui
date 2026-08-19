@@ -4,7 +4,8 @@
       "alertMessage": "Sair desta página irá descartar seus dados não salvos. Esta ação não pode ser desfeita.",
       "submitButtonLabel": "Ficar nesta página",
       "cancelButtonLabel": "Descartar e sair desta página",
-      "alertTitle": "Você tem alterações não salvas"
+      "alertTitle": "Você tem alterações não salvas",
+      "saveAndContinueButtonLabel": "Salvar e continuar"
     },
     "actionBlock": {
       "cancel": "Cancelar",

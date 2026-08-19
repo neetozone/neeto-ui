@@ -4,7 +4,8 @@
       "alertMessage": "Das Verlassen dieser Seite wird Ihre nicht gespeicherten Daten verwerfen. Diese Aktion kann nicht rückgängig gemacht werden.",
       "submitButtonLabel": "Auf dieser Seite bleiben",
       "alertTitle": "Du hast nicht gespeicherte Änderungen",
-      "cancelButtonLabel": "Verwerfen und diese Seite verlassen"
+      "cancelButtonLabel": "Verwerfen und diese Seite verlassen",
+      "saveAndContinueButtonLabel": "Speichern und fortfahren"
     },
     "actionBlock": {
       "cancel": "Stornieren",

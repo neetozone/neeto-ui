@@ -4,7 +4,8 @@
       "alertMessage": "Quitter cette page entraînera la perte de vos données non enregistrées. Cette action ne peut pas être annulée.",
       "submitButtonLabel": "Rester sur cette page",
       "alertTitle": "Vous avez des changements non enregistrés",
-      "cancelButtonLabel": "Annuler et quitter cette page"
+      "cancelButtonLabel": "Annuler et quitter cette page",
+      "saveAndContinueButtonLabel": "Sauvegarder et continuer"
     },
     "actionBlock": {
       "cancel": "Annuler",

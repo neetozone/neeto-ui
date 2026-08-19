@@ -4,7 +4,8 @@
       "alertMessage": "离开此页面将会丢失您未保存的数据。此操作无法撤销。",
       "submitButtonLabel": "留在此页面",
       "cancelButtonLabel": "丢弃并离开此页面",
-      "alertTitle": "您有未保存的更改"
+      "alertTitle": "您有未保存的更改",
+      "saveAndContinueButtonLabel": "保存并继续"
     },
     "actionBlock": {
       "cancel": "取消",

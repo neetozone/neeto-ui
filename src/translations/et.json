@@ -4,7 +4,8 @@
       "alertMessage": "Leavimine sellest lehelt loob teie salvestamata andmed. See tegevus ei ole tagasi pööratav.",
       "submitButtonLabel": "Püsi selles lehes",
       "cancelButtonLabel": "Loobu ja lahku sellest lehelt",
-      "alertTitle": "Teil on salvestamata muudatused"
+      "alertTitle": "Teil on salvestamata muudatused",
+      "saveAndContinueButtonLabel": "Salvesta ja jätka"
     },
     "actionBlock": {
       "cancel": "Tühista",

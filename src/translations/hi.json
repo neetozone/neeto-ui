@@ -4,7 +4,8 @@
       "alertMessage": "इस पृष्ठ को छोड़ने से आपके अप्रकाशित डेटा का नुकसान होगा। यह क्रिया पूर्ववत नहीं की जा सकती।",
       "submitButtonLabel": "इस पृष्ठ पर रहें",
       "cancelButtonLabel": "छोड़ें और डेटा मिटाएं",
-      "alertTitle": "आपके पास अप्रकाशित परिवर्तन हैं"
+      "alertTitle": "आपके पास अप्रकाशित परिवर्तन हैं",
+      "saveAndContinueButtonLabel": "सहेजें और जारी रखें"
     },
     "actionBlock": {
       "cancel": "रद्द करें",

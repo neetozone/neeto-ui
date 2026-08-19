@@ -4,7 +4,8 @@
       "alertMessage": "Напускането на тази страница ще изтрие несъхранените ви данни. Това действие не може да бъде отменено.",
       "submitButtonLabel": "Останете на тази страница",
       "cancelButtonLabel": "ИзDiscard и напуснете тази страница",
-      "alertTitle": "Имате несъхранени промени"
+      "alertTitle": "Имате несъхранени промени",
+      "saveAndContinueButtonLabel": "Запази и продължи"
     },
     "actionBlock": {
       "cancel": "Отказ",
