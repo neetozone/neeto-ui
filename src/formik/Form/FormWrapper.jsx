@@ -47,12 +47,15 @@ const FormWrapper = forwardRef(
             setTouched({ ...errors, ...status });
             scrollToErrorField && scrollToError(formRef, errors, status);
           } else {
-            submitForm();
+            // Awaited so a rejected submission (onSubmit returning a failed
+            // save promise) is caught below instead of surfacing as an
+            // unhandled rejection.
+            await submitForm();
           }
         } catch (error) {
           // eslint-disable-next-line no-console
           console.error(
-            "An unhandled error was caught from validateForm()",
+            "An unhandled error was caught while validating or submitting the form",
             error
           );
         }
