@@ -1,4 +1,4 @@
-checkout
+checkout || true
 git fetch --unshallow 2> /dev/null
 git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 git fetch origin main
