@@ -112,8 +112,21 @@ describe("formik/BlockNavigation", () => {
     ).toBeInTheDocument();
 
     expect(
+      screen.getByRole("button", { name: "Save and continue" })
+    ).toBeInTheDocument();
+  });
+
+  it("should display the `Stay on this page` button when saveAndContinue is disabled", async () => {
+    render(<TestBlockNavigation isDirty saveAndContinue={false} />);
+
+    await userEvent.click(screen.getByRole("link"));
+    expect(
       screen.getByRole("button", { name: "Stay on this page" })
     ).toBeInTheDocument();
+
+    expect(
+      screen.queryByRole("button", { name: "Save and continue" })
+    ).not.toBeInTheDocument();
   });
 
   it("should close the modal and return to previous state on clicking the close button", async () => {
@@ -157,7 +170,7 @@ describe("formik/BlockNavigation", () => {
   });
 
   it("should stay on the page and retain the changes in the form if the `Stay on this page` button is clicked", async () => {
-    render(<TestBlockNavigation isDirty />);
+    render(<TestBlockNavigation isDirty saveAndContinue={false} />);
 
     const firstNameInput = screen.getByPlaceholderText("First name");
     await userEvent.type(
