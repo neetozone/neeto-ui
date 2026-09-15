@@ -226,6 +226,33 @@ describe("formik/BlockNavigation", () => {
       expect(mockSubmit).toHaveBeenCalledTimes(1);
     });
 
+    it("should show a loading state on the primary button while the save is pending", async () => {
+      let resolveSubmit;
+      mockSubmit.mockImplementationOnce(
+        () => new Promise(resolve => (resolveSubmit = resolve))
+      );
+      render(<TestBlockNavigation saveAndContinue />);
+
+      const firstNameInput = screen.getByPlaceholderText("First name");
+      await userEvent.type(firstNameInput, "Sam");
+      await userEvent.click(screen.getByRole("link"));
+
+      const submitButton = screen.getByRole("button", {
+        name: "Save and continue",
+      });
+      await userEvent.click(submitButton);
+
+      expect(submitButton).toHaveClass("neeto-ui-btn--loading");
+      expect(
+        screen.getByRole("button", { name: "Discard and leave this page" })
+      ).toBeDisabled();
+
+      resolveSubmit();
+      await waitFor(() =>
+        expect(screen.getByText(/Home page/i)).toBeInTheDocument()
+      );
+    });
+
     it("should stay on the page with the block still active when the save fails", async () => {
       mockSubmit.mockRejectedValueOnce(new Error("save failed"));
       render(<TestBlockNavigation saveAndContinue />);
