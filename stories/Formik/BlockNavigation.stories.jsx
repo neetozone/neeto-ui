@@ -17,10 +17,12 @@ users to the presence of pending modifications and giving them the option to
 save or discard those changes before navigating away from the current page or
 route.
 
-Pass \`saveAndContinue\` to replace the "Stay on this page" button with
-"Save and continue", which submits the surrounding Formik form and resumes the
-blocked navigation once the save settles. Return the save request's promise
-from \`onSubmit\` so the navigation waits for (and a failure cancels) the save.
+By default (\`saveAndContinue\`), the primary button is "Save and continue",
+which submits the surrounding Formik form and resumes the blocked navigation
+once the save settles. Return the save request's promise from \`onSubmit\` so
+the navigation waits for (and a failure cancels) the save. Pass
+\`saveAndContinue={false}\` to restore the "Stay on this page" button, which
+keeps the user on the page without submitting.
 `;
 
 const metadata = {
@@ -77,7 +79,7 @@ const FormikStory = args => (
 );
 
 FormikStory.storyName = "BlockNavigation";
-FormikStory.args = { saveAndContinue: false };
+FormikStory.args = { saveAndContinue: true };
 
 export { FormikStory };
 

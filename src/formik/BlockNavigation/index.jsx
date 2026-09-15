@@ -11,7 +11,7 @@ import Alert from "./Alert";
 
 const BlockNavigation = ({
   isDirty = false,
-  saveAndContinue = false,
+  saveAndContinue = true,
   ...otherProps
 }) => {
   const [isSaving, setIsSaving] = useState(false);

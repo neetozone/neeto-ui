@@ -112,8 +112,21 @@ describe("formik/BlockNavigation", () => {
     ).toBeInTheDocument();
 
     expect(
+      screen.getByRole("button", { name: "Save and continue" })
+    ).toBeInTheDocument();
+  });
+
+  it("should display the `Stay on this page` button when saveAndContinue is disabled", async () => {
+    render(<TestBlockNavigation isDirty saveAndContinue={false} />);
+
+    await userEvent.click(screen.getByRole("link"));
+    expect(
       screen.getByRole("button", { name: "Stay on this page" })
     ).toBeInTheDocument();
+
+    expect(
+      screen.queryByRole("button", { name: "Save and continue" })
+    ).not.toBeInTheDocument();
   });
 
   it("should close the modal and return to previous state on clicking the close button", async () => {
@@ -157,7 +170,7 @@ describe("formik/BlockNavigation", () => {
   });
 
   it("should stay on the page and retain the changes in the form if the `Stay on this page` button is clicked", async () => {
-    render(<TestBlockNavigation isDirty />);
+    render(<TestBlockNavigation isDirty saveAndContinue={false} />);
 
     const firstNameInput = screen.getByPlaceholderText("First name");
     await userEvent.type(
@@ -211,6 +224,33 @@ describe("formik/BlockNavigation", () => {
         expect(screen.getByText(/Home page/i)).toBeInTheDocument()
       );
       expect(mockSubmit).toHaveBeenCalledTimes(1);
+    });
+
+    it("should show a loading state on the primary button while the save is pending", async () => {
+      let resolveSubmit;
+      mockSubmit.mockImplementationOnce(
+        () => new Promise(resolve => (resolveSubmit = resolve))
+      );
+      render(<TestBlockNavigation saveAndContinue />);
+
+      const firstNameInput = screen.getByPlaceholderText("First name");
+      await userEvent.type(firstNameInput, "Sam");
+      await userEvent.click(screen.getByRole("link"));
+
+      const submitButton = screen.getByRole("button", {
+        name: "Save and continue",
+      });
+      await userEvent.click(submitButton);
+
+      expect(submitButton).toHaveClass("neeto-ui-btn--loading");
+      expect(
+        screen.getByRole("button", { name: "Discard and leave this page" })
+      ).toBeDisabled();
+
+      resolveSubmit();
+      await waitFor(() =>
+        expect(screen.getByText(/Home page/i)).toBeInTheDocument()
+      );
     });
 
     it("should stay on the page with the block still active when the save fails", async () => {
