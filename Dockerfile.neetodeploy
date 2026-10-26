@@ -1,0 +1,99 @@
+# syntax=docker/dockerfile:1.7
+#
+# Dockerfile.neetodeploy for Node apps on NeetoDeploy's DockerFileBuild
+# (neetozone/neeto-deploy-web#8734). The Rails apps' Dockerfile.neetodeploy
+# is a separate file; this one is shared by the Node-only apps.
+#
+# Builds on NeetoDeploy's ruby-build image, which has Node and yarn, and runs
+# on node-runtime. The platform passes RUBY_VERSION and NODE_VERSION (from
+# .node-version); the app's Procfile says how to start it.
+#
+# The build sees no secrets and no app env vars. Anything the build bakes in,
+# such as NEXT_PUBLIC_* or REACT_APP_* values, must not come from the app's
+# runtime env.
+
+ARG BASE=348674388966.dkr.ecr.us-east-1.amazonaws.com/neeto-deploy
+ARG RUBY_VERSION
+ARG NODE_VERSION
+
+# Only the files that decide which packages get installed, so a change to the
+# app's code alone leaves the install layer below untouched.
+FROM ${BASE}/ruby-build:${RUBY_VERSION}-node${NODE_VERSION} AS deps
+COPY . /src
+RUN mkdir /deps && cd /src \
+  && for f in package.json yarn.lock .yarnrc .yarnrc.yml .yarn .pnp.cjs .pnp.loader.mjs .npmrc .node-version .nvmrc; do \
+       if [ -e "$f" ]; then cp -a --parents "$f" /deps/; fi; done
+
+FROM ${BASE}/ruby-build:${RUBY_VERSION}-node${NODE_VERSION} AS build
+WORKDIR /workspace
+COPY --from=deps /deps/ /workspace/
+# HUSKY=0: git hooks need a .git directory, which a build doesn't have.
+# yarn comes through corepack, so an app gets the yarn its package.json asks
+# for ("packageManager", e.g. yarn@4.9.2), and yarn 1 when it asks for none.
+ENV YARN_CACHE_FOLDER=/var/cache/neeto-yarn \
+    HUSKY=0 \
+    COREPACK_HOME=/usr/local/share/corepack \
+    COREPACK_ENABLE_DOWNLOAD_PROMPT=0
+RUN mkdir -p "$COREPACK_HOME" && corepack enable yarn \
+  && if node -e 'process.exit(require("./package.json")?.packageManager ? 0 : 1)'; then corepack install; fi \
+  && chmod -R a+rX "$COREPACK_HOME"
+# The in-cluster npm cache, passed by the platform (neetozone/neeto-deploy-web#8693).
+ARG NPM_MIRROR_URL=""
+# The install, written once so it can run in either place below. Yarn 2 and
+# later keep no registry URLs in yarn.lock, so they take the npm cache through
+# YARN_NPM_REGISTRY_SERVER, which overrides .yarnrc.yml.
+COPY <<'EOF' /usr/local/bin/neeto-yarn-install
+#!/bin/sh
+set -e
+if [ "$(yarn --version | cut -d. -f1)" -ge 2 ]; then
+  export YARN_ENABLE_GLOBAL_CACHE=true YARN_GLOBAL_FOLDER=/var/cache/neeto-yarn/berry
+  if [ -n "$NPM_MIRROR_URL" ]; then
+    export YARN_NPM_REGISTRY_SERVER="${NPM_MIRROR_URL%/}"
+    # The in-cluster cache is plain http, which Yarn 2+ refuses unless its
+    # host is whitelisted.
+    mirror_host=${NPM_MIRROR_URL#*://}; mirror_host=${mirror_host%%[:/]*}
+    export YARN_UNSAFE_HTTP_WHITELIST="$mirror_host"
+  fi
+  yarn install --immutable
+else
+  # Yarn 1 downloads from the exact URLs in yarn.lock, so the resolved URLs are
+  # pointed at the cache for the install only. The app's own file is put back
+  # afterwards, whether or not the install succeeds.
+  if [ -n "$NPM_MIRROR_URL" ] && [ -f yarn.lock ]; then
+    cp yarn.lock /tmp/yarn.lock.original
+    trap 'mv /tmp/yarn.lock.original yarn.lock' EXIT
+    sed -i -e "s#resolved \"https://registry.yarnpkg.com/#resolved \"${NPM_MIRROR_URL%/}/#" \
+           -e "s#resolved \"https://registry.npmjs.org/#resolved \"${NPM_MIRROR_URL%/}/#" yarn.lock
+  fi
+  yarn install --frozen-lockfile --production=false --network-timeout 600000
+fi
+EOF
+# Usually the install runs here, on the manifests alone, so it stays cached
+# while only code changes. An app whose package.json has an install hook
+# (preinstall, install, postinstall, or a prepare that does more than set up
+# husky; notutc's postinstall runs its build) needs its source for it, so it
+# installs after `COPY . .` instead. husky is skipped by HUSKY=0.
+RUN chmod +x /usr/local/bin/neeto-yarn-install \
+  && if node -e 'const s = require("./package.json")?.scripts ?? {}; const husky = /^\s*husky(\s+install)?\s*$/.test(s.prepare ?? ""); process.exit(["preinstall", "install", "postinstall"].some((k) => s[k]) || (s.prepare && !husky) ? 0 : 1)'; then \
+       touch /tmp/neeto-install-after-source; fi
+RUN --mount=type=cache,id=neeto-yarn,target=/var/cache/neeto-yarn,sharing=shared \
+    if [ ! -f /tmp/neeto-install-after-source ]; then neeto-yarn-install; fi
+
+COPY . .
+RUN --mount=type=cache,id=neeto-yarn,target=/var/cache/neeto-yarn,sharing=shared \
+    if [ -f /tmp/neeto-install-after-source ]; then neeto-yarn-install; fi
+# The app's own build script, if it has one. Node reads package.json, so the
+# check doesn't depend on how the file is formatted.
+RUN if node -e 'process.exit(require("./package.json")?.scripts?.build ? 0 : 1)'; then \
+      NODE_ENV=production yarn build; fi
+
+FROM ${BASE}/node-runtime:${NODE_VERSION} AS runtime
+# Set here as well as in node-runtime, so this file doesn't depend on which
+# version of the image it gets.
+ENV COREPACK_HOME=/usr/local/share/corepack \
+    COREPACK_ENABLE_DOWNLOAD_PROMPT=0 \
+    COREPACK_ENABLE_NETWORK=0
+# The app's own yarn, so `yarn ...` in the Procfile runs it without a download.
+COPY --from=build /usr/local/share/corepack /usr/local/share/corepack
+COPY --from=build --chown=1001:1001 /workspace /workspace
+USER 1001:1001
