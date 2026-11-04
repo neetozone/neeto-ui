@@ -24,8 +24,8 @@ paths:
 global_job_config:
   setup:
     - checkout
-    - neetoci-version node 22.23.4
     - cache restore
+    - neetoci-version node 22.23.4
     - corepack enable
     - yarn set version 4.9.2
     - yarn install
