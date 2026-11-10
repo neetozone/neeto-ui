@@ -1,5 +1,7 @@
 version: v1.0
 
+reuse_landed_pull_request_run: true
+
 plan: standard-2
 
 paths:
