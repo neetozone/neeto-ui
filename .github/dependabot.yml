@@ -1,0 +1,21 @@
+# Version updates are off (open-pull-requests-limit: 0), so only security updates open PRs.
+# Security fixes found together arrive as one grouped PR, major bumps included.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directories:
+      - "/"
+    # Dependabot requires a schedule. It has no effect while open-pull-requests-limit is 0,
+    # and security updates ignore it.
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 0
+    groups:
+      security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
+        update-types:
+          - major
+          - minor
+          - patch
