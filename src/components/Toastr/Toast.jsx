@@ -5,7 +5,10 @@ import Linkify from "linkify-react";
 import { noop } from "utils";
 
 const Toast = ({ type, message, buttonLabel = "", onClick = noop }) => (
-  <div data-testid={`toastr-${type}-container`}>
+  <div
+    className="neeto-ui-toastr__content"
+    data-testid={`toastr-${type}-container`}
+  >
     <Linkify
       options={{
         defaultProtocol: "https",

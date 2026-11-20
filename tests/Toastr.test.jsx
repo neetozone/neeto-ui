@@ -1,6 +1,6 @@
 import React, { act } from "react";
 
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import i18next from "i18next";
 import { ToastContainer } from "react-toastify";
@@ -437,5 +437,61 @@ describe("Toastr", () => {
       expect(toastrElement).toBeInTheDocument();
       expect(toastrElement).toHaveClass("neeto-ui-toastr");
     });
+  });
+
+  it("should show the same Toastr again after the ToastContainer remounts", async () => {
+    const { unmount } = render(<ToastContainer />);
+    act(() => {
+      Toastr.success("This is a remounted toastr.");
+    });
+
+    expect(
+      await screen.findByText("This is a remounted toastr.")
+    ).toBeInTheDocument();
+    unmount();
+
+    render(<ToastContainer />);
+    act(() => {
+      Toastr.success("This is a remounted toastr.");
+    });
+
+    expect(
+      await screen.findByText("This is a remounted toastr.")
+    ).toBeInTheDocument();
+  });
+
+  it("should show only one of two identical Toastrs fired in the same tick", async () => {
+    render(<ToastContainer />);
+    act(() => {
+      Toastr.info("This is a same-tick toastr.");
+      Toastr.info("This is a same-tick toastr.");
+    });
+
+    expect(
+      await screen.findAllByText("This is a same-tick toastr.")
+    ).toHaveLength(1);
+  });
+
+  it("should run a custom onOpen and still show the Toastr again after the ToastContainer remounts", async () => {
+    const onOpen = jest.fn();
+    const { unmount } = render(<ToastContainer />);
+    act(() => {
+      Toastr.success("This is a custom onOpen toastr.", { onOpen });
+    });
+
+    expect(
+      await screen.findByText("This is a custom onOpen toastr.")
+    ).toBeInTheDocument();
+    await waitFor(() => expect(onOpen).toHaveBeenCalled());
+    unmount();
+
+    render(<ToastContainer />);
+    act(() => {
+      Toastr.success("This is a custom onOpen toastr.", { onOpen });
+    });
+
+    expect(
+      await screen.findByText("This is a custom onOpen toastr.")
+    ).toBeInTheDocument();
   });
 });
