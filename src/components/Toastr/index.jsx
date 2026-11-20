@@ -3,9 +3,10 @@ import React from "react";
 import classnames from "classnames";
 import { t } from "i18next";
 import { CheckCircle, Warning, Info, Close } from "neetoicons";
+import { equals } from "ramda";
 import { toast, Slide } from "react-toastify";
 
-import { UniqueArray, getContentDir } from "utils";
+import { getContentDir } from "utils";
 
 import Toast from "./Toast";
 
@@ -43,7 +44,36 @@ const TOAST_ICON = {
   info: <Info className="neeto-ui-text-white" data-testid="info-toast-icon" />,
 };
 
-const toastrList = new UniqueArray();
+// The toasts on screen, so that the same toast is not shown twice. A toast
+// leaves the list when it closes. react-toastify 11 does not call onClose when
+// the ToastContainer unmounts, so a toast that opened and is no longer active
+// counts as closed too. A toast that has not opened yet still blocks a
+// duplicate, because react-toastify 9 registers toasts asynchronously.
+let shownToastrs = [];
+
+const isClosed = ({ isOpened, toastId }) =>
+  isOpened && !toast.isActive(toastId);
+
+const addShownToastr = key => {
+  shownToastrs = shownToastrs.filter(
+    shown => !(equals(shown.key, key) && isClosed(shown))
+  );
+  if (shownToastrs.some(shown => equals(shown.key, key))) return null;
+
+  const shown = { key, isOpened: false, toastId: null };
+  shownToastrs.push(shown);
+
+  return shown;
+};
+
+const removeShownToastr = shown => {
+  shownToastrs = shownToastrs.filter(item => item !== shown);
+};
+
+// react-toastify 11 renders only a function, an element or false as the icon;
+// it replaces anything else, such as an emoji string, with the default icon.
+const toIconProp = icon =>
+  typeof icon === "string" || typeof icon === "number" ? () => icon : icon;
 
 const parseToastrConfig = config => {
   if (typeof config[0] === "object") {
@@ -81,7 +111,9 @@ const withUniqueCheck =
 
     let toastId = null;
 
-    if (toastrList.add({ type, message, buttonLabel })) {
+    const shown = addShownToastr({ type, message, buttonLabel });
+
+    if (shown) {
       const config = {
         ...TOAST_CONFIG,
         // The false value of the icon was ignored in the implementations before v9.0.2.
@@ -90,16 +122,20 @@ const withUniqueCheck =
         // which solved the problem.
         // PR which addressed this issue: https://github.com/fkhadra/react-toastify/pull/758
         icon: showIcon ? TOAST_ICON[type] : () => null,
-        onClose: () => toastrList.remove({ type, message, buttonLabel }),
-        position:
-          getContentDir() === "rtl"
-            ? toast.POSITION.BOTTOM_RIGHT
-            : toast.POSITION.BOTTOM_LEFT,
+        onOpen: () => {
+          shown.isOpened = true;
+        },
+        onClose: () => removeShownToastr(shown),
+        // react-toastify 10 removed toast.POSITION; the plain strings work in
+        // every version.
+        position: getContentDir() === "rtl" ? "bottom-right" : "bottom-left",
         ...customConfig,
         className: classnames(TOAST_CONFIG.className, customConfig?.className),
       };
+      config.icon = toIconProp(config.icon);
 
       toastId = toastFunc({ message, buttonLabel, onClick, config });
+      shown.toastId = toastId;
     }
 
     return toastId;

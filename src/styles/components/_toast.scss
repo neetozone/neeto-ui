@@ -63,7 +63,17 @@ body {
       inset-inline-start: 12px;
     }
 
+    // react-toastify 11 lays toasts out in a flex column, where vertical
+    // margins add up instead of collapsing as in 8 and 9. Dropping the top
+    // margin of every toast after the first keeps the gap the same in both.
+    .Toastify__toast + .Toastify__toast {
+      margin-block-start: 0;
+    }
+
     .Toastify__toast, .neeto-ui-toastr{
+      // react-toastify 11 gives each toast a fixed width; keep sizing to the
+      // content within the container's min and max width, as in 8 and 9.
+      width: auto;
       min-height: var(--neeto-ui-toastr-min-height);
       padding: var(--neeto-ui-toastr-padding-y) var(--neeto-ui-toastr-padding-x);
       margin: var(--neeto-ui-toastr-margin-y) var(--neeto-ui-toastr-margin-x);
@@ -89,6 +99,9 @@ body {
         }
       }
 
+      // react-toastify 8 and 9 wrap the content in .Toastify__toast-body.
+      // 11 renders it straight inside .Toastify__toast, next to the icon, so
+      // the content rules below also target .neeto-ui-toastr__content.
       .Toastify__toast-body {
         margin: 0;
         padding: 0;
@@ -101,18 +114,34 @@ body {
           justify-content: space-between;
           align-items: center;
           gap: var(--neeto-ui-toastr-gap);
-
-          p {
-            font-size: var(--neeto-ui-toastr-font-size);
-            font-weight: var(--neeto-ui-toastr-font-weight);
-            word-break: break-word;
-          }
         }
+      }
 
-        .toastr-message-container__btn-wrapper {
-          display: flex;
-          align-items: center;
+      .Toastify__toast-icon + .neeto-ui-toastr__content {
+        margin-inline-start: var(--neeto-ui-toastr-gap);
+      }
+
+      .neeto-ui-toastr__content {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--neeto-ui-toastr-gap);
+        color: var(--neeto-ui-toastr-color);
+
+        p {
+          font-size: var(--neeto-ui-toastr-font-size);
+          font-weight: var(--neeto-ui-toastr-font-weight);
+          word-break: break-word;
         }
+      }
+
+      .toastr-message-container__btn-wrapper {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        white-space: nowrap;
       }
 
       .neeto-ui-toastr__close-button {

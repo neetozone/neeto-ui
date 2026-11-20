@@ -438,4 +438,25 @@ describe("Toastr", () => {
       expect(toastrElement).toHaveClass("neeto-ui-toastr");
     });
   });
+
+  it("should show the same Toastr again after the ToastContainer remounts", async () => {
+    const { unmount } = render(<ToastContainer />);
+    act(() => {
+      Toastr.success("This is a remounted toastr.");
+    });
+
+    expect(
+      await screen.findByText("This is a remounted toastr.")
+    ).toBeInTheDocument();
+    unmount();
+
+    render(<ToastContainer />);
+    act(() => {
+      Toastr.success("This is a remounted toastr.");
+    });
+
+    expect(
+      await screen.findByText("This is a remounted toastr.")
+    ).toBeInTheDocument();
+  });
 });
