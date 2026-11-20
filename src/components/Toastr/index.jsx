@@ -55,9 +55,7 @@ const isClosed = ({ isOpened, toastId }) =>
   isOpened && !toast.isActive(toastId);
 
 const addShownToastr = key => {
-  shownToastrs = shownToastrs.filter(
-    shown => !(equals(shown.key, key) && isClosed(shown))
-  );
+  shownToastrs = shownToastrs.filter(shown => !isClosed(shown));
   if (shownToastrs.some(shown => equals(shown.key, key))) return null;
 
   const shown = { key, isOpened: false, toastId: null };
@@ -122,15 +120,21 @@ const withUniqueCheck =
         // which solved the problem.
         // PR which addressed this issue: https://github.com/fkhadra/react-toastify/pull/758
         icon: showIcon ? TOAST_ICON[type] : () => null,
-        onOpen: () => {
-          shown.isOpened = true;
-        },
-        onClose: () => removeShownToastr(shown),
         // react-toastify 10 removed toast.POSITION; the plain strings work in
         // every version.
         position: getContentDir() === "rtl" ? "bottom-right" : "bottom-left",
         ...customConfig,
         className: classnames(TOAST_CONFIG.className, customConfig?.className),
+        // The duplicate check depends on these, so a caller's own callbacks
+        // run after them instead of replacing them.
+        onOpen: (...args) => {
+          shown.isOpened = true;
+          customConfig.onOpen?.(...args);
+        },
+        onClose: (...args) => {
+          removeShownToastr(shown);
+          customConfig.onClose?.(...args);
+        },
       };
       config.icon = toIconProp(config.icon);
 
