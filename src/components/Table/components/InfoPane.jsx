@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Pane, Typography, Button, Textarea } from "components";
 import { modifyBy } from "neetocist";
 import { useTableStore } from "src/stores/tableStore";
-import { mergeLeft, pick } from "ramda";
+import { mergeLeft, prop } from "ramda";
 import { getLocale } from "utils";
 import { useTranslation } from "react-i18next";
-
-const pickStore = pick(["infoPaneState", "setInfoPaneState"]);
 
 const TableInfoPane = ({ onColumnUpdate }) => {
   const { t, i18n } = useTranslation();
   const [description, setDescription] = useState("");
-  const { infoPaneState, setInfoPaneState } = useTableStore(pickStore);
+  // One selector per value: a selector that builds a new object makes
+  // zustand 5 re-render forever, and useShallow needs zustand 4.4+.
+  const infoPaneState = useTableStore(prop("infoPaneState"));
+  const setInfoPaneState = useTableStore(prop("setInfoPaneState"));
   const { isOpen, column } = infoPaneState;
 
   const onUpdateColumn = changes => {
