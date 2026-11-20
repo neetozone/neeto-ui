@@ -23,6 +23,14 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.13.4 - 2026-11-20
+
+- Fixed: *Table* re-rendering forever on zustand 5.
+- Fixed: *Toastr* on react-toastify 11: position, string icons, styles, and
+  the duplicate check after the `ToastContainer` remounts.
+- Fixed: a custom `onOpen` or `onClose` passed to *Toastr* no longer breaks its
+  duplicate check.
+
 ## 8.3.10 - 2025-06-23
 
 Adds support to display a tooltip over the options in Select dropdown.
