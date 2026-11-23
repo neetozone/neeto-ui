@@ -23,7 +23,9 @@ bump_package() {
   yarn bundle
   handle_error "yarn bundle"
   yarn version "$VERSION_LABEL"
-  yarn npm publish --access public
+  # The 8.8 line publishes under its own dist-tag so that latest stays on the
+  # newest release from main.
+  yarn npm publish --access public --tag v8-8-patch
   handle_error "yarn npm publish"
 }
 
@@ -31,12 +33,12 @@ raise_pr() {
   git config user.name "Joseph Mathew"
   git config user.email "joseph.mathew@bigbinary.com"
   git config core.hooksPath /dev/null
-  git push origin --delete bump-version
-  git checkout -b bump-version
+  git push origin --delete bump-version-v8.8.x
+  git checkout -b bump-version-v8.8.x
   git add -A
   git commit -m "Bump version"
-  git push --set-upstream origin bump-version
-  gh pr create -B main -H bump-version -t "Bump version" -b "This is an automated PR." -l instant-mergepr -a @me
+  git push --set-upstream origin bump-version-v8.8.x
+  gh pr create -B v8.8.x -H bump-version-v8.8.x -t "Bump version" -b "This is an automated PR." -l instant-mergepr -a @me
 }
 
 install_gh

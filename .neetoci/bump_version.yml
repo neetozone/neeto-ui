@@ -4,7 +4,7 @@ plan: professional-1
 
 triggers:
   - event: branch
-    branch_name: main
+    branch_name: v8.8.x
 
 commands:
   - checkout
