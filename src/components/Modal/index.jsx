@@ -67,6 +67,7 @@ const Modal = ({
         appear={isOpen}
         classNames="neeto-ui-modal"
         in={isOpen}
+        nodeRef={backdropRef}
         timeout={300}
         onEntered={() => setHasTransitionCompleted(true)}
         onExited={() => setHasTransitionCompleted(false)}
@@ -85,7 +86,6 @@ const Modal = ({
           <div
             aria-modal
             key="modal-wrapper"
-            ref={modalWrapper}
             role="dialog"
             className={classnames("neeto-ui-modal__wrapper", {
               "neeto-ui-modal__wrapper--small": size === SIZES.small,
@@ -95,6 +95,9 @@ const Modal = ({
               [className]: className,
             })}
             {...otherProps}
+            // After the spread: on React 19 a `ref` passed to Modal arrives in
+            // otherProps and must not replace the ref useOverlay relies on.
+            ref={modalWrapper}
           >
             {closeButton && (
               <Button
