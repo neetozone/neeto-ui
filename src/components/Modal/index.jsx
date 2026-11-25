@@ -67,6 +67,7 @@ const Modal = ({
         appear={isOpen}
         classNames="neeto-ui-modal"
         in={isOpen}
+        nodeRef={backdropRef}
         timeout={300}
         onEntered={() => setHasTransitionCompleted(true)}
         onExited={() => setHasTransitionCompleted(false)}

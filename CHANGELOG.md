@@ -23,6 +23,11 @@ Each change is prefixed with one of these keywords::
 - *Fixed*: Denotes bug fixes.
 - *Security*: Pertains to actions taken in response to vulnerabilities.
 
+## 8.14.1 - 2026-11-25
+
+- Fixed: *Modal* and *Pane* no longer throw when they open on React 19.
+- Changed: the `react` and `react-dom` peers allow React 19.
+
 ## 8.13.4 - 2026-11-20
 
 - Fixed: *Table* re-rendering forever on zustand 5.
