@@ -110,7 +110,6 @@ const Pane = ({
           <div
             data-testid="pane-wrapper"
             key="pane-wrapper"
-            ref={paneWrapperRef}
             className={classnames("neeto-ui-pane__wrapper", {
               "neeto-ui-pane__wrapper--small": size === SIZES.small,
               "neeto-ui-pane__wrapper--large": size === SIZES.large,
@@ -118,6 +117,9 @@ const Pane = ({
               [className]: className,
             })}
             {...otherProps}
+            // After the spread: on React 19 a `ref` passed to Pane arrives in
+            // otherProps and must not replace the ref useOverlay relies on.
+            ref={paneWrapperRef}
           >
             {closeButton && (
               <Button

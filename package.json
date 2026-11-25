@@ -216,7 +216,7 @@
     "classnames": "2.2.1",
     "dayjs": "1.11.10",
     "formik": "2.2.0",
-    "framer-motion": "11.2.14",
+    "framer-motion": "11.2.14 || ^12.0.0",
     "i18next": "21.7.0",
     "linkify-react": "4.3.2",
     "linkifyjs": "4.3.2",

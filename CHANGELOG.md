@@ -26,7 +26,10 @@ Each change is prefixed with one of these keywords::
 ## 8.14.1 - 2026-11-25
 
 - Fixed: *Modal* and *Pane* no longer throw when they open on React 19.
-- Changed: the `react` and `react-dom` peers allow React 19.
+- Fixed: on React 19, a `ref` passed to *Modal* or *Pane* no longer replaces
+  the ref they use for focus trapping and closing on Escape.
+- Changed: the `react` and `react-dom` peers allow React 19, and the
+  `framer-motion` peer allows 12.
 
 ## 8.13.4 - 2026-11-20
 
