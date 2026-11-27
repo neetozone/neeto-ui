@@ -2368,7 +2368,6 @@ __metadata:
     "@testing-library/user-event": "npm:14.6.1"
     "@tippyjs/react": "npm:4.2.6"
     "@vueless/storybook-dark-mode": "npm:^9.0.6"
-    "@wojtekmaj/react-timerange-picker": "npm:^5.5.0"
     antd: "npm:5.16.0"
     autoprefixer: "npm:10.4.20"
     avvvatars-react: "npm:^0.4.2"
@@ -2417,7 +2416,7 @@ __metadata:
     linkify-react: "npm:4.3.2"
     linkifyjs: "npm:4.3.2"
     lint-staged: "npm:11.0.0"
-    monaco-editor: "npm:^0.50.0"
+    monaco-editor: "npm:^0.52.0"
     monaco-editor-webpack-plugin: "npm:^7.1.0"
     postcss: "npm:8.5.23"
     postcss-import: "npm:^15.0.0"
@@ -2435,11 +2434,10 @@ __metadata:
     react-drag-listview: "npm:^2.0.0"
     react-i18next: "npm:11.16.8"
     react-live: "npm:^4.1.7"
-    react-monaco-editor: "npm:^0.56.0"
+    react-monaco-editor: "npm:^0.58.0"
     react-resizable: "npm:^3.0.4"
     react-router-dom: "npm:5.3.3"
     react-select: "npm:5.6.0"
-    react-time-picker: "npm:^6.5.2"
     react-toastify: "npm:9.0.1"
     rfs: "npm:^10.0.0"
     rollup: "npm:^4.24.0"
@@ -2467,7 +2465,6 @@ __metadata:
     "@bigbinary/neeto-hotkeys": 1.0.4
     "@bigbinary/neeto-icons": 1.20.64
     "@tippyjs/react": 4.2.6
-    "@wojtekmaj/react-timerange-picker": ^5.5.0
     antd: 5.16.0
     avvvatars-react: ^0.4.2
     classnames: 2.2.1
@@ -2486,7 +2483,6 @@ __metadata:
     react-i18next: 11.16.8
     react-resizable: ^3.0.4
     react-router-dom: 5.3.3
-    react-time-picker: ^6.5.2
     react-toastify: 9.0.1
     tippy.js: 6.3.7
     yup: 0.32.11
@@ -5376,34 +5372,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wojtekmaj/date-utils@npm:^1.1.3, @wojtekmaj/date-utils@npm:^1.5.0":
-  version: 1.5.1
-  resolution: "@wojtekmaj/date-utils@npm:1.5.1"
-  checksum: 10c0/7c213cca5ab6b84ef61b9aea2b9fb8a04bf4c9764b28a97ffc4ee46a3e81560532a74d106a6f8aeef4792e1aaa6ea3dfd3c4a639dddbea560eb3f33cd62b8d7d
-  languageName: node
-  linkType: hard
-
-"@wojtekmaj/react-timerange-picker@npm:^5.5.0":
-  version: 5.5.0
-  resolution: "@wojtekmaj/react-timerange-picker@npm:5.5.0"
-  dependencies:
-    clsx: "npm:^2.0.0"
-    make-event-props: "npm:^1.6.0"
-    prop-types: "npm:^15.6.0"
-    react-clock: "npm:^4.5.0"
-    react-fit: "npm:^1.7.0"
-    react-time-picker: "npm:^6.5.0"
-  peerDependencies:
-    "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-  checksum: 10c0/cc114c6c50116114713db854261467325d4130bd2b5882ee44d2ab6bf197fd965f7f6037c67e4fb63ceb0195f9a79371903fdeb9c67a9e88dc16abd94cb2b4de
-  languageName: node
-  linkType: hard
-
 "@xstate/fsm@npm:^1.4.0":
   version: 1.6.5
   resolution: "@xstate/fsm@npm:1.6.5"
@@ -7668,13 +7636,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detect-element-overflow@npm:^1.4.0":
-  version: 1.4.2
-  resolution: "detect-element-overflow@npm:1.4.2"
-  checksum: 10c0/dcc5f6d89c31f6035202cce64b96093338e777752b62c401c672e84908097ef01f833af5864e1c86c6440e4f843658f006d1084fb9090983ea5c438c8ad4a180
-  languageName: node
-  linkType: hard
-
 "detect-newline@npm:^3.1.0":
   version: 3.1.0
   resolution: "detect-newline@npm:3.1.0"
@@ -9251,15 +9212,6 @@ __metadata:
     es-errors: "npm:^1.3.0"
     get-intrinsic: "npm:^1.2.6"
   checksum: 10c0/d6a7d6afca375779a4b307738c9e80dbf7afc0bdbe5948768d54ab9653c865523d8920e670991a925936eb524b7cb6a6361d199a760b21d0ca7620194455aa4b
-  languageName: node
-  linkType: hard
-
-"get-user-locale@npm:^2.2.1":
-  version: 2.3.2
-  resolution: "get-user-locale@npm:2.3.2"
-  dependencies:
-    mem: "npm:^8.0.0"
-  checksum: 10c0/2796b3fc3782b1f4826f31e899642cf72eeb23e296e1cf55280aab5caf7a25f4b906491ee1508a001519d6a410902ccf8fa8edaa895b7aee5dfd422ffe5523b9
   languageName: node
   linkType: hard
 
@@ -11402,13 +11354,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"make-event-props@npm:^1.6.0":
-  version: 1.6.2
-  resolution: "make-event-props@npm:1.6.2"
-  checksum: 10c0/ecf0b742e43a392c07e2267baca2397e750d38cc14ef3cb72ef8bfe4a8c8b0fd99a03a2eeab84a26c2b204f7c231da6af31fa26321fbfd413ded43ba1825e867
-  languageName: node
-  linkType: hard
-
 "make-fetch-happen@npm:^14.0.3":
   version: 14.0.3
   resolution: "make-fetch-happen@npm:14.0.3"
@@ -11434,15 +11379,6 @@ __metadata:
   dependencies:
     tmpl: "npm:1.0.5"
   checksum: 10c0/b0e6e599780ce6bab49cc413eba822f7d1f0dfebd1c103eaa3785c59e43e22c59018323cf9e1708f0ef5329e94a745d163fcbb6bff8e4c6742f9be9e86f3500c
-  languageName: node
-  linkType: hard
-
-"map-age-cleaner@npm:^0.1.3":
-  version: 0.1.3
-  resolution: "map-age-cleaner@npm:0.1.3"
-  dependencies:
-    p-defer: "npm:^1.0.0"
-  checksum: 10c0/7495236c7b0950956c144fd8b4bc6399d4e78072a8840a4232fe1c4faccbb5eb5d842e5c0a56a60afc36d723f315c1c672325ca03c1b328650f7fcc478f385fd
   languageName: node
   linkType: hard
 
@@ -11492,16 +11428,6 @@ __metadata:
   version: 0.3.0
   resolution: "media-typer@npm:0.3.0"
   checksum: 10c0/d160f31246907e79fed398470285f21bafb45a62869dc469b1c8877f3f064f5eabc4bcc122f9479b8b605bc5c76187d7871cf84c4ee3ecd3e487da1993279928
-  languageName: node
-  linkType: hard
-
-"mem@npm:^8.0.0":
-  version: 8.1.1
-  resolution: "mem@npm:8.1.1"
-  dependencies:
-    map-age-cleaner: "npm:^0.1.3"
-    mimic-fn: "npm:^3.1.0"
-  checksum: 10c0/5829c404d024c1accaf76ebacbc7eae9b59e5ce5722d184aa24e8387a8097a499f6aa7e181021003c51eb87b2dcdc9a2270050c58753cce761de206643cba91c
   languageName: node
   linkType: hard
 
@@ -11597,13 +11523,6 @@ __metadata:
   version: 2.1.0
   resolution: "mimic-fn@npm:2.1.0"
   checksum: 10c0/b26f5479d7ec6cc2bce275a08f146cf78f5e7b661b18114e2506dd91ec7ec47e7a25bf4360e5438094db0560bcc868079fb3b1fb3892b833c1ecbf63f80c95a4
-  languageName: node
-  linkType: hard
-
-"mimic-fn@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "mimic-fn@npm:3.1.0"
-  checksum: 10c0/a07cdd8ed6490c2dff5b11f889b245d9556b80f5a653a552a651d17cff5a2d156e632d235106c2369f00cccef4071704589574cf3601bc1b1400a1f620dff067
   languageName: node
   linkType: hard
 
@@ -11776,10 +11695,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"monaco-editor@npm:^0.50.0":
-  version: 0.50.0
-  resolution: "monaco-editor@npm:0.50.0"
-  checksum: 10c0/79189c926c2fc1e3a3b9118e80911599bf18108018fe176c7b47a27b4856b544129f9a59c9a5c321d154d6a30a8d9c231684246e9382f4f18329a548d11cb4d6
+"monaco-editor@npm:^0.52.0":
+  version: 0.52.2
+  resolution: "monaco-editor@npm:0.52.2"
+  checksum: 10c0/5a92da64f1e2ab375c0ce99364137f794d057c97bed10ecc65a08d6e6846804b8ecbd377eacf01e498f7dfbe1b21e8be64f728256681448f0484df90e767b435
   languageName: node
   linkType: hard
 
@@ -12174,13 +12093,6 @@ __metadata:
     object-keys: "npm:^1.1.1"
     safe-push-apply: "npm:^1.0.0"
   checksum: 10c0/6dfeb3455bff92ec3f16a982d4e3e65676345f6902d9f5ded1d8265a6318d0200ce461956d6d1c70053c7fe9f9fe65e552faac03f8140d37ef0fdd108e67013a
-  languageName: node
-  linkType: hard
-
-"p-defer@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "p-defer@npm:1.0.0"
-  checksum: 10c0/ed603c3790e74b061ac2cb07eb6e65802cf58dce0fbee646c113a7b71edb711101329ad38f99e462bd2e343a74f6e9366b496a35f1d766c187084d3109900487
   languageName: node
   linkType: hard
 
@@ -14468,25 +14380,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-clock@npm:^4.5.0":
-  version: 4.6.0
-  resolution: "react-clock@npm:4.6.0"
-  dependencies:
-    "@wojtekmaj/date-utils": "npm:^1.5.0"
-    clsx: "npm:^2.0.0"
-    get-user-locale: "npm:^2.2.1"
-    prop-types: "npm:^15.6.0"
-  peerDependencies:
-    "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-  checksum: 10c0/0b567a6fcec8fefe8ccbbe656307bdd10bea0b75daf446ed36c5fc9972ba4b12f6acce0e9f884f09cc97995bec21d29b6720affe31e4786ded8b966e9c6b1ed5
-  languageName: node
-  linkType: hard
-
 "react-colorful@npm:^5.6.1":
   version: 5.6.1
   resolution: "react-colorful@npm:5.6.1"
@@ -14565,27 +14458,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-fit@npm:^1.7.0":
-  version: 1.7.1
-  resolution: "react-fit@npm:1.7.1"
-  dependencies:
-    detect-element-overflow: "npm:^1.4.0"
-    prop-types: "npm:^15.6.0"
-    tiny-warning: "npm:^1.0.0"
-  peerDependencies:
-    "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0
-    "@types/react-dom": ^16.8.0 || ^17.0.0 || ^18.0.0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-    "@types/react-dom":
-      optional: true
-  checksum: 10c0/263b36d3d9cf34f0e6e7942cb94686d4e971dec056f37747d7f1683c5510db55affc2d2687812592b53f9077b437cf5b97d9483a6d07b7a2d1b12d93e795fde6
-  languageName: node
-  linkType: hard
-
 "react-i18next@npm:11.16.8":
   version: 11.16.8
   resolution: "react-i18next@npm:11.16.8"
@@ -14640,16 +14512,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-monaco-editor@npm:^0.56.0":
-  version: 0.56.2
-  resolution: "react-monaco-editor@npm:0.56.2"
-  dependencies:
-    prop-types: "npm:^15.8.1"
+"react-monaco-editor@npm:^0.58.0":
+  version: 0.58.0
+  resolution: "react-monaco-editor@npm:0.58.0"
   peerDependencies:
-    "@types/react": ">=16 <= 18"
     monaco-editor: ^0.52.0
-    react: ">=16 <= 18"
-  checksum: 10c0/1aa879127cd699a1b1caa16af857e4b7e154bc37a831c648605d8cf9723f7219203cba859066037c662e9bcc65fcdf77312304b26b9ea9c9e5793eccdcbae4ce
+    react: ">=16.8.0 <20.0.0"
+    react-dom: ">=16.8.0 <20.0.0"
+  checksum: 10c0/b82ba4bfa5bbec98ed171878f6463b0f213ff7a43e4ecfe5008693b4e06cbed7447d728e55a51538741d951711946d218000b6074b75447ddb9c147a913973d7
   languageName: node
   linkType: hard
 
@@ -14719,29 +14589,6 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: 10c0/ac3ed7892620ad754018e0c3a00637e8c4f11e3adf5b490af596dc902bb8f4bfbb1f00e86bfcf8ad9488cfedf091e51287a5d9e6800de6642b7bd83ded7d8707
-  languageName: node
-  linkType: hard
-
-"react-time-picker@npm:^6.5.0, react-time-picker@npm:^6.5.2":
-  version: 6.6.0
-  resolution: "react-time-picker@npm:6.6.0"
-  dependencies:
-    "@wojtekmaj/date-utils": "npm:^1.1.3"
-    clsx: "npm:^2.0.0"
-    get-user-locale: "npm:^2.2.1"
-    make-event-props: "npm:^1.6.0"
-    prop-types: "npm:^15.6.0"
-    react-clock: "npm:^4.5.0"
-    react-fit: "npm:^1.7.0"
-    update-input-width: "npm:^1.4.0"
-  peerDependencies:
-    "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-  checksum: 10c0/748935912991864cba126c5436e3d04680dfebafd8f6f2d7588c6904460a9568176177dfbef0e6025a5ef7b89f37e3e726c0037196b7a42866dc272ab45b28bf
   languageName: node
   linkType: hard
 
@@ -17021,13 +16868,6 @@ __metadata:
   bin:
     update-browserslist-db: cli.js
   checksum: 10c0/837b4ea8c4934228c5c2a922ea747a54b0ec9d1c408d2fbc9220a9b98327c04109776e6ea1206fa056ea61ed8534863af472d9f2cfce569d35f04e98c95db739
-  languageName: node
-  linkType: hard
-
-"update-input-width@npm:^1.4.0":
-  version: 1.4.2
-  resolution: "update-input-width@npm:1.4.2"
-  checksum: 10c0/d3344f91c1c08a26f81d172dd774ca8834ddfaec1eb78e05280d303800a3236c4e122df14ea34fe7f0e1bdada733dec5d3676d38ce0777bafe603de0a6199473
   languageName: node
   linkType: hard
 
